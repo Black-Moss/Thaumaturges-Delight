@@ -6,7 +6,6 @@ import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
-import com.leclowndu93150.thaumaturge.api.items.InfusionEnchantment;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionEnchantmentRecipeBuilder;
@@ -33,7 +32,6 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
-import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
@@ -71,7 +69,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
                 .save(output);
 
-        infusionEnchantment(TDInfusionEnchantments.COOK_DING, ModItems.FLINT_KNIFE.get(), TCItems.TRIPLE_MEAT_TREAT.get())
+        infusionEnchantment(ModItems.FLINT_KNIFE.get(), Ingredient.of(TCItems.TRIPLE_MEAT_TREAT.get()))
                 .aspect(TCAspects.IGNIS, 75)
                 .aspect(TCAspects.PERMUTATIO, 80)
                 .save(output);
@@ -98,12 +96,8 @@ public final class ModRecipeProvider extends RecipeProvider {
         return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, result, Ingredient.of(catalyst));
     }
 
-    private InfusionEnchantmentRecipeBuilder infusionEnchantment(InfusionEnchantment enchantment, Item displayCatalyst, ItemLike signature) {
-        return infusionEnchantment(enchantment, displayCatalyst, Ingredient.of(signature.asItem()));
-    }
-
-    private InfusionEnchantmentRecipeBuilder infusionEnchantment(InfusionEnchantment enchantment, Item displayCatalyst, Ingredient signature) {
-        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), enchantment, Ingredient.of(displayCatalyst))
+    private InfusionEnchantmentRecipeBuilder infusionEnchantment(Item displayCatalyst, Ingredient signature) {
+        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.COOK_DING, Ingredient.of(displayCatalyst))
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));
