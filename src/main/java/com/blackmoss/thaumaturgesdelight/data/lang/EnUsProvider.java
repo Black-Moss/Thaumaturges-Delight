@@ -26,6 +26,11 @@ public final class EnUsProvider extends LanguageProvider {
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");
         addItem(TDItems.VOID_KNIFE, "Void Knife");
         addItem(TDItems.ELEMENTAL_KNIFE, "Knife of Butcher");
+
+        addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
+        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
+
+        addItem(TDItems.SIXFOLD_MEAT_TREAT, "Sixfold Meat Treat");
     }
 
     private void addResearch(String researchId, String title, String... stage) {

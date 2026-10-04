@@ -30,9 +30,10 @@ public class TDCreativeModeTabs {
                         output.accept(elementalKnife);
 
                         output.accept(TDItems.VOID_KNIFE.get());
-//                        output.accept(TDItems.PRIMAL_VOID_KNIFE.get());
 
                         HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
+
+                        output.accept(TDItems.SIXFOLD_MEAT_TREAT.get());
 
                         for (Holder<IAspect> aspect : aspectRegistry
                                 .listElements()

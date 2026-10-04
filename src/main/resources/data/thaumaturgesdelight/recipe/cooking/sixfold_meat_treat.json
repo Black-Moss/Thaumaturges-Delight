@@ -1,0 +1,17 @@
+﻿{
+  "type": "farmersdelight:cooking",
+  "experience": 1.0,
+  "ingredients": [
+    "thaumaturge:chunk_beef",
+    "thaumaturge:chunk_chicken",
+    "thaumaturge:chunk_pork",
+    "thaumaturge:chunk_fish",
+    "thaumaturge:chunk_rabbit",
+    "thaumaturge:chunk_mutton"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "count": 1,
+    "id": "thaumaturgesdelight:sixfold_meat_treat"
+  }
+}

@@ -1,6 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.item;
 
 import com.blackmoss.thaumaturgesdelight.registry.TDTags;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectComponents;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.content.research.pool.AspectPools;
@@ -9,6 +10,7 @@ import com.leclowndu93150.thaumaturge.registry.TCEffectTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentType;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
@@ -40,6 +42,18 @@ public class EssentiaRockCandyItem extends Item {
         return stored == null ? null : stored.aspect();
     }
 
+    public static int colorOf(ItemStack stack) {
+        Holder<IAspect> aspect = aspectOf(stack);
+        return aspect == null ? 16777215 : aspect.value().color();
+    }
+
+    public @NonNull Component getName(@NonNull ItemStack stack) {
+        Holder<IAspect> aspect = aspectOf(stack);
+        return aspect == null
+                ? Component.translatable("item.thaumaturgesdelight.essentia_rock_candy.unknown")
+                : Component.translatable("item.thaumaturgesdelight.essentia_rock_candy", AspectComponents.name(aspect));
+    }
+
     public @NonNull ItemStack finishUsingItem(
             @NonNull ItemStack stack,
             @NonNull Level level,
@@ -47,7 +61,6 @@ public class EssentiaRockCandyItem extends Item {
         if (level instanceof ServerLevel serverLevel) {
             if (entity instanceof ServerPlayer player) {
                 RandomSource random = serverLevel.getRandom();
-                // 沿用魔豆的效果池，但剔除标记为负面的效果，只留正面/普通
                 Optional<HolderSet.Named<MobEffect>> pool = serverLevel
                         .registryAccess()
                         .lookupOrThrow(TCEffectTags.MANA_BEAN_EFFECTS.registry())

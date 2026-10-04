@@ -25,6 +25,11 @@ public final class ZhCnProvider extends LanguageProvider {
         addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");
         addItem(TDItems.VOID_KNIFE, "虚空刀");
         addItem(TDItems.ELEMENTAL_KNIFE, "庖丁刀");
+
+        addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
+        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
+
+        addItem(TDItems.SIXFOLD_MEAT_TREAT, "六层肉饼");
     }
 
     private void addResearch(String researchId, String title, String... stage) {
