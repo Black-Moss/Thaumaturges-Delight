@@ -13,8 +13,8 @@ public final class EnUsProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "Thaumaturge's Delight");
-        // Tooltip key used by Thaumaturge for infusion enchantments
-        add("enchantment.thaumaturge.cook_ding", "Paoding");
+
+        add("enchantment.thaumaturge.cook_ding", "Cook Ding");
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");
         addItem(TDItems.VOID_KNIFE, "Void Knife");

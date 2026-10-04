@@ -13,8 +13,9 @@ public final class ZhCnProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "神秘乐事");
-        // Thaumaturge 的注魔附魔 tooltip 用 enchantment.thaumaturge.<序列化名>
+
         add("enchantment.thaumaturge.cook_ding", "庖丁");
+
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");
         addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");
         addItem(TDItems.VOID_KNIFE, "虚空刀");
