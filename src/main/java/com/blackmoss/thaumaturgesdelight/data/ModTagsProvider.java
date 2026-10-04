@@ -13,6 +13,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.tag.CommonTags;
+import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -27,6 +28,11 @@ public final class ModTagsProvider implements DataProvider {
             @Override
             protected void addTags(HolderLookup.@NonNull Provider provider) {
                 tag(CommonTags.Items.TOOLS_KNIFE)
+                        .add(TDItems.BRASS_KNIFE.get())
+                        .add(TDItems.THAUMIUM_KNIFE.get())
+                        .add(TDItems.VOID_KNIFE.get())
+                        .add(TDItems.ELEMENTAL_KNIFE.get());
+                tag(ModTags.Items.KNIVES)
                         .add(TDItems.BRASS_KNIFE.get())
                         .add(TDItems.THAUMIUM_KNIFE.get())
                         .add(TDItems.VOID_KNIFE.get())

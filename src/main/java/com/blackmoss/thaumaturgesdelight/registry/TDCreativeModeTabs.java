@@ -16,8 +16,8 @@ public class TDCreativeModeTabs {
                     .displayItems((_, output) -> {
                         output.accept(TDItems.BRASS_KNIFE.get());
                         output.accept(TDItems.THAUMIUM_KNIFE.get());
-                        output.accept(TDItems.VOID_KNIFE.get());
                         output.accept(TDItems.ELEMENTAL_KNIFE.get());
+                        output.accept(TDItems.VOID_KNIFE.get());
 //                        output.accept(TDItems.PRIMAL_VOID_KNIFE.get());
                     }).build());
 

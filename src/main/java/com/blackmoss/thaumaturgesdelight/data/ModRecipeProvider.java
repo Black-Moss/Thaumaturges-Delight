@@ -1,30 +1,72 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
+import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.leclowndu93150.thaumaturge.TCIds;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
+import com.leclowndu93150.thaumaturge.api.items.InfusionEnchantment;
+import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
+import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
+import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
+import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
+import com.leclowndu93150.thaumaturge.registry.TCItemTags;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.component.DataComponentPatch;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.resources.Identifier;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 
+import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public final class ModRecipeProvider extends RecipeProvider {
+    private final HolderLookup.Provider lookupProvider;
+
     private ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
         super(provider, output);
+        this.lookupProvider = provider;
     }
 
     @Override
     protected void buildRecipes() {
         knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
+
+        infusion(new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
+                TCDataComponents.INFUSION_ENCHANTMENTS.get(),
+                                new InfusionEnchantments(Map.of(
+                                        TDInfusionEnchantments.COOK_DING, 1)))
+                        .build()),
+                RecipeCategory.TOOLS, TDItems.THAUMIUM_KNIFE)
+                .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
+                .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
+                .component(tag(TCItemTags.NUGGETS_QUARTZ))
+                .component(tag(TCItemTags.PLANKS_GREATWOOD))
+                .aspect(TCAspects.IGNIS, 30)
+                .aspect(TCAspects.METALLUM, 30)
+                .aspect(TCAspects.SENSUS, 30)
+                .instability(1)
+                .gate(ttGate("elemental_tools"))
+                .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
+                .save(output);
     }
 
     public void knife(ItemLike knife, ItemLike material, ItemLike materialNugget) {
@@ -38,6 +80,28 @@ public final class ModRecipeProvider extends RecipeProvider {
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(knife), RecipeCategory.MISC, CookingBookCategory.MISC, materialNugget, 0.1F, 200);
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(knife), RecipeCategory.MISC, CookingBookCategory.MISC, materialNugget, 0.1F, 100);
+    }
+
+    private InfusionRecipeBuilder infusion(ItemLike result, RecipeCategory category, ItemLike catalyst) {
+        return infusion(new ItemStackTemplate(result.asItem()), category, catalyst);
+    }
+
+    private InfusionRecipeBuilder infusion(ItemStackTemplate result, RecipeCategory category, ItemLike catalyst) {
+        return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, result, Ingredient.of(catalyst));
+    }
+
+    private static ResearchGate tdGate(String path) {
+        return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
+    }
+
+    private static ResearchGate ttGate(String path) {
+        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
+    }
+
+    private HolderSet<Item> tag(String space, String path) {
+        return this.lookupProvider.getOrThrow(TagKey.create(
+                Registries.ITEM, Identifier.fromNamespaceAndPath(
+                        space, path)));
     }
 
     public static final class Runner extends RecipeProvider.Runner {

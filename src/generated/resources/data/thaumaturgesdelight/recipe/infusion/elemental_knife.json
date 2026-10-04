@@ -1,0 +1,37 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 30,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 30,
+      "aspect": "thaumaturge:metallum"
+    },
+    {
+      "amount": 30,
+      "aspect": "thaumaturge:sensus"
+    }
+  ],
+  "catalyst": "thaumaturgesdelight:thaumium_knife",
+  "components": [
+    "thaumaturge:crystal_ignis",
+    "thaumaturge:crystal_ignis",
+    "#c:nuggets/quartz",
+    "#c:planks/greatwood"
+  ],
+  "instability": 1,
+  "research": {
+    "entry": "thaumaturge:elemental_tools"
+  },
+  "result": {
+    "components": {
+      "thaumaturge:infusion_enchantments": {
+        "cook_ding": 1,
+        "sounding": 2
+      }
+    },
+    "id": "thaumaturgesdelight:elemental_knife"
+  }
+}
