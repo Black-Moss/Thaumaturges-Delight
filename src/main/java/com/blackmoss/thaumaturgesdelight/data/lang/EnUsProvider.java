@@ -15,6 +15,7 @@ public final class EnUsProvider extends LanguageProvider {
         add("itemGroup.thaumaturgesdelight", "Thaumaturge's Delight");
 
         add("enchantment.thaumaturge.cook_ding", "Cook Ding");
+
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");
         addItem(TDItems.VOID_KNIFE, "Void Knife");
