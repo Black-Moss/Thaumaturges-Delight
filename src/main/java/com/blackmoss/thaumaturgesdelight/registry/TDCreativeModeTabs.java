@@ -17,7 +17,7 @@ public class TDCreativeModeTabs {
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THAUMATURGES_DELIGHT = CREATIVE_MODE_TABS.register(ThaumaturgesDelight.MODID,
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup.thaumaturgesdelight"))
-                    .icon(() -> TDItems.THAUMIUM_KNIFE.get().getDefaultInstance())
+                    .icon(() -> TDItems.ELEMENTAL_KNIFE.get().getDefaultInstance())
                     .displayItems((_, output) -> {
                         output.accept(TDItems.BRASS_KNIFE.get());
                         output.accept(TDItems.THAUMIUM_KNIFE.get());

@@ -4,5 +4,8 @@
   "item.thaumaturgesdelight.elemental_knife": "Knife of Butcher",
   "item.thaumaturgesdelight.thaumium_knife": "Thaumium Knife",
   "item.thaumaturgesdelight.void_knife": "Void Knife",
-  "itemGroup.thaumaturgesdelight": "Thaumaturge's Delight"
+  "itemGroup.thaumaturgesdelight": "Thaumaturge's Delight",
+  "research.thaumaturgesdelight.unlock_culinary_magic.stage_0": "Although as a thaumaturge envoy, I know all kinds of secrets that ordinary people don't know, what I eat is very monotonous and not at all as good as those mortals. I think it's time for me to break through in this regard...",
+  "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "I think there are also various magic hidden in food, which ordinary people don't know.",
+  "research.thaumaturgesdelight.unlock_culinary_magic.title": "Unlock: Culinary Magic"
 }
