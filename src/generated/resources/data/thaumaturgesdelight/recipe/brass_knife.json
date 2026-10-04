@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": "thaumaturge:ingot_brass",
+    "S": "#c:rods/wooden"
+  },
+  "pattern": [
+    "M",
+    "S"
+  ],
+  "result": {
+    "id": "thaumaturgesdelight:brass_knife"
+  }
+}
