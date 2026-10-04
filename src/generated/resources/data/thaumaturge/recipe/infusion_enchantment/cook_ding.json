@@ -1,0 +1,22 @@
+{
+  "type": "thaumaturge:infusion_enchantment",
+  "aspects": [
+    {
+      "amount": 75,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 80,
+      "aspect": "thaumaturge:permutatio"
+    }
+  ],
+  "components": [
+    "minecraft:enchanted_book",
+    "thaumaturge:triple_meat_treat"
+  ],
+  "display_catalyst": "farmersdelight:flint_knife",
+  "enchantment": "cook_ding",
+  "research": {
+    "entry": "thaumaturge:infusion_enchantment"
+  }
+}

@@ -6,8 +6,10 @@ import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
+import com.leclowndu93150.thaumaturge.api.items.InfusionEnchantment;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
+import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionEnchantmentRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
 import com.leclowndu93150.thaumaturge.registry.TCItemTags;
@@ -25,11 +27,13 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
+import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
 import java.util.Optional;
@@ -49,7 +53,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
 
         infusion(new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
-                TCDataComponents.INFUSION_ENCHANTMENTS.get(),
+                                TCDataComponents.INFUSION_ENCHANTMENTS.get(),
                                 new InfusionEnchantments(Map.of(
                                         TDInfusionEnchantments.COOK_DING, 1)))
                         .build()),
@@ -64,6 +68,11 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .instability(1)
                 .gate(ttGate("elemental_tools"))
                 .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
+                .save(output);
+
+        infusionEnchantment(TDInfusionEnchantments.COOK_DING, ModItems.FLINT_KNIFE.get(), TCItems.TRIPLE_MEAT_TREAT.get())
+                .aspect(TCAspects.IGNIS, 75)
+                .aspect(TCAspects.PERMUTATIO, 80)
                 .save(output);
     }
 
@@ -86,6 +95,17 @@ public final class ModRecipeProvider extends RecipeProvider {
 
     private InfusionRecipeBuilder infusion(ItemStackTemplate result, RecipeCategory category, ItemLike catalyst) {
         return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, result, Ingredient.of(catalyst));
+    }
+
+    private InfusionEnchantmentRecipeBuilder infusionEnchantment(InfusionEnchantment enchantment, Item displayCatalyst, ItemLike signature) {
+        return infusionEnchantment(enchantment, displayCatalyst, Ingredient.of(signature.asItem()));
+    }
+
+    private InfusionEnchantmentRecipeBuilder infusionEnchantment(InfusionEnchantment enchantment, Item displayCatalyst, Ingredient signature) {
+        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), enchantment, Ingredient.of(displayCatalyst))
+                .component(Ingredient.of(Items.ENCHANTED_BOOK))
+                .component(signature)
+                .gate(ttGate("infusion_enchantment"));
     }
 
     private static ResearchGate tdGate(String path) {
