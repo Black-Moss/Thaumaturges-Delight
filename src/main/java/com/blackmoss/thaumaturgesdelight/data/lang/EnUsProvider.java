@@ -13,6 +13,8 @@ public final class EnUsProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "Thaumaturge's Delight");
+        add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
+
 
         addResearch("unlock_culinary_magic", "Unlock: Culinary Magic",
                 "Although as a thaumaturge envoy, I know all kinds of secrets that ordinary people don't know, what I eat is very monotonous and not at all as good as those mortals. I think it's time for me to break through in this regard...",

@@ -19,7 +19,7 @@ public class TDTags {
         }
     }
 
-    public final class Effects {
+    public static final class Effects {
         public static final TagKey<MobEffect> ROCK_CANDY_EXCLUDED = effectTag("rock_candy_excluded");
 
         private Effects() {
