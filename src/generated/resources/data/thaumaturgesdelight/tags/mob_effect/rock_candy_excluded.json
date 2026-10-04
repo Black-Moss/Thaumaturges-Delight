@@ -1,0 +1,30 @@
+{
+  "values": [
+    "minecraft:slowness",
+    "minecraft:mining_fatigue",
+    "minecraft:instant_damage",
+    "minecraft:nausea",
+    "minecraft:blindness",
+    "minecraft:hunger",
+    "minecraft:weakness",
+    "minecraft:poison",
+    "minecraft:wither",
+    "minecraft:unluck",
+    "minecraft:bad_omen",
+    "minecraft:darkness",
+    "minecraft:trial_omen",
+    "minecraft:wind_charged",
+    "minecraft:weakness",
+    "minecraft:oozing",
+    "minecraft:infested",
+    "minecraft:raid_omen",
+    "thaumaturge:blurred_vision",
+    "thaumaturge:death_gaze",
+    "thaumaturge:flux_taint",
+    "thaumaturge:infectious_vis_exhaust",
+    "thaumaturge:sun_scorned",
+    "thaumaturge:thaumarhia",
+    "thaumaturge:unnatural_hunger",
+    "thaumaturge:vis_exhaust"
+  ]
+}

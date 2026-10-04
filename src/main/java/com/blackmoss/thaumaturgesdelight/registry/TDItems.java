@@ -1,9 +1,12 @@
 package com.blackmoss.thaumaturgesdelight.registry;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyItem;
 import com.leclowndu93150.thaumaturge.content.equipment.TCMaterials;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.item.component.Consumables;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.item.KnifeItem;
@@ -26,6 +29,11 @@ public final class TDItems {
             props -> new KnifeItem(TCMaterials.TOOL_ELEMENTAL, props), props -> knife(props, TCMaterials.TOOL_ELEMENTAL));
 //    public static final DeferredItem<KnifeItem> PRIMAL_VOID_KNIFE = ITEMS.registerItem("primal_knife",
 //            props -> new KnifeItem(TCMaterials.TOOL_PRIMAL_VOID, props), props -> knife(props, TCMaterials.TOOL_PRIMAL_VOID));
+
+    public static final DeferredItem<EssentiaRockCandyItem> ESSENTIA_ROCK_CANDY = ITEMS.registerItem(
+            "essentia_rock_candy", EssentiaRockCandyItem::new, props -> props
+                    .food(new FoodProperties(1, 0.5F, true),
+                            Consumables.defaultFood().consumeSeconds(0.5F).build()));
 
     private TDItems() {
     }

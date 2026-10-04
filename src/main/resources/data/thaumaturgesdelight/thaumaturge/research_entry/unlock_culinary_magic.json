@@ -28,9 +28,23 @@
     {
       "text": "research.thaumaturgesdelight.unlock_culinary_magic.stage_1",
       "recipes": [
-        "thaumaturgesdelight:infusion/brass_knife",
-        "thaumaturgesdelight:infusion/thaumium_knife"
+        "thaumaturgesdelight:brass_knife",
+        "thaumaturgesdelight:thaumium_knife"
       ]
+    }
+  ],
+  "node_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
     }
   ],
   "complexity": 1

@@ -1,0 +1,11 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "thaumaturgesdelight:item/essentia_rock_candy",
+    "tints": [
+      {
+        "type": "thaumaturge:crystal_aspect"
+      }
+    ]
+  }
+}
