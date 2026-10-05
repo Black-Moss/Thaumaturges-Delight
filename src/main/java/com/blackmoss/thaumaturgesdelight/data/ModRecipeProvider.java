@@ -35,7 +35,6 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
-import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
@@ -49,6 +48,14 @@ public final class ModRecipeProvider extends RecipeProvider {
     private ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
         super(provider, output);
         this.lookupProvider = provider;
+    }
+
+    private static ResearchGate tdGate(String path) {
+        return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
+    }
+
+    private static ResearchGate ttGate(String path) {
+        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
     }
 
     @Override
@@ -128,14 +135,6 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));
-    }
-
-    private static ResearchGate tdGate(String path) {
-        return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
-    }
-
-    private static ResearchGate ttGate(String path) {
-        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
     }
 
     private HolderSet<Item> tag(String space, String path) {

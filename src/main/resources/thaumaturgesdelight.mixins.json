@@ -3,8 +3,8 @@
   "package": "com.blackmoss.thaumaturgesdelight.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
-    "InfusionEnchantmentMixin",
-    "InfusionEnchantmentEventsMixin"
+    "InfusionEnchantmentEventsMixin",
+    "InfusionEnchantmentMixin"
   ],
   "injectors": {
     "defaultRequire": 1

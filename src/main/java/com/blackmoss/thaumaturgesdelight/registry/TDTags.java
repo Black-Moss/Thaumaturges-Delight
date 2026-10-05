@@ -7,6 +7,14 @@ import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 
 public class TDTags {
+    private static TagKey<EntityType<?>> modEntityTag(String path) {
+        return TagKey.create(Registries.ENTITY_TYPE, ThaumaturgesDelight.identifier(path));
+    }
+
+    private static TagKey<MobEffect> effectTag(String path) {
+        return TagKey.create(Registries.MOB_EFFECT, ThaumaturgesDelight.identifier(path));
+    }
+
     public static class EntityTypes {
         public static final TagKey<EntityType<?>> COW = modEntityTag("cow");
         public static final TagKey<EntityType<?>> CHICKENS = modEntityTag("chickens");
@@ -24,13 +32,5 @@ public class TDTags {
 
         private Effects() {
         }
-    }
-
-    private static TagKey<EntityType<?>> modEntityTag(String path) {
-        return TagKey.create(Registries.ENTITY_TYPE, ThaumaturgesDelight.identifier(path));
-    }
-
-    private static TagKey<MobEffect> effectTag(String path) {
-        return TagKey.create(Registries.MOB_EFFECT, ThaumaturgesDelight.identifier(path));
     }
 }

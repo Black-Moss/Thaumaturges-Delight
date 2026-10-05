@@ -1,6 +1,5 @@
 package com.blackmoss.thaumaturgesdelight;
 
-import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.blackmoss.thaumaturgesdelight.data.ModBlockLootSubProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModModelProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
@@ -10,21 +9,20 @@ import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDCreativeModeTabs;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
+import com.mojang.logging.LogUtils;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
+import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
-
-import com.mojang.logging.LogUtils;
-
-import net.neoforged.bus.api.IEventBus;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.fml.ModContainer;
 
 import java.util.List;
 import java.util.Set;

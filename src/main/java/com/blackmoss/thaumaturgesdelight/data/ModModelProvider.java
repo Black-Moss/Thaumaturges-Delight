@@ -20,17 +20,6 @@ public class ModModelProvider extends ModelProvider {
         super(output, ThaumaturgesDelight.MODID);
     }
 
-    @Override
-    protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
-        flatItem(itemModels, TDItems.BRASS_KNIFE.get());
-        flatItem(itemModels, TDItems.THAUMIUM_KNIFE.get());
-        flatItem(itemModels, TDItems.VOID_KNIFE.get());
-        flatItem(itemModels, TDItems.ELEMENTAL_KNIFE.get());
-        flatItem(itemModels, TDItems.SIXFOLD_MEAT_TREAT.get());
-
-        essentiaRockCandy(itemModels, TDItems.ESSENTIA_ROCK_CANDY.get());
-    }
-
     private static void flatItem(@NonNull ItemModelGenerators itemModels, @NonNull Item item) {
         ModelTemplates.FLAT_ITEM.create(getItemModelId(item), TextureMapping.layer0(item), itemModels.modelOutput);
         itemModels.itemModelOutput.accept(item, ItemModelUtils.plainModel(getItemModelId(item)));
@@ -44,5 +33,16 @@ public class ModModelProvider extends ModelProvider {
     private static Identifier getItemModelId(Item item) {
         Identifier itemId = BuiltInRegistries.ITEM.getKey(item);
         return ThaumaturgesDelight.identifier("item/" + itemId.getPath());
+    }
+
+    @Override
+    protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
+        flatItem(itemModels, TDItems.BRASS_KNIFE.get());
+        flatItem(itemModels, TDItems.THAUMIUM_KNIFE.get());
+        flatItem(itemModels, TDItems.VOID_KNIFE.get());
+        flatItem(itemModels, TDItems.ELEMENTAL_KNIFE.get());
+        flatItem(itemModels, TDItems.SIXFOLD_MEAT_TREAT.get());
+
+        essentiaRockCandy(itemModels, TDItems.ESSENTIA_ROCK_CANDY.get());
     }
 }
