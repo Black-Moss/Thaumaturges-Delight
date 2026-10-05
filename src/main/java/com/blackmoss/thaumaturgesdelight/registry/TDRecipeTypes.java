@@ -17,7 +17,7 @@ public final class TDRecipeTypes {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, ThaumaturgesDelight.MODID);
 
     public static final DeferredHolder<RecipeType<?>, RecipeType<ArcaneCookingPotRecipe>> ARCANE_COOKING = RECIPE_TYPES.register("arcane_cooking",
-            () -> new RecipeType<ArcaneCookingPotRecipe>() {
+            () -> new RecipeType<>() {
                 @Override
                 public String toString() {
                     return "thaumaturgesdelight:arcane_cooking";

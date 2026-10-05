@@ -22,7 +22,6 @@ import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
-import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 
 public final class ModTagsProvider implements DataProvider {
