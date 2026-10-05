@@ -25,7 +25,7 @@ import java.util.List;
 @Mixin(InfusionEnchantmentEvents.class)
 public final class InfusionEnchantmentEventsMixin {
     @Unique
-    private static final float COOK_DING_CHANCE_PER_LEVEL = 0.25F;
+    private static final float COOK_DING_CHANCE_PER_LEVEL = 0.125F;
 
     private InfusionEnchantmentEventsMixin() {
     }

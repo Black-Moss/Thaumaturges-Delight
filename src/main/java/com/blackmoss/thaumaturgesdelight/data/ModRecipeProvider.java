@@ -61,17 +61,17 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
                 .component(tag(TCItemTags.NUGGETS_QUARTZ))
                 .component(tag(TCItemTags.PLANKS_GREATWOOD))
-                .aspect(TCAspects.IGNIS, 30)
-                .aspect(TCAspects.METALLUM, 30)
-                .aspect(TCAspects.SENSUS, 30)
+                .aspect(TCAspects.IGNIS, 20)
+                .aspect(TCAspects.METALLUM, 15)
+                .aspect(TCAspects.SENSUS, 20)
                 .instability(1)
                 .gate(ttGate("elemental_tools"))
                 .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
                 .save(output);
 
         infusionEnchantment(ModItems.FLINT_KNIFE.get(), Ingredient.of(TCItems.TRIPLE_MEAT_TREAT.get()))
-                .aspect(TCAspects.IGNIS, 75)
-                .aspect(TCAspects.PERMUTATIO, 80)
+                .aspect(TCAspects.IGNIS, 55)
+                .aspect(TCAspects.PERMUTATIO, 60)
                 .save(output);
     }
 
