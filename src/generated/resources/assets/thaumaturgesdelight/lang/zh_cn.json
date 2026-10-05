@@ -14,7 +14,7 @@
   "item.thaumaturgesdelight.thaumium_knife": "神秘刀",
   "item.thaumaturgesdelight.void_knife": "虚空刀",
   "itemGroup.thaumaturgesdelight": "神秘乐事",
-  "recipe_book.thaumaturgesdelight.cookable": "可烹饪",
+  "recipe.type.arcane_cooking": "奥术烹饪",
   "research.thaumaturgesdelight.base_culinary_magic.stage_0": "吃饱了才有力气搞研究！",
   "research.thaumaturgesdelight.base_culinary_magic.title": "食品魔法",
   "research.thaumaturgesdelight.elemental_knife.stage_0": "自从将元始要素成功注入工具之后，我一直在想能不能把要素注入进刀里面，虽然这听起来有点荒谬……<BR>老样子，先用神秘工具“开刀”吧。",

@@ -51,7 +51,7 @@ public class ArcaneCookingPotRecipeBookComponent extends RecipeBookComponent<Arc
 
     @Override
     protected @NonNull Component getRecipeFilterName() {
-        return Component.translatable("recipe_book.thaumaturgesdelight.cookable");
+        return Component.translatable("container.farmersdelight.recipe_book.cookable");
     }
 
     @Override

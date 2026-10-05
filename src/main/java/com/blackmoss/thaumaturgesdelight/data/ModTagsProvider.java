@@ -61,8 +61,6 @@ public final class ModTagsProvider implements DataProvider {
             protected void addTags(HolderLookup.@NonNull Provider provider) {
                 tag(ModTags.Blocks.HEAT_SOURCES)
                         .addTags(TCBlockTags.CRUCIBLE_HEAT_SOURCES);
-                tag(TCBlockTags.CRUCIBLE_HEAT_SOURCES)
-                        .addTags(ModTags.Blocks.HEAT_SOURCES);
             }
         };
 

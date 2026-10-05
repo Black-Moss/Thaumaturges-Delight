@@ -18,7 +18,9 @@ public final class EnUsProvider extends LanguageProvider {
         add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "Heated");
         add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "Needs heat from below");
         add("container.thaumaturgesdelight.arcane_cooking_pot.served_on", "Served on: %s");
-        add("recipe_book.thaumaturgesdelight.cookable", "Cookable");
+
+        add("recipe.type.arcane_cooking", "Arcane Cooking");
+
         add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
 
 

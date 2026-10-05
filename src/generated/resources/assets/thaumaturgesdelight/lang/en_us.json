@@ -14,7 +14,7 @@
   "item.thaumaturgesdelight.thaumium_knife": "Thaumium Knife",
   "item.thaumaturgesdelight.void_knife": "Void Knife",
   "itemGroup.thaumaturgesdelight": "Thaumaturge's Delight",
-  "recipe_book.thaumaturgesdelight.cookable": "Cookable",
+  "recipe.type.arcane_cooking": "Arcane Cooking",
   "research.thaumaturgesdelight.base_culinary_magic.stage_0": "Only when you are full can you have the strength to do research!",
   "research.thaumaturgesdelight.base_culinary_magic.title": "Culinary Magic",
   "research.thaumaturgesdelight.elemental_knife.stage_0": "Ever since I succeeded in infusing primal elements into tools, I have wondered whether one could be infused into a knife as well — absurd as that may sound...<BR>As ever, let a thaumium tool be the first to go under the knife.",

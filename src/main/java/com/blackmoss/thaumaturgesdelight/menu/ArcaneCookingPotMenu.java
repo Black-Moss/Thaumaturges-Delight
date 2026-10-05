@@ -5,8 +5,8 @@ import com.blackmoss.thaumaturgesdelight.registry.TDMenus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.RegistryFriendlyByteBuf;
 import net.minecraft.recipebook.ServerPlaceRecipe;
-import net.minecraft.resources.Identifier;
 import net.minecraft.recipebook.ServerPlaceRecipe.CraftingMenuAccess;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +25,6 @@ import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 import java.util.List;
 
 public class ArcaneCookingPotMenu extends RecipeBookMenu {
-    // 空容器槽的提示贴图（GUI sprite，来自农夫乐事）
     public static final Identifier EMPTY_CONTAINER_SLOT_BOWL = Identifier.fromNamespaceAndPath("farmersdelight", "item/empty_container_slot_bowl");
 
     private static final int BE_SLOT_COUNT = 9;
@@ -36,7 +35,6 @@ public class ArcaneCookingPotMenu extends RecipeBookMenu {
     private final ItemStackHandler inventory;
     private final ContainerData data;
 
-    // 服务端
     public ArcaneCookingPotMenu(int id, Inventory playerInventory, ArcaneCookingPotBlockEntity blockEntity, ContainerData data) {
         super(TDMenus.ARCANE_COOKING_POT.get(), id);
         this.blockEntity = blockEntity;
@@ -70,7 +68,6 @@ public class ArcaneCookingPotMenu extends RecipeBookMenu {
                 return false;
             }
         });
-        // 容器格空着时显示"放碗"提示图标（沿用农夫乐事的槽位底图）
         addSlot(new SlotItemHandler(inventory, ArcaneCookingPotBlockEntity.CONTAINER_SLOT, 92, 55) {
             @Override
             public Identifier getNoItemIcon() {
@@ -142,7 +139,6 @@ public class ArcaneCookingPotMenu extends RecipeBookMenu {
         return blockEntity.isHeated();
     }
 
-    // 0..24，界面进度条按它裁切箭头条带（与农夫乐事一致）
     public int getCookProgressionScaled() {
         int cookTime = data.get(0);
         int cookTimeTotal = data.get(1);

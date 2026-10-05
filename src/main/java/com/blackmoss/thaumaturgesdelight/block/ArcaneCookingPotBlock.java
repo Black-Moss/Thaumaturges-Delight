@@ -47,10 +47,9 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
     public static final EnumProperty<CookingPotSupport> SUPPORT = EnumProperty.create("support", CookingPotSupport.class);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 
-    private static final VoxelShape SHAPE = Shapes.or(
-            Block.box(2.0, 0.0, 2.0, 14.0, 4.0, 14.0),
-            Block.box(3.0, 4.0, 3.0, 13.0, 9.0, 13.0));
-    private static final VoxelShape COLLISION_SHAPE = Block.box(2.0, 0.0, 2.0, 14.0, 9.0, 14.0);
+    private static final VoxelShape SHAPE = Block.box(2.0F, 0.0F, 2.0F, 14.0F, 10.0F, 14.0F);
+    private static final VoxelShape SHAPE_WITH_TRAY = Shapes.or(SHAPE, Block.box(0.0F, -1.0F, 0.0F, 16.0F, 0.0F, 16.0F));
+
 
     public ArcaneCookingPotBlock(BlockBehaviour.Properties properties) {
         super(properties);
@@ -92,14 +91,12 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
         if (state.getValue(WATERLOGGED)) {
             ticks.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
         }
-        // 下方热源变化时更新托盘形态（手动装的把手不会被覆盖）
         if (direction.getAxis() == Direction.Axis.Y && state.getValue(SUPPORT) != CookingPotSupport.HANDLE) {
             return state.setValue(SUPPORT, getTrayState(level, pos));
         }
         return state;
     }
 
-    // 下方是农夫乐事的可加热托盘时自动变成托盘形态
     private CookingPotSupport getTrayState(BlockGetter level, BlockPos pos) {
         return level.getBlockState(pos.below()).is(ModTags.Blocks.TRAY_HEAT_SOURCES) ? CookingPotSupport.TRAY : CookingPotSupport.NONE;
     }
@@ -124,7 +121,9 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
             @NonNull BlockGetter level,
             @NonNull BlockPos pos,
             @NonNull CollisionContext context) {
-        return COLLISION_SHAPE;
+        return state.getValue(SUPPORT).equals(CookingPotSupport.TRAY)
+                ? SHAPE_WITH_TRAY
+                : SHAPE;
     }
 
     @Override
@@ -136,7 +135,6 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
             @NonNull Player player,
             @NonNull InteractionHand hand,
             @NonNull BlockHitResult hit) {
-        // 空手潜行右键：装/拆把手
         if (stack.isEmpty() && player.isShiftKeyDown()) {
             if (!level.isClientSide()) {
                 CookingPotSupport support = state.getValue(SUPPORT) == CookingPotSupport.HANDLE ? getTrayState(level, pos) : CookingPotSupport.HANDLE;

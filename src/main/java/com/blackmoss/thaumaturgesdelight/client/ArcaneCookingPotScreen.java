@@ -16,15 +16,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.NonNull;
 
-// 奥术厨锅界面（带配方书）。贴图与图标区域沿用农夫乐事厨锅的 GUI，
-// 槽位坐标与之一致：加热图标 (47,55)、进度箭头 (89,25)、贴图素材列在 x=176。
 public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCookingPotMenu> {
     private static final Identifier BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath("farmersdelight", "textures/gui/cooking_pot.png");
     private static final Rectangle HEAT_ICON = new Rectangle(47, 55, 17, 15);
     private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
     private static final int TEXTURE_SIZE = 256;
 
-    // 父类把 recipeBookComponent 存成了 private，自己留一份引用（和农夫乐事同款做法）
     private final ArcaneCookingPotRecipeBookComponent recipeBookComponent;
 
     public ArcaneCookingPotScreen(ArcaneCookingPotMenu menu, Inventory playerInventory, Component title) {
@@ -45,7 +42,6 @@ public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCooki
 
     @Override
     protected @NonNull ScreenPosition getRecipeBookButtonPosition() {
-        // 位置要和农夫乐事一致，否则按钮/面板会歪
         return new ScreenPosition(leftPos + 5, height / 2 - 49);
     }
 
@@ -58,15 +54,25 @@ public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCooki
     @Override
     public void extractBackground(@NonNull GuiGraphicsExtractor graphics, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(graphics, mouseX, mouseY, partialTick);
-        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos, topPos, 0.0F, 0.0F, imageWidth, imageHeight, TEXTURE_SIZE, TEXTURE_SIZE);
+        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE,
+                leftPos, topPos,
+                0.0F, 0.0F,
+                imageWidth, imageHeight,
+                TEXTURE_SIZE, TEXTURE_SIZE);
 
         if (menu.isHeated()) {
-            graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos + HEAT_ICON.x, topPos + HEAT_ICON.y, 176.0F, 0.0F, HEAT_ICON.width, HEAT_ICON.height,
+            graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE,
+                            leftPos + HEAT_ICON.x, topPos + HEAT_ICON.y,
+                            176.0F, 0.0F,
+                            HEAT_ICON.width, HEAT_ICON.height,
                     TEXTURE_SIZE, TEXTURE_SIZE);
         }
 
         int cookProgressionScaled = menu.getCookProgressionScaled();
-        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE, leftPos + PROGRESS_ARROW.x, topPos + PROGRESS_ARROW.y, 176.0F, 15.0F, cookProgressionScaled + 1,
+        graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE,
+                leftPos + PROGRESS_ARROW.x, topPos + PROGRESS_ARROW.y,
+                176.0F, 15.0F,
+                cookProgressionScaled + 1,
                 PROGRESS_ARROW.height, TEXTURE_SIZE, TEXTURE_SIZE);
     }
 
@@ -77,9 +83,7 @@ public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCooki
                     ? "container.thaumaturgesdelight.arcane_cooking_pot.heated"
                     : "container.thaumaturgesdelight.arcane_cooking_pot.not_heated");
             graphics.setTooltipForNextFrame(font, heat, mouseX, mouseY);
-        } else if (minecraft != null && minecraft.player != null && menu.getCarried().isEmpty() && hoveredSlot != null && hoveredSlot.hasItem()
-                && hoveredSlot.index == ArcaneCookingPotBlockEntity.MEAL_DISPLAY_SLOT) {
-            // 指着锅里做好的菜时，额外告诉玩家要拿什么容器来盛
+        } else if (minecraft.player != null && menu.getCarried().isEmpty() && hoveredSlot != null && hoveredSlot.hasItem() && hoveredSlot.index == ArcaneCookingPotBlockEntity.MEAL_DISPLAY_SLOT) {
             List<Component> tooltip = new ArrayList<>();
             ItemStack meal = hoveredSlot.getItem();
             tooltip.add(Component.empty().append(meal.getHoverName()).withStyle(meal.getRarity().getStyleModifier()));

@@ -18,7 +18,9 @@ public final class ZhCnProvider extends LanguageProvider {
         add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "已加热");
         add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "需要下方热源");
         add("container.thaumaturgesdelight.arcane_cooking_pot.served_on", "盛放于：%s");
-        add("recipe_book.thaumaturgesdelight.cookable", "可烹饪");
+
+        add("recipe.type.arcane_cooking", "奥术烹饪");
+
         add("research_category.thaumaturgesdelight.culinary_magic", "食品魔法");
 
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
