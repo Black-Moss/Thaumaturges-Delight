@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight.data;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.blackmoss.thaumaturgesdelight.registry.TDTags;
+import com.leclowndu93150.thaumaturge.registry.TCBlockTags;
 import com.leclowndu93150.thaumaturge.registry.TCMobEffects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -16,6 +17,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -46,14 +48,21 @@ public final class ModTagsProvider implements DataProvider {
                         .add(TDItems.THAUMIUM_KNIFE.get())
                         .add(TDItems.VOID_KNIFE.get())
                         .add(TDItems.ELEMENTAL_KNIFE.get());
+                tag(Tags.Items.FOODS_COOKIE)
+                        .add(TDItems.PURIFY_COOKIE.get());
             }
         };
 
         //noinspection deprecation
         this.blockTags = new IntrinsicHolderTagsProvider<>(output, Registries.BLOCK, lookup,
                 block -> block.builtInRegistryHolder().key(), ThaumaturgesDelight.MODID) {
+            @SuppressWarnings("unchecked")
             @Override
             protected void addTags(HolderLookup.@NonNull Provider provider) {
+                tag(ModTags.Blocks.HEAT_SOURCES)
+                        .addTags(TCBlockTags.CRUCIBLE_HEAT_SOURCES);
+                tag(TCBlockTags.CRUCIBLE_HEAT_SOURCES)
+                        .addTags(ModTags.Blocks.HEAT_SOURCES);
             }
         };
 
@@ -92,33 +101,34 @@ public final class ModTagsProvider implements DataProvider {
         this.mobEffectTags = new KeyTagProvider<>(output, Registries.MOB_EFFECT, lookup, ThaumaturgesDelight.MODID) {
             @Override
             protected void addTags(HolderLookup.@NonNull Provider provider) {
+                //noinspection DataFlowIssue
                 tag(TDTags.Effects.ROCK_CANDY_EXCLUDED)
-                        .add(Objects.requireNonNull(MobEffects.SLOWNESS.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.MINING_FATIGUE.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.INSTANT_DAMAGE.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.NAUSEA.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.BLINDNESS.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.HUNGER.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.WEAKNESS.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.POISON.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.WITHER.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.UNLUCK.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.BAD_OMEN.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.DARKNESS.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.TRIAL_OMEN.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.WIND_CHARGED.getKey()))
+                        .add(MobEffects.SLOWNESS.getKey())
+                        .add(MobEffects.MINING_FATIGUE.getKey())
+                        .add(MobEffects.INSTANT_DAMAGE.getKey())
+                        .add(MobEffects.NAUSEA.getKey())
+                        .add(MobEffects.BLINDNESS.getKey())
+                        .add(MobEffects.HUNGER.getKey())
                         .add(MobEffects.WEAKNESS.getKey())
-                        .add(Objects.requireNonNull(MobEffects.OOZING.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.INFESTED.getKey()))
-                        .add(Objects.requireNonNull(MobEffects.RAID_OMEN.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.BLURRED_VISION.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.DEATH_GAZE.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.FLUX_TAINT.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.INFECTIOUS_VIS_EXHAUST.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.SUN_SCORNED.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.THAUMARHIA.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.UNNATURAL_HUNGER.getKey()))
-                        .add(Objects.requireNonNull(TCMobEffects.VIS_EXHAUST.getKey()));
+                        .add(MobEffects.POISON.getKey())
+                        .add(MobEffects.WITHER.getKey())
+                        .add(MobEffects.UNLUCK.getKey())
+                        .add(MobEffects.BAD_OMEN.getKey())
+                        .add(MobEffects.DARKNESS.getKey())
+                        .add(MobEffects.TRIAL_OMEN.getKey())
+                        .add(MobEffects.WIND_CHARGED.getKey())
+                        .add(MobEffects.WEAKNESS.getKey())
+                        .add(MobEffects.OOZING.getKey())
+                        .add(MobEffects.INFESTED.getKey())
+                        .add(MobEffects.RAID_OMEN.getKey())
+                        .add(TCMobEffects.BLURRED_VISION.getKey())
+                        .add(TCMobEffects.DEATH_GAZE.getKey())
+                        .add(TCMobEffects.FLUX_TAINT.getKey())
+                        .add(TCMobEffects.INFECTIOUS_VIS_EXHAUST.getKey())
+                        .add(TCMobEffects.SUN_SCORNED.getKey())
+                        .add(TCMobEffects.THAUMARHIA.getKey())
+                        .add(TCMobEffects.UNNATURAL_HUNGER.getKey())
+                        .add(TCMobEffects.VIS_EXHAUST.getKey());
             }
         };
     }
