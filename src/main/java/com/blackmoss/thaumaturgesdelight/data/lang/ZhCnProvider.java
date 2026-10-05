@@ -19,6 +19,18 @@ public final class ZhCnProvider extends LanguageProvider {
                 "虽然作为一名神秘使知道各种常人所不知的秘闻，但我吃的却很单调，一点都比不上那些凡人，我想我是时候在这一点上突破了……",
                 "我认为食物中也会蕴藏各种魔法，这可是他们那些凡人所不知的。");
 
+        addResearch("base_culinary_magic", "食品魔法",
+                "吃饱了才有力气搞研究！");
+
+        addResearch("elemental_knife", "元素刀",
+                "自从将元始要素成功注入工具之后，我一直在想能不能把要素注入进刀里面，虽然这听起来有点荒谬……<BR>老样子，先用神秘工具“开刀”吧。",
+                "如果计算没有失误，而且我没有吃饱了撑着的话，这把庖丁刀可以在击杀动物时额外掉落一些肉粒。虽然和它那些兄弟姐妹们比不上多高级，但是总归能多吃点，是吧？" +
+                        "<BR>当然这项新的元素工具属性不可能是仅供庖丁刀的：" +
+                        "<PAGE>§o庖丁§r" +
+                        "<DIV>这项附魔工具所击杀的动物会额外掉落一些肉块。" +
+                        "<DIV>§l附魔等级§r：3" +
+                        "<DIV>§l附魔对象§r：刀");
+
         add("enchantment.thaumaturge.cook_ding", "庖丁");
 
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");
