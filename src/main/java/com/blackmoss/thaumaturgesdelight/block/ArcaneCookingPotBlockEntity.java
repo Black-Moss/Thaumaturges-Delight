@@ -129,6 +129,33 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         }
     }
 
+    private static ItemStack getCraftingRemainder(ItemStack stack) {
+        ItemStackTemplate remainder = stack.getItem().getCraftingRemainder(stack);
+        return remainder == null ? ItemStack.EMPTY : remainder.create();
+    }
+
+    private static void splitAndSpawnExperience(ServerLevel level, Vec3 pos, int craftedAmount, float experience) {
+        float total = craftedAmount * experience;
+        int xp = Mth.floor(total);
+        if (xp < total && level.getRandom().nextFloat() < total - xp) {
+            xp++;
+        }
+        while (xp > 0) {
+            int split = ExperienceOrb.getExperienceValue(xp);
+            xp -= split;
+            level.addFreshEntity(new ExperienceOrb(level, pos.x, pos.y + 0.5, pos.z, split));
+        }
+    }
+
+    @SubscribeEvent
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(Capabilities.Item.BLOCK, TDBlockEntities.ARCANE_COOKING_POT.get(), (blockEntity, side) -> {
+            ItemStackHandler handler = blockEntity.getInventory();
+            Direction direction = side == Direction.UP ? Direction.UP : Direction.DOWN;
+            return new LegacyItemHandlerResourceHandler(new CookingPotItemHandler(handler, direction), handler::setStackInSlot);
+        });
+    }
+
     private Optional<RecipeHolder<CookingPotRecipe>> getMatchingRecipe() {
         if (!(level instanceof ServerLevel serverLevel) || !hasInput()) {
             return Optional.empty();
@@ -168,7 +195,6 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         if (level == null) {
             return false;
         }
-        // 源质也算材料：没备齐就先不点火，进度条停在起点等它到货
         if (!hasEssentiaFor(recipe)) {
             cookTime = 0;
             return false;
@@ -204,24 +230,22 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         return true;
     }
 
-    /**
-     * 这道菜的源质备齐了没有。没齐就把需求报给下面的奥术灶台（灶台不存储源质，
-     * 只在被需要时向周围容器/管道索取），并让烹饪停在起点等它；普通配方直接返回 true。
-     */
     private boolean hasEssentiaFor(RecipeHolder<CookingPotRecipe> recipe) {
         ArcaneCookingPotRecipe arcane = arcaneRecipeFor(recipe);
         if (arcane == null || arcane.aspects().isEmpty()) {
             return true;
         }
-        if (!(level.getBlockEntity(worldPosition.below()) instanceof ArcaneStoveBlockEntity stove)) {
+        BlockEntity entity = null;
+        if (level != null) {
+            entity = level.getBlockEntity(worldPosition.below());
+        }
+        if (!(entity instanceof ArcaneStoveBlockEntity stove)) {
             return false;
         }
-        // 把整张清单交给灶台，它会按顺序把缺的凑齐（整单报需求，避免多源质互相顶掉）
         stove.request(arcane.aspects());
         return stove.isReady();
     }
 
-    /** 出锅时把源质结掉。 */
     private void consumeEssentiaFor(RecipeHolder<CookingPotRecipe> recipe) {
         ArcaneCookingPotRecipe arcane = arcaneRecipeFor(recipe);
         if (arcane == null || arcane.aspects().isEmpty() || level == null) {
@@ -232,7 +256,6 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         }
     }
 
-    /** 取出这道菜对应的奥术配方（源质成本在转换成农夫乐事配方后会丢，得单独查一次）。 */
     private @Nullable ArcaneCookingPotRecipe arcaneRecipeFor(RecipeHolder<CookingPotRecipe> recipe) {
         if (!(level instanceof ServerLevel serverLevel)) {
             return null;
@@ -254,11 +277,6 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
                     x, y, z,
                     direction.getStepX() * 0.08F, 0.25F, direction.getStepZ() * 0.08F);
         }
-    }
-
-    private static ItemStack getCraftingRemainder(ItemStack stack) {
-        ItemStackTemplate remainder = stack.getItem().getCraftingRemainder(stack);
-        return remainder == null ? ItemStack.EMPTY : remainder.create();
     }
 
     public ItemStack getMeal() {
@@ -372,15 +390,15 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
     }
 
     @Override
+    public @Nullable RecipeHolder<?> getRecipeUsed() {
+        return null;
+    }
+
+    @Override
     public void setRecipeUsed(@Nullable RecipeHolder<?> recipe) {
         if (recipe != null) {
             usedRecipeTracker.addTo(recipe.id(), 1);
         }
-    }
-
-    @Override
-    public @Nullable RecipeHolder<?> getRecipeUsed() {
-        return null;
     }
 
     public void awardUsedRecipes(Player player, @NonNull List<ItemStack> items) {
@@ -406,19 +424,6 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
             }
         }
         return used;
-    }
-
-    private static void splitAndSpawnExperience(ServerLevel level, Vec3 pos, int craftedAmount, float experience) {
-        float total = craftedAmount * experience;
-        int xp = Mth.floor(total);
-        if (xp < total && level.getRandom().nextFloat() < total - xp) {
-            xp++;
-        }
-        while (xp > 0) {
-            int split = ExperienceOrb.getExperienceValue(xp);
-            xp -= split;
-            level.addFreshEntity(new ExperienceOrb(level, pos.x, pos.y + 0.5, pos.z, split));
-        }
     }
 
     @Override
@@ -523,14 +528,5 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
 
     public boolean canPlaceItem(int slot, ItemStack stack) {
         return slot != MEAL_DISPLAY_SLOT && slot != OUTPUT_SLOT;
-    }
-
-    @SubscribeEvent
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(Capabilities.Item.BLOCK, TDBlockEntities.ARCANE_COOKING_POT.get(), (blockEntity, side) -> {
-            ItemStackHandler handler = blockEntity.getInventory();
-            Direction direction = side == Direction.UP ? Direction.UP : Direction.DOWN;
-            return new LegacyItemHandlerResourceHandler(new CookingPotItemHandler(handler, direction), handler::setStackInSlot);
-        });
     }
 }

@@ -23,6 +23,16 @@ public class PurifyCookieItem extends Item {
         super(properties);
     }
 
+    private static void spawnBubbles(Level level, LivingEntity entity, int count, float spread) {
+        for (int a = 0; a < count; ++a)
+            level.addParticle(
+                    ParticleTypes.BUBBLE_POP,
+                    entity.getX() - 0.5F + level.getRandom().nextFloat() * spread,
+                    entity.getBoundingBox().minY + level.getRandom().nextFloat() * entity.getBbHeight(),
+                    entity.getZ() - 0.5F + level.getRandom().nextFloat() * spread,
+                    0.0F, 0.02, 0.0F);
+    }
+
     @Override
     public @NonNull InteractionResult use(@NonNull Level level, Player player, @NonNull InteractionHand hand) {
         player.startUsingItem(hand);
@@ -83,16 +93,5 @@ public class PurifyCookieItem extends Item {
         } else {
             return false;
         }
-    }
-
-
-    private static void spawnBubbles(Level level, LivingEntity entity, int count, float spread) {
-        for (int a = 0; a < count; ++a)
-            level.addParticle(
-                    ParticleTypes.BUBBLE_POP,
-                    entity.getX() - 0.5F + level.getRandom().nextFloat() * spread,
-                    entity.getBoundingBox().minY + level.getRandom().nextFloat() * entity.getBbHeight(),
-                    entity.getZ() - 0.5F + level.getRandom().nextFloat() * spread,
-                    0.0F, 0.02, 0.0F);
     }
 }

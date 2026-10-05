@@ -1,10 +1,8 @@
 package com.blackmoss.thaumaturgesdelight.client;
 
+import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlockEntity;
 import com.blackmoss.thaumaturgesdelight.menu.ArcaneCookingPotMenu;
-import java.awt.Rectangle;
-import java.util.ArrayList;
-import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.navigation.ScreenPosition;
@@ -16,8 +14,12 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 import org.jspecify.annotations.NonNull;
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCookingPotMenu> {
-    private static final Identifier BACKGROUND_TEXTURE = Identifier.fromNamespaceAndPath("farmersdelight", "textures/gui/cooking_pot.png");
+    private static final Identifier BACKGROUND_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/cooking_pot.png");
     private static final Rectangle HEAT_ICON = new Rectangle(47, 55, 17, 15);
     private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
     private static final int TEXTURE_SIZE = 256;
@@ -62,9 +64,9 @@ public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCooki
 
         if (menu.isHeated()) {
             graphics.blit(RenderPipelines.GUI_TEXTURED, BACKGROUND_TEXTURE,
-                            leftPos + HEAT_ICON.x, topPos + HEAT_ICON.y,
-                            176.0F, 0.0F,
-                            HEAT_ICON.width, HEAT_ICON.height,
+                    leftPos + HEAT_ICON.x, topPos + HEAT_ICON.y,
+                    176.0F, 0.0F,
+                    HEAT_ICON.width, HEAT_ICON.height,
                     TEXTURE_SIZE, TEXTURE_SIZE);
         }
 

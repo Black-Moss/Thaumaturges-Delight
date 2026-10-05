@@ -1,5 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.menu;
 
+import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlockEntity;
 import com.blackmoss.thaumaturgesdelight.registry.TDMenus;
 import net.minecraft.core.BlockPos;
@@ -25,7 +26,7 @@ import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 import java.util.List;
 
 public class ArcaneCookingPotMenu extends RecipeBookMenu {
-    public static final Identifier EMPTY_CONTAINER_SLOT_BOWL = Identifier.fromNamespaceAndPath("farmersdelight", "item/empty_container_slot_bowl");
+    public static final Identifier EMPTY_CONTAINER_SLOT_BOWL = ThaumaturgesDelight.fdIdentifier("item/empty_container_slot_bowl");
 
     private static final int BE_SLOT_COUNT = 9;
     private static final int PLAYER_INV_START = BE_SLOT_COUNT;

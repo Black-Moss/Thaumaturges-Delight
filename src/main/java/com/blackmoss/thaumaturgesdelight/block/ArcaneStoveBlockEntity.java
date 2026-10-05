@@ -32,28 +32,13 @@ import vectorwing.farmersdelight.common.block.entity.AbstractStoveBlockEntity;
 
 import java.util.Objects;
 
-/**
- * 奥术灶台：默认点燃，没有源质时它就是个普通灶台（加热厨锅、烧灶面上的食物）。
- *
- * <p>源质方面参考炼金塔：<b>不常驻存储，只在需要的时候才需求</b>。
- * 厨锅在下锅前把整张配方的源质清单交给 {@link #request}，灶台随即对周围能输出源质的容器/管道张开吸力
- * （{@link #SUCTION}），按清单里的顺序一次吸 1 点、凑齐前不做菜；出锅时由厨锅 {@link #consumeRequirement} 结账。
- * 对外不暴露任何存量（{@link #getEssentiaAmount} 恒为 0），也永远不往外给源质（{@link #canOutputTo} 恒为 false）。
- *
- * <p>注意需求是<b>整单</b>而不是一次一种：多源质配方如果一次只讨要一种，凑齐 A 再去要 B 时会把 A 顶掉，
- * 回头再要 A 就死循环了。
- */
 @EventBusSubscriber(modid = ThaumaturgesDelight.MODID)
 public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements IEssentiaTransport {
-    /** 索取时的吸力（炼金塔同款）。 */
     private static final int SUCTION = 128;
-    /** 每隔多少 tick 去周围取一次源质（炼金塔同款）。 */
     private static final int WORK_INTERVAL = 5;
     private static final int INVENTORY_SLOTS = 6;
 
-    /** 当前这一单需要哪些源质。 */
     private AspectList needs = AspectList.EMPTY;
-    /** 已经凑到手的部分（暂存，出锅时整单清空，不作为容器对外可见）。 */
     private AspectList gathered = AspectList.EMPTY;
     private int counter;
 
@@ -61,22 +46,29 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         super(TDBlockEntities.ARCANE_STOVE.get(), pos, state, RecipeType.CAMPFIRE_COOKING);
     }
 
-    // --------------------------------------------------------------- 主循环
-
     public static void serverTick(Level level, BlockPos pos, BlockState state, ArcaneStoveBlockEntity stove) {
-        // 农夫乐事灶台逻辑：灶面上的食物照常按营火配方烹饪
         AbstractStoveBlockEntity.serverTick(level, pos, state, stove);
         if (++stove.counter % WORK_INTERVAL == 0) {
             stove.fetchFromNeighbours(level, pos);
         }
     }
 
-    // ----------------------------------------------------------- 需求 API
+    private static AspectList keepOnlyGathered(AspectList gathered, AspectList needs) {
+        AspectList kept = AspectList.EMPTY;
+        for (AspectInstance entry : gathered.entries()) {
+            int wanted = needs.amountOf(entry.aspect());
+            if (wanted > 0) {
+                kept = kept.add(entry.aspect(), Math.min(wanted, entry.amount()));
+            }
+        }
+        return kept;
+    }
 
-    /**
-     * 声明这一单需要哪些源质（可以每 tick 重复调用）。
-     * 内容不变就保留已凑到的进度；换了配方则重新开始，只留下仍然需要的那部分。
-     */
+    @SubscribeEvent
+    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
+        event.registerBlockEntity(EssentiaCapabilities.TRANSPORT, TDBlockEntities.ARCANE_STOVE.get(), (blockEntity, side) -> blockEntity);
+    }
+
     public void request(AspectList needs) {
         if (needs.isEmpty()) {
             return;
@@ -89,7 +81,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         syncToClient();
     }
 
-    /** 整单是否已经备齐。 */
     public boolean isReady() {
         if (needs.isEmpty()) {
             return false;
@@ -102,7 +93,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return true;
     }
 
-    /** 出锅结账：整单清空。 */
     public void consumeRequirement() {
         needs = AspectList.EMPTY;
         gathered = AspectList.EMPTY;
@@ -114,7 +104,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return needs;
     }
 
-    /** 还缺什么（没有需求时为空）。 */
     public AspectList missing() {
         if (needs.isEmpty()) {
             return AspectList.EMPTY;
@@ -129,7 +118,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return missing;
     }
 
-    /** 当前正在吸的那一种：清单里第一个还缺的源质。 */
     private @Nullable ResourceKey<IAspect> currentSuctionKey() {
         if (needs.isEmpty()) {
             return null;
@@ -142,20 +130,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return null;
     }
 
-    private static AspectList keepOnlyGathered(AspectList gathered, AspectList needs) {
-        AspectList kept = AspectList.EMPTY;
-        for (AspectInstance entry : gathered.entries()) {
-            int wanted = needs.amountOf(entry.aspect());
-            if (wanted > 0) {
-                kept = kept.add(entry.aspect(), Math.min(wanted, entry.amount()));
-            }
-        }
-        return kept;
-    }
-
-    // --------------------------------------------------------------- 取源质
-
-    /** 向四周能输出源质的容器/管道一次取 1 点（炼金塔 fill() 同款判定）。 */
     private void fetchFromNeighbours(Level level, BlockPos pos) {
         ResourceKey<IAspect> suctionKey = currentSuctionKey();
         if (suctionKey == null) {
@@ -187,7 +161,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         }
     }
 
-    /** 只收"这一单"要用、且没超过缺口的那种源质；别的一律不收。 */
     private int acceptEssentia(Holder<IAspect> aspect, int amount) {
         if (amount <= 0) {
             return 0;
@@ -203,8 +176,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return added;
     }
 
-    // ------------------------------------------------------ IEssentiaTransport
-
     @Override
     public boolean isConnectable(Direction face) {
         return true;
@@ -217,13 +188,11 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
 
     @Override
     public boolean canOutputTo(Direction face) {
-        // 炼金塔式：只进不出，它不是一个源质容器
         return false;
     }
 
     @Override
     public void setSuction(@Nullable Holder<IAspect> aspect, int amount) {
-        // 吸力由当前需求决定，不接受外部设定
     }
 
     @Override
@@ -267,8 +236,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         return Math.max(0, needs.amountOf(aspect) - gathered.amountOf(aspect));
     }
 
-    // --------------------------------------------------------------- 灶台自身
-
     @Override
     protected int getInventorySlotCount() {
         return INVENTORY_SLOTS;
@@ -276,13 +243,12 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
 
     @Override
     public Vec2 getStoveItemOffset(int index) {
-        Vec2[] offsets = new Vec2[] {
+        Vec2[] offsets = new Vec2[]{
                 new Vec2(0.3F, 0.2F), new Vec2(0.0F, 0.2F), new Vec2(-0.3F, 0.2F),
                 new Vec2(0.3F, -0.2F), new Vec2(0.0F, -0.2F), new Vec2(-0.3F, -0.2F)};
         return offsets[index];
     }
 
-    /** 灶面空着就不用冒烟了。 */
     public void addSmokeParticles() {
         if (this.level == null) {
             return;
@@ -314,8 +280,6 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         }
     }
 
-    // ------------------------------------------------------------- 存档 / 能力
-
     @Override
     protected void loadAdditional(@NonNull ValueInput input) {
         super.loadAdditional(input);
@@ -332,10 +296,5 @@ public class ArcaneStoveBlockEntity extends AbstractStoveBlockEntity implements 
         if (!gathered.isEmpty()) {
             output.store("Gathered", AspectList.CODEC, gathered);
         }
-    }
-
-    @SubscribeEvent
-    public static void registerCapabilities(RegisterCapabilitiesEvent event) {
-        event.registerBlockEntity(EssentiaCapabilities.TRANSPORT, TDBlockEntities.ARCANE_STOVE.get(), (blockEntity, side) -> blockEntity);
     }
 }

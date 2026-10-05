@@ -6,12 +6,7 @@ import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
-import com.blackmoss.thaumaturgesdelight.registry.TDBlockEntities;
-import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
-import com.blackmoss.thaumaturgesdelight.registry.TDCreativeModeTabs;
-import com.blackmoss.thaumaturgesdelight.registry.TDItems;
-import com.blackmoss.thaumaturgesdelight.registry.TDMenus;
-import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
+import com.blackmoss.thaumaturgesdelight.registry.*;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import com.mojang.logging.LogUtils;
@@ -48,6 +43,10 @@ public class ThaumaturgesDelight {
 
     public static Identifier identifier(String path) {
         return Identifier.fromNamespaceAndPath(MODID, path);
+    }
+
+    public static Identifier fdIdentifier(String path) {
+        return Identifier.fromNamespaceAndPath("farmersdelight", path);
     }
 
     @SubscribeEvent

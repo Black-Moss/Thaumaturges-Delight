@@ -70,6 +70,37 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
         this.aspects = aspects;
     }
 
+    private static void encode(RegistryFriendlyByteBuf buffer, ArcaneCookingPotRecipe recipe) {
+        buffer.writeUtf(recipe.group);
+        buffer.writeUtf(recipe.tab == null ? "" : recipe.tab.toString());
+        buffer.writeVarInt(recipe.ingredients.size());
+        for (Ingredient ingredient : recipe.ingredients) {
+            Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, ingredient);
+        }
+        ItemStackTemplate.STREAM_CODEC.encode(buffer, recipe.result);
+        buffer.writeBoolean(recipe.container.isPresent());
+        recipe.container.ifPresent(template -> ItemStackTemplate.STREAM_CODEC.encode(buffer, template));
+        buffer.writeFloat(recipe.experience);
+        buffer.writeVarInt(recipe.cookTime);
+        AspectList.STREAM_CODEC.encode(buffer, recipe.aspects);
+    }
+
+    private static ArcaneCookingPotRecipe decode(RegistryFriendlyByteBuf buffer) {
+        String group = buffer.readUtf();
+        CookingPotRecipeBookTab tab = CookingPotRecipeBookTab.findByName(buffer.readUtf());
+        int size = buffer.readVarInt();
+        List<Ingredient> ingredients = new ArrayList<>(size);
+        for (int i = 0; i < size; i++) {
+            ingredients.add(Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
+        }
+        ItemStackTemplate result = ItemStackTemplate.STREAM_CODEC.decode(buffer);
+        Optional<ItemStackTemplate> container = buffer.readBoolean() ? Optional.of(ItemStackTemplate.STREAM_CODEC.decode(buffer)) : Optional.empty();
+        float experience = buffer.readFloat();
+        int cookTime = buffer.readVarInt();
+        AspectList aspects = AspectList.STREAM_CODEC.decode(buffer);
+        return new ArcaneCookingPotRecipe(group, tab, ingredients, result, container, experience, cookTime, aspects);
+    }
+
     public AspectList aspects() {
         return aspects;
     }
@@ -165,36 +196,5 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
         return List.of(new ShapelessCraftingRecipeDisplay(ingredients.stream().map(Ingredient::display).toList(),
                 new SlotDisplay.ItemStackSlotDisplay(result),
                 new SlotDisplay.ItemSlotDisplay(TDBlocks.ARCANE_COOKING_POT.get().asItem())));
-    }
-
-    private static void encode(RegistryFriendlyByteBuf buffer, ArcaneCookingPotRecipe recipe) {
-        buffer.writeUtf(recipe.group);
-        buffer.writeUtf(recipe.tab == null ? "" : recipe.tab.toString());
-        buffer.writeVarInt(recipe.ingredients.size());
-        for (Ingredient ingredient : recipe.ingredients) {
-            Ingredient.CONTENTS_STREAM_CODEC.encode(buffer, ingredient);
-        }
-        ItemStackTemplate.STREAM_CODEC.encode(buffer, recipe.result);
-        buffer.writeBoolean(recipe.container.isPresent());
-        recipe.container.ifPresent(template -> ItemStackTemplate.STREAM_CODEC.encode(buffer, template));
-        buffer.writeFloat(recipe.experience);
-        buffer.writeVarInt(recipe.cookTime);
-        AspectList.STREAM_CODEC.encode(buffer, recipe.aspects);
-    }
-
-    private static ArcaneCookingPotRecipe decode(RegistryFriendlyByteBuf buffer) {
-        String group = buffer.readUtf();
-        CookingPotRecipeBookTab tab = CookingPotRecipeBookTab.findByName(buffer.readUtf());
-        int size = buffer.readVarInt();
-        List<Ingredient> ingredients = new ArrayList<>(size);
-        for (int i = 0; i < size; i++) {
-            ingredients.add(Ingredient.CONTENTS_STREAM_CODEC.decode(buffer));
-        }
-        ItemStackTemplate result = ItemStackTemplate.STREAM_CODEC.decode(buffer);
-        Optional<ItemStackTemplate> container = buffer.readBoolean() ? Optional.of(ItemStackTemplate.STREAM_CODEC.decode(buffer)) : Optional.empty();
-        float experience = buffer.readFloat();
-        int cookTime = buffer.readVarInt();
-        AspectList aspects = AspectList.STREAM_CODEC.decode(buffer);
-        return new ArcaneCookingPotRecipe(group, tab, ingredients, result, container, experience, cookTime, aspects);
     }
 }

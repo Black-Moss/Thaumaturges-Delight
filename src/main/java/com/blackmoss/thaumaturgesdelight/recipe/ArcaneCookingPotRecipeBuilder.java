@@ -28,11 +28,11 @@ public class ArcaneCookingPotRecipeBuilder extends SimpleRecipeBuilder {
     private static final String RECIPE_FOLDER = "arcane_cooking/";
 
     private final List<Ingredient> ingredients = new ArrayList<>();
+    private final HolderGetter<IAspect> aspectsGetter;
     private @Nullable ItemStackTemplate container;
     private int cookTime = ArcaneCookingPotRecipe.DEFAULT_COOK_TIME;
     private float experience = ArcaneCookingPotRecipe.DEFAULT_EXPERIENCE;
     private CookingPotRecipeBookTab tab = CookingPotRecipeBookTab.MISC;
-    private final HolderGetter<IAspect> aspectsGetter;
     private AspectList aspects;
 
     public ArcaneCookingPotRecipeBuilder(HolderGetter<IAspect> aspectsGetter, RecipeCategory category, ItemStackTemplate result) {

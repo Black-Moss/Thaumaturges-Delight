@@ -1,5 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.client;
 
+import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlockEntity;
 import com.blackmoss.thaumaturgesdelight.menu.ArcaneCookingPotMenu;
 import net.minecraft.client.gui.components.WidgetSprites;
@@ -25,10 +26,10 @@ import java.util.Optional;
 
 public class ArcaneCookingPotRecipeBookComponent extends RecipeBookComponent<ArcaneCookingPotMenu> {
     private static final WidgetSprites RECIPE_BOOK_BUTTONS = new WidgetSprites(
-            Identifier.fromNamespaceAndPath("farmersdelight", "recipe_book/cooking_pot_enabled"),
-            Identifier.fromNamespaceAndPath("farmersdelight", "recipe_book/cooking_pot_disabled"),
-            Identifier.fromNamespaceAndPath("farmersdelight", "recipe_book/cooking_pot_enabled_highlighted"),
-            Identifier.fromNamespaceAndPath("farmersdelight", "recipe_book/cooking_pot_disabled_highlighted"));
+            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_enabled"),
+            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_disabled"),
+            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_enabled_highlighted"),
+            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_disabled_highlighted"));
 
     private static final List<TabInfo> TABS = List.of(
             new TabInfo(new ItemStack(Items.COMPASS), Optional.empty(), RecipeCategories.COOKING_SEARCH),

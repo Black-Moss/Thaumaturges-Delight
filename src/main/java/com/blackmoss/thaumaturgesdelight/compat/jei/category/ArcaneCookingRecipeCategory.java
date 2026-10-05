@@ -1,5 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.compat.jei.category;
 
+import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipe;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
@@ -33,8 +34,8 @@ import java.util.List;
 public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder<ArcaneCookingPotRecipe>> {
     public static final IRecipeHolderType<ArcaneCookingPotRecipe> RECIPE_TYPE = IRecipeHolderType.create(TDRecipeTypes.ARCANE_COOKING.get());
 
-    private static final Identifier JEI_TEXTURE = Identifier.fromNamespaceAndPath("farmersdelight", "textures/gui/jei/cooking_pot.png");
-    private static final Identifier POT_TEXTURE = Identifier.fromNamespaceAndPath("farmersdelight", "textures/gui/cooking_pot.png");
+    private static final Identifier JEI_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/jei/cooking_pot.png");
+    private static final Identifier POT_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/cooking_pot.png");
 
     private static final int WIDTH = 116;
     private static final int BACKGROUND_HEIGHT = 56;

@@ -3,11 +3,7 @@ package com.blackmoss.thaumaturgesdelight.block;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlockEntities;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
-import com.leclowndu93150.thaumaturge.api.essentia.EssentiaCapabilities;
-import com.leclowndu93150.thaumaturge.api.essentia.EssentiaTransferFeedback;
-import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaItemStorage;
-import com.leclowndu93150.thaumaturge.api.essentia.IEssentiaStreamPort;
-import com.leclowndu93150.thaumaturge.api.essentia.ItemEssentiaTransferResult;
+import com.leclowndu93150.thaumaturge.api.essentia.*;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -38,6 +34,46 @@ public class ArcaneStoveBlock extends StoveBlock implements IEssentiaStreamPort 
 
     public ArcaneStoveBlock(BlockBehaviour.Properties properties) {
         super(properties);
+    }
+
+    private static InteractionResult depositEssentia(
+            ArcaneStoveBlockEntity stove,
+            ItemStack stack,
+            Level level,
+            Player player,
+            InteractionHand hand) {
+        IEssentiaItemStorage itemStorage = stack.getCapability(EssentiaCapabilities.ITEM_STORAGE);
+        if (itemStorage == null) {
+            return InteractionResult.PASS;
+        }
+        AspectList contents = itemStorage.contents();
+        if (contents.isEmpty()) {
+            return InteractionResult.PASS;
+        }
+        AspectInstance first = contents.entries().getFirst();
+        int needed = stove.spaceFor(first.aspect(), Direction.UP);
+        if (needed <= 0) {
+            return InteractionResult.PASS;
+        }
+        ItemEssentiaTransferResult result = itemStorage.extract(first.aspect(), Math.min(needed, first.amount()));
+        if (result.amountMoved() <= 0) {
+            return InteractionResult.PASS;
+        }
+        int accepted = stove.addEssentia(first.aspect(), result.amountMoved(), Direction.UP);
+        if (accepted <= 0) {
+            return InteractionResult.PASS;
+        }
+        if (level.isClientSide()) {
+            return InteractionResult.SUCCESS;
+        }
+        player.setItemInHand(hand, result.resultingStack());
+        EssentiaTransferFeedback.playDrain(player, result.resultingStack(), accepted);
+        return InteractionResult.SUCCESS_SERVER;
+    }
+
+    public static boolean isLit(BlockState state) {
+        BooleanProperty lit = LIT;
+        return state.hasProperty(lit) && state.getValue(lit);
     }
 
     @Override
@@ -84,45 +120,5 @@ public class ArcaneStoveBlock extends StoveBlock implements IEssentiaStreamPort 
             }
         }
         return super.useItemOn(stack, state, level, pos, player, hand, hit);
-    }
-
-    private static InteractionResult depositEssentia(
-            ArcaneStoveBlockEntity stove,
-            ItemStack stack,
-            Level level,
-            Player player,
-            InteractionHand hand) {
-        IEssentiaItemStorage itemStorage = stack.getCapability(EssentiaCapabilities.ITEM_STORAGE);
-        if (itemStorage == null) {
-            return InteractionResult.PASS;
-        }
-        AspectList contents = itemStorage.contents();
-        if (contents.isEmpty()) {
-            return InteractionResult.PASS;
-        }
-        AspectInstance first = contents.entries().getFirst();
-        int needed = stove.spaceFor(first.aspect(), Direction.UP);
-        if (needed <= 0) {
-            return InteractionResult.PASS;
-        }
-        ItemEssentiaTransferResult result = itemStorage.extract(first.aspect(), Math.min(needed, first.amount()));
-        if (result.amountMoved() <= 0) {
-            return InteractionResult.PASS;
-        }
-        int accepted = stove.addEssentia(first.aspect(), result.amountMoved(), Direction.UP);
-        if (accepted <= 0) {
-            return InteractionResult.PASS;
-        }
-        if (level.isClientSide()) {
-            return InteractionResult.SUCCESS;
-        }
-        player.setItemInHand(hand, result.resultingStack());
-        EssentiaTransferFeedback.playDrain(player, result.resultingStack(), accepted);
-        return InteractionResult.SUCCESS_SERVER;
-    }
-
-    public static boolean isLit(BlockState state) {
-        BooleanProperty lit = LIT;
-        return state.hasProperty(lit) && state.getValue(lit);
     }
 }

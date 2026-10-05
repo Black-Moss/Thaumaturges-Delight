@@ -12,11 +12,7 @@ import net.minecraft.client.data.models.ModelProvider;
 import net.minecraft.client.data.models.MultiVariant;
 import net.minecraft.client.data.models.blockstates.MultiVariantGenerator;
 import net.minecraft.client.data.models.blockstates.PropertyDispatch;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.data.models.model.*;
 import net.minecraft.client.renderer.block.dispatch.VariantMutator;
 import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.Direction;
@@ -63,6 +59,26 @@ public class ModModelProvider extends ModelProvider {
         return ThaumaturgesDelight.identifier("item/" + itemId.getPath());
     }
 
+    private static MultiVariant potVariant(Identifier model, Quadrant rotation) {
+        return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
+    }
+
+    private static MultiVariant stoveVariant(Identifier model, Quadrant rotation) {
+        return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
+    }
+
+    private static TextureMapping stoveTextures(boolean lit) {
+        return new TextureMapping()
+                .put(TextureSlot.BOTTOM, stoveMaterial("stove_bottom"))
+                .put(TextureSlot.TOP, stoveMaterial(lit ? "stove_top_on" : "stove_top"))
+                .put(TextureSlot.SIDE, stoveMaterial("stove_side"))
+                .put(TextureSlot.FRONT, stoveMaterial(lit ? "stove_front_on" : "stove_front"));
+    }
+
+    private static Material stoveMaterial(String path) {
+        return new Material(ThaumaturgesDelight.fdIdentifier("block/" + path));
+    }
+
     @Override
     protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
         arcaneCookingPot(blockModels);
@@ -98,10 +114,6 @@ public class ModModelProvider extends ModelProvider {
         blockModels.registerSimpleItemModel(block, POT_MODEL);
     }
 
-    private static MultiVariant potVariant(Identifier model, Quadrant rotation) {
-        return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
-    }
-
     private void arcaneStove(@NonNull BlockModelGenerators blockModels) {
         Block block = TDBlocks.ARCANE_STOVE.get();
         STOVE_TEMPLATE.create(STOVE_MODEL, STOVE_TEXTURES, blockModels.modelOutput);
@@ -119,21 +131,5 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
         blockModels.registerSimpleItemModel(block, STOVE_MODEL);
-    }
-
-    private static MultiVariant stoveVariant(Identifier model, Quadrant rotation) {
-        return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
-    }
-
-    private static TextureMapping stoveTextures(boolean lit) {
-        return new TextureMapping()
-                .put(TextureSlot.BOTTOM, stoveMaterial("stove_bottom"))
-                .put(TextureSlot.TOP, stoveMaterial(lit ? "stove_top_on" : "stove_top"))
-                .put(TextureSlot.SIDE, stoveMaterial("stove_side"))
-                .put(TextureSlot.FRONT, stoveMaterial(lit ? "stove_front_on" : "stove_front"));
-    }
-
-    private static Material stoveMaterial(String path) {
-        return new Material(Identifier.fromNamespaceAndPath("farmersdelight", "block/" + path));
     }
 }
