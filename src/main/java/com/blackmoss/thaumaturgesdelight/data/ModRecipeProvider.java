@@ -1,6 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipeBuilder;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
@@ -36,6 +37,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
@@ -89,17 +91,20 @@ public final class ModRecipeProvider extends RecipeProvider {
 
         essenceRockCandy();
 
+        new ArcaneCookingPotRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),
+                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SIXFOLD_MEAT_TREAT.get()))
+                .ingredient(TCItems.CHUNK_BEEF.get())
+                .ingredient(TCItems.CHUNK_CHICKEN.get())
+                .ingredient(TCItems.CHUNK_PORK.get())
+                .ingredient(TCItems.CHUNK_FISH.get())
+                .ingredient(TCItems.CHUNK_RABBIT.get())
+                .ingredient(TCItems.CHUNK_MUTTON.get())
+                .aspect(TCAspects.VICTUS, 20)
+                .aspect(TCAspects.PERDITIO, 5)
+                .tab(CookingPotRecipeBookTab.MEALS)
+                .unlockedBy("has", has(TCItems.TRIPLE_MEAT_TREAT.get()))
+                .save(output);
     }
-
-    // 奥术厨锅配方的写法示例（builder 已就绪，等有正式配方内容时照这个加）：
-    // new ArcaneCookingPotRecipeBuilder(RecipeCategory.MISC, new ItemStackTemplate(TDItems.PURIFY_COOKIE.get()))
-    //         .ingredient(TCItems.CHUNK_BEEF.get(), 2)
-    //         .ingredient(Items.SUGAR)
-    //         .tab(CookingPotRecipeBookTab.MEALS)
-    //         .experience(0.5F)
-    //         .cookTime(200)
-    //         .unlockedBy("has", has(TDItems.PURIFY_COOKIE.get()))
-    //         .save(output);
 
     private void essenceRockCandy() {
         HolderLookup<IAspect> aspects = this.registries.lookupOrThrow(IAspect.REGISTRY_KEY);

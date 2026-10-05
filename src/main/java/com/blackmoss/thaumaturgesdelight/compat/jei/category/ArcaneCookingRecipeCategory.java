@@ -3,6 +3,10 @@ package com.blackmoss.thaumaturgesdelight.compat.jei.category;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipe;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
+import com.leclowndu93150.thaumaturge.compat.jei.ingredient.AspectIngredientRenderer;
+import com.leclowndu93150.thaumaturge.compat.jei.ingredient.AspectIngredientType;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -33,8 +37,11 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     private static final Identifier POT_TEXTURE = Identifier.fromNamespaceAndPath("farmersdelight", "textures/gui/cooking_pot.png");
 
     private static final int WIDTH = 116;
-    private static final int HEIGHT = 56;
+    private static final int BACKGROUND_HEIGHT = 56;
+    private static final int HEIGHT = 82;
     private static final int SLOT_SIZE = 18;
+    private static final int ASPECT_Y = 60;
+    private static final int ASPECT_SPACING = 22;
     private static final int OUTPUT_X = 95;
     private static final int OUTPUT_Y = 10;
     private static final int CONTAINER_X = 63;
@@ -54,7 +61,7 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     private final IDrawable icon;
 
     public ArcaneCookingRecipeCategory(IGuiHelper guiHelper) {
-        this.background = guiHelper.createDrawable(JEI_TEXTURE, 0, 0, WIDTH, HEIGHT);
+        this.background = guiHelper.createDrawable(JEI_TEXTURE, 0, 0, WIDTH, BACKGROUND_HEIGHT);
         this.icon = guiHelper.createDrawableItemStack(new ItemStack(TDItems.ARCANE_COOKING_POT.get()));
         this.heatIndicator = guiHelper.createDrawable(POT_TEXTURE, 176, 0, 17, 15);
         this.timeIcon = guiHelper.createDrawable(POT_TEXTURE, 176, 32, 8, 11);
@@ -105,6 +112,17 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
             builder.addSlot(RecipeIngredientRole.INPUT, CONTAINER_X, CONTAINER_Y).add(container);
         }
         builder.addSlot(RecipeIngredientRole.OUTPUT, OUTPUT_X, SERVED_Y).add(result);
+
+        AspectList aspects = recipe.aspects();
+        if (!aspects.isEmpty()) {
+            List<AspectInstance> costs = aspects.sortedByAmount();
+            int startX = (WIDTH - costs.size() * ASPECT_SPACING) / 2;
+            for (int i = 0; i < costs.size(); i++) {
+                builder.addInputSlot(startX + i * ASPECT_SPACING, ASPECT_Y)
+                        .setCustomRenderer(AspectIngredientType.INSTANCE, AspectIngredientRenderer.INSTANCE)
+                        .add(AspectIngredientType.INSTANCE, costs.get(i));
+            }
+        }
     }
 
     @Override

@@ -46,6 +46,7 @@ public final class ZhCnProvider extends LanguageProvider {
         add("enchantment.thaumaturge.cook_ding", "庖丁");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
+        addBlock(TDBlocks.ARCANE_STOVE, "奥术灶台");
 
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");
         addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");

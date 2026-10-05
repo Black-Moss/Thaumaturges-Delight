@@ -1,6 +1,15 @@
-﻿{
-  "type": "farmersdelight:cooking",
-  "experience": 1.0,
+{
+  "type": "thaumaturgesdelight:arcane_cooking",
+  "aspects": [
+    {
+      "amount": 20,
+      "aspect": "thaumaturge:victus"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:perditio"
+    }
+  ],
   "ingredients": [
     "thaumaturge:chunk_beef",
     "thaumaturge:chunk_chicken",
@@ -11,7 +20,6 @@
   ],
   "recipe_book_tab": "meals",
   "result": {
-    "count": 1,
     "id": "thaumaturgesdelight:sixfold_meat_treat"
   }
 }

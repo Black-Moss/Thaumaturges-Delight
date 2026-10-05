@@ -47,6 +47,7 @@ public final class EnUsProvider extends LanguageProvider {
         add("enchantment.thaumaturge.cook_ding", "Cook Ding");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "Arcane Cooking Pot");
+        addBlock(TDBlocks.ARCANE_STOVE, "Arcane Stove");
 
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");

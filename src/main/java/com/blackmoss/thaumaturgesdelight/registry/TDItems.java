@@ -46,6 +46,7 @@ public final class TDItems {
             PurifyCookieItem::new, props -> props.food(new FoodProperties(2, 0.5F, true)));
 
     public static final DeferredItem<BlockItem> ARCANE_COOKING_POT = ITEMS.registerSimpleBlockItem(TDBlocks.ARCANE_COOKING_POT);
+    public static final DeferredItem<BlockItem> ARCANE_STOVE = ITEMS.registerSimpleBlockItem(TDBlocks.ARCANE_STOVE);
 
     private TDItems() {
     }

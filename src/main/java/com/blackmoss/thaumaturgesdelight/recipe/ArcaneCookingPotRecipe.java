@@ -2,6 +2,7 @@ package com.blackmoss.thaumaturgesdelight.recipe;
 
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectList;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -30,6 +31,7 @@ import java.util.Optional;
 public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
     public static final int INPUT_SLOTS = 6;
     public static final int DEFAULT_COOK_TIME = 200;
+    public static final float DEFAULT_EXPERIENCE = 1.0F;
 
     public static final MapCodec<ArcaneCookingPotRecipe> MAP_CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
             Codec.STRING.optionalFieldOf("group", "").forGetter(ArcaneCookingPotRecipe::getGroup),
@@ -37,8 +39,9 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
             Ingredient.CODEC.listOf().fieldOf("ingredients").forGetter(recipe -> List.copyOf(recipe.ingredients)),
             ItemStackTemplate.CODEC.fieldOf("result").forGetter(ArcaneCookingPotRecipe::resultTemplate),
             ItemStackTemplate.CODEC.optionalFieldOf("container").forGetter(ArcaneCookingPotRecipe::containerTemplate),
-            Codec.FLOAT.optionalFieldOf("experience", 0.0F).forGetter(ArcaneCookingPotRecipe::getExperience),
-            Codec.INT.optionalFieldOf("cookingtime", DEFAULT_COOK_TIME).forGetter(ArcaneCookingPotRecipe::getCookTime)
+            Codec.FLOAT.optionalFieldOf("experience", DEFAULT_EXPERIENCE).forGetter(ArcaneCookingPotRecipe::getExperience),
+            Codec.INT.optionalFieldOf("cookingtime", DEFAULT_COOK_TIME).forGetter(ArcaneCookingPotRecipe::getCookTime),
+            AspectList.CODEC.optionalFieldOf("aspects", AspectList.EMPTY).forGetter(ArcaneCookingPotRecipe::aspects)
     ).apply(instance, ArcaneCookingPotRecipe::new));
 
     public static final StreamCodec<RegistryFriendlyByteBuf, ArcaneCookingPotRecipe> STREAM_CODEC = StreamCodec.of(ArcaneCookingPotRecipe::encode, ArcaneCookingPotRecipe::decode);
@@ -52,9 +55,10 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
     private final Optional<ItemStackTemplate> container;
     private final float experience;
     private final int cookTime;
+    private final AspectList aspects;
     private CookingPotRecipe converted;
 
-    public ArcaneCookingPotRecipe(String group, CookingPotRecipeBookTab tab, List<Ingredient> ingredients, ItemStackTemplate result, Optional<ItemStackTemplate> container, float experience, int cookTime) {
+    public ArcaneCookingPotRecipe(String group, CookingPotRecipeBookTab tab, List<Ingredient> ingredients, ItemStackTemplate result, Optional<ItemStackTemplate> container, float experience, int cookTime, AspectList aspects) {
         this.group = group;
         this.tab = tab;
         this.ingredients = NonNullList.create();
@@ -63,6 +67,11 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
         this.container = container;
         this.experience = experience;
         this.cookTime = cookTime;
+        this.aspects = aspects;
+    }
+
+    public AspectList aspects() {
+        return aspects;
     }
 
     public String getGroup() {
@@ -170,6 +179,7 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
         recipe.container.ifPresent(template -> ItemStackTemplate.STREAM_CODEC.encode(buffer, template));
         buffer.writeFloat(recipe.experience);
         buffer.writeVarInt(recipe.cookTime);
+        AspectList.STREAM_CODEC.encode(buffer, recipe.aspects);
     }
 
     private static ArcaneCookingPotRecipe decode(RegistryFriendlyByteBuf buffer) {
@@ -184,6 +194,7 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
         Optional<ItemStackTemplate> container = buffer.readBoolean() ? Optional.of(ItemStackTemplate.STREAM_CODEC.decode(buffer)) : Optional.empty();
         float experience = buffer.readFloat();
         int cookTime = buffer.readVarInt();
-        return new ArcaneCookingPotRecipe(group, tab, ingredients, result, container, experience, cookTime);
+        AspectList aspects = AspectList.STREAM_CODEC.decode(buffer);
+        return new ArcaneCookingPotRecipe(group, tab, ingredients, result, container, experience, cookTime, aspects);
     }
 }

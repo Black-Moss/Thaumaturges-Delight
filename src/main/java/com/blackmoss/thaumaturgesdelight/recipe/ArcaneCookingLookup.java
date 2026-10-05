@@ -22,6 +22,10 @@ public final class ArcaneCookingLookup {
         return Holder.ARCANE.getRecipeFor(wrapper, level).map(holder -> new RecipeHolder<>(holder.id(), holder.value().asCookingPotRecipe()));
     }
 
+    public static Optional<RecipeHolder<ArcaneCookingPotRecipe>> findArcane(ServerLevel level, RecipeWrapper wrapper) {
+        return Holder.ARCANE.getRecipeFor(wrapper, level);
+    }
+
     private static final class Holder {
         private static final RecipeManager.CachedCheck<RecipeWrapper, CookingPotRecipe> COOKING = RecipeManager.createCheck(ModRecipeTypes.COOKING.get());
         private static final RecipeManager.CachedCheck<RecipeWrapper, ArcaneCookingPotRecipe> ARCANE = RecipeManager.createCheck(TDRecipeTypes.ARCANE_COOKING.get());

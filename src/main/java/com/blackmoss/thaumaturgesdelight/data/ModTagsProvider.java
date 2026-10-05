@@ -1,6 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.blackmoss.thaumaturgesdelight.registry.TDTags;
 import com.leclowndu93150.thaumaturge.registry.TCBlockTags;
@@ -60,6 +61,8 @@ public final class ModTagsProvider implements DataProvider {
             protected void addTags(HolderLookup.@NonNull Provider provider) {
                 tag(ModTags.Blocks.HEAT_SOURCES)
                         .addTags(TCBlockTags.CRUCIBLE_HEAT_SOURCES);
+                tag(TCBlockTags.CRUCIBLE_HEAT_SOURCES)
+                        .add(TDBlocks.ARCANE_STOVE.get());
             }
         };
 

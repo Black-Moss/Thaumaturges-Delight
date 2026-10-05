@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight.block;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.menu.ArcaneCookingPotMenu;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingLookup;
+import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipe;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlockEntities;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
@@ -167,12 +168,18 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         if (level == null) {
             return false;
         }
+        // 源质也算材料：没备齐就先不点火，进度条停在起点等它到货
+        if (!hasEssentiaFor(recipe)) {
+            cookTime = 0;
+            return false;
+        }
         cookTime++;
         cookTimeTotal = recipe.value().getCookTime();
         if (cookTime < cookTimeTotal) {
             return false;
         }
         cookTime = 0;
+        consumeEssentiaFor(recipe);
         mealContainerStack = recipe.value().getOutputContainer();
         ItemStack resultStack = recipe.value().assemble(new RecipeWrapper(inventory));
         ItemStack mealStack = inventory.getStackInSlot(MEAL_DISPLAY_SLOT);
@@ -195,6 +202,45 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
             }
         }
         return true;
+    }
+
+    /**
+     * 这道菜的源质备齐了没有。没齐就把需求报给下面的奥术灶台（灶台不存储源质，
+     * 只在被需要时向周围容器/管道索取），并让烹饪停在起点等它；普通配方直接返回 true。
+     */
+    private boolean hasEssentiaFor(RecipeHolder<CookingPotRecipe> recipe) {
+        ArcaneCookingPotRecipe arcane = arcaneRecipeFor(recipe);
+        if (arcane == null || arcane.aspects().isEmpty()) {
+            return true;
+        }
+        if (!(level.getBlockEntity(worldPosition.below()) instanceof ArcaneStoveBlockEntity stove)) {
+            return false;
+        }
+        // 把整张清单交给灶台，它会按顺序把缺的凑齐（整单报需求，避免多源质互相顶掉）
+        stove.request(arcane.aspects());
+        return stove.isReady();
+    }
+
+    /** 出锅时把源质结掉。 */
+    private void consumeEssentiaFor(RecipeHolder<CookingPotRecipe> recipe) {
+        ArcaneCookingPotRecipe arcane = arcaneRecipeFor(recipe);
+        if (arcane == null || arcane.aspects().isEmpty() || level == null) {
+            return;
+        }
+        if (level.getBlockEntity(worldPosition.below()) instanceof ArcaneStoveBlockEntity stove) {
+            stove.consumeRequirement();
+        }
+    }
+
+    /** 取出这道菜对应的奥术配方（源质成本在转换成农夫乐事配方后会丢，得单独查一次）。 */
+    private @Nullable ArcaneCookingPotRecipe arcaneRecipeFor(RecipeHolder<CookingPotRecipe> recipe) {
+        if (!(level instanceof ServerLevel serverLevel)) {
+            return null;
+        }
+        return ArcaneCookingLookup.findArcane(serverLevel, new RecipeWrapper(inventory))
+                .filter(holder -> holder.id().equals(recipe.id()))
+                .map(RecipeHolder::value)
+                .orElse(null);
     }
 
     protected void ejectIngredientRemainder(ItemStack remainderStack) {
