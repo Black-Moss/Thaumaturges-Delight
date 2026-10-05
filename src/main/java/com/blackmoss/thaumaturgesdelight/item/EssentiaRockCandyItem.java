@@ -29,7 +29,7 @@ import java.util.Optional;
 public class EssentiaRockCandyItem extends Item {
     private static final int EFFECT_AMPLIFIER = 2;
     private static final double INSTANT_HEALTH_FACTOR = 3.0;
-    private static final int EFFECT_BASE_DURATION = 160;
+    private static final int EFFECT_BASE_DURATION = 200;
     private static final int EFFECT_EXTRA_DURATION = 80;
     private static final float GRANT_CHANCE = 0.25F;
 

@@ -35,6 +35,7 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
@@ -90,10 +91,11 @@ public final class ModRecipeProvider extends RecipeProvider {
                     .build();
             new CrucibleRecipeBuilder(aspects, RecipeCategory.MISC,
                     new ItemStackTemplate(TDItems.ESSENTIA_ROCK_CANDY.get(), patch),
-                    Ingredient.of(TCItems.ESSENTIA_CRYSTAL.get()))
+                    Ingredient.of(Items.SUGAR))
                     .aspect(aspect, 5)
-                    .aspect(TCAspects.VITREUS, 5)
+                    .aspect(TCAspects.VITREUS, 1)
                     .aspect(TCAspects.GELUM, 1)
+                    .gate(tdGate("essentia_rock_candy"))
                     .unlockedBy("has", has(TCItems.ESSENTIA_CRYSTAL.get()))
                     .save(output, ResourceKey.create(Registries.RECIPE,
                             ThaumaturgesDelight.identifier("crucible/essentia_rock_candy/" + key.identifier().getPath())));

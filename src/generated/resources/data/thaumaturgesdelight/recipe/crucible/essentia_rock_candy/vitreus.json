@@ -2,14 +2,17 @@
   "type": "thaumaturge:crucible",
   "aspects": [
     {
-      "amount": 10,
+      "amount": 6,
       "aspect": "thaumaturge:vitreus"
     },
     {
       "aspect": "thaumaturge:gelum"
     }
   ],
-  "catalyst": "thaumaturge:essentia_crystal",
+  "catalyst": "minecraft:sugar",
+  "research": {
+    "entry": "thaumaturgesdelight:essentia_rock_candy"
+  },
   "result": {
     "components": {
       "thaumaturge:crystal_aspect": {

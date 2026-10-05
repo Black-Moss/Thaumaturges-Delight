@@ -31,6 +31,10 @@ public final class ZhCnProvider extends LanguageProvider {
                         "<DIV>§l附魔等级§r：3" +
                         "<DIV>§l附魔对象§r：刀");
 
+        addResearch("essentia_rock_candy", "源质冰糖",
+                "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
+                "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
+
         add("enchantment.thaumaturge.cook_ding", "庖丁");
 
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");

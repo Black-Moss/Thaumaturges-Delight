@@ -32,6 +32,10 @@ public final class EnUsProvider extends LanguageProvider {
                         "<DIV>§oRanks§r: 1-3" +
                         "<BR>§oTarget§r: Knife");
 
+        addResearch("essentia_rock_candy", "Essentia Rock Candy",
+                "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
+                "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
+
         add("enchantment.thaumaturge.cook_ding", "Cook Ding");
 
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
