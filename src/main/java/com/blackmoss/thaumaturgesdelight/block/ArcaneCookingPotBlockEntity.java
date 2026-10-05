@@ -13,6 +13,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentSerialization;
@@ -20,6 +21,7 @@ import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Clearable;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.Nameable;
@@ -54,6 +56,7 @@ import vectorwing.farmersdelight.common.block.entity.HeatableBlockEntity;
 import vectorwing.farmersdelight.common.block.entity.inventory.CookingPotItemHandler;
 import vectorwing.farmersdelight.common.block.entity.inventory.LegacyItemHandlerResourceHandler;
 import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
+import vectorwing.farmersdelight.common.registry.ModParticleTypes;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
 
 import java.util.ArrayList;
@@ -154,6 +157,26 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
             Direction direction = side == Direction.UP ? Direction.UP : Direction.DOWN;
             return new LegacyItemHandlerResourceHandler(new CookingPotItemHandler(handler, direction), handler::setStackInSlot);
         });
+    }
+
+    public static void animationTick(Level level, BlockPos pos, BlockState state, ArcaneCookingPotBlockEntity pot) {
+        if (!pot.isHeated(level, pos)) {
+            return;
+        }
+        RandomSource random = level.getRandom();
+        if (random.nextFloat() < 0.2F) {
+            double x = pos.getX() + 0.5 + random.nextDouble() * 0.6 - 0.3;
+            double y = pos.getY() + 0.7;
+            double z = pos.getZ() + 0.5 + random.nextDouble() * 0.6 - 0.3;
+            level.addParticle(ParticleTypes.BUBBLE_POP, x, y, z, 0.0, 0.0, 0.0);
+        }
+        if (random.nextFloat() < 0.05F) {
+            double x = pos.getX() + 0.5 + random.nextDouble() * 0.4 - 0.2;
+            double y = pos.getY() + 0.5;
+            double z = pos.getZ() + 0.5 + random.nextDouble() * 0.4 - 0.2;
+            double rise = random.nextBoolean() ? 0.015 : 0.005;
+            level.addParticle(ModParticleTypes.STEAM.get(), x, y, z, 0.0, rise, 0.0);
+        }
     }
 
     private Optional<RecipeHolder<CookingPotRecipe>> getMatchingRecipe() {

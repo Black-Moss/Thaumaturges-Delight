@@ -173,7 +173,9 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
         if (type != TDBlockEntities.ARCANE_COOKING_POT.get()) {
             return null;
         }
-        return level.isClientSide() ? null
+        return level.isClientSide()
+                ? (tickLevel, pos, tickState, blockEntity)
+                -> ArcaneCookingPotBlockEntity.animationTick(tickLevel, pos, tickState, (ArcaneCookingPotBlockEntity) blockEntity)
                 : (tickLevel, pos, tickState, blockEntity)
                 -> ArcaneCookingPotBlockEntity.cookingTick(tickLevel, pos, tickState, (ArcaneCookingPotBlockEntity) blockEntity);
     }
