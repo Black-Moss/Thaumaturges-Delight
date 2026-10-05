@@ -4,15 +4,18 @@ import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
+import com.leclowndu93150.thaumaturge.data.recipe.builders.CrucibleRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionEnchantmentRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
 import com.leclowndu93150.thaumaturge.registry.TCItemTags;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentPatch;
@@ -23,6 +26,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -73,6 +77,27 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.IGNIS, 55)
                 .aspect(TCAspects.PERMUTATIO, 60)
                 .save(output);
+
+        essenceRockCandy();
+    }
+
+    private void essenceRockCandy() {
+        HolderLookup<IAspect> aspects = this.registries.lookupOrThrow(IAspect.REGISTRY_KEY);
+        for (Holder<IAspect> aspect : aspects.listElements().toList()) {
+            ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
+            DataComponentPatch patch = DataComponentPatch.builder()
+                    .set(TCDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1))
+                    .build();
+            new CrucibleRecipeBuilder(aspects, RecipeCategory.MISC,
+                    new ItemStackTemplate(TDItems.ESSENTIA_ROCK_CANDY.get(), patch),
+                    Ingredient.of(TCItems.ESSENTIA_CRYSTAL.get()))
+                    .aspect(aspect, 5)
+                    .aspect(TCAspects.VITREUS, 5)
+                    .aspect(TCAspects.GELUM, 1)
+                    .unlockedBy("has", has(TCItems.ESSENTIA_CRYSTAL.get()))
+                    .save(output, ResourceKey.create(Registries.RECIPE,
+                            ThaumaturgesDelight.identifier("crucible/essentia_rock_candy/" + key.identifier().getPath())));
+        }
     }
 
     public void knife(ItemLike knife, ItemLike material, ItemLike materialNugget) {

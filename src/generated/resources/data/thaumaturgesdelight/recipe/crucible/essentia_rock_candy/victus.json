@@ -1,0 +1,25 @@
+{
+  "type": "thaumaturge:crucible",
+  "aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:victus"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:vitreus"
+    },
+    {
+      "aspect": "thaumaturge:gelum"
+    }
+  ],
+  "catalyst": "thaumaturge:essentia_crystal",
+  "result": {
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturge:victus"
+      }
+    },
+    "id": "thaumaturgesdelight:essentia_rock_candy"
+  }
+}
