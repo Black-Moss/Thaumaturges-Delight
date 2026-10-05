@@ -2,6 +2,7 @@ package com.blackmoss.thaumaturgesdelight.registry;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyItem;
+import com.blackmoss.thaumaturgesdelight.item.PurifyCookieItem;
 import com.leclowndu93150.thaumaturge.content.equipment.TCMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -30,7 +31,7 @@ public final class TDItems {
                     .food(new FoodProperties(1, 0.5F, true),
                             Consumables.defaultFood().consumeSeconds(0.5F).build()));
     public static final DeferredItem<Item> SIXFOLD_MEAT_TREAT = ITEMS.registerItem("sixfold_meat_treat",
-            props -> new Item(props.food((new FoodProperties.Builder())
+            props -> new Item(props.food(new FoodProperties.Builder()
                             .nutrition(12)
                             .saturationModifier(1.6F)
                             .alwaysEdible()
@@ -39,9 +40,9 @@ public final class TDItems {
                             MobEffects.REGENERATION,
                             200, 0),
                             0.99F)).build())));
-    private static final float KNIFE_ATTACK_DAMAGE = 0.5F;
-    private static final float KNIFE_ATTACK_SPEED = -2.0F;
-    private static final float KNIFE_TOOL_DAMAGE = 0.0F;
+
+    public static final DeferredItem<PurifyCookieItem> PURIFY_COOKIE = ITEMS.registerItem("purify_cookie",
+            PurifyCookieItem::new, props -> props.food(new FoodProperties(2, 0.5F, true)));
 
     private TDItems() {
     }
@@ -50,8 +51,8 @@ public final class TDItems {
         return material.applyToolProperties(
                 properties.useItemDescriptionPrefix(),
                 ModTags.Blocks.MINEABLE_WITH_KNIFE,
-                KNIFE_ATTACK_DAMAGE,
-                KNIFE_ATTACK_SPEED,
-                KNIFE_TOOL_DAMAGE);
+                0.5F,
+                -2.0F,
+                0.0F);
     }
 }

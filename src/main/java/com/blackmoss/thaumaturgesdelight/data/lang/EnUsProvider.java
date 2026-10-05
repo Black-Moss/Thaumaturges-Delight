@@ -47,6 +47,7 @@ public final class EnUsProvider extends LanguageProvider {
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
 
         addItem(TDItems.SIXFOLD_MEAT_TREAT, "Sixfold Meat Treat");
+        addItem(TDItems.PURIFY_COOKIE, "Purify Cookie");
     }
 
     private void addResearch(String researchId, String title, String... stage) {

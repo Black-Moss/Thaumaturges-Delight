@@ -46,6 +46,7 @@ public final class ZhCnProvider extends LanguageProvider {
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
 
         addItem(TDItems.SIXFOLD_MEAT_TREAT, "六层肉饼");
+        addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
     }
 
     private void addResearch(String researchId, String title, String... stage) {
