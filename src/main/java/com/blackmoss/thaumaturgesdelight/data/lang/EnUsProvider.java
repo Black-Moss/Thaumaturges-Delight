@@ -1,6 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data.lang;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -13,6 +14,11 @@ public final class EnUsProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "Thaumaturge's Delight");
+        add("container.thaumaturgesdelight.arcane_cooking_pot", "Arcane Cooking Pot");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "Heated");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "Needs heat from below");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.served_on", "Served on: %s");
+        add("recipe_book.thaumaturgesdelight.cookable", "Cookable");
         add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
 
 
@@ -37,6 +43,8 @@ public final class EnUsProvider extends LanguageProvider {
                 "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
 
         add("enchantment.thaumaturge.cook_ding", "Cook Ding");
+
+        addBlock(TDBlocks.ARCANE_COOKING_POT, "Arcane Cooking Pot");
 
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");

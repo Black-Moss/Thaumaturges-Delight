@@ -25,7 +25,7 @@ public class ModBlockLootSubProvider extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-
+        dropSelf(TDBlocks.ARCANE_COOKING_POT.get());
     }
 
     public HolderLookup.Provider getLookupProvider() {

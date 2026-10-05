@@ -88,7 +88,18 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .save(output);
 
         essenceRockCandy();
+
     }
+
+    // 奥术厨锅配方的写法示例（builder 已就绪，等有正式配方内容时照这个加）：
+    // new ArcaneCookingPotRecipeBuilder(RecipeCategory.MISC, new ItemStackTemplate(TDItems.PURIFY_COOKIE.get()))
+    //         .ingredient(TCItems.CHUNK_BEEF.get(), 2)
+    //         .ingredient(Items.SUGAR)
+    //         .tab(CookingPotRecipeBookTab.MEALS)
+    //         .experience(0.5F)
+    //         .cookTime(200)
+    //         .unlockedBy("has", has(TDItems.PURIFY_COOKIE.get()))
+    //         .save(output);
 
     private void essenceRockCandy() {
         HolderLookup<IAspect> aspects = this.registries.lookupOrThrow(IAspect.REGISTRY_KEY);

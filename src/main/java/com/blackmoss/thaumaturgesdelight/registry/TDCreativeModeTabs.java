@@ -33,6 +33,8 @@ public class TDCreativeModeTabs {
 
                         HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
 
+                        output.accept(TDItems.ARCANE_COOKING_POT.get());
+
                         output.accept(TDItems.SIXFOLD_MEAT_TREAT.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
 

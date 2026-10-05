@@ -6,9 +6,12 @@ import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
+import com.blackmoss.thaumaturgesdelight.registry.TDBlockEntities;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDCreativeModeTabs;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.blackmoss.thaumaturgesdelight.registry.TDMenus;
+import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import com.mojang.logging.LogUtils;
@@ -35,6 +38,10 @@ public class ThaumaturgesDelight {
 
     public ThaumaturgesDelight(IEventBus modEventBus, ModContainer modContainer) {
         TDBlocks.BLOCKS.register(modEventBus);
+        TDBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        TDRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        TDRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
+        TDMenus.MENUS.register(modEventBus);
         TDItems.ITEMS.register(modEventBus);
         TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
     }

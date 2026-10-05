@@ -1,6 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data.lang;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
@@ -13,6 +14,11 @@ public final class ZhCnProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "神秘乐事");
+        add("container.thaumaturgesdelight.arcane_cooking_pot", "奥术厨锅");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "已加热");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "需要下方热源");
+        add("container.thaumaturgesdelight.arcane_cooking_pot.served_on", "盛放于：%s");
+        add("recipe_book.thaumaturgesdelight.cookable", "可烹饪");
         add("research_category.thaumaturgesdelight.culinary_magic", "食品魔法");
 
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
@@ -36,6 +42,8 @@ public final class ZhCnProvider extends LanguageProvider {
                 "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
 
         add("enchantment.thaumaturge.cook_ding", "庖丁");
+
+        addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
 
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");
         addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");

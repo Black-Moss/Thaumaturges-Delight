@@ -7,6 +7,7 @@ import com.leclowndu93150.thaumaturge.content.equipment.TCMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumables;
@@ -43,6 +44,8 @@ public final class TDItems {
 
     public static final DeferredItem<PurifyCookieItem> PURIFY_COOKIE = ITEMS.registerItem("purify_cookie",
             PurifyCookieItem::new, props -> props.food(new FoodProperties(2, 0.5F, true)));
+
+    public static final DeferredItem<BlockItem> ARCANE_COOKING_POT = ITEMS.registerSimpleBlockItem(TDBlocks.ARCANE_COOKING_POT);
 
     private TDItems() {
     }
