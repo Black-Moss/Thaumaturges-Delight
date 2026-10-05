@@ -1,0 +1,35 @@
+{
+  "keys": {
+    "C": {
+      "source": {
+        "type": "block",
+        "block": "farmersdelight:cooking_pot"
+      },
+      "target": {
+        "type": "block",
+        "block": "thaumaturgesdelight:arcane_cooking_pot"
+      }
+    },
+    "S": {
+      "source": {
+        "type": "block",
+        "block": "farmersdelight:stove"
+      },
+      "target": {
+        "type": "block",
+        "block": "thaumaturgesdelight:arcane_stove"
+      }
+    }
+  },
+  "pattern": [
+    [
+      "C"
+    ],
+    [
+      "S"
+    ]
+  ],
+  "x_size": 1,
+  "y_size": 2,
+  "z_size": 1
+}

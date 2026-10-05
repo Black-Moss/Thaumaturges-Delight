@@ -39,6 +39,12 @@ public final class ZhCnProvider extends LanguageProvider {
                         "<DIV>§l附魔等级§r：3" +
                         "<DIV>§l附魔对象§r：刀");
 
+        addResearch("magic_kitchen", "魔法厨房",
+                "厨锅相较来说太过于脆弱了，根本不能承受源质，也就是说我没法用源质做菜！除了升级厨锅，我还得升级炉灶，不然我没法往锅里面注入源质，参考源质冶炼厂的原理做一个就行。",
+                "给炉灶和厨锅撒上一些世界盐，我就可以让他们得以引导和使用源质。" +
+                        "<BR>不同于坩埚，奥术厨锅并不能把事物融化成源质，它只能将你的食材和源质混合在一起煮成一道菜；与此同时，奥术炉灶会在做菜时产生一定的吸力，将需要的源质吸到厨锅中进行烹饪。" +
+                        "<BR>当然这个Pro版厨锅也支持普通厨锅的配方！");
+
         addResearch("essentia_rock_candy", "源质冰糖",
                 "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
                 "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
@@ -46,7 +52,7 @@ public final class ZhCnProvider extends LanguageProvider {
         add("enchantment.thaumaturge.cook_ding", "庖丁");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
-        addBlock(TDBlocks.ARCANE_STOVE, "奥术灶台");
+        addBlock(TDBlocks.ARCANE_STOVE, "奥术炉灶");
 
         addItem(TDItems.BRASS_KNIFE, "黄铜刀");
         addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");

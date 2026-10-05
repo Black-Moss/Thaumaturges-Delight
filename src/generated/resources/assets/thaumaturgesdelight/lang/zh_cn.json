@@ -1,6 +1,6 @@
 {
   "block.thaumaturgesdelight.arcane_cooking_pot": "奥术厨锅",
-  "block.thaumaturgesdelight.arcane_stove": "奥术灶台",
+  "block.thaumaturgesdelight.arcane_stove": "奥术炉灶",
   "container.thaumaturgesdelight.arcane_cooking_pot": "奥术厨锅",
   "container.thaumaturgesdelight.arcane_cooking_pot.heated": "已加热",
   "container.thaumaturgesdelight.arcane_cooking_pot.not_heated": "需要下方热源",
@@ -24,6 +24,9 @@
   "research.thaumaturgesdelight.essentia_rock_candy.stage_0": "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
   "research.thaumaturgesdelight.essentia_rock_candy.stage_1": "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！",
   "research.thaumaturgesdelight.essentia_rock_candy.title": "源质冰糖",
+  "research.thaumaturgesdelight.magic_kitchen.stage_0": "厨锅相较来说太过于脆弱了，根本不能承受源质，也就是说我没法用源质做菜！除了升级厨锅，我还得升级炉灶，不然我没法往锅里面注入源质，参考源质冶炼厂的原理做一个就行。",
+  "research.thaumaturgesdelight.magic_kitchen.stage_1": "给炉灶和厨锅撒上一些世界盐，我就可以让他们得以引导和使用源质。<BR>不同于坩埚，奥术厨锅并不能把事物融化成源质，它只能将你的食材和源质混合在一起煮成一道菜；与此同时，奥术炉灶会在做菜时产生一定的吸力，将需要的源质吸到厨锅中进行烹饪。<BR>当然这个Pro版厨锅也支持普通厨锅的配方！",
+  "research.thaumaturgesdelight.magic_kitchen.title": "魔法厨房",
   "research.thaumaturgesdelight.unlock_culinary_magic.stage_0": "虽然作为一名神秘使知道各种常人所不知的秘闻，但我吃的却很单调，一点都比不上那些凡人，我想我是时候在这一点上突破了……",
   "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "我认为食物中也会蕴藏各种魔法，这可是他们那些凡人所不知的。",
   "research.thaumaturgesdelight.unlock_culinary_magic.title": "解锁：食品魔法",

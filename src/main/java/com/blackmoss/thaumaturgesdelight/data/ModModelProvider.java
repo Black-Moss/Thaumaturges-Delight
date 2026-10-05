@@ -69,14 +69,14 @@ public class ModModelProvider extends ModelProvider {
 
     private static TextureMapping stoveTextures(boolean lit) {
         return new TextureMapping()
-                .put(TextureSlot.BOTTOM, stoveMaterial("stove_bottom"))
-                .put(TextureSlot.TOP, stoveMaterial(lit ? "stove_top_on" : "stove_top"))
-                .put(TextureSlot.SIDE, stoveMaterial("stove_side"))
-                .put(TextureSlot.FRONT, stoveMaterial(lit ? "stove_front_on" : "stove_front"));
+                .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.fdIdentifier("block/" + "stove_bottom")))
+                .put(TextureSlot.TOP, stoveMaterial(lit ? "arcane_stove_top_on" : "arcane_stove_top"))
+                .put(TextureSlot.SIDE, stoveMaterial("arcane_stove_side"))
+                .put(TextureSlot.FRONT, stoveMaterial(lit ? "arcane_stove_front_on" : "arcane_stove_front"));
     }
 
     private static Material stoveMaterial(String path) {
-        return new Material(ThaumaturgesDelight.fdIdentifier("block/" + path));
+        return new Material(ThaumaturgesDelight.identifier("block/" + path));
     }
 
     @Override

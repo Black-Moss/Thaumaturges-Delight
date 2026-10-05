@@ -23,7 +23,6 @@ public final class EnUsProvider extends LanguageProvider {
 
         add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
 
-
         addResearch("unlock_culinary_magic", "Unlock: Culinary Magic",
                 "Although as a thaumaturge envoy, I know all kinds of secrets that ordinary people don't know, what I eat is very monotonous and not at all as good as those mortals. I think it's time for me to break through in this regard...",
                 "I think there are also various magic hidden in food, which ordinary people don't know.");
@@ -39,6 +38,12 @@ public final class EnUsProvider extends LanguageProvider {
                         "<DIV>When you kill an animal with a tool enchanted with this, it has a chance of dropping a few additional chunks of meat. Increasing the rank of this enchantment improves the chance." +
                         "<DIV>§oRanks§r: 1-3" +
                         "<BR>§oTarget§r: Knife");
+
+        addResearch("magic_kitchen", "Magic Kitchen",
+                "The cooking pot is far too fragile to hold essentia — I simply cannot cook with it at all. So it is not just the pot that needs upgrading, but the stove as well: without one I would have no way to feed essentia into the pot. The essentia smelter has already shown me the principle, so building one along those lines should not be difficult.",
+                "A sprinkling of Salis Mundus over both the stove and the pot should be enough to let them channel and make use of essentia." +
+                        "<BR>Unlike a crucible, the Arcane Cooking Pot cannot break things down into essentia; all it does is combine your ingredients with essentia and simmer them into a single dish. The Arcane Stove, meanwhile, builds up a certain suction while the dish is cooking, drawing the essentia it needs up into the pot to take part in it." +
+                        "<BR>And of course this Pro-grade pot can still handle any recipe an ordinary cooking pot does!");
 
         addResearch("essentia_rock_candy", "Essentia Rock Candy",
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",

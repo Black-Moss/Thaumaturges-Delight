@@ -1,0 +1,76 @@
+﻿{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "name": "research.thaumaturgesdelight.magic_kitchen.title",
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturge:essentia_smelter",
+    "thaumaturge:thaumatorium"
+  ],
+  "column": 2,
+  "row": 0,
+  "icons": [
+    "thaumaturgesdelight:arcane_stove"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturgesdelight.magic_kitchen.stage_0",
+      "obtain": [
+        {
+          "items": [
+            "farmersdelight:cooking_pot"
+          ],
+          "amount": 1
+        },
+        {
+          "items": [
+            "farmersdelight:stove"
+          ],
+          "amount": 1
+        },
+        {
+          "items": [
+            "thaumaturge:smelter_basic"
+          ],
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:alchemy",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturgesdelight:culinary_magic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturgesdelight.magic_kitchen.stage_1",
+      "recipes": [
+        "thaumaturgesdelight:dust_trigger/magic_kitchen"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:instrumentum",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:aer",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:ignis",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:herba",
+      "amount": 5
+    }
+  ],
+  "complexity": 2
+}

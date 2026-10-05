@@ -1,0 +1,65 @@
+﻿{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "name": "research.thaumaturgesdelight.elemental_knife.title",
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturge:elemental_tools",
+    "thaumaturge:infusion_enchantment"
+  ],
+  "column": -2,
+  "row": 0,
+  "icons": [
+    "thaumaturgesdelight:elemental_knife"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturgesdelight.elemental_knife.stage_0",
+      "craft": [
+        {
+          "items": [
+            "thaumaturgesdelight:thaumium_knife"
+          ],
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:infusion",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturgesdelight:culinary_magic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturgesdelight.elemental_knife.stage_1",
+      "recipes": [
+        "thaumaturgesdelight:infusion/elemental_knife",
+        "thaumaturge:infusion_enchantment/cook_ding"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:instrumentum",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:aer",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:ignis",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:herba",
+      "amount": 5
+    }
+  ],
+  "complexity": 2
+}
