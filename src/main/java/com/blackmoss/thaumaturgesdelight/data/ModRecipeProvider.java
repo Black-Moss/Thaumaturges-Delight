@@ -77,13 +77,14 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.METALLUM, 15)
                 .aspect(TCAspects.SENSUS, 20)
                 .instability(1)
-                .gate(ttGate("elemental_tools"))
+                .gate(tdGate("elemental_knife"))
                 .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
                 .save(output);
 
         infusionEnchantment(ModItems.FLINT_KNIFE.get(), Ingredient.of(TCItems.TRIPLE_MEAT_TREAT.get()))
                 .aspect(TCAspects.IGNIS, 55)
                 .aspect(TCAspects.PERMUTATIO, 60)
+                .gate(tdGate("elemental_knife"))
                 .save(output);
 
         essenceRockCandy();

@@ -17,6 +17,6 @@
   "display_catalyst": "farmersdelight:flint_knife",
   "enchantment": "cook_ding",
   "research": {
-    "entry": "thaumaturge:infusion_enchantment"
+    "entry": "thaumaturgesdelight:elemental_knife"
   }
 }
