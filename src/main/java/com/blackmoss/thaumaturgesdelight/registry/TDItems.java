@@ -16,6 +16,7 @@ import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.item.KnifeItem;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 import vectorwing.farmersdelight.common.tag.ModTags;
 
 public final class TDItems {
@@ -32,16 +33,17 @@ public final class TDItems {
             "essentia_rock_candy", EssentiaRockCandyItem::new, props -> props
                     .food(new FoodProperties(1, 0.5F, true),
                             Consumables.defaultFood().consumeSeconds(0.5F).build()));
-    public static final DeferredItem<Item> SIXTUPLE_MEAT_TREAT = ITEMS.registerItem("sixfold_meat_treat",
+    public static final DeferredItem<Item> SEXTUPLE_MEAT_TREAT = ITEMS.registerItem("sextuple_meat_treat",
             props -> new Item(props.food(new FoodProperties.Builder()
                             .nutrition(12)
                             .saturationModifier(1.6F)
                             .alwaysEdible()
                             .build(),
-                    Consumables.defaultFood().onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
-                            MobEffects.REGENERATION,
-                            200, 0),
-                            0.99F)).build())));
+                    Consumables.defaultFood()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
+                                    MobEffects.REGENERATION,
+                                    200, 0),
+                                    0.99F)).build())));
 
     public static final DeferredItem<PurifyCookieItem> PURIFY_COOKIE = ITEMS.registerItem("purify_cookie",
             PurifyCookieItem::new, props -> props.food(new FoodProperties(2, 0.5F, true)));
@@ -53,6 +55,20 @@ public final class TDItems {
             props -> new ItemSealPlacer(ThaumaturgesDelight.identifier("cutting"), props));
     public static final DeferredItem<ItemSealPlacer> SEAL_ADVANCED_CUTTING = ITEMS.registerItem("seal_advanced_cutting",
             props -> new ItemSealPlacer(ThaumaturgesDelight.identifier("advanced_cutting"), props));
+
+    public static final DeferredItem<Item> CHUNKS_FRIED_RICE = ITEMS.registerItem("chunks_fried_rice",
+            props -> new Item(props.food(new FoodProperties.Builder()
+                            .nutrition(12)
+                            .saturationModifier(1.2F)
+                            .build(),
+                    Consumables.defaultFood()
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
+                                    ModEffects.NOURISHMENT,
+                                    3600, 0)))
+                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
+                                    MobEffects.REGENERATION,
+                                    100, 0),
+                                    0.66F)).build())));
 
     private TDItems() {
     }

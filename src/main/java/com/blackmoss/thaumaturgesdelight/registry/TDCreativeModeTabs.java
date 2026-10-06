@@ -36,10 +36,11 @@ public class TDCreativeModeTabs {
                         output.accept(TDItems.ARCANE_COOKING_POT.get());
                         output.accept(TDItems.ARCANE_STOVE.get());
 
-                        output.accept(TDItems.SIXTUPLE_MEAT_TREAT.get());
+                        output.accept(TDItems.SEXTUPLE_MEAT_TREAT.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
                         output.accept(TDItems.SEAL_CUTTING.get());
                         output.accept(TDItems.SEAL_ADVANCED_CUTTING.get());
+                        output.accept(TDItems.CHUNKS_FRIED_RICE);
 
                         for (Holder<IAspect> aspect : aspectRegistry
                                 .listElements()

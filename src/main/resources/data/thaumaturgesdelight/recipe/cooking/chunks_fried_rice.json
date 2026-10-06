@@ -1,0 +1,14 @@
+{
+  "type": "farmersdelight:cooking",
+  "ingredients": [
+    "#thaumaturge:meat_chunks",
+    "#thaumaturge:meat_chunks",
+    "#thaumaturge:meat_chunks",
+    "farmersdelight:fried_rice"
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "id": "thaumaturgesdelight:chunks_fried_rice",
+    "count": 1
+  }
+}
