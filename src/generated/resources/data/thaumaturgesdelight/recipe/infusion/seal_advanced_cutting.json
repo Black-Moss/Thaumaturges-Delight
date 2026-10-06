@@ -16,9 +16,10 @@
   ],
   "catalyst": "thaumaturgesdelight:seal_cutting",
   "components": [
-    "farmersdelight:cutting_board",
-    "farmersdelight:cutting_board",
-    "farmersdelight:cutting_board"
+    "#c:crops",
+    "#c:foods/raw_meat",
+    "#c:crops",
+    "#c:foods/raw_meat"
   ],
   "instability": 1,
   "research": {

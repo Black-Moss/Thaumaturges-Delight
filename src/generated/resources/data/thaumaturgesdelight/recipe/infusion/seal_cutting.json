@@ -1,20 +1,26 @@
 {
-  "type": "thaumaturge:crucible",
+  "type": "thaumaturge:infusion",
   "aspects": [
     {
-      "amount": 10,
+      "amount": 20,
       "aspect": "thaumaturge:machina"
     },
     {
-      "amount": 10,
+      "amount": 20,
       "aspect": "thaumaturge:sensus"
     },
     {
-      "amount": 10,
+      "amount": 20,
       "aspect": "thaumaturge:humanus"
     }
   ],
   "catalyst": "thaumaturge:seal_blank",
+  "components": [
+    "farmersdelight:golden_knife",
+    "#c:crops",
+    "#c:foods/raw_meat"
+  ],
+  "instability": 1,
   "research": {
     "entry": "thaumaturgesdelight:seal_cutting"
   },

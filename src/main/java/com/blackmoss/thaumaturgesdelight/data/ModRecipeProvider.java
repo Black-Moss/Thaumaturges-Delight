@@ -39,6 +39,7 @@ import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.Map;
 import java.util.Optional;
@@ -131,20 +132,25 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private void sealCutting() {
-        crucible(TDItems.SEAL_CUTTING.get(),
+        infusion(TDItems.SEAL_CUTTING.get(),
                 RecipeCategory.TOOLS, TCItems.SEAL_BLANK.get())
-                .aspect(TCAspects.MACHINA, 10)
-                .aspect(TCAspects.SENSUS, 10)
-                .aspect(TCAspects.HUMANUS, 10)
+                .component(Ingredient.of(ModItems.GOLDEN_KNIFE.get()))
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
+                .aspect(TCAspects.MACHINA, 20)
+                .aspect(TCAspects.SENSUS, 20)
+                .aspect(TCAspects.HUMANUS, 20)
+                .instability(1)
                 .gate(tdGate("seal_cutting"))
-                .unlockedBy("has", has(TCItems.SEAL_HARVEST.get()))
+                .unlockedBy("has", has(TCItems.SEAL_USE.get()))
                 .save(output);
 
         infusion(TDItems.SEAL_ADVANCED_CUTTING.get(),
                 RecipeCategory.TOOLS, TDItems.SEAL_CUTTING.get())
-                .component(Ingredient.of(ModItems.CUTTING_BOARD.get()))
-                .component(Ingredient.of(ModItems.CUTTING_BOARD.get()))
-                .component(Ingredient.of(ModItems.CUTTING_BOARD.get()))
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
                 .aspect(TCAspects.MACHINA, 20)
                 .aspect(TCAspects.SENSUS, 20)
                 .aspect(TCAspects.HUMANUS, 20)
