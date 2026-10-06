@@ -32,3 +32,9 @@ modId = "thaumaturge"
 type = "required"
 ordering = "AFTER"
 side = "BOTH"
+
+[[dependencies.${ mod_id }]]
+modId = "farmersdelight"
+type = "required"
+ordering = "AFTER"
+side = "BOTH"
