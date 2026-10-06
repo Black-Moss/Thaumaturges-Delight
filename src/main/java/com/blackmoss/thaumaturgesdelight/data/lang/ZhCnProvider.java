@@ -24,7 +24,8 @@ public final class ZhCnProvider extends LanguageProvider {
         add("research_category.thaumaturgesdelight.culinary_magic", "食品魔法");
 
         add("golem.arm.thaumaturgesdelight.knife", "菜刀机械臂");
-        add("golem.arm.text.thaumaturgesdelight.knife", "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。");
+        add("golem.arm.text.thaumaturgesdelight.knife",
+                "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。");
 
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
                 "虽然作为一名神秘使知道各种常人所不知的秘闻，但我吃的却很单调，一点都比不上那些凡人，我想我是时候在这一点上突破了……",
@@ -62,7 +63,7 @@ public final class ZhCnProvider extends LanguageProvider {
                 "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
                 "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
 
-        add("enchantment.thaumaturge.bleed_edge", "无往不利");
+        add("enchantment.thaumaturge.bleeding_edge", "无往不利");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
         addBlock(TDBlocks.ARCANE_STOVE, "奥术炉灶");
@@ -75,7 +76,7 @@ public final class ZhCnProvider extends LanguageProvider {
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
 
-        addItem(TDItems.SIXFOLD_MEAT_TREAT, "六层肉饼");
+        addItem(TDItems.SIXTUPLE_MEAT_TREAT, "六层肉饼");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
         addItem(TDItems.SEAL_CUTTING, "操控印记：切菜");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "高级操控印记：切菜");

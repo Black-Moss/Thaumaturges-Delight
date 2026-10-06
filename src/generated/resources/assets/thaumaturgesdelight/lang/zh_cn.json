@@ -5,7 +5,7 @@
   "container.thaumaturgesdelight.arcane_cooking_pot.heated": "已加热",
   "container.thaumaturgesdelight.arcane_cooking_pot.not_heated": "需要下方热源",
   "container.thaumaturgesdelight.arcane_cooking_pot.served_on": "盛放于：%s",
-  "enchantment.thaumaturge.bleed_edge": "无往不利",
+  "enchantment.thaumaturge.bleeding_edge": "无往不利",
   "golem.arm.text.thaumaturgesdelight.knife": "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。",
   "golem.arm.thaumaturgesdelight.knife": "菜刀机械臂",
   "item.thaumaturgesdelight.brass_knife": "黄铜刀",

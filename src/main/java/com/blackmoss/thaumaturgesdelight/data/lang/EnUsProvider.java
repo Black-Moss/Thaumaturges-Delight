@@ -23,24 +23,28 @@ public final class EnUsProvider extends LanguageProvider {
 
         add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
 
+        add("golem.arm.thaumaturgesdelight.knife", "Knife Arms");
+        add("golem.arm.text.thaumaturgesdelight.knife",
+                "These arms end in a pair of kitchen knives. The golem therefore always has a knife to hand and never needs to carry one — but its grip is taken up by the blades, so it cannot carry anything else.");
+
         addResearch("unlock_culinary_magic", "Unlock: Culinary Magic",
-                "Although as a thaumaturge envoy, I know all kinds of secrets that ordinary people don't know, what I eat is very monotonous and not at all as good as those mortals. I think it's time for me to break through in this regard...",
-                "I think there are also various magic hidden in food, which ordinary people don't know.");
+                "Despite learning much about the details of the world throughout my journey as a Thaumaturge,<BR>I have noticed that my diet has yet to be effected by my efforts. I think it is about time that changes.",
+                "As with most things, I expect that food is defined by magic, and can be improved by it.");
 
         addResearch("base_culinary_magic", "Culinary Magic",
-                "Only when you are full can you have the strength to do research!");
+                "You simply cannot do important research on an empty stomach!");
 
         addResearch("elemental_knife", "Elemental Knife",
-                "Ever since I succeeded in infusing primal elements into tools, I have wondered whether one could be infused into a knife as well — absurd as that may sound...<BR>As ever, let a thaumium tool be the first to go under the knife.",
-                "If my calculations hold — and I have not simply eaten myself into foolishness — this Knife of Butcher yields a few extra scraps of meat whenever it fells an animal. Nowhere near as grand as its siblings, perhaps, but a little more on the plate is still a little more, is it not?<BR>" +
-                        "And of course, an elemental property such as this could never belong to that one knife alone:" +
-                        "<PAGE>§oCook Ding§r" +
-                        "<DIV>When you kill an animal with a tool enchanted with this, it has a chance of dropping a few additional chunks of meat. Increasing the rank of this enchantment improves the chance." +
+                "Ever since I succeeded in infusing primal elements into tools, I have wondered whether one could be infused into a knife as well — absurd as that may sound...<BR>As ever, let a thaumium tool be the first to 'go under the knife.'",
+                "If my calculations hold — and I have not simply eaten myself into foolishness — the Knife of the Butcher does not simply cut, It is the essence of bifurcation. The knife forces materials to split at the molecular level, allowing me to more effectively get meat from animals.<BR>While nowhere near as grand as its siblings, not needing to go hunting as often is a suitable bonus.<BR>" +
+                        "Additionally, I have found that it is possible to apply a similar (yet less potent) enchantment to other knives." +
+                        "<PAGE>§oBleeding Edge§r" +
+                        "<DIV>When you kill an animal with a tool enchanted with Bleeding Edge, it has a chance of dropping a few additional chunks of meat. Increasing the rank of this enchantment improves the chance." +
                         "<DIV>§oRanks§r: 1-3" +
                         "<BR>§oTarget§r: Knife");
 
         addResearch("magic_kitchen", "Magic Kitchen",
-                "The cooking pot is far too fragile to hold essentia — I simply cannot cook with it at all. So it is not just the pot that needs upgrading, but the stove as well: without one I would have no way to feed essentia into the pot. The essentia smelter has already shown me the principle, so building one along those lines should not be difficult.",
+                "A standard cooking pot is far too fragile to contain raw essentia, it needs a more robust counterpart. — An upgraded stove to supply the essentia to the upgraded pot must also be created. The essentia smelter has already shown me the principle, so building a stove with similar properties should not be difficult.",
                 "A sprinkling of Salis Mundus over both the stove and the pot should be enough to let them channel and make use of essentia." +
                         "<BR>Unlike a crucible, the Arcane Cooking Pot cannot break things down into essentia; all it does is combine your ingredients with essentia and simmer them into a single dish. The Arcane Stove, meanwhile, builds up a certain suction while the dish is cooking, drawing the essentia it needs up into the pot to take part in it." +
                         "<BR>And of course this Pro-grade pot can still handle any recipe an ordinary cooking pot does!");
@@ -59,7 +63,7 @@ public final class EnUsProvider extends LanguageProvider {
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
                 "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
 
-        add("enchantment.thaumaturge.cook_ding", "Cook Ding");
+        add("enchantment.thaumaturge.bleeding_edge", "Bleeding Edge");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "Arcane Cooking Pot");
         addBlock(TDBlocks.ARCANE_STOVE, "Arcane Stove");
@@ -72,8 +76,8 @@ public final class EnUsProvider extends LanguageProvider {
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
 
-        addItem(TDItems.SIXFOLD_MEAT_TREAT, "Sixfold Meat Treat");
-        addItem(TDItems.PURIFY_COOKIE, "Purify Cookie");
+        addItem(TDItems.SIXTUPLE_MEAT_TREAT, "Sextuple Meat Treat");
+        addItem(TDItems.PURIFY_COOKIE, "Cookie of Purification");
         addItem(TDItems.SEAL_CUTTING, "Control Seal: Cutting");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "Advanced Control Seal: Cutting");
     }

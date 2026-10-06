@@ -15,7 +15,7 @@
     "thaumaturge:triple_meat_treat"
   ],
   "display_catalyst": "farmersdelight:flint_knife",
-  "enchantment": "bleed_edge",
+  "enchantment": "bleeding_edge",
   "research": {
     "entry": "thaumaturgesdelight:elemental_knife"
   }

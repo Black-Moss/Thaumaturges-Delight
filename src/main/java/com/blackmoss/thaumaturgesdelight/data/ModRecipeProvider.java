@@ -71,7 +71,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
                                 TCDataComponents.INFUSION_ENCHANTMENTS.get(),
                                 new InfusionEnchantments(Map.of(
-                                        TDInfusionEnchantments.BLEED_EDGE, 1)))
+                                        TDInfusionEnchantments.BLEEDING_EDGE, 1)))
                         .build()), Ingredient.of(TDItems.THAUMIUM_KNIFE.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
@@ -94,7 +94,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         essenceRockCandy();
 
         new ArcaneCookingPotRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),
-                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SIXFOLD_MEAT_TREAT.get()))
+                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SIXTUPLE_MEAT_TREAT.get()))
                 .ingredient(TCItems.CHUNK_BEEF.get())
                 .ingredient(TCItems.CHUNK_CHICKEN.get())
                 .ingredient(TCItems.CHUNK_PORK.get())
@@ -181,7 +181,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private InfusionEnchantmentRecipeBuilder infusionEnchantment(Item displayCatalyst, Ingredient signature) {
-        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.BLEED_EDGE, Ingredient.of(displayCatalyst))
+        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.BLEEDING_EDGE, Ingredient.of(displayCatalyst))
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));

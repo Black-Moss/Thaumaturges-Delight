@@ -28,7 +28,7 @@
   "result": {
     "components": {
       "thaumaturge:infusion_enchantments": {
-        "bleed_edge": 1
+        "bleeding_edge": 1
       }
     },
     "id": "thaumaturgesdelight:elemental_knife"

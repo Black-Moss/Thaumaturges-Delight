@@ -9,20 +9,20 @@ import net.minecraft.world.item.Item;
 
 import java.util.List;
 
-public final class BleedEdgeResults {
+public final class BleedingEdgeResults {
     private static final List<Entry> ENTRIES;
 
     static {
         ENTRIES = List.of(
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.COW, TCItems.CHUNK_BEEF.get()),
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.CHICKENS, TCItems.CHUNK_CHICKEN.get()),
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.PIGS, TCItems.CHUNK_PORK.get()),
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.FISH, TCItems.CHUNK_FISH.get()),
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.RABBITS, TCItems.CHUNK_RABBIT.get()),
-                new BleedEdgeResults.Entry(TDTags.EntityTypes.SHEEP, TCItems.CHUNK_MUTTON.get()));
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.COW, TCItems.CHUNK_BEEF.get()),
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.CHICKENS, TCItems.CHUNK_CHICKEN.get()),
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.PIGS, TCItems.CHUNK_PORK.get()),
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.FISH, TCItems.CHUNK_FISH.get()),
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.RABBITS, TCItems.CHUNK_RABBIT.get()),
+                new BleedingEdgeResults.Entry(TDTags.EntityTypes.SHEEP, TCItems.CHUNK_MUTTON.get()));
     }
 
-    private BleedEdgeResults() {
+    private BleedingEdgeResults() {
     }
 
     public static Item chunkFor(LivingEntity entity) {

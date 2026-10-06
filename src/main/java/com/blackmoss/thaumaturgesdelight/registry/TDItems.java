@@ -32,7 +32,7 @@ public final class TDItems {
             "essentia_rock_candy", EssentiaRockCandyItem::new, props -> props
                     .food(new FoodProperties(1, 0.5F, true),
                             Consumables.defaultFood().consumeSeconds(0.5F).build()));
-    public static final DeferredItem<Item> SIXFOLD_MEAT_TREAT = ITEMS.registerItem("sixfold_meat_treat",
+    public static final DeferredItem<Item> SIXTUPLE_MEAT_TREAT = ITEMS.registerItem("sixfold_meat_treat",
             props -> new Item(props.food(new FoodProperties.Builder()
                             .nutrition(12)
                             .saturationModifier(1.6F)

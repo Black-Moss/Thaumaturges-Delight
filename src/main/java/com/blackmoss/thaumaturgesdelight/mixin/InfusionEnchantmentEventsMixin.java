@@ -1,6 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.mixin;
 
-import com.blackmoss.thaumaturgesdelight.item.BleedEdgeResults;
+import com.blackmoss.thaumaturgesdelight.item.BleedingEdgeResults;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantmentEvents;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantmentHelper;
@@ -25,7 +25,7 @@ import java.util.List;
 @Mixin(InfusionEnchantmentEvents.class)
 public final class InfusionEnchantmentEventsMixin {
     @Unique
-    private static final float BLEED_EDGE_CHANCE_PER_LEVEL = 0.125F;
+    private static final float BLEEDING_EDGE_CHANCE_PER_LEVEL = 0.125F;
 
     private InfusionEnchantmentEventsMixin() {
     }
@@ -40,18 +40,18 @@ public final class InfusionEnchantmentEventsMixin {
         }
 
         ItemStack held = player.getMainHandItem();
-        int rank = InfusionEnchantmentHelper.level(held, TDInfusionEnchantments.BLEED_EDGE);
+        int rank = InfusionEnchantmentHelper.level(held, TDInfusionEnchantments.BLEEDING_EDGE);
         if (rank <= 0) {
             return;
         }
 
-        Item chunk = BleedEdgeResults.chunkFor(event.getEntity());
+        Item chunk = BleedingEdgeResults.chunkFor(event.getEntity());
         if (chunk == null) {
             return;
         }
 
         ServerLevel level = (ServerLevel) player.level();
-        float chance = (1 + rank) * BLEED_EDGE_CHANCE_PER_LEVEL;
+        float chance = (1 + rank) * BLEEDING_EDGE_CHANCE_PER_LEVEL;
         Collection<ItemEntity> drops = event.getDrops();
         List<ItemEntity> chunks = new ArrayList<>();
         for (ItemEntity drop : drops) {

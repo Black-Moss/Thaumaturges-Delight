@@ -26,7 +26,7 @@ public class TDCreativeModeTabs {
                         output.accept(TDItems.THAUMIUM_KNIFE.get());
 
                         ItemStack elementalKnife = new ItemStack(TDItems.ELEMENTAL_KNIFE.get());
-                        InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.BLEED_EDGE, 1);
+                        InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.BLEEDING_EDGE, 1);
                         output.accept(elementalKnife);
 
                         output.accept(TDItems.VOID_KNIFE.get());
@@ -36,7 +36,7 @@ public class TDCreativeModeTabs {
                         output.accept(TDItems.ARCANE_COOKING_POT.get());
                         output.accept(TDItems.ARCANE_STOVE.get());
 
-                        output.accept(TDItems.SIXFOLD_MEAT_TREAT.get());
+                        output.accept(TDItems.SIXTUPLE_MEAT_TREAT.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
                         output.accept(TDItems.SEAL_CUTTING.get());
                         output.accept(TDItems.SEAL_ADVANCED_CUTTING.get());
