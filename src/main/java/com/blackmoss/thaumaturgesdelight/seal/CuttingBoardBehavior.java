@@ -10,7 +10,6 @@ import com.leclowndu93150.thaumaturge.api.items.InvHelper;
 import com.leclowndu93150.thaumaturge.content.golem.seals.behavior.ItemMatchSettings;
 import com.leclowndu93150.thaumaturge.content.golem.tasks.TaskBoard;
 import com.leclowndu93150.thaumaturge.server.TCFakePlayer;
-import java.util.List;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
@@ -18,6 +17,8 @@ import net.minecraft.world.level.Level;
 import vectorwing.farmersdelight.common.block.entity.CuttingBoardBlockEntity;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.tag.ModTags;
+
+import java.util.List;
 
 public final class CuttingBoardBehavior implements ISealBehavior {
     public static final SealPlacement ON_CUTTING_BOARD = (level, pos, _) -> level.getBlockState(pos).is(ModBlocks.CUTTING_BOARD.get());
@@ -27,6 +28,43 @@ public final class CuttingBoardBehavior implements ISealBehavior {
 
     private int counter;
     private int pendingTask = Integer.MIN_VALUE;
+
+    private static boolean boardReady(Level level, ISealEntity seal) {
+        ItemStack onBoard = boardItem(level, seal);
+        return !onBoard.isEmpty() && targetAllowed(seal, onBoard);
+    }
+
+    private static ItemStack boardItem(Level level, ISealEntity seal) {
+        BlockPos pos = seal.pos().pos();
+        return level.getBlockEntity(pos) instanceof CuttingBoardBlockEntity board ? board.getStoredItem() : ItemStack.EMPTY;
+    }
+
+    private static boolean targetAllowed(ISealEntity seal, ItemStack onBoard) {
+        ISealFilter filter = seal.filter().orElse(null);
+        if (filter == null) {
+            return true;
+        }
+        ItemStack wanted = filter.stack(SLOT_TARGET);
+        if (wanted.isEmpty()) {
+            return true;
+        }
+        return InvHelper.matchesFilters(List.of(wanted), filter.isBlacklist(), onBoard, ItemMatchSettings.of(seal));
+    }
+
+    private static ItemStack knifeInHand(ISealEntity seal, IGolemAPI golem) {
+        ISealFilter filter = seal.filter().orElse(null);
+        ItemStack wanted = filter == null ? ItemStack.EMPTY : filter.stack(SLOT_KNIFE);
+        InvHelper.InvFilter match = ItemMatchSettings.of(seal);
+        for (ItemStack stack : golem.hands().contents()) {
+            if (!stack.is(ModTags.Items.KNIVES)) {
+                continue;
+            }
+            if (filter != null && (wanted.isEmpty() || InvHelper.matchesFilters(List.of(wanted), filter.isBlacklist(), stack, match))) {
+                return stack;
+            }
+        }
+        return ItemStack.EMPTY;
+    }
 
     @Override
     public void tick(ServerLevel level, ISealEntity seal) {
@@ -67,42 +105,5 @@ public final class CuttingBoardBehavior implements ISealBehavior {
         }
         task.suspend();
         return true;
-    }
-
-    private static boolean boardReady(Level level, ISealEntity seal) {
-        ItemStack onBoard = boardItem(level, seal);
-        return !onBoard.isEmpty() && targetAllowed(seal, onBoard);
-    }
-
-    private static ItemStack boardItem(Level level, ISealEntity seal) {
-        BlockPos pos = seal.pos().pos();
-        return level.getBlockEntity(pos) instanceof CuttingBoardBlockEntity board ? board.getStoredItem() : ItemStack.EMPTY;
-    }
-
-    private static boolean targetAllowed(ISealEntity seal, ItemStack onBoard) {
-        ISealFilter filter = seal.filter().orElse(null);
-        if (filter == null) {
-            return true;
-        }
-        ItemStack wanted = filter.stack(SLOT_TARGET);
-        if (wanted.isEmpty()) {
-            return true;
-        }
-        return InvHelper.matchesFilters(List.of(wanted), filter.isBlacklist(), onBoard, ItemMatchSettings.of(seal));
-    }
-
-    private static ItemStack knifeInHand(ISealEntity seal, IGolemAPI golem) {
-        ISealFilter filter = seal.filter().orElse(null);
-        ItemStack wanted = filter == null ? ItemStack.EMPTY : filter.stack(SLOT_KNIFE);
-        InvHelper.InvFilter match = ItemMatchSettings.of(seal);
-        for (ItemStack stack : golem.hands().contents()) {
-            if (!stack.is(ModTags.Items.KNIVES)) {
-                continue;
-            }
-            if (filter != null && (wanted.isEmpty() || InvHelper.matchesFilters(List.of(wanted), filter.isBlacklist(), stack, match))) {
-                return stack;
-            }
-        }
-        return ItemStack.EMPTY;
     }
 }
