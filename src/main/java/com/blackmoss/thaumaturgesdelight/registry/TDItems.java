@@ -50,6 +50,8 @@ public final class TDItems {
 
     public static final DeferredItem<BlockItem> ARCANE_COOKING_POT = ITEMS.registerSimpleBlockItem(TDBlocks.ARCANE_COOKING_POT);
     public static final DeferredItem<BlockItem> ARCANE_STOVE = ITEMS.registerSimpleBlockItem(TDBlocks.ARCANE_STOVE);
+    public static final DeferredItem<BlockItem> AURA_RICH_SOIL = ITEMS.registerSimpleBlockItem(TDBlocks.AURA_RICH_SOIL);
+    public static final DeferredItem<BlockItem> AURA_RICH_SOIL_FARMLAND = ITEMS.registerSimpleBlockItem(TDBlocks.AURA_RICH_SOIL_FARMLAND);
 
     public static final DeferredItem<ItemSealPlacer> SEAL_CUTTING = ITEMS.registerItem("seal_cutting",
             props -> new ItemSealPlacer(ThaumaturgesDelight.identifier("cutting"), props));

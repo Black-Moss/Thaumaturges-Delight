@@ -27,6 +27,9 @@ public class ModBlockLootSubProvider extends BlockLootSubProvider {
     protected void generate() {
         dropSelf(TDBlocks.ARCANE_COOKING_POT.get());
         dropSelf(TDBlocks.ARCANE_STOVE.get());
+        dropSelf(TDBlocks.AURA_RICH_SOIL.get());
+        // 和乐事一样：耕地被挖掉时掉的是沃土
+        dropOther(TDBlocks.AURA_RICH_SOIL_FARMLAND.get(), TDBlocks.AURA_RICH_SOIL.get());
     }
 
     public HolderLookup.Provider getLookupProvider() {

@@ -13,6 +13,7 @@ import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.data.tags.KeyTagProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
@@ -63,6 +64,9 @@ public final class ModTagsProvider implements DataProvider {
                         .addTags(TCBlockTags.CRUCIBLE_HEAT_SOURCES);
                 tag(TCBlockTags.CRUCIBLE_HEAT_SOURCES)
                         .add(TDBlocks.ARCANE_STOVE.get());
+                tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                        .add(TDBlocks.AURA_RICH_SOIL.get())
+                        .add(TDBlocks.AURA_RICH_SOIL_FARMLAND.get());
             }
         };
 

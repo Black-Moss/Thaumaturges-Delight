@@ -1,6 +1,8 @@
 {
   "block.thaumaturgesdelight.arcane_cooking_pot": "奥术厨锅",
   "block.thaumaturgesdelight.arcane_stove": "奥术炉灶",
+  "block.thaumaturgesdelight.aura_rich_soil": "灵气沃土",
+  "block.thaumaturgesdelight.aura_rich_soil_farmland": "灵气沃土耕地",
   "container.thaumaturgesdelight.arcane_cooking_pot": "奥术厨锅",
   "container.thaumaturgesdelight.arcane_cooking_pot.heated": "已加热",
   "container.thaumaturgesdelight.arcane_cooking_pot.not_heated": "需要下方热源",
@@ -21,6 +23,9 @@
   "item.thaumaturgesdelight.void_knife": "虚空刀",
   "itemGroup.thaumaturgesdelight": "神秘乐事",
   "recipe.type.arcane_cooking": "奥术烹饪",
+  "research.thaumaturgesdelight.aura_rich_soil.stage_0": "好吧普通的沃土生长速度还是太慢了，我不得不为了一道菜而等上个一天时间，看来我必须得动用魔法的力量了…",
+  "research.thaumaturgesdelight.aura_rich_soil.stage_1": "给沃土撒上些世界盐，灵气就会进入到沃土中成为作物的养分，每当作物成功生长一个阶段时就会扣除当前区块的一点灵气。<BR>别种太多了，你不是来种裂隙的！",
+  "research.thaumaturgesdelight.aura_rich_soil.title": "灵气沃土",
   "research.thaumaturgesdelight.base_culinary_magic.stage_0": "吃饱了才有力气搞研究！",
   "research.thaumaturgesdelight.base_culinary_magic.title": "食品魔法",
   "research.thaumaturgesdelight.elemental_knife.stage_0": "自从将元始要素成功注入工具之后，我一直在想能不能把要素注入进刀里面，虽然这听起来有点荒谬……<BR>老样子，先用神秘工具“开刀”吧。",
@@ -36,8 +41,8 @@
   "research.thaumaturgesdelight.seal_cutting.stage_0": "很可惜的是，普通的使用印记并不适用于切菜，我应该单独设计一个适用于厨房的操控印记，当然它肯定得比普通的使用印记要便宜些。",
   "research.thaumaturgesdelight.seal_cutting.stage_1": "切菜印记专用于在砧板上切菜，且只能放置在砧板上。当傀儡手上有刀，且砧板上的东西可以切时，傀儡就会开始切菜了。<BR>注意：该印记只负责切菜，不负责收集，也就是说傀儡切出来的菜会飞的到处都是！<BR>§9这项研究解锁了新的傀儡部件§0。",
   "research.thaumaturgesdelight.seal_cutting.title": "操控印记：切菜",
-  "research.thaumaturgesdelight.unlock_culinary_magic.stage_0": "虽然作为一名神秘使知道各种常人所不知的秘闻，但我吃的却很单调，一点都比不上那些凡人，我想我是时候在这一点上突破了……",
-  "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "我认为食物中也会蕴藏各种魔法，这可是他们那些凡人所不知的。",
+  "research.thaumaturgesdelight.unlock_culinary_magic.stage_0": "虽然作为一名神秘使知道各种常人所不知的秘闻，但我注意到这些东西并没有改善到我的饮食，<BR>我认为是时候了。",
+  "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "与大多数事物一样，我希望食物是由魔法定义的，并且可以通过它来改善。",
   "research.thaumaturgesdelight.unlock_culinary_magic.title": "解锁：食品魔法",
   "research_category.thaumaturgesdelight.culinary_magic": "食品魔法"
 }

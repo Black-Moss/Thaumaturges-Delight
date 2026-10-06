@@ -21,6 +21,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.FarmlandBlock;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
@@ -39,6 +40,25 @@ public class ModModelProvider extends ModelProvider {
     private static final Identifier STOVE_ON_MODEL = ThaumaturgesDelight.identifier("block/arcane_stove_on");
     private static final TextureMapping STOVE_TEXTURES = stoveTextures(false);
     private static final TextureMapping STOVE_ON_TEXTURES = stoveTextures(true);
+
+    private static final Identifier SOIL_MODEL = ThaumaturgesDelight.identifier("block/aura_rich_soil");
+
+    private static final TextureMapping SOIL_TEXTURES = new TextureMapping()
+            .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil")));
+
+    private static final Identifier SOIL_FARMLAND_MODEL = ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland");
+    private static final Identifier SOIL_FARMLAND_MOIST_MODEL = ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland_moist");
+    private static final ModelTemplate FARMLAND_TEMPLATE = new ModelTemplate(
+            Optional.of(ThaumaturgesDelight.fdIdentifier("block/template_farmland_custom")), Optional.empty(),
+            TextureSlot.BOTTOM, TextureSlot.SIDE, TextureSlot.TOP);
+    private static final TextureMapping SOIL_FARMLAND_TEXTURES = new TextureMapping()
+            .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil")))
+            .put(TextureSlot.SIDE, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil")))
+            .put(TextureSlot.TOP, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland")));
+    private static final TextureMapping SOIL_FARMLAND_MOIST_TEXTURES = new TextureMapping()
+            .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil")))
+            .put(TextureSlot.SIDE, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland_moist_side")))
+            .put(TextureSlot.TOP, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland_moist")));
 
     public ModModelProvider(PackOutput output) {
         super(output, ThaumaturgesDelight.MODID);
@@ -83,6 +103,8 @@ public class ModModelProvider extends ModelProvider {
     protected void registerModels(@NonNull BlockModelGenerators blockModels, @NonNull ItemModelGenerators itemModels) {
         arcaneCookingPot(blockModels);
         arcaneStove(blockModels);
+        auraRichSoil(blockModels);
+        auraRichSoilFarmland(blockModels);
 
         flatItem(itemModels, TDItems.BRASS_KNIFE.get());
         flatItem(itemModels, TDItems.THAUMIUM_KNIFE.get());
@@ -134,5 +156,33 @@ public class ModModelProvider extends ModelProvider {
 
         blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
         blockModels.registerSimpleItemModel(block, STOVE_MODEL);
+    }
+
+    private void auraRichSoil(@NonNull BlockModelGenerators blockModels) {
+        Block block = TDBlocks.AURA_RICH_SOIL.get();
+        ModelTemplates.CUBE_ALL.create(SOIL_MODEL, SOIL_TEXTURES, blockModels.modelOutput);
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block, BlockModelGenerators.plainVariant(SOIL_MODEL)));
+        blockModels.registerSimpleItemModel(block, SOIL_MODEL);
+    }
+
+    private void auraRichSoilFarmland(@NonNull BlockModelGenerators blockModels) {
+        Block block = TDBlocks.AURA_RICH_SOIL_FARMLAND.get();
+        FARMLAND_TEMPLATE.create(SOIL_FARMLAND_MODEL, SOIL_FARMLAND_TEXTURES, blockModels.modelOutput);
+        FARMLAND_TEMPLATE.create(SOIL_FARMLAND_MOIST_MODEL, SOIL_FARMLAND_MOIST_TEXTURES, blockModels.modelOutput);
+
+        MultiVariant dry = BlockModelGenerators.plainVariant(SOIL_FARMLAND_MODEL);
+        MultiVariant moist = BlockModelGenerators.plainVariant(SOIL_FARMLAND_MOIST_MODEL);
+        PropertyDispatch<MultiVariant> dispatch = PropertyDispatch.initial(FarmlandBlock.MOISTURE)
+                .select(0, dry)
+                .select(1, dry)
+                .select(2, dry)
+                .select(3, dry)
+                .select(4, dry)
+                .select(5, dry)
+                .select(6, dry)
+                .select(7, moist);
+
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
+        blockModels.registerSimpleItemModel(block, SOIL_FARMLAND_MODEL);
     }
 }

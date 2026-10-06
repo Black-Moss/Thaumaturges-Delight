@@ -1,0 +1,8 @@
+{
+  "parent": "farmersdelight:block/template_farmland_custom",
+  "textures": {
+    "bottom": "thaumaturgesdelight:block/aura_rich_soil",
+    "side": "thaumaturgesdelight:block/aura_rich_soil_farmland_moist_side",
+    "top": "thaumaturgesdelight:block/aura_rich_soil_farmland_moist"
+  }
+}

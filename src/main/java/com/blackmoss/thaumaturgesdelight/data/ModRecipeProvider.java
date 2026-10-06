@@ -38,6 +38,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
@@ -64,6 +65,13 @@ public final class ModRecipeProvider extends RecipeProvider {
     protected void buildRecipes() {
         knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
+
+        // 灵气沃土：一把世界盐拌进沃土
+        shapeless(RecipeCategory.MISC, TDItems.AURA_RICH_SOIL.get())
+                .requires(ModBlocks.RICH_SOIL.get())
+                .requires(TCItems.SALIS_MUNDUS.get())
+                .unlockedBy("has_rich_soil", has(ModBlocks.RICH_SOIL.get()))
+                .save(output);
 
         new InfusionRecipeBuilder(
                 this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),

@@ -1,0 +1,56 @@
+﻿{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "name": "research.thaumaturgesdelight.aura_rich_soil.title",
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturge:elemental_tools",
+    "thaumaturge:infusion_enchantment"
+  ],
+  "column": -3,
+  "row": -3,
+  "icons": [
+    "thaumaturgesdelight:aura_rich_soil"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturgesdelight.aura_rich_soil.stage_0",
+      "craft": [
+        {
+          "items": [
+            "farmersdelight:rich_soil"
+          ],
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturgesdelight:culinary_magic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturgesdelight.aura_rich_soil.stage_1",
+      "recipes": [
+        "thaumaturgesdelight:dust_trigger/aura_rich_soil",
+        "thaumaturgesdelight:dust_trigger/aura_rich_soil_farmland.json"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:terra",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:herba",
+      "amount": 5
+    },
+    {
+      "aspect": "thaumaturge:auram",
+      "amount": 5
+    }
+  ],
+  "complexity": 1
+}

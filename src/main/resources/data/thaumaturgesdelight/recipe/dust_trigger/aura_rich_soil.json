@@ -1,0 +1,10 @@
+{
+  "type": "thaumaturge:dust_trigger_simple",
+  "research": {
+    "entry": "thaumaturgesdelight:aura_rich_soil"
+  },
+  "result": {
+    "id": "thaumaturgesdelight:aura_rich_soil"
+  },
+  "target": "farmersdelight:rich_soil"
+}

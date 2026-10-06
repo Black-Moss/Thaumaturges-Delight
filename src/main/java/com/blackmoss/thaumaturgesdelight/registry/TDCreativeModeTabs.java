@@ -31,10 +31,10 @@ public class TDCreativeModeTabs {
 
                         output.accept(TDItems.VOID_KNIFE.get());
 
-                        HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
-
                         output.accept(TDItems.ARCANE_COOKING_POT.get());
                         output.accept(TDItems.ARCANE_STOVE.get());
+                        output.accept(TDItems.AURA_RICH_SOIL.get());
+                        output.accept(TDItems.AURA_RICH_SOIL_FARMLAND.get());
 
                         output.accept(TDItems.SEXTUPLE_MEAT_TREAT.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
@@ -42,6 +42,7 @@ public class TDCreativeModeTabs {
                         output.accept(TDItems.SEAL_ADVANCED_CUTTING.get());
                         output.accept(TDItems.CHUNKS_FRIED_RICE);
 
+                        HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
                         for (Holder<IAspect> aspect : aspectRegistry
                                 .listElements()
                                 .sorted(Comparator.comparing((h) -> !h.value().isPrimal()))
