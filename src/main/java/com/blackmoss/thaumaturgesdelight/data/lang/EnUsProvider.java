@@ -23,6 +23,10 @@ public final class EnUsProvider extends LanguageProvider {
 
         add("research_category.thaumaturgesdelight.culinary_magic", "Culinary Magic");
 
+        add("golem.arm.thaumaturgesdelight.knife", "Knife Arms");
+        add("golem.arm.text.thaumaturgesdelight.knife",
+                "These arms end in a pair of kitchen knives. The golem therefore always has a knife to hand and never needs to carry one — but its grip is taken up by the blades, so it cannot carry anything else.");
+
         addResearch("unlock_culinary_magic", "Unlock: Culinary Magic",
                 "Although as a thaumaturge envoy, I know all kinds of secrets that ordinary people don't know, what I eat is very monotonous and not at all as good as those mortals. I think it's time for me to break through in this regard...",
                 "I think there are also various magic hidden in food, which ordinary people don't know.");

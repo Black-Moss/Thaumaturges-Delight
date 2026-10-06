@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "thaumaturgesdelight:seal_advanced_cutting"
+            "items": "thaumaturge:seal_use"
           }
         ]
       },

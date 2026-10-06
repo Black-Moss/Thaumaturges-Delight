@@ -23,6 +23,9 @@ public final class ZhCnProvider extends LanguageProvider {
 
         add("research_category.thaumaturgesdelight.culinary_magic", "食品魔法");
 
+        add("golem.arm.thaumaturgesdelight.knife", "菜刀机械臂");
+        add("golem.arm.text.thaumaturgesdelight.knife", "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。");
+
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
                 "虽然作为一名神秘使知道各种常人所不知的秘闻，但我吃的却很单调，一点都比不上那些凡人，我想我是时候在这一点上突破了……",
                 "我认为食物中也会蕴藏各种魔法，这可是他们那些凡人所不知的。");
