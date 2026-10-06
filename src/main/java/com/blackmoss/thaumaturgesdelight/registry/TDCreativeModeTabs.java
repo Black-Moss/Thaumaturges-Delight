@@ -26,7 +26,7 @@ public class TDCreativeModeTabs {
                         output.accept(TDItems.THAUMIUM_KNIFE.get());
 
                         ItemStack elementalKnife = new ItemStack(TDItems.ELEMENTAL_KNIFE.get());
-                        InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.COOK_DING, 1);
+                        InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.BLEED_EDGE, 1);
                         output.accept(elementalKnife);
 
                         output.accept(TDItems.VOID_KNIFE.get());

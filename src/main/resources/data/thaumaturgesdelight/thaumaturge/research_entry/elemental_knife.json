@@ -39,7 +39,7 @@
       "text": "research.thaumaturgesdelight.elemental_knife.stage_1",
       "recipes": [
         "thaumaturgesdelight:infusion/elemental_knife",
-        "thaumaturge:infusion_enchantment/cook_ding"
+        "thaumaturge:infusion_enchantment/bleed_edge"
       ]
     }
   ],

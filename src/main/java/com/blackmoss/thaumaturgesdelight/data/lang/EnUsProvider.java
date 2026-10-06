@@ -38,8 +38,8 @@ public final class EnUsProvider extends LanguageProvider {
                 "Ever since I succeeded in infusing primal elements into tools, I have wondered whether one could be infused into a knife as well — absurd as that may sound...<BR>As ever, let a thaumium tool be the first to go under the knife.",
                 "If my calculations hold — and I have not simply eaten myself into foolishness — this Knife of Butcher yields a few extra scraps of meat whenever it fells an animal. Nowhere near as grand as its siblings, perhaps, but a little more on the plate is still a little more, is it not?<BR>" +
                         "And of course, an elemental property such as this could never belong to that one knife alone:" +
-                        "<PAGE>§oCook Ding§r" +
-                        "<DIV>When you kill an animal with a tool enchanted with this, it has a chance of dropping a few additional chunks of meat. Increasing the rank of this enchantment improves the chance." +
+                        "<PAGE>§oBleed Edge§r" +
+                        "<DIV>This knife does not simply cut, It is the essence of bifurcation. The knife forces materials to split at the molecular level, leaving a smooth finish. <BR>When you kill an animal with a tool enchanted with this, it has a chance of dropping a few additional chunks of meat. Increasing the rank of this enchantment improves the chance." +
                         "<DIV>§oRanks§r: 1-3" +
                         "<BR>§oTarget§r: Knife");
 
@@ -63,7 +63,7 @@ public final class EnUsProvider extends LanguageProvider {
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
                 "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
 
-        add("enchantment.thaumaturge.cook_ding", "Cook Ding");
+        add("enchantment.thaumaturge.bleed_edge", "Bleed Edge");
 
         addBlock(TDBlocks.ARCANE_COOKING_POT, "Arcane Cooking Pot");
         addBlock(TDBlocks.ARCANE_STOVE, "Arcane Stove");

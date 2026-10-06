@@ -39,7 +39,6 @@ import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
-import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.Map;
 import java.util.Optional;
@@ -72,7 +71,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
                                 TCDataComponents.INFUSION_ENCHANTMENTS.get(),
                                 new InfusionEnchantments(Map.of(
-                                        TDInfusionEnchantments.COOK_DING, 1)))
+                                        TDInfusionEnchantments.BLEED_EDGE, 1)))
                         .build()), Ingredient.of(TDItems.THAUMIUM_KNIFE.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
@@ -182,7 +181,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private InfusionEnchantmentRecipeBuilder infusionEnchantment(Item displayCatalyst, Ingredient signature) {
-        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.COOK_DING, Ingredient.of(displayCatalyst))
+        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.BLEED_EDGE, Ingredient.of(displayCatalyst))
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));
