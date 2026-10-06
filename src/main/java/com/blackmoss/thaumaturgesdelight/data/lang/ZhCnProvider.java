@@ -45,6 +45,15 @@ public final class ZhCnProvider extends LanguageProvider {
                         "<BR>不同于坩埚，奥术厨锅并不能把事物融化成源质，它只能将你的食材和源质混合在一起煮成一道菜；与此同时，奥术炉灶会在做菜时产生一定的吸力，将需要的源质吸到厨锅中进行烹饪。" +
                         "<BR>当然这个Pro版厨锅也支持普通厨锅的配方！");
 
+        addResearch("seal_cutting", "操控印记：切菜",
+                "很可惜的是，普通的使用印记并不适用于切菜，我应该单独设计一个适用于厨房的操控印记，当然它肯定得比普通的使用印记要便宜些。",
+                "切菜印记专用于在砧板上切菜，且只能放置在砧板上。当傀儡手上有刀，且砧板上的东西可以切时，傀儡就会开始切菜了。" +
+                        "<BR>注意：该印记只负责切菜，不负责收集，也就是说傀儡切出来的菜会飞的到处都是！" +
+                        "<BR>§9这项研究解锁了新的傀儡部件§0。");
+
+        addResearchAddenda("seal_cutting",
+                "高级版本的切菜印记可以设置过滤，第一个格子过滤要切的物品，第二格子过滤使用什么刀。");
+
         addResearch("essentia_rock_candy", "源质冰糖",
                 "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
                 "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
@@ -64,12 +73,20 @@ public final class ZhCnProvider extends LanguageProvider {
 
         addItem(TDItems.SIXFOLD_MEAT_TREAT, "六层肉饼");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
+        addItem(TDItems.SEAL_CUTTING, "操控印记：切菜");
+        addItem(TDItems.SEAL_ADVANCED_CUTTING, "高级操控印记：切菜");
     }
 
     private void addResearch(String researchId, String title, String... stage) {
         add("research.%s.%s.title".formatted(ThaumaturgesDelight.MODID, researchId), title);
         for (int i = 0; i < stage.length; i++) {
             add("research.%s.%s.stage_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
+        }
+    }
+
+    private void addResearchAddenda(String researchId, String... stage) {
+        for (int i = 0; i < stage.length; i++) {
+            add("research.%s.%s.addendum_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
         }
     }
 }

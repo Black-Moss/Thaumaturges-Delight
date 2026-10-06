@@ -1,0 +1,30 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 20,
+      "aspect": "thaumaturge:machina"
+    },
+    {
+      "amount": 20,
+      "aspect": "thaumaturge:sensus"
+    },
+    {
+      "amount": 20,
+      "aspect": "thaumaturge:humanus"
+    }
+  ],
+  "catalyst": "thaumaturgesdelight:seal_cutting",
+  "components": [
+    "farmersdelight:cutting_board",
+    "farmersdelight:cutting_board",
+    "farmersdelight:cutting_board"
+  ],
+  "instability": 1,
+  "research": {
+    "entry": "thaumaturgesdelight:seal_cutting"
+  },
+  "result": {
+    "id": "thaumaturgesdelight:seal_advanced_cutting"
+  }
+}

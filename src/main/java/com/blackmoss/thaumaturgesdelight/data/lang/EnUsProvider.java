@@ -45,6 +45,15 @@ public final class EnUsProvider extends LanguageProvider {
                         "<BR>Unlike a crucible, the Arcane Cooking Pot cannot break things down into essentia; all it does is combine your ingredients with essentia and simmer them into a single dish. The Arcane Stove, meanwhile, builds up a certain suction while the dish is cooking, drawing the essentia it needs up into the pot to take part in it." +
                         "<BR>And of course this Pro-grade pot can still handle any recipe an ordinary cooking pot does!");
 
+        addResearch("seal_cutting", "Control Seal: Cutting",
+                "Sadly, an ordinary Use seal is no good for preparing food. I should design a Control Seal made for the kitchen instead — and of course it ought to be cheaper than a plain Use seal.",
+                "The Cutting seal exists to cut things on a cutting board, and it can only be placed on one. When a golem has a knife to hand and whatever sits on the board can be cut, it will set to work." +
+                        "<BR>Note: this seal only cuts, it does not gather — whatever the golem chops will be flung every which way!<BR>" +
+                        "<BR>§9This research also unlocks additional golem parts§0.");
+
+        addResearchAddenda("seal_cutting",
+                "<PAGE>The advanced version of the Cutting seal can be filtered: the first slot filters what is to be cut, the second filters which knife is used.");
+
         addResearch("essentia_rock_candy", "Essentia Rock Candy",
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
                 "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
@@ -57,19 +66,27 @@ public final class EnUsProvider extends LanguageProvider {
         addItem(TDItems.BRASS_KNIFE, "Brass Knife");
         addItem(TDItems.THAUMIUM_KNIFE, "Thaumium Knife");
         addItem(TDItems.VOID_KNIFE, "Void Knife");
-        addItem(TDItems.ELEMENTAL_KNIFE, "Knife of Butcher");
+        addItem(TDItems.ELEMENTAL_KNIFE, "Knife of the Butcher");
 
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
 
         addItem(TDItems.SIXFOLD_MEAT_TREAT, "Sixfold Meat Treat");
         addItem(TDItems.PURIFY_COOKIE, "Purify Cookie");
+        addItem(TDItems.SEAL_CUTTING, "Control Seal: Cutting");
+        addItem(TDItems.SEAL_ADVANCED_CUTTING, "Advanced Control Seal: Cutting");
     }
 
     private void addResearch(String researchId, String title, String... stage) {
         add("research.%s.%s.title".formatted(ThaumaturgesDelight.MODID, researchId), title);
         for (int i = 0; i < stage.length; i++) {
             add("research.%s.%s.stage_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
+        }
+    }
+
+    private void addResearchAddenda(String researchId, String... stage) {
+        for (int i = 0; i < stage.length; i++) {
+            add("research.%s.%s.addendum_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
         }
     }
 }

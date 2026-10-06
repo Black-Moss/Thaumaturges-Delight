@@ -1,0 +1,24 @@
+{
+  "type": "thaumaturge:crucible",
+  "aspects": [
+    {
+      "amount": 10,
+      "aspect": "thaumaturge:machina"
+    },
+    {
+      "amount": 10,
+      "aspect": "thaumaturge:sensus"
+    },
+    {
+      "amount": 10,
+      "aspect": "thaumaturge:humanus"
+    }
+  ],
+  "catalyst": "thaumaturge:seal_blank",
+  "research": {
+    "entry": "thaumaturgesdelight:seal_cutting"
+  },
+  "result": {
+    "id": "thaumaturgesdelight:seal_cutting"
+  }
+}
