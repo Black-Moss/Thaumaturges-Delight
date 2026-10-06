@@ -38,6 +38,8 @@ public class TDCreativeModeTabs {
 
                         output.accept(TDItems.SIXFOLD_MEAT_TREAT.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
+                        output.accept(TDItems.SEAL_CUTTING.get());
+                        output.accept(TDItems.SEAL_ADVANCED_CUTTING.get());
 
                         for (Holder<IAspect> aspect : aspectRegistry
                                 .listElements()

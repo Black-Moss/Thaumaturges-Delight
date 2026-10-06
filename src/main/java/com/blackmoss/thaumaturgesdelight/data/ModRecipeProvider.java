@@ -39,6 +39,7 @@ import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.Map;
 import java.util.Optional;
@@ -65,12 +66,14 @@ public final class ModRecipeProvider extends RecipeProvider {
         knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
 
-        infusion(new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
+        new InfusionRecipeBuilder(
+                this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),
+                RecipeCategory.TOOLS,
+                new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
                                 TCDataComponents.INFUSION_ENCHANTMENTS.get(),
                                 new InfusionEnchantments(Map.of(
                                         TDInfusionEnchantments.COOK_DING, 1)))
-                        .build()),
-                RecipeCategory.TOOLS, TDItems.THAUMIUM_KNIFE)
+                        .build()), Ingredient.of(TDItems.THAUMIUM_KNIFE.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
                 .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
                 .component(tag(TCItemTags.NUGGETS_QUARTZ))
@@ -104,6 +107,8 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .tab(CookingPotRecipeBookTab.MEALS)
                 .unlockedBy("has", has(TCItems.TRIPLE_MEAT_TREAT.get()))
                 .save(output);
+
+        sealCutting();
     }
 
     private void essenceRockCandy() {
@@ -126,6 +131,35 @@ public final class ModRecipeProvider extends RecipeProvider {
         }
     }
 
+    private void sealCutting() {
+        infusion(TDItems.SEAL_CUTTING.get(),
+                RecipeCategory.TOOLS, TCItems.SEAL_BLANK.get())
+                .component(Ingredient.of(ModItems.GOLDEN_KNIFE.get()))
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
+                .aspect(TCAspects.MACHINA, 20)
+                .aspect(TCAspects.SENSUS, 20)
+                .aspect(TCAspects.HUMANUS, 20)
+                .instability(1)
+                .gate(tdGate("seal_cutting"))
+                .unlockedBy("has", has(TCItems.SEAL_USE.get()))
+                .save(output);
+
+        infusion(TDItems.SEAL_ADVANCED_CUTTING.get(),
+                RecipeCategory.TOOLS, TDItems.SEAL_CUTTING.get())
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
+                .component(tag(Tags.Items.CROPS))
+                .component(tag(Tags.Items.FOODS_RAW_MEAT))
+                .aspect(TCAspects.MACHINA, 20)
+                .aspect(TCAspects.SENSUS, 20)
+                .aspect(TCAspects.HUMANUS, 20)
+                .instability(1)
+                .gate(tdGate("seal_cutting"))
+                .unlockedBy("has", has(TDItems.SEAL_ADVANCED_CUTTING.get()))
+                .save(output);
+    }
+
     public void knife(ItemLike knife, ItemLike material, ItemLike materialNugget) {
         shaped(RecipeCategory.TOOLS, knife)
                 .pattern("M")
@@ -140,11 +174,11 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private InfusionRecipeBuilder infusion(ItemLike result, RecipeCategory category, ItemLike catalyst) {
-        return infusion(new ItemStackTemplate(result.asItem()), category, catalyst);
+        return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, new ItemStackTemplate(result.asItem()), Ingredient.of(catalyst));
     }
 
-    private InfusionRecipeBuilder infusion(ItemStackTemplate result, RecipeCategory category, ItemLike catalyst) {
-        return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, result, Ingredient.of(catalyst));
+    private CrucibleRecipeBuilder crucible(ItemLike result, RecipeCategory category, ItemLike catalyst) {
+        return new CrucibleRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, new ItemStackTemplate(result.asItem()), Ingredient.of(catalyst));
     }
 
     private InfusionEnchantmentRecipeBuilder infusionEnchantment(Item displayCatalyst, Ingredient signature) {

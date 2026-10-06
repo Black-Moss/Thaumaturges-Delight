@@ -1,0 +1,71 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "name": "research.thaumaturgesdelight.seal_cutting.title",
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturge:seal_harvest",
+    "thaumaturge:seal_use"
+  ],
+  "column": 2,
+  "row": 0,
+  "icons": [
+    "thaumaturgesdelight:seal_cutting"
+  ],
+  "stages": [
+    {
+      "text": "research.thaumaturgesdelight.seal_cutting.stage_0",
+      "obtain": [
+        {
+          "items": [
+            "farmersdelight:cutting_board"
+          ],
+          "amount": 1
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "category": "thaumaturge:golemancy",
+          "amount": 1
+        },
+        {
+          "type": "theory",
+          "category": "thaumaturgesdelight:culinary_magic",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "text": "research.thaumaturgesdelight.seal_cutting.stage_1",
+      "recipes": [
+        "thaumaturgesdelight:infusion/seal_cutting",
+        "thaumaturgesdelight:infusion/seal_advanced_cutting"
+      ]
+    }
+  ],
+  "addenda": [
+    {
+      "text": "research.thaumaturgesdelight.seal_cutting.addendum_0",
+      "recipes": [
+      ],
+      "required_research": [
+        "thaumaturge:mind_biothaumic"
+      ]
+    }
+  ],
+  "note_aspects": [
+    {
+      "aspect": "thaumaturge:herba",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:instrumentum",
+      "amount": 3
+    },
+    {
+      "aspect": "thaumaturge:machina",
+      "amount": 2
+    }
+  ],
+  "complexity": 1
+}
