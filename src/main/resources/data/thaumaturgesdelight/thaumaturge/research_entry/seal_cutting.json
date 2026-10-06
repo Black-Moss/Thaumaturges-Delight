@@ -38,8 +38,7 @@
     {
       "text": "research.thaumaturgesdelight.seal_cutting.stage_1",
       "recipes": [
-        "thaumaturgesdelight:infusion/seal_cutting",
-        "thaumaturgesdelight:infusion/seal_advanced_cutting"
+        "thaumaturgesdelight:infusion/seal_cutting"
       ]
     }
   ],
@@ -47,6 +46,7 @@
     {
       "text": "research.thaumaturgesdelight.seal_cutting.addendum_0",
       "recipes": [
+        "thaumaturgesdelight:infusion/seal_advanced_cutting"
       ],
       "required_research": [
         "thaumaturge:mind_biothaumic"

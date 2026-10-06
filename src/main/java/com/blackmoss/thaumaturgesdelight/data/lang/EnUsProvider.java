@@ -53,11 +53,10 @@ public final class EnUsProvider extends LanguageProvider {
                 "Sadly, an ordinary Use seal is no good for preparing food. I should design a Control Seal made for the kitchen instead — and of course it ought to be cheaper than a plain Use seal.",
                 "The Cutting seal exists to cut things on a cutting board, and it can only be placed on one. When a golem has a knife to hand and whatever sits on the board can be cut, it will set to work." +
                         "<BR>Note: this seal only cuts, it does not gather — whatever the golem chops will be flung every which way!<BR>" +
-                        "<PAGE>The advanced version of the Cutting seal can be filtered: the first slot filters what is to be cut, the second filters which knife is used." +
                         "<BR>§9This research also unlocks additional golem parts§0.");
 
         addResearchAddenda("seal_cutting",
-                "");
+                "The advanced version of the Cutting seal can be filtered: the first slot filters what is to be cut, the second filters which knife is used.");
 
         addResearch("essentia_rock_candy", "Essentia Rock Candy",
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
