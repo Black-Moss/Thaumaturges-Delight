@@ -60,10 +60,7 @@ public class ThaumaturgesDelight {
         event.createProvider(ZhCnProvider::new);
 
         RegistrySetBuilder registries = new RegistrySetBuilder()
-                .add(IAspect.REGISTRY_KEY, ctx -> {
-                    AspectBootstrap.bootstrap(ctx);
-                    TDAspects.bootstrap(ctx);
-                });
+                .add(IAspect.REGISTRY_KEY, AspectBootstrap::bootstrap);
         event.createDatapackRegistryObjects(registries);
 
         event.createProvider(ModModelProvider::new);

@@ -1,0 +1,92 @@
+{
+  "values": {
+    "minecraft:bread": [
+      {
+        "aspect": "thaumaturgesdelight:cuppedia",
+        "amount": 1
+      }
+    ],
+    "#c:foods/cooked_meat": [
+      {
+        "aspect": "thaumaturgesdelight:cuppedia",
+        "amount": 1
+      }
+    ],
+    "#farmersdelight:sweets": [
+      {
+        "aspect": "thaumaturgesdelight:cuppedia",
+        "amount": 2
+      }
+    ],
+    "farmersdelight:canvas": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 2
+      }
+    ],
+    "farmersdelight:cabbage": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:victus",
+        "amount": 5
+      }
+    ],
+    "farmersdelight:tomato": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:victus",
+        "amount": 5
+      }
+    ],
+    "farmersdelight:onion": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:victus",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:alkimia",
+        "amount": 1
+      }
+    ],
+    "farmersdelight:rice_panicle": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:victus",
+        "amount": 5
+      }
+    ],
+    "farmersdelight:rope": [
+      {
+        "aspect": "thaumaturge:herba",
+        "amount": 5
+      },
+      {
+        "aspect": "thaumaturge:fabrico",
+        "amount": 1
+      }
+    ],
+    "farmersdelight:netherite_knife": [
+      {
+        "aspect": "thaumaturge:instrumentum",
+        "amount": 10
+      },
+      {
+        "aspect": "thaumaturge:aversio",
+        "amount": 5
+      }
+    ]
+  }
+}

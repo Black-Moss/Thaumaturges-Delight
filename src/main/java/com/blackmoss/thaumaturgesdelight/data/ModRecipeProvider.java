@@ -2,7 +2,6 @@ package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipeBuilder;
-import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
