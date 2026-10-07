@@ -15,7 +15,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.Comparator;
 
-public class TDCreativeModeTabs {
+public final class TDCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ThaumaturgesDelight.MODID);
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THAUMATURGES_DELIGHT = CREATIVE_MODE_TABS.register(ThaumaturgesDelight.MODID,
             () -> CreativeModeTab.builder()

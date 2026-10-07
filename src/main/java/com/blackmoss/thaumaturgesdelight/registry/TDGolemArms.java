@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.List;
 
-public class TDGolemArms {
+public final class TDGolemArms {
     public static final DeferredRegister<GolemArm> GOLEM_ARMS = DeferredRegister.create(GolemArm.REGISTRY_KEY, ThaumaturgesDelight.MODID);
 
     public static final DeferredHolder<GolemArm, GolemArm> KNIFE_ARMS = GOLEM_ARMS.register("knife",

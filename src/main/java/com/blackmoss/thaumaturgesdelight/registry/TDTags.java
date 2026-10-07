@@ -6,7 +6,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 
-public class TDTags {
+public final class TDTags {
     private static TagKey<EntityType<?>> modEntityTag(String path) {
         return TagKey.create(Registries.ENTITY_TYPE, ThaumaturgesDelight.identifier(path));
     }
