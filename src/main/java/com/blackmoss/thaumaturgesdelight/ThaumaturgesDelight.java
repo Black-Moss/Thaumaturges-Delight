@@ -3,7 +3,10 @@ package com.blackmoss.thaumaturgesdelight;
 import com.blackmoss.thaumaturgesdelight.data.ModBlockLootSubProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModModelProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
-import com.blackmoss.thaumaturgesdelight.data.ModTagsProvider;
+import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
+import com.blackmoss.thaumaturgesdelight.data.tag.ModEntityTypeTagsProvider;
+import com.blackmoss.thaumaturgesdelight.data.tag.ModItemTagsProvider;
+import com.blackmoss.thaumaturgesdelight.data.tag.ModMobEffectTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.registry.*;
@@ -62,7 +65,11 @@ public class ThaumaturgesDelight {
 
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModRecipeProvider.Runner::new);
-        event.createProvider(ModTagsProvider::new);
+
+        event.createProvider(ModBlockTagsProvider::new);
+        event.createProvider(ModEntityTypeTagsProvider::new);
+        event.createProvider(ModItemTagsProvider::new);
+        event.createProvider(ModMobEffectTagsProvider::new);
 
         event.createProvider((output, lookupProvider) -> new LootTableProvider(
                 output,
