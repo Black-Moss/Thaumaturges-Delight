@@ -1,0 +1,9 @@
+{
+  "color": 16638000,
+  "components": [
+    "thaumaturge:desiderium",
+    "thaumaturge:fabrico"
+  ],
+  "tag": "cuppedia",
+  "texture": "thaumaturgesdelight:textures/aspects/cuppedia.png"
+}

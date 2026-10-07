@@ -14,6 +14,7 @@ public final class ZhCnProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "神秘乐事");
+
         add("container.thaumaturgesdelight.arcane_cooking_pot", "奥术厨锅");
         add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "已加热");
         add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "需要下方热源");
@@ -26,6 +27,10 @@ public final class ZhCnProvider extends LanguageProvider {
         add("golem.arm.thaumaturgesdelight.knife", "菜刀机械臂");
         add("golem.arm.text.thaumaturgesdelight.knife",
                 "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。");
+
+        add("aspect.thaumaturgesdelight.cuppedia", "美食");
+        add("aspect.thaumaturgesdelight.cuppedia.desc", "美食，佳肴");
+        add("aspect.thaumaturgesdelight.cuppedia.help", "好吃的东西");
 
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
                 "虽然作为一名神秘使知道各种常人所不知的秘闻，但我注意到这些东西并没有改善到我的饮食，" +

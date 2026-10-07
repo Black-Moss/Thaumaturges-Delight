@@ -2,6 +2,7 @@ package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipeBuilder;
+import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TCIds;
@@ -13,10 +14,13 @@ import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.CrucibleRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionEnchantmentRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
+import com.leclowndu93150.thaumaturge.data.recipe.builders.workbench.ArcaneWorkbenchShapedRecipeBuilder;
+import com.leclowndu93150.thaumaturge.data.recipe.builders.workbench.ArcaneWorkbenchShapelessRecipeBuilder;
 import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
 import com.leclowndu93150.thaumaturge.registry.TCItemTags;
 import com.leclowndu93150.thaumaturge.registry.TCItems;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentPatch;
@@ -38,7 +42,6 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
-import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
@@ -47,18 +50,12 @@ import java.util.concurrent.CompletableFuture;
 
 public final class ModRecipeProvider extends RecipeProvider {
     private final HolderLookup.Provider lookupProvider;
+    private final HolderGetter<IAspect> aspects;
 
     private ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output) {
         super(provider, output);
         this.lookupProvider = provider;
-    }
-
-    private static ResearchGate tdGate(String path) {
-        return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
-    }
-
-    private static ResearchGate ttGate(String path) {
-        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
+        this.aspects = registries.lookupOrThrow(IAspect.REGISTRY_KEY);
     }
 
     @Override
@@ -66,15 +63,12 @@ public final class ModRecipeProvider extends RecipeProvider {
         knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
 
-        // 灵气沃土：一把世界盐拌进沃土
-        shapeless(RecipeCategory.MISC, TDItems.AURA_RICH_SOIL.get())
-                .requires(ModBlocks.RICH_SOIL.get())
-                .requires(TCItems.SALIS_MUNDUS.get())
-                .unlockedBy("has_rich_soil", has(ModBlocks.RICH_SOIL.get()))
+        crucible(Items.BREAD, RecipeCategory.FOOD, Items.BEEF)
+                .aspect(TDAspects.CUPPEDIA)
                 .save(output);
 
         new InfusionRecipeBuilder(
-                this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),
+                aspects,
                 RecipeCategory.TOOLS,
                 new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
                                 TCDataComponents.INFUSION_ENCHANTMENTS.get(),
@@ -101,7 +95,7 @@ public final class ModRecipeProvider extends RecipeProvider {
 
         essenceRockCandy();
 
-        new ArcaneCookingPotRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY),
+        new ArcaneCookingPotRecipeBuilder(aspects,
                 RecipeCategory.MISC, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_TREAT.get()))
                 .ingredient(TCItems.CHUNK_BEEF.get())
                 .ingredient(TCItems.CHUNK_CHICKEN.get())
@@ -149,7 +143,6 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.HUMANUS, 20)
                 .instability(1)
                 .gate(tdGate("seal_cutting"))
-                .unlockedBy("has", has(TCItems.SEAL_USE.get()))
                 .save(output);
 
         infusion(TDItems.SEAL_ADVANCED_CUTTING.get(),
@@ -163,7 +156,6 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TCAspects.HUMANUS, 20)
                 .instability(1)
                 .gate(tdGate("seal_cutting"))
-                .unlockedBy("has", has(TDItems.SEAL_ADVANCED_CUTTING.get()))
                 .save(output);
     }
 
@@ -181,15 +173,63 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private InfusionRecipeBuilder infusion(ItemLike result, RecipeCategory category, ItemLike catalyst) {
-        return new InfusionRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, new ItemStackTemplate(result.asItem()), Ingredient.of(catalyst));
+        return (InfusionRecipeBuilder) new InfusionRecipeBuilder(
+                aspects,
+                category,
+                new ItemStackTemplate(result.asItem()),
+                Ingredient.of(catalyst))
+                .unlockedBy("has", this.has(result));
+    }
+
+    private static ResearchGate tdGate(String path) {
+        return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
+    }
+
+    private static ResearchGate ttGate(String path) {
+        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
     }
 
     private CrucibleRecipeBuilder crucible(ItemLike result, RecipeCategory category, ItemLike catalyst) {
-        return new CrucibleRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), category, new ItemStackTemplate(result.asItem()), Ingredient.of(catalyst));
+        return (CrucibleRecipeBuilder) new CrucibleRecipeBuilder(
+                aspects,
+                category,
+                new ItemStackTemplate(result.asItem()),
+                Ingredient.of(catalyst))
+                .unlockedBy("has", this.has(result.asItem()));
+    }
+
+    private CrucibleRecipeBuilder crucible(ItemLike result, ItemLike catalyst) {
+        return crucible(result, RecipeCategory.MISC, catalyst);
+    }
+
+
+    private ArcaneWorkbenchShapelessRecipeBuilder arcaneShapeless(RecipeCategory recipeCategory, ItemStackTemplate result, int vis) {
+        return new ArcaneWorkbenchShapelessRecipeBuilder(recipeCategory,
+                result,
+                aspects,
+                vis,
+                registries.lookupOrThrow(Registries.ITEM));
+    }
+
+    private ArcaneWorkbenchShapelessRecipeBuilder arcaneShapeless(RecipeCategory recipeCategory, ItemLike result, int vis) {
+        return arcaneShapeless(recipeCategory, new ItemStackTemplate(result.asItem()), vis);
+    }
+
+    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(RecipeCategory recipeCategory, ItemStackTemplate result, int vis) {
+        return new ArcaneWorkbenchShapedRecipeBuilder(recipeCategory,
+                result,
+                this.items,
+                aspects,
+                vis);
+    }
+
+    private ArcaneWorkbenchShapedRecipeBuilder arcaneShaped(RecipeCategory recipeCategory, ItemLike result, int vis) {
+        return (ArcaneWorkbenchShapedRecipeBuilder) arcaneShaped(recipeCategory, new ItemStackTemplate(result.asItem()), vis)
+                .unlockedBy("has", this.has(result.asItem()));
     }
 
     private InfusionEnchantmentRecipeBuilder infusionEnchantment(Item displayCatalyst, Ingredient signature) {
-        return new InfusionEnchantmentRecipeBuilder(this.registries.lookupOrThrow(IAspect.REGISTRY_KEY), TDInfusionEnchantments.BLEEDING_EDGE, Ingredient.of(displayCatalyst))
+        return new InfusionEnchantmentRecipeBuilder(aspects, TDInfusionEnchantments.BLEEDING_EDGE, Ingredient.of(displayCatalyst))
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));

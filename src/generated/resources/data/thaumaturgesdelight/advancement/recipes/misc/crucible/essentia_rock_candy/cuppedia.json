@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_rich_soil": {
+    "has": {
       "conditions": {
         "items": [
           {
-            "items": "farmersdelight:rich_soil"
+            "items": "thaumaturge:essentia_crystal"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumaturgesdelight:aura_rich_soil"
+        "recipe": "thaumaturgesdelight:crucible/essentia_rock_candy/cuppedia"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_rich_soil"
+      "has"
     ]
   ],
   "rewards": {
     "recipes": [
-      "thaumaturgesdelight:aura_rich_soil"
+      "thaumaturgesdelight:crucible/essentia_rock_candy/cuppedia"
     ]
   }
 }

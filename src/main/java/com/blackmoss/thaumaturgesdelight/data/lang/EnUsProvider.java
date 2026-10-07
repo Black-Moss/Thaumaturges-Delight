@@ -14,6 +14,7 @@ public final class EnUsProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup.thaumaturgesdelight", "Thaumaturge's Delight");
+
         add("container.thaumaturgesdelight.arcane_cooking_pot", "Arcane Cooking Pot");
         add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "Heated");
         add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "Needs heat from below");
@@ -26,6 +27,10 @@ public final class EnUsProvider extends LanguageProvider {
         add("golem.arm.thaumaturgesdelight.knife", "Knife Arms");
         add("golem.arm.text.thaumaturgesdelight.knife",
                 "These arms end in a pair of kitchen knives. The golem therefore always has a knife to hand and never needs to carry one — but its grip is taken up by the blades, so it cannot carry anything else.");
+
+        add("aspect.thaumaturgesdelight.cuppedia", "Cuppedia");
+        add("aspect.thaumaturgesdelight.cuppedia.desc", "Delicious, Tasty");
+        add("aspect.thaumaturgesdelight.cuppedia.help", "Delicious food");
 
         addResearch("unlock_culinary_magic", "Unlock: Culinary Magic",
                 "Despite learning much about the details of the world throughout my journey as a Thaumaturge," +
