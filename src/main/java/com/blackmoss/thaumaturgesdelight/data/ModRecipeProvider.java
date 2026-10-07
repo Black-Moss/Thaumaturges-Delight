@@ -63,10 +63,6 @@ public final class ModRecipeProvider extends RecipeProvider {
         knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
 
-        crucible(Items.BREAD, RecipeCategory.FOOD, Items.BEEF)
-                .aspect(TDAspects.CUPPEDIA)
-                .save(output);
-
         new InfusionRecipeBuilder(
                 aspects,
                 RecipeCategory.TOOLS,
@@ -195,7 +191,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 category,
                 new ItemStackTemplate(result.asItem()),
                 Ingredient.of(catalyst))
-                .unlockedBy("has", this.has(result.asItem()));
+                .unlockedBy("has", this.has(result));
     }
 
     private CrucibleRecipeBuilder crucible(ItemLike result, ItemLike catalyst) {
