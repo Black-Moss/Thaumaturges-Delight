@@ -2,6 +2,7 @@ package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipeBuilder;
+import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TTIds;
@@ -39,6 +40,7 @@ import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
+import net.neoforged.neoforge.common.crafting.DataComponentIngredient;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModItems;
@@ -91,7 +93,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         essenceRockCandy();
 
         new ArcaneCookingPotRecipeBuilder(aspects,
-                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_SURPRISE.get()))
+                RecipeCategory.FOOD, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_SURPRISE.get()))
                 .ingredient(TTItems.CHUNK_BEEF.get())
                 .ingredient(TTItems.CHUNK_CHICKEN.get())
                 .ingredient(TTItems.CHUNK_PORK.get())
@@ -102,6 +104,18 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TTAspects.PERDITIO, 5)
                 .tab(CookingPotRecipeBookTab.MEALS)
                 .unlockedBy("has", has(TTItems.TRIPLE_MEAT_TREAT.get()))
+                .save(output);
+
+        infusion(TDItems.KETCHUP_CAP.get(), ModItems.TOMATO.get())
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(crystal(TDAspects.CUPPEDIA))
+                .aspect(TDAspects.CUPPEDIA, 5)
+                .save(output);
+
+        infusion(TDItems.FRENCH_FRY_ROD.get(), Items.BAKED_POTATO)
+                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+                .component(crystal(TDAspects.CUPPEDIA))
+                .aspect(TDAspects.CUPPEDIA, 5)
                 .save(output);
 
         sealCutting();
@@ -176,6 +190,10 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has", this.has(result));
     }
 
+    private InfusionRecipeBuilder infusion(ItemLike result, ItemLike catalyst) {
+        return infusion(result, RecipeCategory.MISC, catalyst);
+    }
+
     private static ResearchGate tdGate(String path) {
         return new ResearchGate(ThaumaturgesDelight.identifier(path), Optional.empty(), false);
     }
@@ -195,6 +213,14 @@ public final class ModRecipeProvider extends RecipeProvider {
 
     private CrucibleRecipeBuilder crucible(ItemLike result, ItemLike catalyst) {
         return crucible(result, RecipeCategory.MISC, catalyst);
+    }
+
+    private ArcaneCookingPotRecipeBuilder arcaneCooking(ItemLike result) {
+        return (ArcaneCookingPotRecipeBuilder) new ArcaneCookingPotRecipeBuilder(
+                aspects,
+                RecipeCategory.FOOD,
+                new ItemStackTemplate(result.asItem()))
+                .unlockedBy("has", this.has(result));
     }
 
 
@@ -228,6 +254,13 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .component(Ingredient.of(Items.ENCHANTED_BOOK))
                 .component(signature)
                 .gate(ttGate("infusion_enchantment"));
+    }
+
+    private Ingredient crystal(ResourceKey<IAspect> aspect) {
+        return DataComponentIngredient.of(
+                TTDataComponents.CRYSTAL_ASPECT.get(),
+                new AspectInstance(aspects.getOrThrow(aspect), 1),
+                TTItems.ESSENTIA_CRYSTAL.get());
     }
 
     private HolderSet<Item> tag(String space, String path) {

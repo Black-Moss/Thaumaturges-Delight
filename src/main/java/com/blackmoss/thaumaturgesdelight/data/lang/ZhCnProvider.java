@@ -77,6 +77,9 @@ public final class ZhCnProvider extends LanguageProvider {
 
         add("enchantment.thaumaturge.bleeding_edge", "无往不利");
 
+        add("wand.thaumaturge.cap.ketchup", "沾着番茄酱的");
+        add("wand.thaumaturge.rod.french_fry", "薯条");
+
         addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
         addBlock(TDBlocks.ARCANE_STOVE, "奥术炉灶");
         addBlock(TDBlocks.AURA_RICH_SOIL, "灵气沃土");
@@ -95,6 +98,8 @@ public final class ZhCnProvider extends LanguageProvider {
         addItem(TDItems.SEAL_CUTTING, "操控印记：切菜");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "高级操控印记：切菜");
         addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
+        addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
+        addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");
     }
 
     private void addResearch(String researchId, String title, String... stage) {

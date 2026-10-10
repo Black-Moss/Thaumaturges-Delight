@@ -5,9 +5,12 @@ import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyItem;
 import com.blackmoss.thaumaturgesdelight.item.PurifyCookieItem;
 import com.leclowndu93150.thaumaturge.content.equipment.TTMaterials;
 import com.leclowndu93150.thaumaturge.content.golem.ItemSealPlacer;
+import com.leclowndu93150.thaumaturge.content.wands.ItemWandCap;
+import com.leclowndu93150.thaumaturge.content.wands.ItemWandRod;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ToolMaterial;
@@ -15,6 +18,7 @@ import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import vectorwing.farmersdelight.common.FoodValues;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -71,6 +75,16 @@ public final class TDItems {
                                     MobEffects.REGENERATION,
                                     100, 0),
                                     0.66F)).build())));
+
+    public static final DeferredItem<ItemWandCap> KETCHUP_CAP = ITEMS.registerItem(
+            "ketchup_wand_cap",
+            props -> new ItemWandCap(props, TDWandParts.KETCHUP_CAP),
+            props -> props.food(FoodValues.TOMATO_SAUCE));
+
+    public static final DeferredItem<ItemWandRod> FRENCH_FRY_ROD = ITEMS.registerItem(
+            "french_fry_wand_rod",
+            props -> new ItemWandRod(props, TDWandParts.FRENCH_FRY_ROD),
+            props -> props.food(Foods.BAKED_POTATO));
 
     private TDItems() {
     }

@@ -3,7 +3,13 @@ package com.blackmoss.thaumaturgesdelight.registry;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyFactory;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.api.wands.WandCap;
+import com.leclowndu93150.thaumaturge.api.wands.WandRod;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantmentHelper;
+import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
+import com.leclowndu93150.thaumaturge.content.wands.WandVisHelper;
+import com.leclowndu93150.thaumaturge.registry.TTItems;
+import com.leclowndu93150.thaumaturge.registry.TTWandParts;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -31,6 +37,10 @@ public final class TDCreativeModeTabs {
 
                         output.accept(TDItems.VOID_KNIFE.get());
 
+                        output.accept(TDItems.KETCHUP_CAP.get());
+                        output.accept(TDItems.FRENCH_FRY_ROD.get());
+                        output.accept(chargedWand(TDWandParts.KETCHUP_CAP.get(), TDWandParts.FRENCH_FRY_ROD.get()));
+
                         output.accept(TDItems.ARCANE_COOKING_POT.get());
                         output.accept(TDItems.ARCANE_STOVE.get());
                         output.accept(TDItems.AURA_RICH_SOIL.get());
@@ -51,4 +61,9 @@ public final class TDCreativeModeTabs {
                         }
                     }).build());
 
+    private static ItemStack chargedWand(WandCap cap, WandRod rod) {
+        ItemStack stack = ItemWand.create(TTItems.WAND.get(), cap, rod, false);
+        WandVisHelper.fill(stack);
+        return stack;
+    }
 }

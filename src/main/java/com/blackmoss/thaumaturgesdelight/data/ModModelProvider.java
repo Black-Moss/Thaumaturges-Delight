@@ -115,6 +115,8 @@ public class ModModelProvider extends ModelProvider {
         flatItem(itemModels, TDItems.SEAL_CUTTING.get());
         flatItem(itemModels, TDItems.SEAL_ADVANCED_CUTTING.get());
         flatItem(itemModels, TDItems.CHUNKS_FRIED_RICE.get());
+        flatItem(itemModels, TDItems.KETCHUP_CAP.get());
+        flatItem(itemModels, TDItems.FRENCH_FRY_ROD.get());
 
         essentiaRockCandy(itemModels, TDItems.ESSENTIA_ROCK_CANDY.get());
     }

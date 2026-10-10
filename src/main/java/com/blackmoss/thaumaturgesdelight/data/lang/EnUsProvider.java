@@ -78,6 +78,9 @@ public final class EnUsProvider extends LanguageProvider {
 
         add("enchantment.thaumaturge.bleeding_edge", "Bleeding Edge");
 
+        add("wand.thaumaturge.cap.ketchup", "Ketchup on");
+        add("wand.thaumaturge.rod.french_fry", "French Fry");
+
         addBlock(TDBlocks.ARCANE_COOKING_POT, "Arcane Cooking Pot");
         addBlock(TDBlocks.ARCANE_STOVE, "Arcane Stove");
         addBlock(TDBlocks.AURA_RICH_SOIL, "Aura-Rich Soil");
@@ -96,6 +99,8 @@ public final class EnUsProvider extends LanguageProvider {
         addItem(TDItems.SEAL_CUTTING, "Control Seal: Cutting");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "Advanced Control Seal: Cutting");
         addItem(TDItems.CHUNKS_FRIED_RICE, "Chunks Fried Rice");
+        addItem(TDItems.KETCHUP_CAP, "Ketchup Cap");
+        addItem(TDItems.FRENCH_FRY_ROD, "French Fry Rod");
     }
 
     private void addResearch(String researchId, String title, String... stage) {

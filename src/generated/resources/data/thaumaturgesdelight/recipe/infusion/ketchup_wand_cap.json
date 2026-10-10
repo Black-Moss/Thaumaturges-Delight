@@ -1,0 +1,25 @@
+{
+  "type": "thaumaturge:infusion",
+  "aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturgesdelight:cuppedia"
+    }
+  ],
+  "catalyst": "farmersdelight:tomato",
+  "components": [
+    "thaumaturge:salis_mundus",
+    {
+      "neoforge:ingredient_type": "neoforge:components",
+      "components": {
+        "thaumaturge:crystal_aspect": {
+          "aspect": "thaumaturgesdelight:cuppedia"
+        }
+      },
+      "items": "thaumaturge:essentia_crystal"
+    }
+  ],
+  "result": {
+    "id": "thaumaturgesdelight:ketchup_wand_cap"
+  }
+}
