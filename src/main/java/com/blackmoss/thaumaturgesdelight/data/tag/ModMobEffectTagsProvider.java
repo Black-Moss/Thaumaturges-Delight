@@ -2,7 +2,7 @@ package com.blackmoss.thaumaturgesdelight.data.tag;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDTags;
-import com.leclowndu93150.thaumaturge.registry.TCMobEffects;
+import com.leclowndu93150.thaumaturge.registry.TTMobEffects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.CachedOutput;
@@ -42,14 +42,14 @@ public final class ModMobEffectTagsProvider implements DataProvider {
                         .add(MobEffects.OOZING.getKey())
                         .add(MobEffects.INFESTED.getKey())
                         .add(MobEffects.RAID_OMEN.getKey())
-                        .add(TCMobEffects.BLURRED_VISION.getKey())
-                        .add(TCMobEffects.DEATH_GAZE.getKey())
-                        .add(TCMobEffects.FLUX_TAINT.getKey())
-                        .add(TCMobEffects.INFECTIOUS_VIS_EXHAUST.getKey())
-                        .add(TCMobEffects.SUN_SCORNED.getKey())
-                        .add(TCMobEffects.THAUMARHIA.getKey())
-                        .add(TCMobEffects.UNNATURAL_HUNGER.getKey())
-                        .add(TCMobEffects.VIS_EXHAUST.getKey());
+                        .add(TTMobEffects.BLURRED_VISION.getKey())
+                        .add(TTMobEffects.DEATH_GAZE.getKey())
+                        .add(TTMobEffects.FLUX_TAINT.getKey())
+                        .add(TTMobEffects.INFECTIOUS_VIS_EXHAUST.getKey())
+                        .add(TTMobEffects.SUN_SCORNED.getKey())
+                        .add(TTMobEffects.THAUMARHIA.getKey())
+                        .add(TTMobEffects.UNNATURAL_HUNGER.getKey())
+                        .add(TTMobEffects.VIS_EXHAUST.getKey());
             }
         };
     }

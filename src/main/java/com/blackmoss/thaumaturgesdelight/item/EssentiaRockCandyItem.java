@@ -5,8 +5,8 @@ import com.leclowndu93150.thaumaturge.api.aspect.AspectComponents;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.content.research.pool.AspectPools;
-import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
-import com.leclowndu93150.thaumaturge.registry.TCEffectTags;
+import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
+import com.leclowndu93150.thaumaturge.registry.TTEffectTags;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.component.DataComponentType;
@@ -38,7 +38,7 @@ public class EssentiaRockCandyItem extends Item {
     }
 
     public static @Nullable Holder<IAspect> aspectOf(ItemStack stack) {
-        AspectInstance stored = (AspectInstance) stack.get((DataComponentType<?>) TCDataComponents.CRYSTAL_ASPECT.get());
+        AspectInstance stored = (AspectInstance) stack.get((DataComponentType<?>) TTDataComponents.CRYSTAL_ASPECT.get());
         return stored == null ? null : stored.aspect();
     }
 
@@ -63,8 +63,8 @@ public class EssentiaRockCandyItem extends Item {
                 RandomSource random = serverLevel.getRandom();
                 Optional<HolderSet.Named<MobEffect>> pool = serverLevel
                         .registryAccess()
-                        .lookupOrThrow(TCEffectTags.MANA_BEAN_EFFECTS.registry())
-                        .get(TCEffectTags.MANA_BEAN_EFFECTS);
+                        .lookupOrThrow(TTEffectTags.MANA_BEAN_EFFECTS.registry())
+                        .get(TTEffectTags.MANA_BEAN_EFFECTS);
                 if (pool.isPresent()) {
                     List<Holder<MobEffect>> candidates = pool.get().stream()
                             .filter(effect -> !effect.is(TDTags.Effects.ROCK_CANDY_EXCLUDED))

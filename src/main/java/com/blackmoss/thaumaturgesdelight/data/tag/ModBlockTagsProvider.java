@@ -2,7 +2,7 @@ package com.blackmoss.thaumaturgesdelight.data.tag;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
-import com.leclowndu93150.thaumaturge.registry.TCBlockTags;
+import com.leclowndu93150.thaumaturge.registry.TTBlockTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
@@ -23,8 +23,8 @@ public final class ModBlockTagsProvider extends BlockTagsProvider {
     protected void addTags(HolderLookup.@NonNull Provider provider) {
         //noinspection unchecked
         tag(ModTags.Blocks.HEAT_SOURCES)
-                .addTags(TCBlockTags.CRUCIBLE_HEAT_SOURCES);
-        tag(TCBlockTags.CRUCIBLE_HEAT_SOURCES)
+                .addTags(TTBlockTags.CRUCIBLE_HEAT_SOURCES);
+        tag(TTBlockTags.CRUCIBLE_HEAT_SOURCES)
                 .add(TDBlocks.ARCANE_STOVE.get());
         tag(BlockTags.MINEABLE_WITH_SHOVEL)
                 .add(TDBlocks.AURA_RICH_SOIL.get())

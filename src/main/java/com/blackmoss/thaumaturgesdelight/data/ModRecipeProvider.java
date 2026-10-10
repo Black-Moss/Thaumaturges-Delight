@@ -4,10 +4,10 @@ import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipeBuilder;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
-import com.leclowndu93150.thaumaturge.TCIds;
+import com.leclowndu93150.thaumaturge.TTIds;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.api.aspect.TCAspects;
+import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
 import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.CrucibleRecipeBuilder;
@@ -15,9 +15,9 @@ import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionEnchantmentRe
 import com.leclowndu93150.thaumaturge.data.recipe.builders.InfusionRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.workbench.ArcaneWorkbenchShapedRecipeBuilder;
 import com.leclowndu93150.thaumaturge.data.recipe.builders.workbench.ArcaneWorkbenchShapelessRecipeBuilder;
-import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
-import com.leclowndu93150.thaumaturge.registry.TCItemTags;
-import com.leclowndu93150.thaumaturge.registry.TCItems;
+import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
+import com.leclowndu93150.thaumaturge.registry.TTItemTags;
+import com.leclowndu93150.thaumaturge.registry.TTItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
@@ -59,32 +59,32 @@ public final class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes() {
-        knife(TDItems.BRASS_KNIFE, TCItems.INGOT_BRASS, TCItems.NUGGET_BRASS);
-        knife(TDItems.THAUMIUM_KNIFE, TCItems.INGOT_THAUMIUM, TCItems.NUGGET_THAUMIUM);
+        knife(TDItems.BRASS_KNIFE, TTItems.INGOT_BRASS, TTItems.NUGGET_BRASS);
+        knife(TDItems.THAUMIUM_KNIFE, TTItems.INGOT_THAUMIUM, TTItems.NUGGET_THAUMIUM);
 
         new InfusionRecipeBuilder(
                 aspects,
                 RecipeCategory.TOOLS,
                 new ItemStackTemplate(TDItems.ELEMENTAL_KNIFE.get(), DataComponentPatch.builder().set(
-                                TCDataComponents.INFUSION_ENCHANTMENTS.get(),
+                                TTDataComponents.INFUSION_ENCHANTMENTS.get(),
                                 new InfusionEnchantments(Map.of(
                                         TDInfusionEnchantments.BLEEDING_EDGE, 1)))
                         .build()), Ingredient.of(TDItems.THAUMIUM_KNIFE.get()))
-                .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
-                .component(Ingredient.of(TCItems.CRYSTAL_IGNIS.get()))
-                .component(tag(TCItemTags.NUGGETS_QUARTZ))
-                .component(tag(TCItemTags.PLANKS_GREATWOOD))
-                .aspect(TCAspects.IGNIS, 20)
-                .aspect(TCAspects.METALLUM, 15)
-                .aspect(TCAspects.SENSUS, 20)
+                .component(Ingredient.of(TTItems.CRYSTAL_IGNIS.get()))
+                .component(Ingredient.of(TTItems.CRYSTAL_IGNIS.get()))
+                .component(tag(TTItemTags.NUGGETS_QUARTZ))
+                .component(tag(TTItemTags.PLANKS_GREATWOOD))
+                .aspect(TTAspects.IGNIS, 20)
+                .aspect(TTAspects.METALLUM, 15)
+                .aspect(TTAspects.SENSUS, 20)
                 .instability(1)
                 .gate(tdGate("elemental_knife"))
                 .unlockedBy("has", has(TDItems.THAUMIUM_KNIFE))
                 .save(output);
 
-        infusionEnchantment(ModItems.FLINT_KNIFE.get(), Ingredient.of(TCItems.TRIPLE_MEAT_TREAT.get()))
-                .aspect(TCAspects.IGNIS, 55)
-                .aspect(TCAspects.PERMUTATIO, 60)
+        infusionEnchantment(ModItems.FLINT_KNIFE.get(), Ingredient.of(TTItems.TRIPLE_MEAT_TREAT.get()))
+                .aspect(TTAspects.IGNIS, 55)
+                .aspect(TTAspects.PERMUTATIO, 60)
                 .gate(tdGate("elemental_knife"))
                 .save(output);
 
@@ -92,16 +92,16 @@ public final class ModRecipeProvider extends RecipeProvider {
 
         new ArcaneCookingPotRecipeBuilder(aspects,
                 RecipeCategory.MISC, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_TREAT.get()))
-                .ingredient(TCItems.CHUNK_BEEF.get())
-                .ingredient(TCItems.CHUNK_CHICKEN.get())
-                .ingredient(TCItems.CHUNK_PORK.get())
-                .ingredient(TCItems.CHUNK_FISH.get())
-                .ingredient(TCItems.CHUNK_RABBIT.get())
-                .ingredient(TCItems.CHUNK_MUTTON.get())
-                .aspect(TCAspects.VICTUS, 20)
-                .aspect(TCAspects.PERDITIO, 5)
+                .ingredient(TTItems.CHUNK_BEEF.get())
+                .ingredient(TTItems.CHUNK_CHICKEN.get())
+                .ingredient(TTItems.CHUNK_PORK.get())
+                .ingredient(TTItems.CHUNK_FISH.get())
+                .ingredient(TTItems.CHUNK_RABBIT.get())
+                .ingredient(TTItems.CHUNK_MUTTON.get())
+                .aspect(TTAspects.VICTUS, 20)
+                .aspect(TTAspects.PERDITIO, 5)
                 .tab(CookingPotRecipeBookTab.MEALS)
-                .unlockedBy("has", has(TCItems.TRIPLE_MEAT_TREAT.get()))
+                .unlockedBy("has", has(TTItems.TRIPLE_MEAT_TREAT.get()))
                 .save(output);
 
         sealCutting();
@@ -112,16 +112,16 @@ public final class ModRecipeProvider extends RecipeProvider {
         for (Holder<IAspect> aspect : aspects.listElements().toList()) {
             ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
             DataComponentPatch patch = DataComponentPatch.builder()
-                    .set(TCDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1))
+                    .set(TTDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1))
                     .build();
             new CrucibleRecipeBuilder(aspects, RecipeCategory.MISC,
                     new ItemStackTemplate(TDItems.ESSENTIA_ROCK_CANDY.get(), patch),
                     Ingredient.of(Items.SUGAR))
                     .aspect(aspect, 5)
-                    .aspect(TCAspects.VITREUS, 1)
-                    .aspect(TCAspects.GELUM, 1)
+                    .aspect(TTAspects.VITREUS, 1)
+                    .aspect(TTAspects.GELUM, 1)
                     .gate(tdGate("essentia_rock_candy"))
-                    .unlockedBy("has", has(TCItems.ESSENTIA_CRYSTAL.get()))
+                    .unlockedBy("has", has(TTItems.ESSENTIA_CRYSTAL.get()))
                     .save(output, ResourceKey.create(Registries.RECIPE,
                             ThaumaturgesDelight.identifier("crucible/essentia_rock_candy/" + key.identifier().getPath())));
         }
@@ -129,13 +129,13 @@ public final class ModRecipeProvider extends RecipeProvider {
 
     private void sealCutting() {
         infusion(TDItems.SEAL_CUTTING.get(),
-                RecipeCategory.TOOLS, TCItems.SEAL_BLANK.get())
+                RecipeCategory.TOOLS, TTItems.SEAL_BLANK.get())
                 .component(Ingredient.of(ModItems.GOLDEN_KNIFE.get()))
                 .component(tag(Tags.Items.CROPS))
                 .component(tag(Tags.Items.FOODS_RAW_MEAT))
-                .aspect(TCAspects.MACHINA, 20)
-                .aspect(TCAspects.SENSUS, 20)
-                .aspect(TCAspects.HUMANUS, 20)
+                .aspect(TTAspects.MACHINA, 20)
+                .aspect(TTAspects.SENSUS, 20)
+                .aspect(TTAspects.HUMANUS, 20)
                 .instability(1)
                 .gate(tdGate("seal_cutting"))
                 .save(output);
@@ -146,9 +146,9 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .component(tag(Tags.Items.FOODS_RAW_MEAT))
                 .component(tag(Tags.Items.CROPS))
                 .component(tag(Tags.Items.FOODS_RAW_MEAT))
-                .aspect(TCAspects.MACHINA, 20)
-                .aspect(TCAspects.SENSUS, 20)
-                .aspect(TCAspects.HUMANUS, 20)
+                .aspect(TTAspects.MACHINA, 20)
+                .aspect(TTAspects.SENSUS, 20)
+                .aspect(TTAspects.HUMANUS, 20)
                 .instability(1)
                 .gate(tdGate("seal_cutting"))
                 .save(output);
@@ -181,7 +181,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private static ResearchGate ttGate(String path) {
-        return new ResearchGate(TCIds.rl(path), Optional.empty(), false);
+        return new ResearchGate(TTIds.rl(path), Optional.empty(), false);
     }
 
     private CrucibleRecipeBuilder crucible(ItemLike result, RecipeCategory category, ItemLike catalyst) {

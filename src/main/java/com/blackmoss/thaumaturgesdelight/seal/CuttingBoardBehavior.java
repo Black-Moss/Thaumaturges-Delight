@@ -11,7 +11,7 @@ import com.leclowndu93150.thaumaturge.api.golems.tasks.Task;
 import com.leclowndu93150.thaumaturge.api.items.InvHelper;
 import com.leclowndu93150.thaumaturge.content.golem.seals.behavior.ItemMatchSettings;
 import com.leclowndu93150.thaumaturge.content.golem.tasks.TaskBoard;
-import com.leclowndu93150.thaumaturge.server.TCFakePlayer;
+import com.leclowndu93150.thaumaturge.server.TTFakePlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
@@ -44,7 +44,7 @@ public final class CuttingBoardBehavior implements ISealBehavior {
     }
 
     private static void cut(ServerLevel level, IGolemAPI golem, CuttingBoardBlockEntity board, ItemStack knife) {
-        if (board.processStoredItemUsingTool(knife, TCFakePlayer.GOLEM.at(level, golem.asEntity()))) {
+        if (board.processStoredItemUsingTool(knife, TTFakePlayer.GOLEM.at(level, golem.asEntity()))) {
             golem.swingArm();
             golem.addRankXp(1);
         }

@@ -3,7 +3,7 @@ package com.blackmoss.thaumaturgesdelight.registry;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyItem;
 import com.blackmoss.thaumaturgesdelight.item.PurifyCookieItem;
-import com.leclowndu93150.thaumaturge.content.equipment.TCMaterials;
+import com.leclowndu93150.thaumaturge.content.equipment.TTMaterials;
 import com.leclowndu93150.thaumaturge.content.golem.ItemSealPlacer;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -24,11 +24,11 @@ public final class TDItems {
     public static final DeferredItem<KnifeItem> BRASS_KNIFE = ITEMS.registerItem("brass_knife",
             props -> new KnifeItem(TDMaterials.TOOL_BRASS, props), props -> knife(props, TDMaterials.TOOL_BRASS));
     public static final DeferredItem<KnifeItem> THAUMIUM_KNIFE = ITEMS.registerItem("thaumium_knife",
-            props -> new KnifeItem(TCMaterials.TOOL_THAUMIUM, props), props -> knife(props, TCMaterials.TOOL_THAUMIUM));
+            props -> new KnifeItem(TTMaterials.TOOL_THAUMIUM, props), props -> knife(props, TTMaterials.TOOL_THAUMIUM));
     public static final DeferredItem<KnifeItem> VOID_KNIFE = ITEMS.registerItem("void_knife",
-            props -> new KnifeItem(TCMaterials.TOOL_VOID, props), props -> knife(props, TCMaterials.TOOL_VOID));
+            props -> new KnifeItem(TTMaterials.TOOL_VOID, props), props -> knife(props, TTMaterials.TOOL_VOID));
     public static final DeferredItem<KnifeItem> ELEMENTAL_KNIFE = ITEMS.registerItem("elemental_knife",
-            props -> new KnifeItem(TCMaterials.TOOL_ELEMENTAL, props), props -> knife(props, TCMaterials.TOOL_ELEMENTAL));
+            props -> new KnifeItem(TTMaterials.TOOL_ELEMENTAL, props), props -> knife(props, TTMaterials.TOOL_ELEMENTAL));
     public static final DeferredItem<EssentiaRockCandyItem> ESSENTIA_ROCK_CANDY = ITEMS.registerItem(
             "essentia_rock_candy", EssentiaRockCandyItem::new, props -> props
                     .food(new FoodProperties(1, 0.5F, true),

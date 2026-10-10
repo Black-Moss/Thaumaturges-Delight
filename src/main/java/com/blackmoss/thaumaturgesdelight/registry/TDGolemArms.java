@@ -4,7 +4,7 @@ import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.leclowndu93150.thaumaturge.api.golems.parts.GolemArm;
 import com.leclowndu93150.thaumaturge.api.golems.parts.GolemComponent;
 import com.leclowndu93150.thaumaturge.api.golems.parts.GolemPartModel;
-import com.leclowndu93150.thaumaturge.registry.TCGolemTraits;
+import com.leclowndu93150.thaumaturge.registry.TTGolemTraits;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredHolder;
@@ -24,7 +24,7 @@ public final class TDGolemArms {
                             GolemComponent.base(),
                             GolemComponent.mechanism()),
                     null,
-                    List.of(TCGolemTraits.CLUMSY)));
+                    List.of(TTGolemTraits.CLUMSY)));
 
     private TDGolemArms() {
     }

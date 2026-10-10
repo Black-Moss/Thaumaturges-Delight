@@ -8,7 +8,7 @@ import com.blackmoss.thaumaturgesdelight.menu.ArcaneCookingPotMenu;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.blackmoss.thaumaturgesdelight.registry.TDMenus;
 import com.blackmoss.thaumaturgesdelight.registry.TDRecipeTypes;
-import com.leclowndu93150.thaumaturge.registry.TCDataComponents;
+import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.*;
@@ -46,7 +46,7 @@ public class ThaumaturgesDelightJEIPlugin implements IModPlugin {
 
     @Override
     public void registerItemSubtypes(@NonNull ISubtypeRegistration registration) {
-        registration.registerFromDataComponentTypes(TDItems.ESSENTIA_ROCK_CANDY.get(), TCDataComponents.CRYSTAL_ASPECT.get());
+        registration.registerFromDataComponentTypes(TDItems.ESSENTIA_ROCK_CANDY.get(), TTDataComponents.CRYSTAL_ASPECT.get());
     }
 
     @Override

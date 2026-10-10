@@ -97,15 +97,14 @@ configurations {
 }
 
 dependencies {
-    def thaumaturgeJar = "thaumaturge-${thaumaturge_version}.jar"
-    compileOnly files(thaumaturgeJar)
-    localRuntime files(thaumaturgeJar)
+    // Lithostitched
+    implementation "maven.modrinth:lithostitched:${lithostitched_version}"
+
+    // Thaumaturge
+    implementation "curse.maven:thaumaturge-1628024:${thaumaturge_version}"
 
     // Farmer's Delight 26 Neo Ver
     implementation "curse.maven:farmers-delight-26-neo-ver-1699768:${farmers_delight_version}"
-
-    // Lithostitched
-    implementation "maven.modrinth:lithostitched:${lithostitched_version}"
 
     // JEI
     compileOnly "mezz.jei:jei-${minecraft_version}-common-api:${jei_version}"
