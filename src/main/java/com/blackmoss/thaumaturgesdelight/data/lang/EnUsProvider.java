@@ -91,7 +91,7 @@ public final class EnUsProvider extends LanguageProvider {
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
 
-        addItem(TDItems.SEXTUPLE_MEAT_TREAT, "Sextuple Meat Treat");
+        addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
         addItem(TDItems.PURIFY_COOKIE, "Cookie of Purification");
         addItem(TDItems.SEAL_CUTTING, "Control Seal: Cutting");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "Advanced Control Seal: Cutting");

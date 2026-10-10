@@ -90,7 +90,7 @@ public final class ZhCnProvider extends LanguageProvider {
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
 
-        addItem(TDItems.SEXTUPLE_MEAT_TREAT, "六层肉饼");
+        addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
         addItem(TDItems.SEAL_CUTTING, "操控印记：切菜");
         addItem(TDItems.SEAL_ADVANCED_CUTTING, "高级操控印记：切菜");

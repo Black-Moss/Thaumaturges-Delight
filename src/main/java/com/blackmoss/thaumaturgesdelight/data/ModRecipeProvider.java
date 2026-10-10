@@ -91,7 +91,7 @@ public final class ModRecipeProvider extends RecipeProvider {
         essenceRockCandy();
 
         new ArcaneCookingPotRecipeBuilder(aspects,
-                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_TREAT.get()))
+                RecipeCategory.MISC, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_SURPRISE.get()))
                 .ingredient(TTItems.CHUNK_BEEF.get())
                 .ingredient(TTItems.CHUNK_CHICKEN.get())
                 .ingredient(TTItems.CHUNK_PORK.get())

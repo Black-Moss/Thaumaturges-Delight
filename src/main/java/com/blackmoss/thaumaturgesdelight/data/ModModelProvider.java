@@ -110,7 +110,7 @@ public class ModModelProvider extends ModelProvider {
         flatItem(itemModels, TDItems.THAUMIUM_KNIFE.get());
         flatItem(itemModels, TDItems.VOID_KNIFE.get());
         flatItem(itemModels, TDItems.ELEMENTAL_KNIFE.get());
-        flatItem(itemModels, TDItems.SEXTUPLE_MEAT_TREAT.get());
+        flatItem(itemModels, TDItems.SEXTUPLE_MEAT_SURPRISE.get());
         flatItem(itemModels, TDItems.PURIFY_COOKIE.get());
         flatItem(itemModels, TDItems.SEAL_CUTTING.get());
         flatItem(itemModels, TDItems.SEAL_ADVANCED_CUTTING.get());

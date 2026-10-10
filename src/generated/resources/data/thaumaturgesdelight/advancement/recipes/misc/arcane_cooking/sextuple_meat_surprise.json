@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumaturgesdelight:arcane_cooking/sextuple_meat_treat"
+        "recipe": "thaumaturgesdelight:arcane_cooking/sextuple_meat_surprise"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "thaumaturgesdelight:arcane_cooking/sextuple_meat_treat"
+      "thaumaturgesdelight:arcane_cooking/sextuple_meat_surprise"
     ]
   }
 }
