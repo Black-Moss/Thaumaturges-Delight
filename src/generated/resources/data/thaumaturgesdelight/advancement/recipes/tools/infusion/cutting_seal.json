@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "thaumaturgesdelight:seal_cutting"
+            "items": "thaumaturgesdelight:cutting_seal"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "thaumaturgesdelight:infusion/seal_cutting"
+        "recipe": "thaumaturgesdelight:infusion/cutting_seal"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -26,7 +26,7 @@
   ],
   "rewards": {
     "recipes": [
-      "thaumaturgesdelight:infusion/seal_cutting"
+      "thaumaturgesdelight:infusion/cutting_seal"
     ]
   }
 }

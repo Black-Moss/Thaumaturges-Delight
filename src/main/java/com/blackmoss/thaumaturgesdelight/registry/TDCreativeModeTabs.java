@@ -9,7 +9,6 @@ import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantmentHelpe
 import com.leclowndu93150.thaumaturge.content.wands.ItemWand;
 import com.leclowndu93150.thaumaturge.content.wands.WandVisHelper;
 import com.leclowndu93150.thaumaturge.registry.TTItems;
-import com.leclowndu93150.thaumaturge.registry.TTWandParts;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -48,8 +47,8 @@ public final class TDCreativeModeTabs {
 
                         output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
-                        output.accept(TDItems.SEAL_CUTTING.get());
-                        output.accept(TDItems.SEAL_ADVANCED_CUTTING.get());
+                        output.accept(TDItems.CUTTING_SEAL.get());
+                        output.accept(TDItems.ADVANCED_CUTTING_SEAL.get());
                         output.accept(TDItems.CHUNKS_FRIED_RICE);
 
                         HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);

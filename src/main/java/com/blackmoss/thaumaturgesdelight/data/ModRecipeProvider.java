@@ -142,7 +142,7 @@ public final class ModRecipeProvider extends RecipeProvider {
     }
 
     private void sealCutting() {
-        infusion(TDItems.SEAL_CUTTING.get(),
+        infusion(TDItems.CUTTING_SEAL.get(),
                 RecipeCategory.TOOLS, TTItems.SEAL_BLANK.get())
                 .component(Ingredient.of(ModItems.GOLDEN_KNIFE.get()))
                 .component(tag(Tags.Items.CROPS))
@@ -151,11 +151,11 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TTAspects.SENSUS, 20)
                 .aspect(TTAspects.HUMANUS, 20)
                 .instability(1)
-                .gate(tdGate("seal_cutting"))
+                .gate(tdGate("cutting_seal"))
                 .save(output);
 
-        infusion(TDItems.SEAL_ADVANCED_CUTTING.get(),
-                RecipeCategory.TOOLS, TDItems.SEAL_CUTTING.get())
+        infusion(TDItems.ADVANCED_CUTTING_SEAL.get(),
+                RecipeCategory.TOOLS, TDItems.CUTTING_SEAL.get())
                 .component(tag(Tags.Items.CROPS))
                 .component(tag(Tags.Items.FOODS_RAW_MEAT))
                 .component(tag(Tags.Items.CROPS))
@@ -164,7 +164,7 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TTAspects.SENSUS, 20)
                 .aspect(TTAspects.HUMANUS, 20)
                 .instability(1)
-                .gate(tdGate("seal_cutting"))
+                .gate(tdGate("cutting_seal"))
                 .save(output);
     }
 

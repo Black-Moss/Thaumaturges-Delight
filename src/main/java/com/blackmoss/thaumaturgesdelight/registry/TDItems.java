@@ -57,9 +57,9 @@ public final class TDItems {
     public static final DeferredItem<BlockItem> AURA_RICH_SOIL = ITEMS.registerSimpleBlockItem(TDBlocks.AURA_RICH_SOIL);
     public static final DeferredItem<BlockItem> AURA_RICH_SOIL_FARMLAND = ITEMS.registerSimpleBlockItem(TDBlocks.AURA_RICH_SOIL_FARMLAND);
 
-    public static final DeferredItem<ItemSealPlacer> SEAL_CUTTING = ITEMS.registerItem("seal_cutting",
+    public static final DeferredItem<ItemSealPlacer> CUTTING_SEAL = ITEMS.registerItem("cutting_seal",
             props -> new ItemSealPlacer(ThaumaturgesDelight.identifier("cutting"), props));
-    public static final DeferredItem<ItemSealPlacer> SEAL_ADVANCED_CUTTING = ITEMS.registerItem("seal_advanced_cutting",
+    public static final DeferredItem<ItemSealPlacer> ADVANCED_CUTTING_SEAL = ITEMS.registerItem("advanced_cutting_seal",
             props -> new ItemSealPlacer(ThaumaturgesDelight.identifier("advanced_cutting"), props));
 
     public static final DeferredItem<Item> CHUNKS_FRIED_RICE = ITEMS.registerItem("chunks_fried_rice",

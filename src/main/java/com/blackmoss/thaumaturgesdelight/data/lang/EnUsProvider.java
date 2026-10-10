@@ -57,13 +57,13 @@ public final class EnUsProvider extends LanguageProvider {
                         "<BR>Unlike a crucible, the Arcane Cooking Pot cannot break things down into essentia; all it does is combine your ingredients with essentia and simmer them into a single dish. The Arcane Stove, meanwhile, builds up a certain suction while the dish is cooking, drawing the essentia it needs up into the pot to take part in it." +
                         "<BR>And of course this Pro-grade pot can still handle any recipe an ordinary cooking pot does!");
 
-        addResearch("seal_cutting", "Control Seal: Cutting",
+        addResearch("cutting_seal", "Control Seal: Cutting",
                 "Sadly, an ordinary Use seal is no good for preparing food. I should design a Control Seal made for the kitchen instead — and of course it ought to be cheaper than a plain Use seal.",
                 "The Cutting seal exists to cut things on a cutting board, and it can only be placed on one. When a golem has a knife to hand and whatever sits on the board can be cut, it will set to work." +
                         "<BR>Note: this seal only cuts, it does not gather — whatever the golem chops will be flung every which way!" +
                         "<BR>§9This research also unlocks additional golem parts§0.");
 
-        addResearchAddenda("seal_cutting",
+        addResearchAddenda("cutting_seal",
                 "The advanced version of the Cutting seal can be filtered: the first slot filters what is to be cut, the second filters which knife is used.");
 
         addResearch("aura_rich_soil", "Aura-Rich Soil",
@@ -96,8 +96,8 @@ public final class EnUsProvider extends LanguageProvider {
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
         addItem(TDItems.PURIFY_COOKIE, "Cookie of Purification");
-        addItem(TDItems.SEAL_CUTTING, "Control Seal: Cutting");
-        addItem(TDItems.SEAL_ADVANCED_CUTTING, "Advanced Control Seal: Cutting");
+        addItem(TDItems.CUTTING_SEAL, "Control Seal: Cutting");
+        addItem(TDItems.ADVANCED_CUTTING_SEAL, "Advanced Control Seal: Cutting");
         addItem(TDItems.CHUNKS_FRIED_RICE, "Chunks Fried Rice");
         addItem(TDItems.KETCHUP_CAP, "Ketchup Cap");
         addItem(TDItems.FRENCH_FRY_ROD, "French Fry Rod");

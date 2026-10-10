@@ -3,12 +3,12 @@ package com.blackmoss.thaumaturgesdelight;
 import com.blackmoss.thaumaturgesdelight.data.ModBlockLootSubProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModModelProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
+import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
+import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModEntityTypeTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModItemTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModMobEffectTagsProvider;
-import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
-import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.registry.*;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
@@ -42,8 +42,10 @@ public class ThaumaturgesDelight {
         TDMenus.MENUS.register(modEventBus);
         TDItems.ITEMS.register(modEventBus);
         TDSeals.SEALS.register(modEventBus);
-        TDGolemArms.GOLEM_ARMS.register(modEventBus);
+        TDGolemParts.GOLEM_ARMS.register(modEventBus);
         TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        TDWandParts.CAPS.register(modEventBus);
+        TDWandParts.RODS.register(modEventBus);
     }
 
     public static Identifier identifier(String path) {
@@ -60,7 +62,10 @@ public class ThaumaturgesDelight {
         event.createProvider(ZhCnProvider::new);
 
         RegistrySetBuilder registries = new RegistrySetBuilder()
-                .add(IAspect.REGISTRY_KEY, AspectBootstrap::bootstrap);
+                .add(IAspect.REGISTRY_KEY, ctx -> {
+                    AspectBootstrap.bootstrap(ctx);
+                    TDAspects.bootstrap(ctx);
+                });
         event.createDatapackRegistryObjects(registries);
 
         event.createProvider(ModModelProvider::new);

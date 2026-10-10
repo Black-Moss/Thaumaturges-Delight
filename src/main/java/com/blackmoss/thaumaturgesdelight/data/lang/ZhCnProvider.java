@@ -56,13 +56,13 @@ public final class ZhCnProvider extends LanguageProvider {
                         "<BR>不同于坩埚，奥术厨锅并不能把事物融化成源质，它只能将你的食材和源质混合在一起煮成一道菜；与此同时，奥术炉灶会在做菜时产生一定的吸力，将需要的源质吸到厨锅中进行烹饪。" +
                         "<BR>当然这个Pro版厨锅也支持普通厨锅的配方！");
 
-        addResearch("seal_cutting", "操控印记：切菜",
+        addResearch("cutting_seal", "操控印记：切菜",
                 "很可惜的是，普通的使用印记并不适用于切菜，我应该单独设计一个适用于厨房的操控印记，当然它肯定得比普通的使用印记要便宜些。",
                 "切菜印记专用于在砧板上切菜，且只能放置在砧板上。当傀儡手上有刀，且砧板上的东西可以切时，傀儡就会开始切菜了。" +
                         "<BR>注意：该印记只负责切菜，不负责收集，也就是说傀儡切出来的菜会飞的到处都是！" +
                         "<BR>§9这项研究解锁了新的傀儡部件§0。");
 
-        addResearchAddenda("seal_cutting",
+        addResearchAddenda("cutting_seal",
                 "高级版本的切菜印记可以设置过滤，第一个格子过滤要切的物品，第二格子过滤使用什么刀。");
 
         addResearch("aura_rich_soil", "灵气沃土",
@@ -95,8 +95,8 @@ public final class ZhCnProvider extends LanguageProvider {
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
-        addItem(TDItems.SEAL_CUTTING, "操控印记：切菜");
-        addItem(TDItems.SEAL_ADVANCED_CUTTING, "高级操控印记：切菜");
+        addItem(TDItems.CUTTING_SEAL, "操控印记：切菜");
+        addItem(TDItems.ADVANCED_CUTTING_SEAL, "高级操控印记：切菜");
         addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
         addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
         addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");

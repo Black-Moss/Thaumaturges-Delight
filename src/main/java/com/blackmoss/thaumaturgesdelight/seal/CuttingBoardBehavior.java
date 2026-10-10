@@ -1,6 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.seal;
 
-import com.blackmoss.thaumaturgesdelight.registry.TDGolemArms;
+import com.blackmoss.thaumaturgesdelight.registry.TDGolemParts;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.api.golems.IGolemAPI;
 import com.leclowndu93150.thaumaturge.api.golems.seals.ISealBehavior;
@@ -92,7 +92,7 @@ public final class CuttingBoardBehavior implements ISealBehavior {
     }
 
     private static ItemStack builtInKnife(ISealEntity seal, IGolemAPI golem) {
-        if (golem.properties().arms() != TDGolemArms.KNIFE_ARMS.get()) {
+        if (golem.properties().arms() != TDGolemParts.KNIFE_ARMS.get()) {
             return ItemStack.EMPTY;
         }
         ItemStack knife = new ItemStack(TDItems.THAUMIUM_KNIFE.get());

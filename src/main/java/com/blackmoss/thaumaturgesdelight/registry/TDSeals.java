@@ -14,7 +14,7 @@ public final class TDSeals {
     public static final DeferredHolder<SealType, SealType> CUTTING = SEALS.register("cutting",
             () -> SealType.builder(CuttingBoardBehavior::new)
                     .placement(CuttingBoardBehavior.ON_CUTTING_BOARD)
-                    .placer(TDItems.SEAL_CUTTING)
+                    .placer(TDItems.CUTTING_SEAL)
                     .build());
 
     public static final DeferredHolder<SealType, SealType> ADVANCED_CUTTING = SEALS.register("advanced_cutting",
@@ -23,7 +23,7 @@ public final class TDSeals {
                     .settings(ItemMatchSettings.ALL)
                     .showSettings()
                     .placement(CuttingBoardBehavior.ON_CUTTING_BOARD)
-                    .placer(TDItems.SEAL_ADVANCED_CUTTING)
+                    .placer(TDItems.ADVANCED_CUTTING_SEAL)
                     .build());
 
     private TDSeals() {
