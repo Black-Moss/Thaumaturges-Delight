@@ -5,10 +5,8 @@ modId = "${mod_id}"
 version = "${mod_version}"
 displayName = "${mod_name}"
 logoFile = "logo.png"
-authors = "Black_Moss, Anquietas System"
-
-description = '''
-'''
+authors = "${mod_authors}"
+description = "${mod_description}"
 
 [[mixins]]
 config = "${mod_id}.mixins.json"
@@ -30,6 +28,7 @@ side = "BOTH"
 [[dependencies.${ mod_id }]]
 modId = "thaumaturge"
 type = "required"
+versionRange = "[1.0.1,)"
 ordering = "AFTER"
 side = "BOTH"
 
