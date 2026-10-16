@@ -1,0 +1,20 @@
+{
+  "type": "thaumaturgesdelight:arcane_cooking",
+  "aspects": [
+    {
+      "amount": 20,
+      "aspect": "thaumaturge:aqua"
+    }
+  ],
+  "container": {
+    "id": "minecraft:glass_bottle"
+  },
+  "ingredients": [
+    "#minecraft:leaves",
+    "minecraft:sugar"
+  ],
+  "recipe_book_tab": "drinks",
+  "result": {
+    "id": "thaumaturgesdelight:drowneds_tea"
+  }
+}

@@ -32,6 +32,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
@@ -104,6 +105,17 @@ public final class ModRecipeProvider extends RecipeProvider {
                 .aspect(TTAspects.PERDITIO, 5)
                 .tab(CookingPotRecipeBookTab.MEALS)
                 .unlockedBy("has", has(TTItems.TRIPLE_MEAT_TREAT.get()))
+                .save(output);
+
+        // 溺水者之茶
+        new ArcaneCookingPotRecipeBuilder(aspects,
+                RecipeCategory.FOOD, new ItemStackTemplate(TDItems.DROWNEDS_TEA.get()))
+                .ingredient(tag(ItemTags.LEAVES))
+                .ingredient(Items.SUGAR)
+                .container(Items.GLASS_BOTTLE)
+                .aspect(TTAspects.AQUA, 20)
+                .tab(CookingPotRecipeBookTab.DRINKS)
+                .unlockedBy("has", has(Items.OAK_LEAVES))
                 .save(output);
 
         infusion(TDItems.KETCHUP_CAP.get(), ModItems.TOMATO.get())

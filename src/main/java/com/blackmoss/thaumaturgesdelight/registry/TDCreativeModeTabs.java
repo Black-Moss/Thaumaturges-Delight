@@ -46,6 +46,7 @@ public final class TDCreativeModeTabs {
                         output.accept(TDItems.AURA_RICH_SOIL_FARMLAND.get());
 
                         output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
+                        output.accept(TDItems.DROWNEDS_TEA.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
                         output.accept(TDItems.CUTTING_SEAL.get());
                         output.accept(TDItems.ADVANCED_CUTTING_SEAL.get());

@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight.data.lang;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.blackmoss.thaumaturgesdelight.registry.TDMobEffects;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -94,12 +95,15 @@ public final class ZhCnProvider extends LanguageProvider {
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
+        addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
         addItem(TDItems.CUTTING_SEAL, "操控印记：切菜");
         addItem(TDItems.ADVANCED_CUTTING_SEAL, "高级操控印记：切菜");
         addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
         addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
         addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");
+
+        addEffect(TDMobEffects.DROWNING::value, "溺水");
     }
 
     private void addResearch(String researchId, String title, String... stage) {

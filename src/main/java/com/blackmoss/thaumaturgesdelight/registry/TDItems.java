@@ -13,12 +13,14 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.ToolMaterial;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.consume_effects.ApplyStatusEffectsConsumeEffect;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import vectorwing.farmersdelight.common.FoodValues;
+import vectorwing.farmersdelight.common.item.DrinkableItem;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 import vectorwing.farmersdelight.common.registry.ModEffects;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -74,7 +76,9 @@ public final class TDItems {
                             .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
                                     MobEffects.REGENERATION,
                                     100, 0),
-                                    0.66F)).build())));
+                                    0.66F)).build())
+                    .craftRemainder(Items.BOWL)
+                    .usingConvertsTo(Items.BOWL)));
 
     public static final DeferredItem<ItemWandCap> KETCHUP_CAP = ITEMS.registerItem(
             "ketchup_wand_cap",
@@ -85,6 +89,20 @@ public final class TDItems {
             "french_fry_wand_rod",
             props -> new ItemWandRod(props, TDWandParts.FRENCH_FRY_ROD),
             props -> props.food(Foods.BAKED_POTATO));
+
+    public static final DeferredItem<DrinkableItem> DROWNEDS_TEA = ITEMS.registerItem(
+            "drowneds_tea",
+            DrinkableItem::new,
+            props -> props
+                    .food(new FoodProperties(0, 0.0F, true),
+                            Consumables.defaultDrink()
+                                    .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                            new MobEffectInstance(MobEffects.DOLPHINS_GRACE, 600, 0), 1.0F))
+                                    .onConsume(new ApplyStatusEffectsConsumeEffect(
+                                            new MobEffectInstance(TDMobEffects.DROWNING, 60, 0), 1.0F))
+                                    .build())
+                    .craftRemainder(Items.GLASS_BOTTLE)
+                    .usingConvertsTo(Items.GLASS_BOTTLE));
 
     private TDItems() {
     }

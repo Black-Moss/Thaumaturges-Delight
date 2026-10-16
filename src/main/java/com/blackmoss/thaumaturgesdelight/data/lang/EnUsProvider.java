@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight.data.lang;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.blackmoss.thaumaturgesdelight.registry.TDMobEffects;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.data.LanguageProvider;
 
@@ -95,12 +96,15 @@ public final class EnUsProvider extends LanguageProvider {
         add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
+        addItem(TDItems.DROWNEDS_TEA, "Drowned's Tea");
         addItem(TDItems.PURIFY_COOKIE, "Cookie of Purification");
         addItem(TDItems.CUTTING_SEAL, "Control Seal: Cutting");
         addItem(TDItems.ADVANCED_CUTTING_SEAL, "Advanced Control Seal: Cutting");
         addItem(TDItems.CHUNKS_FRIED_RICE, "Chunks Fried Rice");
         addItem(TDItems.KETCHUP_CAP, "Ketchup Cap");
         addItem(TDItems.FRENCH_FRY_ROD, "French Fry Rod");
+
+        addEffect(TDMobEffects.DROWNING::value, "Drowning");
     }
 
     private void addResearch(String researchId, String title, String... stage) {
