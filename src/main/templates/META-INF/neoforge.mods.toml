@@ -1,4 +1,5 @@
 license = "${mod_license}"
+issueTrackerURL = "https://github.com/Black-Moss/Thaumaturge-Delight/issues"
 
 [[mods]]
 modId = "${mod_id}"
@@ -7,6 +8,7 @@ displayName = "${mod_name}"
 logoFile = "logo.png"
 authors = "${mod_authors}"
 description = "${mod_description}"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/thaumaturge-delight"
 
 [[mixins]]
 config = "${mod_id}.mixins.json"
@@ -26,14 +28,22 @@ ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.${ mod_id }]]
+modId = "lazycat"
+type = "required"
+versionRange = "[${lazycat_version},)"
+ordering = "AFTER"
+side = "BOTH"
+
+[[dependencies.${ mod_id }]]
 modId = "thaumaturge"
 type = "required"
-versionRange = "[1.0.2,)"
+versionRange = "[${thaumaturge_version},)"
 ordering = "AFTER"
 side = "BOTH"
 
 [[dependencies.${ mod_id }]]
 modId = "farmersdelight"
 type = "required"
+versionRange = "[${farmers_delight_version},)"
 ordering = "AFTER"
 side = "BOTH"

@@ -12,9 +12,9 @@
   ],
   "components": [
     "minecraft:enchanted_book",
-    "thaumaturge:triple_meat_treat"
+    "farmersdelight:flint_knife"
   ],
-  "display_catalyst": "farmersdelight:flint_knife",
+  "display_catalyst": "thaumaturgesdelight:elemental_knife",
   "enchantment": "bleeding_edge",
   "research": {
     "entry": "thaumaturgesdelight:elemental_knife"

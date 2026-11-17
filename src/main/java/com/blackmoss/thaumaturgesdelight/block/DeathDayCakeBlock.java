@@ -31,12 +31,10 @@ import java.util.function.Supplier;
 public class DeathDayCakeBlock extends FeastBlock {
     public static final int MAX_SERVINGS = 7;
     public static final IntegerProperty CAKE_SERVINGS = IntegerProperty.create("servings", 0, MAX_SERVINGS);
-
+    public static final VoxelShape[] CAKE_SHAPES = cakeShapes();
     private static final double WARP_GROWTH_MULTIPLIER = 1.5D;
     private static final double WARP_TO_FLUX_RATIO = 0.33D;
     private static final int AREA_RADIUS_CHUNKS = 2;
-
-    public static final VoxelShape[] CAKE_SHAPES = cakeShapes();
 
     public DeathDayCakeBlock(BlockBehaviour.Properties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
         super(properties, servingItem, hasLeftovers, true);

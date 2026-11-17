@@ -22,48 +22,52 @@ import java.util.Comparator;
 
 public final class TDCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, ThaumaturgesDelight.MODID);
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THAUMATURGES_DELIGHT = CREATIVE_MODE_TABS.register(ThaumaturgesDelight.MODID,
-            () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.thaumaturgesdelight"))
-                    .icon(() -> TDItems.ELEMENTAL_KNIFE.get().getDefaultInstance())
-                    .displayItems((parameters, output) -> {
-                        output.accept(TDItems.BRASS_KNIFE.get());
-                        output.accept(TDItems.THAUMIUM_KNIFE.get());
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> THAUMATURGES_DELIGHT;
 
-                        ItemStack elementalKnife = new ItemStack(TDItems.ELEMENTAL_KNIFE.get());
-                        InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.BLEEDING_EDGE, 1);
-                        output.accept(elementalKnife);
+    static {
+        THAUMATURGES_DELIGHT = CREATIVE_MODE_TABS.register(ThaumaturgesDelight.MODID,
+                () -> CreativeModeTab.builder()
+                        .title(Component.translatable("itemGroup.thaumaturgesdelight"))
+                        .icon(() -> TDItems.ELEMENTAL_KNIFE.get().getDefaultInstance())
+                        .displayItems((parameters, output) -> {
+                            output.accept(TDItems.BRASS_KNIFE.get());
+                            output.accept(TDItems.THAUMIUM_KNIFE.get());
 
-                        output.accept(TDItems.VOID_KNIFE.get());
+                            ItemStack elementalKnife = new ItemStack(TDItems.ELEMENTAL_KNIFE.get());
+                            InfusionEnchantmentHelper.add(elementalKnife, TDInfusionEnchantments.BLEEDING_EDGE, 1);
+                            output.accept(elementalKnife);
 
-                        output.accept(TDItems.KETCHUP_CAP.get());
-                        output.accept(TDItems.FRENCH_FRY_ROD.get());
-                        output.accept(chargedWand(TDWandParts.KETCHUP_CAP.get(), TDWandParts.FRENCH_FRY_ROD.get()));
+                            output.accept(TDItems.VOID_KNIFE.get());
 
-                        output.accept(TDItems.ARCANE_COOKING_POT.get());
-                        output.accept(TDItems.ARCANE_STOVE.get());
-                        output.accept(TDItems.AURA_RICH_SOIL.get());
-                        output.accept(TDItems.AURA_RICH_SOIL_FARMLAND.get());
+                            output.accept(TDItems.KETCHUP_CAP.get());
+                            output.accept(TDItems.FRENCH_FRY_ROD.get());
+                            output.accept(chargedWand(TDWandParts.KETCHUP_CAP.get(), TDWandParts.FRENCH_FRY_ROD.get()));
 
-                        output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
-                        output.accept(TDItems.DROWNEDS_TEA.get());
-                        output.accept(TDItems.DEATH_DAY_CAKE.get());
-                        output.accept(TDItems.DEATH_DAY_CAKE_SLICE.get());
-                        output.accept(TDItems.TAINTED_EGG.get());
-                        output.accept(TDItems.TAINTED_MILK_BUCKET.get());
-                        output.accept(TDItems.PURIFY_COOKIE.get());
-                        output.accept(TDItems.CUTTING_SEAL.get());
-                        output.accept(TDItems.ADVANCED_CUTTING_SEAL.get());
-                        output.accept(TDItems.CHUNKS_FRIED_RICE);
+                            output.accept(TDItems.ARCANE_COOKING_POT.get());
+                            output.accept(TDItems.ARCANE_STOVE.get());
+                            output.accept(TDItems.AURA_RICH_SOIL.get());
+                            output.accept(TDItems.AURA_RICH_SOIL_FARMLAND.get());
 
-                        HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
-                        for (Holder<IAspect> aspect : aspectRegistry
-                                .listElements()
-                                .sorted(Comparator.comparing((h) -> !h.value().isPrimal()))
-                                .toList()) {
-                            output.accept(EssentiaRockCandyFactory.of(aspect));
-                        }
-                    }).build());
+                            output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
+                            output.accept(TDItems.DROWNEDS_TEA.get());
+                            output.accept(TDItems.DEATH_DAY_CAKE.get());
+                            output.accept(TDItems.DEATH_DAY_CAKE_SLICE.get());
+                            output.accept(TDItems.TAINTED_EGG.get());
+                            output.accept(TDItems.TAINTED_MILK_BUCKET.get());
+                            output.accept(TDItems.PURIFY_COOKIE.get());
+                            output.accept(TDItems.CUTTING_SEAL.get());
+                            output.accept(TDItems.ADVANCED_CUTTING_SEAL.get());
+                            output.accept(TDItems.CHUNKS_FRIED_RICE);
+
+                            HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
+                            for (Holder<IAspect> aspect : aspectRegistry
+                                    .listElements()
+                                    .sorted(Comparator.comparing((h) -> !h.value().isPrimal()))
+                                    .toList()) {
+                                output.accept(EssentiaRockCandyFactory.of(aspect));
+                            }
+                        }).build());
+    }
 
     private static ItemStack chargedWand(WandCap cap, WandRod rod) {
         ItemStack stack = ItemWand.create(TTItems.WAND.get(), cap, rod, false);

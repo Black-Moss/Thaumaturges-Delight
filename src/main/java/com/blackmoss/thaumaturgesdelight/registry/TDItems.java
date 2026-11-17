@@ -66,17 +66,17 @@ public final class TDItems {
 
     public static final DeferredItem<Item> CHUNKS_FRIED_RICE = ITEMS.registerItem("chunks_fried_rice",
             props -> new Item(props.food(new FoodProperties.Builder()
-                            .nutrition(12)
-                            .saturationModifier(1.2F)
-                            .build(),
-                    Consumables.defaultFood()
-                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
-                                    ModEffects.NOURISHMENT,
-                                    3600, 0)))
-                            .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
-                                    MobEffects.REGENERATION,
-                                    100, 0),
-                                    0.66F)).build())
+                                    .nutrition(12)
+                                    .saturationModifier(1.2F)
+                                    .build(),
+                            Consumables.defaultFood()
+                                    .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
+                                            ModEffects.NOURISHMENT,
+                                            3600, 0)))
+                                    .onConsume(new ApplyStatusEffectsConsumeEffect(new MobEffectInstance(
+                                            MobEffects.REGENERATION,
+                                            100, 0),
+                                            0.66F)).build())
                     .craftRemainder(Items.BOWL)
                     .usingConvertsTo(Items.BOWL)));
 

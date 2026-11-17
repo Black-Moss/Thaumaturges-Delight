@@ -1,12 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.registry;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlock;
-import com.blackmoss.thaumaturgesdelight.block.ArcaneStoveBlock;
-import com.blackmoss.thaumaturgesdelight.block.AuraRichSoilBlock;
-import com.blackmoss.thaumaturgesdelight.block.AuraRichSoilFarmlandBlock;
-import com.blackmoss.thaumaturgesdelight.block.DeathDayCakeBlock;
-import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.blackmoss.thaumaturgesdelight.block.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.state.BlockBehaviour;

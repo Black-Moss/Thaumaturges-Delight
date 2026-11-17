@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "M": "thaumaturge:ingot_brass",
+    "M": "#c:ingots/brass",
     "S": "#c:rods/wooden"
   },
   "pattern": [

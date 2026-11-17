@@ -4,13 +4,17 @@ import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import com.leclowndu93150.thaumaturge.content.aspect.Aspect;
-import java.util.List;
-import java.util.Optional;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
 
+import java.util.List;
+import java.util.Optional;
+
 public final class TDAspects {
     public static final ResourceKey<IAspect> CUPPEDIA = ResourceKey.create(IAspect.REGISTRY_KEY, ThaumaturgesDelight.identifier("cuppedia"));
+
+    private TDAspects() {
+    }
 
     public static void bootstrap(BootstrapContext<IAspect> ctx) {
         var lookup = ctx.lookup(IAspect.REGISTRY_KEY);
@@ -19,8 +23,5 @@ public final class TDAspects {
                 Optional.empty(),
                 ThaumaturgesDelight.identifier("textures/aspects/cuppedia.png"),
                 Aspect.DEFAULT_BLEND));
-    }
-
-    private TDAspects() {
     }
 }

@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "M": "thaumaturge:ingot_thaumium",
+    "M": "#c:ingots/thaumium",
     "S": "#c:rods/wooden"
   },
   "pattern": [
