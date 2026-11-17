@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "thaumaturgesdelight:block/death_day_cake",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "thaumaturgesdelight:block/death_day_cake"
+    },
+    "facing=south": {
+      "model": "thaumaturgesdelight:block/death_day_cake",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "thaumaturgesdelight:block/death_day_cake",
+      "y": 270
+    }
+  }
+}
