@@ -47,6 +47,10 @@ public final class TDCreativeModeTabs {
 
                         output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
                         output.accept(TDItems.DROWNEDS_TEA.get());
+                        output.accept(TDItems.DEATH_DAY_CAKE.get());
+                        output.accept(TDItems.DEATH_DAY_CAKE_SLICE.get());
+                        output.accept(TDItems.TAINTED_EGG.get());
+                        output.accept(TDItems.TAINTED_MILK_BUCKET.get());
                         output.accept(TDItems.PURIFY_COOKIE.get());
                         output.accept(TDItems.CUTTING_SEAL.get());
                         output.accept(TDItems.ADVANCED_CUTTING_SEAL.get());

@@ -97,6 +97,10 @@ public final class EnUsProvider extends LanguageProvider {
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
         addItem(TDItems.DROWNEDS_TEA, "Drowned's Tea");
+        addItem(TDItems.DEATH_DAY_CAKE, "Death Day Cake");
+        addItem(TDItems.DEATH_DAY_CAKE_SLICE, "Death Day Cake Slice");
+        addItem(TDItems.TAINTED_EGG, "Tainted Egg");
+        addItem(TDItems.TAINTED_MILK_BUCKET, "Tainted Milk Bucket");
         addItem(TDItems.PURIFY_COOKIE, "Cookie of Purification");
         addItem(TDItems.CUTTING_SEAL, "Control Seal: Cutting");
         addItem(TDItems.ADVANCED_CUTTING_SEAL, "Advanced Control Seal: Cutting");

@@ -4,7 +4,6 @@ import com.leclowndu93150.thaumaturge.api.aura.AuraHelper;
 import com.leclowndu93150.thaumaturge.api.warp.IPlayerWarp;
 import com.leclowndu93150.thaumaturge.api.warp.WarpHelper;
 import com.leclowndu93150.thaumaturge.api.warp.WarpType;
-import java.util.function.Supplier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
@@ -24,24 +23,19 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.block.FeastBlock;
 
-// 死日蛋糕（盛宴方块），共 7 份：
-// 每取下一份（吃掉）扭曲 ×1.5；只有把最后一份也吃下去（即吃满 7 份）才会瞬间死亡，
-// 并把 33% 的扭曲转化成死亡点周围 5x5 区块的咒波。
-//
-// 注意：FD 的 RotatedFeastBlock 内部用的是静态 SERVINGS（0-4），且形状数组是私有的，
-// 做不到 7 份。因此这里直接继承 FeastBlock，自己管状态属性与形状。
+import java.util.function.Supplier;
+
 public class DeathDayCakeBlock extends FeastBlock {
     public static final int MAX_SERVINGS = 7;
-    // FD 自带的 SERVINGS 只有 0-4，蛋糕要 7 份，故自定义同名属性
     public static final IntegerProperty CAKE_SERVINGS = IntegerProperty.create("servings", 0, MAX_SERVINGS);
 
     private static final double WARP_GROWTH_MULTIPLIER = 1.5D;
     private static final double WARP_TO_FLUX_RATIO = 0.33D;
     private static final int AREA_RADIUS_CHUNKS = 2;
 
-    // 索引即剩余份数：0 份只剩一层薄底盘，蛋糕高度随剩余份数递增
     public static final VoxelShape[] CAKE_SHAPES = cakeShapes();
 
     public DeathDayCakeBlock(BlockBehaviour.Properties properties, Supplier<Item> servingItem, boolean hasLeftovers) {
@@ -72,17 +66,30 @@ public class DeathDayCakeBlock extends FeastBlock {
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+    public @NonNull VoxelShape getShape(
+            BlockState state,
+            @NonNull BlockGetter level,
+            @NonNull BlockPos pos,
+            @NonNull CollisionContext context) {
         return CAKE_SHAPES[state.getValue(CAKE_SERVINGS)];
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos, Direction direction) {
+    protected int getAnalogOutputSignal(
+            BlockState state,
+            @NonNull Level level,
+            @NonNull BlockPos pos,
+            @NonNull Direction direction) {
         return state.getValue(CAKE_SERVINGS);
     }
 
     @Override
-    protected InteractionResult takeServing(LevelAccessor level, BlockPos pos, BlockState state, Player player, InteractionHand hand) {
+    protected InteractionResult takeServing(
+            @NonNull LevelAccessor level,
+            @NonNull BlockPos pos,
+            BlockState state,
+            @NonNull Player player,
+            @NonNull InteractionHand hand) {
         int before = state.getValue(getServingsProperty());
         if (before <= 0) {
             return super.takeServing(level, pos, state, player, hand);
@@ -90,7 +97,6 @@ public class DeathDayCakeBlock extends FeastBlock {
         InteractionResult result = super.takeServing(level, pos, state, player, hand);
         if (player instanceof ServerPlayer serverPlayer) {
             multiplyWarp(serverPlayer);
-            // 刚刚取走的是最后一份（1 → 0），说明这一整个蛋糕的 7 份已吃满
             if (before == 1) {
                 detonate(serverPlayer);
             }
@@ -98,7 +104,6 @@ public class DeathDayCakeBlock extends FeastBlock {
         return result;
     }
 
-    // 扭曲 ×1.5：各池分别乘，至少 +1 保证有增长
     private void multiplyWarp(ServerPlayer player) {
         IPlayerWarp warp = WarpHelper.getWarp(player);
         for (WarpType type : WarpType.values()) {
@@ -111,18 +116,14 @@ public class DeathDayCakeBlock extends FeastBlock {
         }
     }
 
-    // 先按 33% 扣掉扭曲，再瞬间致死，最后把等量咒波铺到死亡点周围 5x5 区块。
     private void detonate(ServerPlayer player) {
-        if (!(player.level() instanceof ServerLevel serverLevel)) {
-            return;
-        }
+        ServerLevel serverLevel = player.level();
         IPlayerWarp warp = WarpHelper.getWarp(player);
         int normal = warp.get(WarpType.NORMAL);
         int temporary = warp.get(WarpType.TEMPORARY);
         int flux = (int) Math.floor((normal + temporary) * WARP_TO_FLUX_RATIO);
 
         if (flux > 0) {
-            // 永久扭曲设定上无法移除，故只从普通池与临时池扣
             int fromNormal = Math.min(flux, normal);
             int fromTemporary = flux - fromNormal;
             if (fromNormal > 0) {
@@ -134,7 +135,6 @@ public class DeathDayCakeBlock extends FeastBlock {
         }
 
         BlockPos deathPos = player.blockPosition();
-        // genericKill 无视护甲与无敌，保证是瞬死
         player.hurtServer(serverLevel, player.damageSources().genericKill(), Float.MAX_VALUE);
 
         if (flux > 0) {
@@ -149,7 +149,6 @@ public class DeathDayCakeBlock extends FeastBlock {
         int remainder = flux % chunks;
         for (int dx = -AREA_RADIUS_CHUNKS; dx <= AREA_RADIUS_CHUNKS; dx++) {
             for (int dz = -AREA_RADIUS_CHUNKS; dz <= AREA_RADIUS_CHUNKS; dz++) {
-                // 整除不下的余数补给正中心区块
                 int amount = perChunk + (dx == 0 && dz == 0 ? remainder : 0);
                 if (amount <= 0) {
                     continue;

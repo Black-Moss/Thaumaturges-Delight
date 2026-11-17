@@ -24,6 +24,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmlandBlock;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
+import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 
 import java.util.Optional;
@@ -42,6 +43,10 @@ public class ModModelProvider extends ModelProvider {
     private static final TextureMapping STOVE_ON_TEXTURES = stoveTextures(true);
 
     private static final Identifier SOIL_MODEL = ThaumaturgesDelight.identifier("block/aura_rich_soil");
+
+    private static final Identifier DEATH_DAY_CAKE_MODEL = ThaumaturgesDelight.identifier("block/death_day_cake");
+    private static final TextureMapping DEATH_DAY_CAKE_TEXTURES = new TextureMapping()
+            .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/death_day_cake")));
 
     private static final TextureMapping SOIL_TEXTURES = new TextureMapping()
             .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/aura_rich_soil")));
@@ -105,6 +110,7 @@ public class ModModelProvider extends ModelProvider {
         arcaneStove(blockModels);
         auraRichSoil(blockModels);
         auraRichSoilFarmland(blockModels);
+        deathDayCake(blockModels);
 
         flatItem(itemModels, TDItems.BRASS_KNIFE.get());
         flatItem(itemModels, TDItems.THAUMIUM_KNIFE.get());
@@ -116,10 +122,27 @@ public class ModModelProvider extends ModelProvider {
         flatItem(itemModels, TDItems.ADVANCED_CUTTING_SEAL.get());
         flatItem(itemModels, TDItems.CHUNKS_FRIED_RICE.get());
         flatItem(itemModels, TDItems.DROWNEDS_TEA.get());
+        flatItem(itemModels, TDItems.DEATH_DAY_CAKE_SLICE.get());
+        flatItem(itemModels, TDItems.TAINTED_EGG.get());
+        flatItem(itemModels, TDItems.TAINTED_MILK_BUCKET.get());
         flatItem(itemModels, TDItems.KETCHUP_CAP.get());
         flatItem(itemModels, TDItems.FRENCH_FRY_ROD.get());
 
         essentiaRockCandy(itemModels, TDItems.ESSENTIA_ROCK_CANDY.get());
+    }
+
+    private void deathDayCake(@NonNull BlockModelGenerators blockModels) {
+        Block block = TDBlocks.DEATH_DAY_CAKE.get();
+        ModelTemplates.CUBE_ALL.create(DEATH_DAY_CAKE_MODEL, DEATH_DAY_CAKE_TEXTURES, blockModels.modelOutput);
+
+        PropertyDispatch<MultiVariant> dispatch = PropertyDispatch.initial(FeastBlock.FACING)
+                .select(Direction.NORTH, BlockModelGenerators.plainVariant(DEATH_DAY_CAKE_MODEL))
+                .select(Direction.EAST, BlockModelGenerators.plainVariant(DEATH_DAY_CAKE_MODEL).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+                .select(Direction.SOUTH, BlockModelGenerators.plainVariant(DEATH_DAY_CAKE_MODEL).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+                .select(Direction.WEST, BlockModelGenerators.plainVariant(DEATH_DAY_CAKE_MODEL).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)));
+
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
+        blockModels.registerSimpleItemModel(block, DEATH_DAY_CAKE_MODEL);
     }
 
     private void arcaneCookingPot(@NonNull BlockModelGenerators blockModels) {

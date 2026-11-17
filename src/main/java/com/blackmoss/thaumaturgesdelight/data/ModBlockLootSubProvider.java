@@ -30,6 +30,7 @@ public class ModBlockLootSubProvider extends BlockLootSubProvider {
         dropSelf(TDBlocks.AURA_RICH_SOIL.get());
         // 和乐事一样：耕地被挖掉时掉的是沃土
         dropOther(TDBlocks.AURA_RICH_SOIL_FARMLAND.get(), TDBlocks.AURA_RICH_SOIL.get());
+        dropSelf(TDBlocks.DEATH_DAY_CAKE.get());
     }
 
     public HolderLookup.Provider getLookupProvider() {

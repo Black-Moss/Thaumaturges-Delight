@@ -5,6 +5,8 @@ import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlock;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneStoveBlock;
 import com.blackmoss.thaumaturgesdelight.block.AuraRichSoilBlock;
 import com.blackmoss.thaumaturgesdelight.block.AuraRichSoilFarmlandBlock;
+import com.blackmoss.thaumaturgesdelight.block.DeathDayCakeBlock;
+import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -32,4 +34,10 @@ public final class TDBlocks {
             () -> new AuraRichSoilFarmlandBlock(BlockBehaviour.Properties.ofFullCopy(ModBlocks.RICH_SOIL_FARMLAND.get())
                     .randomTicks()
                     .setId(ResourceKey.create(Registries.BLOCK, ThaumaturgesDelight.identifier("aura_rich_soil_farmland")))));
+
+    // 死日蛋糕：7 份的盛宴方块，取一份给一块蛋糕切片
+    public static final DeferredBlock<DeathDayCakeBlock> DEATH_DAY_CAKE = BLOCKS.register("death_day_cake",
+            () -> new DeathDayCakeBlock(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.CAKE)
+                    .setId(ResourceKey.create(Registries.BLOCK, ThaumaturgesDelight.identifier("death_day_cake"))),
+                    TDItems.DEATH_DAY_CAKE_SLICE, true));
 }
