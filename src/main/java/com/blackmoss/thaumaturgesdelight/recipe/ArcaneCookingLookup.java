@@ -16,6 +16,7 @@ public final class ArcaneCookingLookup {
         if (vanilla.isPresent()) {
             return vanilla;
         }
+        //noinspection NullableProblems
         return Holder.ARCANE.getRecipeFor(wrapper, level).map(holder -> new RecipeHolder<>(holder.id(), holder.value().asCookingPotRecipe()));
     }
 

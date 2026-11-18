@@ -25,6 +25,7 @@ import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class ArcaneCookingPotMenu extends RecipeBookMenu {
     public static final Identifier EMPTY_CONTAINER_SLOT_BOWL = ThaumaturgesDelight.fd("item/empty_container_slot_bowl");
 

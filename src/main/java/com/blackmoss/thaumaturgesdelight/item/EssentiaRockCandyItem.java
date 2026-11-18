@@ -42,11 +42,6 @@ public class EssentiaRockCandyItem extends Item {
         return stored == null ? null : stored.aspect();
     }
 
-    public static int colorOf(ItemStack stack) {
-        Holder<IAspect> aspect = aspectOf(stack);
-        return aspect == null ? 16777215 : aspect.value().color();
-    }
-
     public @NonNull Component getName(@NonNull ItemStack stack) {
         Holder<IAspect> aspect = aspectOf(stack);
         return aspect == null

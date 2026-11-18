@@ -45,10 +45,6 @@ public class ArcaneCookingPotRecipeBookComponent extends RecipeBookComponent<Arc
         return RECIPE_BOOK_BUTTONS;
     }
 
-    public void hide() {
-        setVisible(false);
-    }
-
     @Override
     protected @NonNull Component getRecipeFilterName() {
         return Component.translatable("container.farmersdelight.recipe_book.cookable");

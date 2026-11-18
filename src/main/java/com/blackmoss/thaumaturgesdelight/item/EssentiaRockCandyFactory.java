@@ -30,10 +30,4 @@ public class EssentiaRockCandyFactory {
         Holder<IAspect> aspect = registries.lookupOrThrow(IAspect.REGISTRY_KEY).getOrThrow(key);
         return of(aspect, 1);
     }
-
-    public static List<ItemStack> discoveredCrystals(Player player) {
-        List<ItemStack> crystals = new ArrayList<>();
-        player.level().registryAccess().lookupOrThrow(IAspect.REGISTRY_KEY).listElements().filter((aspect) -> AspectPools.isDiscovered(player, aspect)).sorted(Comparator.comparing((aspect) -> !aspect.value().isPrimal())).forEach((aspect) -> crystals.add(of(aspect)));
-        return crystals;
-    }
 }

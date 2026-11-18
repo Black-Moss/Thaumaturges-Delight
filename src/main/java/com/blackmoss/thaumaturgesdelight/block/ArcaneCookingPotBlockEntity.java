@@ -64,7 +64,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@SuppressWarnings("deprecation")
+@SuppressWarnings({"deprecation", "unused"})
 @EventBusSubscriber(modid = ThaumaturgesDelight.MODID)
 public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProvider, HeatableBlockEntity, Nameable, RecipeCraftingHolder, Clearable {
     public static final int INPUT_SLOTS = 6;
