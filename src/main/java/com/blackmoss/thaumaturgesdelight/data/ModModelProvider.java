@@ -32,12 +32,6 @@ public class ModModelProvider extends LazyCatModelProvider {
         super(output, ThaumaturgesDelight.MODID);
     }
 
-    private void essentiaRockCandy(Item item) {
-        var itemModels = context().itemModels();
-        ModelTemplates.FLAT_ITEM.create(getItemModelId(item), TextureMapping.layer0(item), itemModels.modelOutput);
-        itemModels.itemModelOutput.accept(item, ItemModelUtils.tintedModel(getItemModelId(item), new CrystalAspectTint(16777215)));
-    }
-
     private static MultiVariant potVariant(Identifier model, Quadrant rotation) {
         return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
     }
@@ -46,16 +40,22 @@ public class ModModelProvider extends LazyCatModelProvider {
         return BlockModelGenerators.plainVariant(model).with(VariantMutator.Y_ROT.withValue(rotation));
     }
 
+    private static Material stoveMaterial(String path) {
+        return new Material(ThaumaturgesDelight.identifier("block/" + path));
+    }
+
+    private void essentiaRockCandy(Item item) {
+        var itemModels = context().itemModels();
+        ModelTemplates.FLAT_ITEM.create(getItemModelId(item), TextureMapping.layer0(item), itemModels.modelOutput);
+        itemModels.itemModelOutput.accept(item, ItemModelUtils.tintedModel(getItemModelId(item), new CrystalAspectTint(16777215)));
+    }
+
     private TextureMapping stoveTextures(boolean lit) {
         return new TextureMapping()
                 .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.fdIdentifier("block/stove_bottom")))
                 .put(TextureSlot.TOP, stoveMaterial(lit ? "arcane_stove_top_on" : "arcane_stove_top"))
                 .put(TextureSlot.SIDE, stoveMaterial("arcane_stove_side"))
                 .put(TextureSlot.FRONT, stoveMaterial(lit ? "arcane_stove_front_on" : "arcane_stove_front"));
-    }
-
-    private static Material stoveMaterial(String path) {
-        return new Material(ThaumaturgesDelight.identifier("block/" + path));
     }
 
     @Override
