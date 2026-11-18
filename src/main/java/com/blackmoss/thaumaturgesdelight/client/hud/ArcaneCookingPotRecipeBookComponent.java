@@ -1,4 +1,4 @@
-package com.blackmoss.thaumaturgesdelight.client;
+package com.blackmoss.thaumaturgesdelight.client.hud;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlockEntity;

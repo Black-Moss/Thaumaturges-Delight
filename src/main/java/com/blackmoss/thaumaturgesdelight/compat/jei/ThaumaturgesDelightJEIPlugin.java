@@ -1,8 +1,8 @@
 package com.blackmoss.thaumaturgesdelight.compat.jei;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.client.ArcaneCookingPotScreen;
-import com.blackmoss.thaumaturgesdelight.client.TDClientRecipes;
+import com.blackmoss.thaumaturgesdelight.client.ThaumaturgesDelightClient;
+import com.blackmoss.thaumaturgesdelight.client.hud.ArcaneCookingPotScreen;
 import com.blackmoss.thaumaturgesdelight.compat.jei.category.ArcaneCookingRecipeCategory;
 import com.blackmoss.thaumaturgesdelight.menu.ArcaneCookingPotMenu;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
@@ -32,7 +32,7 @@ public class ThaumaturgesDelightJEIPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(@NonNull IRecipeRegistration registration) {
-        registration.addRecipes(ArcaneCookingRecipeCategory.RECIPE_TYPE, TDClientRecipes.byType(TDRecipeTypes.ARCANE_COOKING.get()));
+        registration.addRecipes(ArcaneCookingRecipeCategory.RECIPE_TYPE, ThaumaturgesDelightClient.byType(TDRecipeTypes.ARCANE_COOKING.get()));
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.blackmoss.thaumaturgesdelight;
 
+import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
+import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
 import com.blackmoss.thaumaturgesdelight.data.ModBlockLootSubProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModModelProvider;
 import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
@@ -22,6 +24,7 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
@@ -47,6 +50,10 @@ public class ThaumaturgesDelight {
         TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         TDWandParts.CAPS.register(modEventBus);
         TDWandParts.RODS.register(modEventBus);
+
+        modContainer.registerConfig(ModConfig.Type.CLIENT, ThaumaturgesDelightClientConfig.SPEC);
+        modContainer.registerConfig(ModConfig.Type.COMMON, ThaumaturgesDelightCommonConfig.SPEC);
+
     }
 
     public static Identifier identifier(String path) {
