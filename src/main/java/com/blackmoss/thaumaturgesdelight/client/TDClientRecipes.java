@@ -13,9 +13,6 @@ import java.util.List;
 public final class TDClientRecipes {
     private static RecipeMap recipeMap = RecipeMap.EMPTY;
 
-    private TDClientRecipes() {
-    }
-
     @SubscribeEvent
     public static void onRecipesReceived(RecipesReceivedEvent event) {
         recipeMap = event.getRecipeMap();

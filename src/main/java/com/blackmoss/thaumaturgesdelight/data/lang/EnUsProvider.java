@@ -19,7 +19,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
         addContainer("arcane_cooking_pot.not_heated", "Needs heat from below");
         addContainer("arcane_cooking_pot.served_on", "Served on: %s");
 
-        addRecipeType(TDRecipeTypes.ARCANE_COOKING.get(), "Arcane Cooking");
+        addRecipeType(TDRecipeTypes.ARCANE_COOKING.getKey(), "Arcane Cooking");
 
         add("golem.arm.thaumaturgesdelight.knife", "Knife Arms");
         add("golem.arm.text.thaumaturgesdelight.knife",

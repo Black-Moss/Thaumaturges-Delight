@@ -24,8 +24,12 @@ public final class TDRecipeTypes {
                 }
             });
 
-    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaneCookingPotRecipe>> ARCANE_COOKING_SERIALIZER = RECIPE_SERIALIZERS.register("arcane_cooking",
-            () -> ArcaneCookingPotRecipe.SERIALIZER);
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaneCookingPotRecipe>> ARCANE_COOKING_SERIALIZER;
+
+    static {
+        ARCANE_COOKING_SERIALIZER = RECIPE_SERIALIZERS.register("arcane_cooking",
+                () -> ArcaneCookingPotRecipe.SERIALIZER);
+    }
 
     @SubscribeEvent
     public static void onDatapackSync(OnDatapackSyncEvent event) {

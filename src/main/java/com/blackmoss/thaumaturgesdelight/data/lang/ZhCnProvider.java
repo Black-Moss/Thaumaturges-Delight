@@ -19,7 +19,7 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
         addContainer("arcane_cooking_pot.not_heated", "需要下方热源");
         addContainer("arcane_cooking_pot.served_on", "盛放于：%s");
 
-        addRecipeType(TDRecipeTypes.ARCANE_COOKING.get(), "奥术烹饪");
+        addRecipeType(TDRecipeTypes.ARCANE_COOKING.getKey(), "奥术烹饪");
 
         add("golem.arm.thaumaturgesdelight.knife", "菜刀机械臂");
         add("golem.arm.text.thaumaturgesdelight.knife",
