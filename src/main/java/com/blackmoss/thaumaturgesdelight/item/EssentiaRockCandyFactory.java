@@ -3,17 +3,11 @@ package com.blackmoss.thaumaturgesdelight.item;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
-import com.leclowndu93150.thaumaturge.content.research.pool.AspectPools;
 import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
 
 public class EssentiaRockCandyFactory {
     public static ItemStack of(Holder<IAspect> aspect, int count) {
