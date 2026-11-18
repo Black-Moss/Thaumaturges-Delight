@@ -24,7 +24,6 @@ import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
 import com.leclowndu93150.thaumaturge.registry.TTItemTags;
 import com.leclowndu93150.thaumaturge.registry.TTItems;
 import net.minecraft.core.Holder;
-import net.minecraft.core.HolderGetter;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.PackOutput;
@@ -33,7 +32,6 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
-import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
@@ -47,11 +45,8 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 public final class ModRecipeProvider extends LazyCatRecipeProvider {
-    private final HolderGetter<IAspect> aspects;
-
-    private ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output, String space) {
-        super(provider, output, space);
-        this.aspects = registries.lookupOrThrow(IAspect.REGISTRY_KEY);
+    private ModRecipeProvider(HolderLookup.Provider provider, RecipeOutput output, String modid) {
+        super(provider, output, modid);
     }
 
     private static ResearchGate tdGate(String path) {
@@ -97,7 +92,7 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .gate(tdGate("elemental_knife"))
                 .save();
 
-        new ArcaneCookingPotBuilder(context, new ItemStackTemplate(TDItems.SEXTUPLE_MEAT_SURPRISE.get()))
+        new ArcaneCookingPotBuilder(context, TDItems.SEXTUPLE_MEAT_SURPRISE)
                 .ingredient(TTItems.CHUNK_BEEF)
                 .ingredient(TTItems.CHUNK_CHICKEN)
                 .ingredient(TTItems.CHUNK_PORK)
@@ -106,48 +101,44 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .ingredient(TTItems.CHUNK_MUTTON)
                 .aspect(TTAspects.VICTUS, 20)
                 .aspect(TTAspects.PERDITIO, 5)
-                .category(CookingPotRecipeBookTab.MEALS)
-                .unlockedBy("has", has(TTItems.TRIPLE_MEAT_TREAT.get()))
+                .tab(CookingPotRecipeBookTab.MEALS)
                 .save();
 
         // 溺水者之茶
-        new ArcaneCookingPotBuilder(context, new ItemStackTemplate(TDItems.DROWNEDS_TEA.get()))
+        new ArcaneCookingPotBuilder(context, TDItems.DROWNEDS_TEA)
                 .ingredient(ItemTags.LEAVES)
                 .ingredient(Items.SUGAR)
                 .container(Items.GLASS_BOTTLE)
                 .aspect(TTAspects.AQUA, 20)
-                .category(CookingPotRecipeBookTab.DRINKS)
-                .unlockedBy("has", has(Items.OAK_LEAVES))
+                .tab(CookingPotRecipeBookTab.DRINKS)
                 .save();
 
         // 死日蛋糕
-        new ArcaneCookingPotBuilder(context, new ItemStackTemplate(TDItems.DEATH_DAY_CAKE.get()))
-                .ingredient(TTItems.TAINT_TENDRIL.get())
-                .ingredient(TTItems.BRAIN.get())
-                .ingredient(TDItems.TAINTED_EGG.get())
-                .ingredient(TDItems.TAINTED_MILK_BUCKET.get())
+        new ArcaneCookingPotBuilder(context, TDItems.DEATH_DAY_CAKE)
+                .ingredient(TTItems.TAINT_TENDRIL)
+                .ingredient(TTItems.BRAIN)
+                .ingredient(TDItems.TAINTED_EGG)
+                .ingredient(TDItems.TAINTED_MILK_BUCKET)
                 .ingredient(Items.DEAD_BUSH)
                 .aspect(TTAspects.MORTUUS, 40)
-                .category(CookingPotRecipeBookTab.MEALS)
-                .unlockedBy("has", has(TTItems.BRAIN.get()))
+                .tab(CookingPotRecipeBookTab.MEALS)
                 .save();
 
-        new InfusionBuilder(context, TDItems.KETCHUP_CAP.get(), ModItems.TOMATO.get())
-                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+        new InfusionBuilder(context, TDItems.KETCHUP_CAP, ModItems.TOMATO)
+                .component(TTItems.SALIS_MUNDUS)
                 .component(crystal(TDAspects.CUPPEDIA))
                 .aspect(TDAspects.CUPPEDIA, 5)
                 .save();
 
-        new InfusionBuilder(context, TDItems.FRENCH_FRY_ROD.get(), Items.BAKED_POTATO)
-                .component(Ingredient.of(TTItems.SALIS_MUNDUS.get()))
+        new InfusionBuilder(context, TDItems.FRENCH_FRY_ROD, Items.BAKED_POTATO)
+                .component(TTItems.SALIS_MUNDUS)
                 .component(crystal(TDAspects.CUPPEDIA))
                 .aspect(TDAspects.CUPPEDIA, 5)
                 .save();
     }
 
     private void essenceRockCandy() {
-        HolderLookup<IAspect> lookup = (HolderLookup<IAspect>) aspects;
-        for (Holder<IAspect> aspect : lookup.listElements().toList()) {
+        for (Holder<IAspect> aspect : registries.lookupOrThrow(IAspect.REGISTRY_KEY).listElements().toList()) {
             ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
             DataComponentPatch patch = DataComponentPatch.builder()
                     .set(TTDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1))
@@ -166,7 +157,7 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
 
     private void sealCutting() {
         new InfusionBuilder(context, TDItems.CUTTING_SEAL.get(),
-                TTItems.SEAL_BLANK.get())
+                TTItems.SEAL_BLANK)
                 .component(ModItems.GOLDEN_KNIFE)
                 .component(Tags.Items.CROPS)
                 .component(Tags.Items.FOODS_RAW_MEAT)

@@ -57,7 +57,7 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     protected final IDrawable timeIcon;
     protected final IDrawable expIcon;
     protected final IDrawableAnimated arrow;
-    private final Component title = Component.translatable("recipe.type.arcane_cooking");
+    private final Component title = Component.translatable("recipe.type.thaumaturgesdelight.arcane_cooking");
     private final IDrawable background;
     private final IDrawable icon;
 

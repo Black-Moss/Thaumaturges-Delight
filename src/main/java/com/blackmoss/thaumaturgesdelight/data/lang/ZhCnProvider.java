@@ -1,37 +1,73 @@
 package com.blackmoss.thaumaturgesdelight.data.lang;
 
+import com.blackmoss.lazycat.lang.LazyCatLanguageProvider;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
-import com.blackmoss.thaumaturgesdelight.registry.TDItems;
-import com.blackmoss.thaumaturgesdelight.registry.TDMobEffects;
+import com.blackmoss.thaumaturgesdelight.registry.*;
 import net.minecraft.data.PackOutput;
-import net.neoforged.neoforge.common.data.LanguageProvider;
 
-public final class ZhCnProvider extends LanguageProvider {
+public final class ZhCnProvider extends LazyCatLanguageProvider {
     public ZhCnProvider(PackOutput output) {
         super(output, ThaumaturgesDelight.MODID, "zh_cn");
     }
 
     @Override
     protected void addTranslations() {
-        add("itemGroup.thaumaturgesdelight", "神秘乐事");
+        addCreativeModeTab(TDCreativeModeTabs.THAUMATURGES_DELIGHT.get(), "神秘乐事");
 
-        add("container.thaumaturgesdelight.arcane_cooking_pot", "奥术厨锅");
-        add("container.thaumaturgesdelight.arcane_cooking_pot.heated", "已加热");
-        add("container.thaumaturgesdelight.arcane_cooking_pot.not_heated", "需要下方热源");
-        add("container.thaumaturgesdelight.arcane_cooking_pot.served_on", "盛放于：%s");
+        addContainer("arcane_cooking_pot", "奥术厨锅");
+        addContainer("arcane_cooking_pot.heated", "已加热");
+        addContainer("arcane_cooking_pot.not_heated", "需要下方热源");
+        addContainer("arcane_cooking_pot.served_on", "盛放于：%s");
 
-        add("recipe.type.arcane_cooking", "奥术烹饪");
-
-        add("research_category.thaumaturgesdelight.culinary_magic", "食品魔法");
+        addRecipeType(TDRecipeTypes.ARCANE_COOKING.get(), "奥术烹饪");
 
         add("golem.arm.thaumaturgesdelight.knife", "菜刀机械臂");
         add("golem.arm.text.thaumaturgesdelight.knife",
                 "末端装有成对的菜刀。傀儡因此随时都有刀可用，无需再额外携带；但双手被刀具占满，它无法再搬运任何物品。");
 
-        add("aspect.thaumaturgesdelight.cuppedia", "美食");
-        add("aspect.thaumaturgesdelight.cuppedia.desc", "美食，佳肴");
-        add("aspect.thaumaturgesdelight.cuppedia.help", "好吃的东西");
+        addAspect(TDAspects.CUPPEDIA,
+                "美食",
+                "美食，佳肴",
+                "好吃的东西");
+
+        addEnchantment("bleeding_edge", "无往不利");
+
+        addWandCap("ketchup", "沾着番茄酱的");
+        addWandRod("french_fry", "薯条");
+
+        addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
+        addBlock(TDBlocks.ARCANE_STOVE, "奥术炉灶");
+        addBlock(TDBlocks.AURA_RICH_SOIL, "灵气沃土");
+        addBlock(TDBlocks.AURA_RICH_SOIL_FARMLAND, "灵气沃土耕地");
+
+        addItem(TDItems.BRASS_KNIFE, "黄铜刀");
+        addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");
+        addItem(TDItems.VOID_KNIFE, "虚空刀");
+        addItem(TDItems.ELEMENTAL_KNIFE, "庖丁刀");
+
+        addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
+        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
+
+        addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
+        addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");
+        addItem(TDItems.DEATH_DAY_CAKE, "死日蛋糕");
+        addItem(TDItems.DEATH_DAY_CAKE_SLICE, "死日蛋糕切片");
+        addItem(TDItems.TAINTED_EGG, "污染鸡蛋");
+        addItem(TDItems.TAINTED_MILK_BUCKET, "污染奶桶");
+        addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
+        addItem(TDItems.CUTTING_SEAL, "操控印记：切菜");
+        addItem(TDItems.ADVANCED_CUTTING_SEAL, "高级操控印记：切菜");
+        addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
+        addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
+        addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");
+
+        addEffect(TDMobEffects.DROWNING::value, "溺水");
+
+        research();
+    }
+
+    private void research() {
+        addResearchCategory("culinary_magic", "食品魔法");
 
         addResearch("unlock_culinary_magic", "解锁：食品魔法",
                 "虽然作为一名神秘使知道各种常人所不知的秘闻，但我注意到这些东西并没有改善到我的饮食，" +
@@ -75,51 +111,5 @@ public final class ZhCnProvider extends LanguageProvider {
                 "吃过魔豆后我就觉得这东西真的上瘾，但是很明显的问题就是魔豆的效果太随机了，如果去掉魔豆的形态直接食用源质是不是更好？不过源质这种东西应该冰起来才能吃吧，那就从冰冻下手。",
                 "隆重介绍：源质冰糖！这东西只会给你随机的正面或中性效果，绝对不会给你带来灾难！" +
                         "<BR>将糖泡入你的（食品级）坩埚中即可获得，只需要5点该要素、1点寒冰和1点水晶！");
-
-        add("enchantment.thaumaturge.bleeding_edge", "无往不利");
-
-        add("wand.thaumaturge.cap.ketchup", "沾着番茄酱的");
-        add("wand.thaumaturge.rod.french_fry", "薯条");
-
-        addBlock(TDBlocks.ARCANE_COOKING_POT, "奥术厨锅");
-        addBlock(TDBlocks.ARCANE_STOVE, "奥术炉灶");
-        addBlock(TDBlocks.AURA_RICH_SOIL, "灵气沃土");
-        addBlock(TDBlocks.AURA_RICH_SOIL_FARMLAND, "灵气沃土耕地");
-
-        addItem(TDItems.BRASS_KNIFE, "黄铜刀");
-        addItem(TDItems.THAUMIUM_KNIFE, "神秘刀");
-        addItem(TDItems.VOID_KNIFE, "虚空刀");
-        addItem(TDItems.ELEMENTAL_KNIFE, "庖丁刀");
-
-        addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
-        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
-
-        addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
-        addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");
-        addItem(TDItems.DEATH_DAY_CAKE, "死日蛋糕");
-        addItem(TDItems.DEATH_DAY_CAKE_SLICE, "死日蛋糕切片");
-        addItem(TDItems.TAINTED_EGG, "污染鸡蛋");
-        addItem(TDItems.TAINTED_MILK_BUCKET, "污染奶桶");
-        addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
-        addItem(TDItems.CUTTING_SEAL, "操控印记：切菜");
-        addItem(TDItems.ADVANCED_CUTTING_SEAL, "高级操控印记：切菜");
-        addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
-        addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
-        addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");
-
-        addEffect(TDMobEffects.DROWNING::value, "溺水");
-    }
-
-    private void addResearch(String researchId, String title, String... stage) {
-        add("research.%s.%s.title".formatted(ThaumaturgesDelight.MODID, researchId), title);
-        for (int i = 0; i < stage.length; i++) {
-            add("research.%s.%s.stage_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
-        }
-    }
-
-    private void addResearchAddenda(String researchId, String... stage) {
-        for (int i = 0; i < stage.length; i++) {
-            add("research.%s.%s.addendum_%d".formatted(ThaumaturgesDelight.MODID, researchId, i), stage[i]);
-        }
     }
 }

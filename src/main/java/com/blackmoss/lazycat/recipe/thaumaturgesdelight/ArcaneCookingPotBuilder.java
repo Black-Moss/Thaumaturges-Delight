@@ -24,7 +24,7 @@ public final class ArcaneCookingPotBuilder extends AbstractThaumaturgeRecipeBuil
     private Float experience;
     private Integer time;
     private ItemLike container;
-    private CookingPotRecipeBookTab recipeBookTab = CookingPotRecipeBookTab.MISC;
+    private CookingPotRecipeBookTab tab;
 
     public ArcaneCookingPotBuilder(RecipeContext context, Object result) {
         super(context, result);
@@ -71,8 +71,8 @@ public final class ArcaneCookingPotBuilder extends AbstractThaumaturgeRecipeBuil
         return this;
     }
 
-    public ArcaneCookingPotBuilder category(CookingPotRecipeBookTab tab) {
-        this.recipeBookTab = Objects.requireNonNull(tab, "category");
+    public ArcaneCookingPotBuilder tab(CookingPotRecipeBookTab tab) {
+        this.tab = Objects.requireNonNull(tab, "tab");
         return this;
     }
 
@@ -105,7 +105,7 @@ public final class ArcaneCookingPotBuilder extends AbstractThaumaturgeRecipeBuil
                 : Optional.of(new ItemStackTemplate(container.asItem()));
         ArcaneCookingPotRecipe recipe = new ArcaneCookingPotRecipe(
                 group() != null ? group() : "",
-                recipeBookTab,
+                tab,
                 inputs,
                 result(),
                 containerTemplate,

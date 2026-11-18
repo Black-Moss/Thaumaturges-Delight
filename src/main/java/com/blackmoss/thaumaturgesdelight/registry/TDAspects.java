@@ -13,9 +13,6 @@ import java.util.Optional;
 public final class TDAspects {
     public static final ResourceKey<IAspect> CUPPEDIA = ResourceKey.create(IAspect.REGISTRY_KEY, ThaumaturgesDelight.identifier("cuppedia"));
 
-    private TDAspects() {
-    }
-
     public static void bootstrap(BootstrapContext<IAspect> ctx) {
         var lookup = ctx.lookup(IAspect.REGISTRY_KEY);
         ctx.register(CUPPEDIA, new Aspect("cuppedia", 0xFDE030,

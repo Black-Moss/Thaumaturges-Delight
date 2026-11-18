@@ -20,7 +20,4 @@ public final class TDWandParts {
                     ThaumaturgesDelight.identifier("textures/models/french_fry_wand_rod.png"),
                     null, false, false, false,
                     ThaumaturgesDelight.identifier("rod_french_fry")));
-
-    public TDWandParts() {
-    }
 }
