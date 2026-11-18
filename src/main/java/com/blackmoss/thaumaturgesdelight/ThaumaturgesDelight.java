@@ -53,7 +53,7 @@ public class ThaumaturgesDelight {
         return Identifier.fromNamespaceAndPath(MODID, path);
     }
 
-    public static Identifier fdIdentifier(String path) {
+    public static Identifier fd(String path) {
         return Identifier.fromNamespaceAndPath("farmersdelight", path);
     }
 

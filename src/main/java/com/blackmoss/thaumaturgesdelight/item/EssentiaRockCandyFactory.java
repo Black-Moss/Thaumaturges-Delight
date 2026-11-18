@@ -16,9 +16,6 @@ import java.util.Comparator;
 import java.util.List;
 
 public class EssentiaRockCandyFactory {
-    private EssentiaRockCandyFactory() {
-    }
-
     public static ItemStack of(Holder<IAspect> aspect, int count) {
         ItemStack stack = new ItemStack(TDItems.ESSENTIA_ROCK_CANDY.get(), count);
         stack.set(TTDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1));

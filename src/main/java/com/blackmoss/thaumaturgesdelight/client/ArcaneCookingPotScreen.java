@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ArcaneCookingPotScreen extends AbstractRecipeBookScreen<ArcaneCookingPotMenu> {
-    private static final Identifier BACKGROUND_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/cooking_pot.png");
+    private static final Identifier BACKGROUND_TEXTURE = ThaumaturgesDelight.fd("textures/gui/cooking_pot.png");
     private static final Rectangle HEAT_ICON = new Rectangle(47, 55, 17, 15);
     private static final Rectangle PROGRESS_ARROW = new Rectangle(89, 25, 0, 17);
     private static final int TEXTURE_SIZE = 256;

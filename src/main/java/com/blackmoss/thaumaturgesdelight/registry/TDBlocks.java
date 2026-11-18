@@ -30,7 +30,6 @@ public final class TDBlocks {
                     .randomTicks()
                     .setId(ResourceKey.create(Registries.BLOCK, ThaumaturgesDelight.identifier("aura_rich_soil_farmland")))));
 
-    // 死日蛋糕：7 份的盛宴方块，取一份给一块蛋糕切片
     public static final DeferredBlock<DeathDayCakeBlock> DEATH_DAY_CAKE = BLOCKS.register("death_day_cake",
             () -> new DeathDayCakeBlock(BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.CAKE)
                     .setId(ResourceKey.create(Registries.BLOCK, ThaumaturgesDelight.identifier("death_day_cake"))),

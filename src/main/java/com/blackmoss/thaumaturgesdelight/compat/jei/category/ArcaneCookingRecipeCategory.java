@@ -34,8 +34,8 @@ import java.util.List;
 public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder<ArcaneCookingPotRecipe>> {
     public static final IRecipeHolderType<ArcaneCookingPotRecipe> RECIPE_TYPE = IRecipeHolderType.create(TDRecipeTypes.ARCANE_COOKING.get());
 
-    private static final Identifier JEI_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/jei/cooking_pot.png");
-    private static final Identifier POT_TEXTURE = ThaumaturgesDelight.fdIdentifier("textures/gui/cooking_pot.png");
+    private static final Identifier JEI_TEXTURE = ThaumaturgesDelight.fd("textures/gui/jei/cooking_pot.png");
+    private static final Identifier POT_TEXTURE = ThaumaturgesDelight.fd("textures/gui/cooking_pot.png");
 
     private static final int WIDTH = 116;
     private static final int BACKGROUND_HEIGHT = 56;
@@ -96,7 +96,10 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     }
 
     @Override
-    public void setRecipe(@NonNull IRecipeLayoutBuilder builder, @NonNull RecipeHolder<ArcaneCookingPotRecipe> holder, @NonNull IFocusGroup focuses) {
+    public void setRecipe(
+            @NonNull IRecipeLayoutBuilder builder,
+            @NonNull RecipeHolder<ArcaneCookingPotRecipe> holder,
+            @NonNull IFocusGroup focuses) {
         ArcaneCookingPotRecipe recipe = holder.value();
         List<Ingredient> ingredients = recipe.getIngredients();
         ItemStack result = recipe.resultTemplate().create();
@@ -127,7 +130,12 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     }
 
     @Override
-    public void draw(@NonNull RecipeHolder<ArcaneCookingPotRecipe> holder, @NonNull IRecipeSlotsView recipeSlotsView, @NonNull GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
+    public void draw(
+            @NonNull RecipeHolder<ArcaneCookingPotRecipe> holder,
+            @NonNull IRecipeSlotsView recipeSlotsView,
+            @NonNull GuiGraphicsExtractor graphics,
+            double mouseX,
+            double mouseY) {
         background.draw(graphics);
         arrow.draw(graphics, 60, 9);
         heatIndicator.draw(graphics, 18, 39);
@@ -138,8 +146,16 @@ public class ArcaneCookingRecipeCategory implements IRecipeCategory<RecipeHolder
     }
 
     @Override
-    public void getTooltip(@NonNull ITooltipBuilder tooltip, @NonNull RecipeHolder<ArcaneCookingPotRecipe> holder, @NonNull IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
-        if (mouseX >= TIMER_X && mouseX < TIMER_X + TIMER_WIDTH && mouseY >= TIMER_Y && mouseY < TIMER_Y + TIMER_HEIGHT) {
+    public void getTooltip(
+            @NonNull ITooltipBuilder tooltip,
+            @NonNull RecipeHolder<ArcaneCookingPotRecipe> holder,
+            @NonNull IRecipeSlotsView recipeSlotsView,
+            double mouseX,
+            double mouseY) {
+        if (mouseX >= TIMER_X
+                && mouseX < TIMER_X + TIMER_WIDTH
+                && mouseY >= TIMER_Y
+                && mouseY < TIMER_Y + TIMER_HEIGHT) {
             int cookTime = holder.value().getCookTime();
             if (cookTime > 0) {
                 tooltip.add(Component.translatable("gui.jei.category.smelting.time.seconds", cookTime / 20));

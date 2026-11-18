@@ -25,10 +25,10 @@ import java.util.Optional;
 
 public class ArcaneCookingPotRecipeBookComponent extends RecipeBookComponent<ArcaneCookingPotMenu> {
     private static final WidgetSprites RECIPE_BOOK_BUTTONS = new WidgetSprites(
-            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_enabled"),
-            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_disabled"),
-            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_enabled_highlighted"),
-            ThaumaturgesDelight.fdIdentifier("recipe_book/cooking_pot_disabled_highlighted"));
+            ThaumaturgesDelight.fd("recipe_book/cooking_pot_enabled"),
+            ThaumaturgesDelight.fd("recipe_book/cooking_pot_disabled"),
+            ThaumaturgesDelight.fd("recipe_book/cooking_pot_enabled_highlighted"),
+            ThaumaturgesDelight.fd("recipe_book/cooking_pot_disabled_highlighted"));
 
     private static final List<TabInfo> TABS = List.of(
             new TabInfo(new ItemStack(Items.COMPASS), Optional.empty(), RecipeCategories.COOKING_SEARCH),

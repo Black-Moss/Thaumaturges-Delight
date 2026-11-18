@@ -1,7 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data.tag;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.registry.TDTags;
+import com.blackmoss.thaumaturgesdelight.registry.TDEffectTags;
 import com.leclowndu93150.thaumaturge.registry.TTMobEffects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -15,6 +15,7 @@ import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
+@SuppressWarnings("DataFlowIssue")
 public final class ModMobEffectTagsProvider implements DataProvider {
     private final KeyTagProvider<MobEffect> mobEffectTags;
 
@@ -22,8 +23,7 @@ public final class ModMobEffectTagsProvider implements DataProvider {
         this.mobEffectTags = new KeyTagProvider<>(output, Registries.MOB_EFFECT, lookup, ThaumaturgesDelight.MODID) {
             @Override
             protected void addTags(HolderLookup.@NonNull Provider provider) {
-                //noinspection DataFlowIssue
-                tag(TDTags.Effects.ROCK_CANDY_EXCLUDED)
+                tag(TDEffectTags.ROCK_CANDY_EXCLUDED)
                         .add(MobEffects.SLOWNESS.getKey())
                         .add(MobEffects.MINING_FATIGUE.getKey())
                         .add(MobEffects.INSTANT_DAMAGE.getKey())

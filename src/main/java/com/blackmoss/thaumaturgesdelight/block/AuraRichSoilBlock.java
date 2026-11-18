@@ -57,12 +57,12 @@ public class AuraRichSoilBlock extends RichSoilBlock {
         RichSoilBlock.tryBoostingPlantsAboveAndBelow(level, pos, random);
     }
 
-    /**
-     * 锄头把它变成<strong>灵气</strong>沃土耕地，而不是像普通沃土那样变成乐事的沃土耕地（那样会丢灵气）。
-     */
     @Override
-    public @Nullable BlockState getToolModifiedState(@NonNull BlockState state, @NonNull UseOnContext context,
-                                                     @NonNull ItemAbility toolAction, boolean simulate) {
+    public @Nullable BlockState getToolModifiedState(
+            @NonNull BlockState state,
+            @NonNull UseOnContext context,
+            @NonNull ItemAbility toolAction,
+            boolean simulate) {
         return toolAction.equals(ItemAbilities.HOE_TILL)
                 && context.getLevel().getBlockState(context.getClickedPos().above()).isAir()
                 ? TDBlocks.AURA_RICH_SOIL_FARMLAND.get().defaultBlockState()

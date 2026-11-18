@@ -102,7 +102,7 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         super(TDBlockEntities.ARCANE_COOKING_POT.get(), pos, state);
     }
 
-    public static void cookingTick(Level level, BlockPos pos, BlockState state, ArcaneCookingPotBlockEntity pot) {
+    public static void cookingTick(Level level, BlockPos pos, ArcaneCookingPotBlockEntity pot) {
         boolean isHeated = pot.isHeated(level, pos);
         boolean didInventoryChange = false;
         if (isHeated && pot.hasInput()) {
@@ -159,7 +159,7 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         });
     }
 
-    public static void animationTick(Level level, BlockPos pos, BlockState state, ArcaneCookingPotBlockEntity pot) {
+    public static void animationTick(Level level, BlockPos pos, ArcaneCookingPotBlockEntity pot) {
         if (!pot.isHeated(level, pos)) {
             return;
         }
@@ -408,10 +408,6 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         return customName;
     }
 
-    public void setCustomName(@Nullable Component customName) {
-        this.customName = customName;
-    }
-
     @Override
     public @Nullable RecipeHolder<?> getRecipeUsed() {
         return null;
@@ -460,6 +456,7 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
         usedRecipeTracker.clear();
         ValueInput recipes = input.childOrEmpty("RecipesUsed");
         for (String key : recipes.keySet()) {
+            //noinspection NullableProblems
             usedRecipeTracker.put(ResourceKey.create(Registries.RECIPE, Identifier.parse(key)), recipes.getIntOr(key, 0));
         }
     }
@@ -547,9 +544,5 @@ public class ArcaneCookingPotBlockEntity extends BlockEntity implements MenuProv
                 return DATA_COUNT;
             }
         };
-    }
-
-    public boolean canPlaceItem(int slot, ItemStack stack) {
-        return slot != MEAL_DISPLAY_SLOT && slot != OUTPUT_SLOT;
     }
 }

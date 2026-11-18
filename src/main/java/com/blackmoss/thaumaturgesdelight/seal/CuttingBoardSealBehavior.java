@@ -22,8 +22,10 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 import java.util.List;
 
-public final class CuttingBoardBehavior implements ISealBehavior {
-    public static final SealPlacement ON_CUTTING_BOARD = (level, pos, face) -> level.getBlockState(pos).is(ModBlocks.CUTTING_BOARD.get());
+@SuppressWarnings("deprecation")
+public final class CuttingBoardSealBehavior implements ISealBehavior {
+    public static final SealPlacement ON_CUTTING_BOARD = (level, pos, _)
+            -> level.getBlockState(pos).is(ModBlocks.CUTTING_BOARD.get());
     public static final int SLOT_TARGET = 0;
     public static final int SLOT_KNIFE = 1;
     private static final int SCAN_PERIOD = 5;

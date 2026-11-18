@@ -137,7 +137,9 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
             @NonNull BlockHitResult hit) {
         if (stack.isEmpty() && player.isShiftKeyDown()) {
             if (!level.isClientSide()) {
-                CookingPotSupport support = state.getValue(SUPPORT) == CookingPotSupport.HANDLE ? getTrayState(level, pos) : CookingPotSupport.HANDLE;
+                CookingPotSupport support = state.getValue(SUPPORT) == CookingPotSupport.HANDLE
+                        ? getTrayState(level, pos)
+                        : CookingPotSupport.HANDLE;
                 level.setBlockAndUpdate(pos, state.setValue(SUPPORT, support));
                 level.playSound(null, pos, SoundEvents.LANTERN_PLACE, SoundSource.BLOCKS, 0.7F, 1.0F);
             }
@@ -174,10 +176,10 @@ public class ArcaneCookingPotBlock extends Block implements SimpleWaterloggedBlo
             return null;
         }
         return level.isClientSide()
-                ? (tickLevel, pos, tickState, blockEntity)
-                -> ArcaneCookingPotBlockEntity.animationTick(tickLevel, pos, tickState, (ArcaneCookingPotBlockEntity) blockEntity)
-                : (tickLevel, pos, tickState, blockEntity)
-                -> ArcaneCookingPotBlockEntity.cookingTick(tickLevel, pos, tickState, (ArcaneCookingPotBlockEntity) blockEntity);
+                ? (tickLevel, pos, _, blockEntity)
+                -> ArcaneCookingPotBlockEntity.animationTick(tickLevel, pos, (ArcaneCookingPotBlockEntity) blockEntity)
+                : (tickLevel, pos, _, blockEntity)
+                -> ArcaneCookingPotBlockEntity.cookingTick(tickLevel, pos, (ArcaneCookingPotBlockEntity) blockEntity);
     }
 
     @Override

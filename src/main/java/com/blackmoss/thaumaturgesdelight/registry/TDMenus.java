@@ -11,8 +11,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class TDMenus {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(Registries.MENU, ThaumaturgesDelight.MODID);
 
-    public static final DeferredHolder<MenuType<?>, MenuType<ArcaneCookingPotMenu>> ARCANE_COOKING_POT = MENUS.register("arcane_cooking_pot",
-            () -> IMenuTypeExtension.create(ArcaneCookingPotMenu::new));
+    public static final DeferredHolder<MenuType<?>, MenuType<ArcaneCookingPotMenu>> ARCANE_COOKING_POT
+            = MENUS.register("arcane_cooking_pot", () -> IMenuTypeExtension.create(ArcaneCookingPotMenu::new));
 
     private TDMenus() {
     }

@@ -27,6 +27,8 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 
 public final class TDItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThaumaturgesDelight.MODID);
+
+    public static final DeferredItem<BlockItem> DEATH_DAY_CAKE = ITEMS.registerSimpleBlockItem(TDBlocks.DEATH_DAY_CAKE);
     public static final DeferredItem<KnifeItem> BRASS_KNIFE = ITEMS.registerItem("brass_knife",
             props -> new KnifeItem(TDMaterials.TOOL_BRASS, props), props -> knife(props, TDMaterials.TOOL_BRASS));
     public static final DeferredItem<KnifeItem> THAUMIUM_KNIFE = ITEMS.registerItem("thaumium_knife",
@@ -104,25 +106,17 @@ public final class TDItems {
                     .craftRemainder(Items.GLASS_BOTTLE)
                     .usingConvertsTo(Items.GLASS_BOTTLE));
 
-    // 污染鸡蛋 / 污染奶桶：死日蛋糕的食材，奶桶用完返还空桶
     public static final DeferredItem<Item> TAINTED_EGG = ITEMS.registerItem("tainted_egg", Item::new);
 
     public static final DeferredItem<Item> TAINTED_MILK_BUCKET = ITEMS.registerItem("tainted_milk_bucket",
             Item::new, props -> props.craftRemainder(Items.BUCKET).stacksTo(1));
 
-    // 死日蛋糕切片：从蛋糕方块上取下的那一份
     public static final DeferredItem<Item> DEATH_DAY_CAKE_SLICE = ITEMS.registerItem("death_day_cake_slice",
             Item::new, props -> props.food(new FoodProperties.Builder()
                             .nutrition(2)
                             .saturationModifier(0.2F)
                             .build(),
                     Consumables.defaultFood().build()));
-
-    // 死日蛋糕方块本体（盛宴方块，7 份）
-    public static final DeferredItem<BlockItem> DEATH_DAY_CAKE = ITEMS.registerSimpleBlockItem(TDBlocks.DEATH_DAY_CAKE);
-
-    private TDItems() {
-    }
 
     private static Item.Properties knife(Item.Properties properties, ToolMaterial material) {
         return material.applyToolProperties(

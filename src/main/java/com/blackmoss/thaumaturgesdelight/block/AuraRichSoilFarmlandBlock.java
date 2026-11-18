@@ -26,7 +26,11 @@ public class AuraRichSoilFarmlandBlock extends RichSoilFarmlandBlock {
     }
 
     @Override
-    public void randomTick(@NonNull BlockState state, @NonNull ServerLevel level, @NonNull BlockPos pos, @NonNull RandomSource random) {
+    public void randomTick(
+            @NonNull BlockState state,
+            @NonNull ServerLevel level,
+            @NonNull BlockPos pos,
+            @NonNull RandomSource random) {
         super.randomTick(state, level, pos, random);
         BlockPos cropPos = pos.above();
         BlockState cropState = level.getBlockState(cropPos);
@@ -34,7 +38,11 @@ public class AuraRichSoilFarmlandBlock extends RichSoilFarmlandBlock {
     }
 
     @Override
-    public void tick(@NonNull BlockState state, @NonNull ServerLevel level, @NonNull BlockPos pos, @NonNull RandomSource random) {
+    public void tick(
+            @NonNull BlockState state,
+            @NonNull ServerLevel level,
+            @NonNull BlockPos pos,
+            @NonNull RandomSource random) {
         if (!state.canSurvive(level, pos)) {
             turnToAuraSoil(null, state, level, pos);
         }

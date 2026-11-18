@@ -1,7 +1,7 @@
 package com.blackmoss.thaumaturgesdelight.data.tag;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.registry.TDTags;
+import com.blackmoss.thaumaturgesdelight.registry.TDEntityTypeTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.EntityTypeTagsProvider;
@@ -19,28 +19,28 @@ public final class ModEntityTypeTagsProvider extends EntityTypeTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.@NonNull Provider provider) {
-        tag(TDTags.EntityTypes.COW)
+        tag(TDEntityTypeTags.COW)
                 .add(EntityType.COW);
 
-        tag(TDTags.EntityTypes.CHICKENS)
+        tag(TDEntityTypeTags.CHICKENS)
                 .add(EntityType.CHICKEN);
 
-        tag(TDTags.EntityTypes.PIGS)
+        tag(TDEntityTypeTags.PIGS)
                 .add(EntityType.PIG)
                 .add(EntityType.PIGLIN)
                 .add(EntityType.PIGLIN_BRUTE)
                 .add(EntityType.ZOMBIFIED_PIGLIN);
 
-        tag(TDTags.EntityTypes.FISH)
+        tag(TDEntityTypeTags.FISH)
                 .add(EntityType.COD)
                 .add(EntityType.SALMON)
                 .add(EntityType.PUFFERFISH)
                 .add(EntityType.TROPICAL_FISH);
 
-        tag(TDTags.EntityTypes.RABBITS)
+        tag(TDEntityTypeTags.RABBITS)
                 .add(EntityType.RABBIT);
 
-        tag(TDTags.EntityTypes.SHEEP)
+        tag(TDEntityTypeTags.SHEEP)
                 .add(EntityType.SHEEP)
                 .add(EntityType.GOAT);
     }

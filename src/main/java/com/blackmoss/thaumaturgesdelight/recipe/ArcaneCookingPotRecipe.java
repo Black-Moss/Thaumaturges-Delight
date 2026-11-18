@@ -58,7 +58,15 @@ public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
     private final AspectList aspects;
     private CookingPotRecipe converted;
 
-    public ArcaneCookingPotRecipe(String group, CookingPotRecipeBookTab tab, List<Ingredient> ingredients, ItemStackTemplate result, Optional<ItemStackTemplate> container, float experience, int cookTime, AspectList aspects) {
+    public ArcaneCookingPotRecipe(
+            String group,
+            CookingPotRecipeBookTab tab,
+            List<Ingredient> ingredients,
+            ItemStackTemplate result,
+            Optional<ItemStackTemplate> container,
+            float experience,
+            int cookTime,
+            AspectList aspects) {
         this.group = group;
         this.tab = tab;
         this.ingredients = NonNullList.create();

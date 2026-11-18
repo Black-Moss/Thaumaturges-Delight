@@ -20,9 +20,6 @@ import vectorwing.farmersdelight.integration.jei.FDRecipeTypes;
 public class ThaumaturgesDelightJEIPlugin implements IModPlugin {
     private static final Identifier PLUGIN_UID = ThaumaturgesDelight.identifier("jei_plugin");
 
-    public ThaumaturgesDelightJEIPlugin() {
-    }
-
     @Override
     public @NonNull Identifier getPluginUid() {
         return PLUGIN_UID;

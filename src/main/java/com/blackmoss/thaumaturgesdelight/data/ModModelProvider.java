@@ -52,7 +52,7 @@ public class ModModelProvider extends LazyCatModelProvider {
 
     private TextureMapping stoveTextures(boolean lit) {
         return new TextureMapping()
-                .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.fdIdentifier("block/stove_bottom")))
+                .put(TextureSlot.BOTTOM, new Material(ThaumaturgesDelight.fd("block/stove_bottom")))
                 .put(TextureSlot.TOP, stoveMaterial(lit ? "arcane_stove_top_on" : "arcane_stove_top"))
                 .put(TextureSlot.SIDE, stoveMaterial("arcane_stove_side"))
                 .put(TextureSlot.FRONT, stoveMaterial(lit ? "arcane_stove_front_on" : "arcane_stove_front"));
@@ -164,14 +164,14 @@ public class ModModelProvider extends LazyCatModelProvider {
         blockModels.registerSimpleItemModel(block, modelId);
 
         new ModelTemplate(
-                Optional.of(ThaumaturgesDelight.fdIdentifier("block/template_farmland_custom")), Optional.empty(),
+                Optional.of(ThaumaturgesDelight.fd("block/template_farmland_custom")), Optional.empty(),
                 TextureSlot.BOTTOM, TextureSlot.SIDE, TextureSlot.TOP)
                 .create(farmlandModelId, new TextureMapping()
                         .put(TextureSlot.BOTTOM, new Material(modelId))
                         .put(TextureSlot.SIDE, new Material(modelId))
                         .put(TextureSlot.TOP, new Material(farmlandModelId)), blockModels.modelOutput);
         new ModelTemplate(
-                Optional.of(ThaumaturgesDelight.fdIdentifier("block/template_farmland_custom")), Optional.empty(),
+                Optional.of(ThaumaturgesDelight.fd("block/template_farmland_custom")), Optional.empty(),
                 TextureSlot.BOTTOM, TextureSlot.SIDE, TextureSlot.TOP)
                 .create(farmlandMoistModelId, new TextureMapping()
                         .put(TextureSlot.BOTTOM, new Material(modelId))

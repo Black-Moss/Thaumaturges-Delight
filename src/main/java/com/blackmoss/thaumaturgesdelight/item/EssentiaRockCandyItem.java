@@ -1,6 +1,6 @@
 package com.blackmoss.thaumaturgesdelight.item;
 
-import com.blackmoss.thaumaturgesdelight.registry.TDTags;
+import com.blackmoss.thaumaturgesdelight.registry.TDEffectTags;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectComponents;
 import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
@@ -67,7 +67,7 @@ public class EssentiaRockCandyItem extends Item {
                         .get(TTEffectTags.MANA_BEAN_EFFECTS);
                 if (pool.isPresent()) {
                     List<Holder<MobEffect>> candidates = pool.get().stream()
-                            .filter(effect -> !effect.is(TDTags.Effects.ROCK_CANDY_EXCLUDED))
+                            .filter(effect -> !effect.is(TDEffectTags.ROCK_CANDY_EXCLUDED))
                             .toList();
                     if (!candidates.isEmpty()) {
                         Holder<MobEffect> effect = candidates.get(random.nextInt(candidates.size()));
