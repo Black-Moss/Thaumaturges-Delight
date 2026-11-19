@@ -7,15 +7,15 @@
       "required_research": [
         "thaumaturge:mind_biothaumic"
       ],
-      "text": "research.thaumaturgesdelight.seal_cutting.addendum_0"
+      "text": "research.thaumaturgesdelight.cutting_seal.addendum_0"
     }
   ],
   "category": "thaumaturgesdelight:culinary_magic",
   "column": 2,
   "icons": [
-    "thaumaturgesdelight:seal_cutting"
+    "thaumaturgesdelight:cutting_seal"
   ],
-  "name": "research.thaumaturgesdelight.seal_cutting.title",
+  "name": "research.thaumaturgesdelight.cutting_seal.title",
   "note_aspects": [
     {
       "amount": 3,
@@ -58,13 +58,13 @@
           "category": "thaumaturgesdelight:culinary_magic"
         }
       ],
-      "text": "research.thaumaturgesdelight.seal_cutting.stage_0"
+      "text": "research.thaumaturgesdelight.cutting_seal.stage_0"
     },
     {
       "recipes": [
         "thaumaturgesdelight:infusion/seal_cutting"
       ],
-      "text": "research.thaumaturgesdelight.seal_cutting.stage_1"
+      "text": "research.thaumaturgesdelight.cutting_seal.stage_1"
     }
   ]
 }

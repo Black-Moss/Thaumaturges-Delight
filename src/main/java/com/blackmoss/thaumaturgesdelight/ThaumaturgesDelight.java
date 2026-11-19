@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
 import com.blackmoss.thaumaturgesdelight.data.*;
+import com.blackmoss.thaumaturgesdelight.data.datamap.ModDataMapProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
@@ -13,16 +14,9 @@ import com.blackmoss.thaumaturgesdelight.registry.*;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import com.mojang.logging.LogUtils;
-import net.minecraft.SharedConstants;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.Registry;
 import net.minecraft.core.RegistrySetBuilder;
-import net.minecraft.core.component.DataComponentInitializers;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -34,9 +28,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import org.slf4j.Logger;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Stream;
 
 @EventBusSubscriber(modid = ThaumaturgesDelight.MODID)
 @Mod(ThaumaturgesDelight.MODID)
@@ -87,6 +79,7 @@ public class ThaumaturgesDelight {
         event.createProvider(ModRecipeProvider.Runner::new);
         event.createProvider(ModResearchProvider::new);
         event.createProvider(ModBlueprintProvider::new);
+        event.createProvider(ModDataMapProvider::new);
 
         event.createProvider(ModBlockTagsProvider::new);
         event.createProvider(ModEntityTypeTagsProvider::new);
@@ -99,34 +92,5 @@ public class ThaumaturgesDelight {
                 List.of(new LootTableProvider.SubProviderEntry(
                         ModBlockLootSubProvider::new, LootContextParamSets.BLOCK)),
                 lookupProvider));
-    }
-
-    private static HolderLookup.Provider withPlaceholders(HolderLookup.Provider parent) {
-        return new HolderLookup.Provider() {
-            @Override
-            public Stream<ResourceKey<? extends Registry<?>>> listRegistryKeys() {
-                return parent.listRegistryKeys();
-            }
-
-            @Override
-            @SuppressWarnings("unchecked")
-            public <T> Optional<HolderLookup.RegistryLookup<T>> lookup(ResourceKey<? extends Registry<? extends T>> key) {
-                return parent.lookup(key).map(found -> (HolderLookup.RegistryLookup<T>) withPlaceholders((HolderLookup.RegistryLookup<T>) found));
-            }
-        };
-    }
-
-    private static <T> HolderLookup.RegistryLookup<T> withPlaceholders(HolderLookup.RegistryLookup<T> parent) {
-        return new HolderLookup.RegistryLookup.Delegate<T>() {
-            @Override
-            public HolderLookup.RegistryLookup<T> parent() {
-                return parent;
-            }
-
-            @Override
-            public Optional<Holder.Reference<T>> get(ResourceKey<T> key) {
-                return Optional.of(parent.get(key).orElseGet(() -> Holder.Reference.createStandAlone(parent, key)));
-            }
-        };
     }
 }

@@ -44,9 +44,9 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                         "thaumaturgesdelight:thaumium_knife")
                 .end()
 
-                .noteAspect(TTAspects.AER, 5)
-                .noteAspect(TTAspects.IGNIS, 5)
-                .noteAspect(TTAspects.HERBA, 5)
+                .noteAspect(TTAspects.AER)
+                .noteAspect(TTAspects.IGNIS)
+                .noteAspect(TTAspects.HERBA)
                 .complexity(1)
                 .save();
 
@@ -67,9 +67,9 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                         "thaumaturgesdelight:dust_trigger/aura_rich_soil_farmland")
                 .end()
 
-                .noteAspect(TTAspects.TERRA, 5)
-                .noteAspect(TTAspects.HERBA, 5)
-                .noteAspect(TTAspects.AURAM, 5)
+                .noteAspect(TTAspects.TERRA)
+                .noteAspect(TTAspects.HERBA)
+                .noteAspect(TTAspects.AURAM)
                 .complexity(1)
                 .save();
 
@@ -91,10 +91,10 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                         "thaumaturge:infusion_enchantment/bleeding_edge")
                 .end()
 
-                .noteAspect(TTAspects.INSTRUMENTUM, 5)
-                .noteAspect(TTAspects.AER, 5)
-                .noteAspect(TTAspects.IGNIS, 5)
-                .noteAspect(TTAspects.HERBA, 5)
+                .noteAspect(TTAspects.INSTRUMENTUM)
+                .noteAspect(TTAspects.AER)
+                .noteAspect(TTAspects.IGNIS)
+                .noteAspect(TTAspects.HERBA)
                 .complexity(2)
                 .save();
 
@@ -114,9 +114,9 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .recipe("thaumaturgesdelight:crucible/essentia_rock_candy/aer")
                 .end()
 
-                .noteAspect(TTAspects.AER, 5)
-                .noteAspect(TTAspects.IGNIS, 5)
-                .noteAspect(TTAspects.HERBA, 5)
+                .noteAspect(TTAspects.AER)
+                .noteAspect(TTAspects.IGNIS)
+                .noteAspect(TTAspects.HERBA)
                 .complexity(1)
                 .save();
 
@@ -139,19 +139,19 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .recipe("thaumaturgesdelight:dust_trigger/magic_kitchen")
                 .end()
 
-                .noteAspect(TTAspects.INSTRUMENTUM, 5)
-                .noteAspect(TTAspects.AER, 5)
-                .noteAspect(TTAspects.IGNIS, 5)
-                .noteAspect(TTAspects.HERBA, 5)
+                .noteAspect(TTAspects.INSTRUMENTUM)
+                .noteAspect(TTAspects.AER)
+                .noteAspect(TTAspects.IGNIS)
+                .noteAspect(TTAspects.HERBA)
                 .complexity(2)
                 .save();
 
-        tdResearch(context, "seal_cutting")
+        tdResearch(context, "cutting_seal")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .parent("thaumaturge:seal_harvest")
                 .parent("thaumaturge:seal_use")
                 .position(2, 0)
-                .icon("thaumaturgesdelight:seal_cutting")
+                .icon(TDItems.CUTTING_SEAL)
 
                 .stage()
                 .obtain(ModItems.CUTTING_BOARD.get())
@@ -187,9 +187,9 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .stage()
                 .end()
 
-                .noteAspect(TTAspects.AER, 5)
-                .noteAspect(TTAspects.IGNIS, 5)
-                .noteAspect(TTAspects.HERBA, 5)
+                .noteAspect(TTAspects.AER)
+                .noteAspect(TTAspects.IGNIS)
+                .noteAspect(TTAspects.HERBA)
                 .complexity(1)
                 .save();
     }

@@ -1,0 +1,69 @@
+{
+  "values": {
+    "#c:foods/cabbage": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:victus"
+      }
+    ],
+    "#c:foods/cooked_meat": [
+      {
+        "aspect": "thaumaturgesdelight:cuppedia"
+      }
+    ],
+    "#c:foods/onion": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:victus"
+      },
+      {
+        "aspect": "thaumaturge:alkimia"
+      }
+    ],
+    "#c:foods/tomato": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:victus"
+      }
+    ],
+    "#farmersdelight:sweets": [
+      {
+        "amount": 2,
+        "aspect": "thaumaturgesdelight:cuppedia"
+      }
+    ],
+    "farmersdelight:canvas": [
+      {
+        "amount": 2,
+        "aspect": "thaumaturge:herba"
+      }
+    ],
+    "farmersdelight:rope": [
+      {
+        "amount": 3,
+        "aspect": "thaumaturge:instrumentum"
+      },
+      {
+        "amount": 2,
+        "aspect": "thaumaturge:aversio"
+      }
+    ],
+    "minecraft:bread": [
+      {
+        "aspect": "thaumaturgesdelight:cuppedia"
+      }
+    ]
+  }
+}
