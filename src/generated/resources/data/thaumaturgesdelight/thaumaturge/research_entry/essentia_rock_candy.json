@@ -1,75 +1,74 @@
-﻿{
+{
   "category": "thaumaturgesdelight:culinary_magic",
-  "name": "research.thaumaturgesdelight.essentia_rock_candy.title",
-  "parents": [
-    "thaumaturgesdelight:base_culinary_magic"
-  ],
   "column": 3,
-  "row": -3,
   "icons": [
     "thaumaturgesdelight:essentia_rock_candy"
   ],
+  "name": "research.thaumaturgesdelight.essentia_rock_candy.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic"
+  ],
+  "row": -3,
   "stages": [
     {
-      "text": "research.thaumaturgesdelight.essentia_rock_candy.stage_0",
       "obtain": [
         {
+          "amount": 1,
           "items": [
             "thaumaturge:mana_bean"
-          ],
-          "amount": 1
+          ]
         },
         {
-          "items": [
-            "thaumaturge:essentia_crystal"
-          ],
           "amount": 1,
           "components": {
             "thaumaturge:crystal_aspect": {
               "aspect": "thaumaturge:vitreus"
             }
-          }
-        },
-        {
+          },
           "items": [
             "thaumaturge:essentia_crystal"
-          ],
+          ]
+        },
+        {
           "amount": 1,
           "components": {
             "thaumaturge:crystal_aspect": {
               "aspect": "thaumaturge:gelum"
             }
-          }
+          },
+          "items": [
+            "thaumaturge:essentia_crystal"
+          ]
         }
       ],
       "required_knowledge": [
         {
           "type": "theory",
-          "category": "thaumaturgesdelight:culinary_magic",
-          "amount": 1
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
         }
-      ]
+      ],
+      "text": "research.thaumaturgesdelight.essentia_rock_candy.stage_0"
     },
     {
-      "text": "research.thaumaturgesdelight.essentia_rock_candy.stage_1",
       "recipes": [
         "thaumaturgesdelight:crucible/essentia_rock_candy/aer"
-      ]
+      ],
+      "text": "research.thaumaturgesdelight.essentia_rock_candy.stage_1"
     }
-  ],
-  "note_aspects": [
-    {
-      "aspect": "thaumaturge:aer",
-      "amount": 5
-    },
-    {
-      "aspect": "thaumaturge:ignis",
-      "amount": 5
-    },
-    {
-      "aspect": "thaumaturge:herba",
-      "amount": 5
-    }
-  ],
-  "complexity": 1
+  ]
 }

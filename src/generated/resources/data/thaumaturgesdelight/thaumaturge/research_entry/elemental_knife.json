@@ -1,0 +1,65 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": -2,
+  "complexity": 2,
+  "icons": [
+    "thaumaturgesdelight:elemental_knife"
+  ],
+  "name": "research.thaumaturgesdelight.elemental_knife.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:instrumentum"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturge:elemental_tools",
+    "thaumaturge:infusion_enchantment"
+  ],
+  "row": 0,
+  "stages": [
+    {
+      "craft": [
+        {
+          "amount": 1,
+          "items": [
+            "thaumaturgesdelight:thaumium_knife"
+          ]
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturge:infusion"
+        },
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.elemental_knife.stage_0"
+    },
+    {
+      "recipes": [
+        "thaumaturgesdelight:infusion/elemental_knife",
+        "thaumaturge:infusion_enchantment/bleeding_edge"
+      ],
+      "text": "research.thaumaturgesdelight.elemental_knife.stage_1"
+    }
+  ]
+}

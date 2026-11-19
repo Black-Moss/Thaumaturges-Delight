@@ -1,0 +1,46 @@
+{
+  "category": "thaumaturge:artifice",
+  "column": 5,
+  "icons": [
+    "thaumaturgesdelight:textures/research/cat_culinary_magic.png"
+  ],
+  "meta": [
+    "round",
+    "spiky",
+    "hidden"
+  ],
+  "name": "research.thaumaturgesdelight.unlock_culinary_magic.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
+    }
+  ],
+  "parents": [
+    "thaumaturge:infernal_furnace"
+  ],
+  "row": -1,
+  "stages": [
+    {
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.unlock_culinary_magic.stage_0"
+    },
+    {
+      "text": "research.thaumaturgesdelight.unlock_culinary_magic.stage_1"
+    }
+  ]
+}

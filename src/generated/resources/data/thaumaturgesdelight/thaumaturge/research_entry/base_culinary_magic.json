@@ -1,0 +1,39 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": 0,
+  "icons": [
+    "thaumaturgesdelight:textures/research/cat_culinary_magic.png"
+  ],
+  "meta": [
+    "round",
+    "hidden"
+  ],
+  "name": "research.thaumaturgesdelight.base_culinary_magic.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:unlock_culinary_magic"
+  ],
+  "row": -2,
+  "stages": [
+    {
+      "recipes": [
+        "thaumaturgesdelight:brass_knife",
+        "thaumaturgesdelight:thaumium_knife"
+      ],
+      "text": "research.thaumaturgesdelight.base_culinary_magic.stage_0"
+    }
+  ]
+}

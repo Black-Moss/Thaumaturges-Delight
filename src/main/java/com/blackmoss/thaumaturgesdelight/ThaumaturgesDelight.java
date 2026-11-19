@@ -2,9 +2,7 @@ package com.blackmoss.thaumaturgesdelight;
 
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
-import com.blackmoss.thaumaturgesdelight.data.ModBlockLootSubProvider;
-import com.blackmoss.thaumaturgesdelight.data.ModModelProvider;
-import com.blackmoss.thaumaturgesdelight.data.ModRecipeProvider;
+import com.blackmoss.thaumaturgesdelight.data.*;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
@@ -78,6 +76,8 @@ public class ThaumaturgesDelight {
 
         event.createProvider(ModModelProvider::new);
         event.createProvider(ModRecipeProvider.Runner::new);
+        event.createProvider(ModResearchProvider::new);
+        event.createProvider(ModBlueprintProvider::new);
 
         event.createProvider(ModBlockTagsProvider::new);
         event.createProvider(ModEntityTypeTagsProvider::new);
