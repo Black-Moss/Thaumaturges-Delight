@@ -4,14 +4,14 @@ import com.blackmoss.lazycat.api.LazyIngredient;
 import com.blackmoss.lazycat.api.recipe.minecraft.CookingType;
 import com.blackmoss.lazycat.api.recipe.thaumaturge.ThaumaturgeUtils;
 import com.blackmoss.lazycat.recipe.LazyCatRecipeProvider;
+import com.blackmoss.lazycat.recipe.farmersdelight.CookingPotBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.CookingBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.ShapedBuilder;
-import com.blackmoss.lazycat.recipe.thaumaturge.CrucibleBuilder;
-import com.blackmoss.lazycat.recipe.thaumaturge.InfusionBuilder;
-import com.blackmoss.lazycat.recipe.thaumaturge.InfusionEnchantmentBuilder;
+import com.blackmoss.lazycat.recipe.thaumaturge.*;
 import com.blackmoss.lazycat.recipe.thaumaturgesdelight.ArcaneCookingPotBuilder;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
+import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TTIds;
@@ -38,6 +38,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
 import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
+import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
 
 import java.util.Map;
@@ -179,6 +180,31 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .aspect(TTAspects.HUMANUS, 20)
                 .instability(1)
                 .gate(tdGate("cutting_seal"))
+                .save();
+
+        new CookingPotBuilder(context, TDItems.CHUNKS_FRIED_RICE)
+                .addIngredient(TTItemTags.MEAT_CHUNKS)
+                .addIngredient(TTItemTags.MEAT_CHUNKS)
+                .addIngredient(TTItemTags.MEAT_CHUNKS)
+                .addIngredient(ModItems.FRIED_RICE)
+                .tab(CookingPotRecipeBookTab.MEALS)
+                .save();
+
+        new DustTriggerMultiblockBuilder(context,
+                TDBlocks.ARCANE_COOKING_POT.get(),
+                "magic_kitchen")
+                .gate(tdGate("magic_kitchen"))
+                .save();
+
+        new DustTriggerSimpleBuilder(context,
+                TDBlocks.AURA_RICH_SOIL.get(),
+                ModBlocks.RICH_SOIL.get())
+                .gate(tdGate("aura_rich_soil"))
+                .save();
+        new DustTriggerSimpleBuilder(context,
+                TDBlocks.AURA_RICH_SOIL_FARMLAND.get(),
+                ModBlocks.RICH_SOIL_FARMLAND.get())
+                .gate(tdGate("aura_rich_soil"))
                 .save();
     }
 

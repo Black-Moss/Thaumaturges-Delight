@@ -1,0 +1,25 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:impossible"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "thaumaturgesdelight:cooking/chunks_fried_rice"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "thaumaturgesdelight:cooking/chunks_fried_rice"
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "thaumaturge:dust_trigger_multiblock",
+  "blueprint": "thaumaturgesdelight:magic_kitchen",
+  "research": {
+    "entry": "thaumaturgesdelight:magic_kitchen"
+  },
+  "result": {
+    "id": "thaumaturgesdelight:arcane_cooking_pot"
+  }
+}
