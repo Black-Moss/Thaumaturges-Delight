@@ -49,8 +49,23 @@ public final class ModDataMapProvider extends LazyCatDataMapProvider {
                 .aspect(TTAspects.ALKIMIA, 1)
                 .save();
         new BaseAspectBuilder(context, ModItems.ROPE.get())
-                .aspect(TTAspects.INSTRUMENTUM, 3)
-                .aspect(TTAspects.AVERSIO, 2)
+                .aspect(TTAspects.INSTRUMENTUM, 1)
+                .save();
+        new BaseAspectBuilder(context, CommonTags.Items.CROPS_RICE)
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS, 1)
+                .save();
+        new BaseAspectBuilder(context, CommonTags.Items.CROPS_CABBAGE)
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS, 1)
+                .save();
+        new BaseAspectBuilder(context, ModItems.RICH_SOIL.get())
+                .aspect(TTAspects.TERRA)
+                .aspect(TTAspects.VICTUS)
+                .save();
+        new BaseAspectBuilder(context, ModItems.ROTTEN_TOMATO.get())
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.MOTUS)
                 .save();
     }
 }

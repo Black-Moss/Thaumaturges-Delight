@@ -1,5 +1,23 @@
 {
   "values": {
+    "#c:crops/cabbage": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "aspect": "thaumaturge:victus"
+      }
+    ],
+    "#c:crops/rice": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "aspect": "thaumaturge:victus"
+      }
+    ],
     "#c:foods/cabbage": [
       {
         "amount": 5,
@@ -50,14 +68,29 @@
         "aspect": "thaumaturge:herba"
       }
     ],
-    "farmersdelight:rope": [
+    "farmersdelight:rich_soil": [
       {
-        "amount": 3,
-        "aspect": "thaumaturge:instrumentum"
+        "amount": 5,
+        "aspect": "thaumaturge:terra"
       },
       {
-        "amount": 2,
-        "aspect": "thaumaturge:aversio"
+        "amount": 5,
+        "aspect": "thaumaturge:victus"
+      }
+    ],
+    "farmersdelight:rope": [
+      {
+        "aspect": "thaumaturge:instrumentum"
+      }
+    ],
+    "farmersdelight:rotten_tomato": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:motus"
       }
     ],
     "minecraft:bread": [
