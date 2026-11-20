@@ -15,7 +15,7 @@ public final class TDAspects {
 
     public static void bootstrap(BootstrapContext<IAspect> ctx) {
         var lookup = ctx.lookup(IAspect.REGISTRY_KEY);
-        ctx.register(CUPPEDIA, new Aspect("cuppedia", 0xFDE030,
+        ctx.register(CUPPEDIA, new Aspect("cuppedia", 0xCA5010,
                 List.of(lookup.getOrThrow(TTAspects.DESIDERIUM), lookup.getOrThrow(TTAspects.VICTUS)),
                 Optional.empty(),
                 ThaumaturgesDelight.identifier("textures/aspects/cuppedia.png"),

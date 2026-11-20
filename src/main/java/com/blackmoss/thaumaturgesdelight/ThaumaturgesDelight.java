@@ -52,7 +52,6 @@ public class ThaumaturgesDelight {
 
         modContainer.registerConfig(ModConfig.Type.CLIENT, ThaumaturgesDelightClientConfig.SPEC);
         modContainer.registerConfig(ModConfig.Type.COMMON, ThaumaturgesDelightCommonConfig.SPEC);
-
     }
 
     public static Identifier identifier(String path) {

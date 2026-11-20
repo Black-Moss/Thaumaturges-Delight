@@ -8,10 +8,6 @@ import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
 import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.resources.Identifier;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.TagKey;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
 import vectorwing.farmersdelight.common.registry.ModItems;
@@ -40,29 +36,21 @@ public final class ModDataMapProvider extends LazyCatDataMapProvider {
                 .aspect(TTAspects.HERBA, 2)
                 .save();
         new BaseAspectBuilder(context, CommonTags.Items.FOODS_CABBAGE)
-                .aspect(TTAspects.HERBA, 5)
-                .aspect(TTAspects.VICTUS, 5)
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS)
                 .save();
         new BaseAspectBuilder(context, CommonTags.Items.FOODS_TOMATO)
-                .aspect(TTAspects.HERBA, 5)
-                .aspect(TTAspects.VICTUS, 5)
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS)
                 .save();
         new BaseAspectBuilder(context, CommonTags.Items.FOODS_ONION)
-                .aspect(TTAspects.HERBA, 5)
-                .aspect(TTAspects.VICTUS, 5)
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS)
                 .aspect(TTAspects.ALKIMIA, 1)
                 .save();
         new BaseAspectBuilder(context, ModItems.ROPE.get())
                 .aspect(TTAspects.INSTRUMENTUM, 3)
                 .aspect(TTAspects.AVERSIO, 2)
                 .save();
-    }
-
-    private static TagKey<Item> commonTag(String path) {
-        return ItemTags.create(Identifier.fromNamespaceAndPath("c", path));
-    }
-
-    private static TagKey<Item> fdTag(String path) {
-        return ItemTags.create(ThaumaturgesDelight.fd(path));
     }
 }
