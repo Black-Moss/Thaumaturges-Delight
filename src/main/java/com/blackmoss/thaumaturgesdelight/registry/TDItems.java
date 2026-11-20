@@ -112,12 +112,12 @@ public final class TDItems {
     public static final DeferredItem<Item> TAINTED_MILK_BUCKET = ITEMS.registerItem("tainted_milk_bucket",
             Item::new, props -> props.craftRemainder(Items.BUCKET).stacksTo(1));
 
-    public static final DeferredItem<Item> DEATH_DAY_CAKE_SLICE = ITEMS.registerItem("death_day_cake_slice",
-            Item::new, props -> props.food(new FoodProperties.Builder()
-                            .nutrition(2)
-                            .saturationModifier(0.2F)
-                            .build(),
-                    Consumables.defaultFood().build()));
+//    public static final DeferredItem<Item> DEATH_DAY_CAKE_SLICE = ITEMS.registerItem("death_day_cake_slice",
+//            Item::new, props -> props.food(new FoodProperties.Builder()
+//                            .nutrition(2)
+//                            .saturationModifier(0.2F)
+//                            .build(),
+//                    Consumables.defaultFood().build()));
 
     private static Item.Properties knife(Item.Properties properties, ToolMaterial material) {
         return material.applyToolProperties(

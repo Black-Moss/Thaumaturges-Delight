@@ -68,6 +68,29 @@
         "aspect": "thaumaturge:herba"
       }
     ],
+    "farmersdelight:ham": [
+      {
+        "amount": 12,
+        "aspect": "thaumaturge:bestia"
+      },
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:aversio"
+      },
+      {
+        "amount": 3,
+        "aspect": "thaumaturge:ignis"
+      }
+    ],
+    "farmersdelight:rice_panicle": [
+      {
+        "amount": 5,
+        "aspect": "thaumaturge:herba"
+      },
+      {
+        "aspect": "thaumaturge:victus"
+      }
+    ],
     "farmersdelight:rich_soil": [
       {
         "amount": 5,
@@ -90,7 +113,7 @@
       },
       {
         "amount": 5,
-        "aspect": "thaumaturge:motus"
+        "aspect": "thaumaturge:mortuus"
       }
     ],
     "minecraft:bread": [

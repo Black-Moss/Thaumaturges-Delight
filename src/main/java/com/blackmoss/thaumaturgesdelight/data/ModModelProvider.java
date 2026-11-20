@@ -74,7 +74,7 @@ public class ModModelProvider extends LazyCatModelProvider {
         itemFlat(TDItems.ADVANCED_CUTTING_SEAL);
         itemFlat(TDItems.CHUNKS_FRIED_RICE);
         itemFlat(TDItems.DROWNEDS_TEA);
-        itemFlat(TDItems.DEATH_DAY_CAKE_SLICE);
+//        itemFlat(TDItems.DEATH_DAY_CAKE_SLICE);
         itemFlat(TDItems.TAINTED_EGG);
         itemFlat(TDItems.TAINTED_MILK_BUCKET);
         itemFlat(TDItems.KETCHUP_CAP);

@@ -15,6 +15,7 @@ import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TTIds;
+import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
@@ -141,7 +142,11 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
         for (Holder<IAspect> aspect : registries.lookupOrThrow(IAspect.REGISTRY_KEY).listElements().toList()) {
             ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
             new CrucibleBuilder(context,
-                    ThaumaturgeUtils.aspectItem(registries, key, TDItems.ESSENTIA_ROCK_CANDY.get()),
+                    LazyIngredient.of(TDItems.ESSENTIA_ROCK_CANDY.get())
+                            .components(DataComponentPatch.builder().set(
+                                            TTDataComponents.CRYSTAL_ASPECT.get(),
+                                            new AspectInstance(aspect, 1))
+                                    .build()),
                     Items.SUGAR)
                     .aspect(key, 5)
                     .aspect(TTAspects.VITREUS)
