@@ -27,11 +27,8 @@ public final class InfusionEnchantmentEventsMixin {
     @Unique
     private static final float BLEEDING_EDGE_CHANCE_PER_LEVEL = 0.125F;
 
-    private InfusionEnchantmentEventsMixin() {
-    }
-
     @Inject(method = "onLivingDrops", at = @At("HEAD"))
-    private static void thaumaturgesdelight$cookDing(LivingDropsEvent event, CallbackInfo callback) {
+    private static void thaumaturgesdelight$bleedingEdge(LivingDropsEvent event, CallbackInfo ci) {
         if (event.getEntity().level().isClientSide()) {
             return;
         }
