@@ -22,7 +22,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.FarmlandBlock;
 import vectorwing.farmersdelight.common.block.AbstractStoveBlock;
-import vectorwing.farmersdelight.common.block.FeastBlock;
 import vectorwing.farmersdelight.common.block.state.CookingPotSupport;
 
 import java.util.Optional;
@@ -63,7 +62,7 @@ public class ModModelProvider extends LazyCatModelProvider {
         arcaneCookingPot(TDBlocks.ARCANE_COOKING_POT.get());
         arcaneStove(TDBlocks.ARCANE_STOVE.get());
         auraRichSoil(TDBlocks.AURA_RICH_SOIL.get(), TDBlocks.AURA_RICH_SOIL_FARMLAND.get());
-        deathDayCake(TDBlocks.DEATH_DAY_CAKE.get());
+//        deathDayCake(TDBlocks.DEATH_DAY_CAKE.get());
 
         itemFlat(TDItems.BRASS_KNIFE);
         itemFlat(TDItems.THAUMIUM_KNIFE);
@@ -84,21 +83,21 @@ public class ModModelProvider extends LazyCatModelProvider {
         essentiaRockCandy(TDItems.ESSENTIA_ROCK_CANDY.get());
     }
 
-    private void deathDayCake(Block block) {
-        var blockModels = context().blockModels();
-        Identifier modelId = getBlockModelId(block);
-        ModelTemplates.CUBE_ALL.create(modelId, new TextureMapping()
-                .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/death_day_cake"))), blockModels.modelOutput);
-
-        PropertyDispatch<MultiVariant> dispatch = PropertyDispatch.initial(FeastBlock.FACING)
-                .select(Direction.NORTH, BlockModelGenerators.plainVariant(modelId))
-                .select(Direction.EAST, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
-                .select(Direction.SOUTH, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
-                .select(Direction.WEST, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)));
-
-        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
-        blockModels.registerSimpleItemModel(block, modelId);
-    }
+//    private void deathDayCake(Block block) {
+//        var blockModels = context().blockModels();
+//        Identifier modelId = getBlockModelId(block);
+//        ModelTemplates.CUBE_ALL.create(modelId, new TextureMapping()
+//                .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/death_day_cake"))), blockModels.modelOutput);
+//
+//        PropertyDispatch<MultiVariant> dispatch = PropertyDispatch.initial(FeastBlock.FACING)
+//                .select(Direction.NORTH, BlockModelGenerators.plainVariant(modelId))
+//                .select(Direction.EAST, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R90)))
+//                .select(Direction.SOUTH, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R180)))
+//                .select(Direction.WEST, BlockModelGenerators.plainVariant(modelId).with(VariantMutator.Y_ROT.withValue(Quadrant.R270)));
+//
+//        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
+//        blockModels.registerSimpleItemModel(block, modelId);
+//    }
 
     private void arcaneCookingPot(Block block) {
         var potModel = getBlockModelId(block);

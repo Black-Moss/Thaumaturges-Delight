@@ -28,7 +28,8 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 public final class TDItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(ThaumaturgesDelight.MODID);
 
-    public static final DeferredItem<BlockItem> DEATH_DAY_CAKE = ITEMS.registerSimpleBlockItem(TDBlocks.DEATH_DAY_CAKE);
+//    public static final DeferredItem<BlockItem> DEATH_DAY_CAKE = ITEMS.registerSimpleBlockItem(TDBlocks.DEATH_DAY_CAKE);
+
     public static final DeferredItem<KnifeItem> BRASS_KNIFE = ITEMS.registerItem("brass_knife",
             props -> new KnifeItem(TDMaterials.TOOL_BRASS, props), props -> knife(props, TDMaterials.TOOL_BRASS));
     public static final DeferredItem<KnifeItem> THAUMIUM_KNIFE = ITEMS.registerItem("thaumium_knife",

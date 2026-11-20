@@ -115,15 +115,15 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .save();
 
         // 死日蛋糕
-        new ArcaneCookingPotBuilder(context, TDItems.DEATH_DAY_CAKE)
-                .ingredient(TTItems.TAINT_TENDRIL)
-                .ingredient(TTItems.BRAIN)
-                .ingredient(TDItems.TAINTED_EGG)
-                .ingredient(TDItems.TAINTED_MILK_BUCKET)
-                .ingredient(Items.DEAD_BUSH)
-                .aspect(TTAspects.MORTUUS, 40)
-                .tab(CookingPotRecipeBookTab.MEALS)
-                .save();
+//        new ArcaneCookingPotBuilder(context, TDItems.DEATH_DAY_CAKE)
+//                .ingredient(TTItems.TAINT_TENDRIL)
+//                .ingredient(TTItems.BRAIN)
+//                .ingredient(TDItems.TAINTED_EGG)
+//                .ingredient(TDItems.TAINTED_MILK_BUCKET)
+//                .ingredient(Items.DEAD_BUSH)
+//                .aspect(TTAspects.MORTUUS, 40)
+//                .tab(CookingPotRecipeBookTab.MEALS)
+//                .save();
 
         new InfusionBuilder(context, TDItems.KETCHUP_CAP, ModItems.TOMATO)
                 .component(TTItems.SALIS_MUNDUS)
@@ -141,13 +141,10 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
     private void essenceRockCandy() {
         for (Holder<IAspect> aspect : registries.lookupOrThrow(IAspect.REGISTRY_KEY).listElements().toList()) {
             ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
-            DataComponentPatch patch = DataComponentPatch.builder()
-                    .set(TTDataComponents.CRYSTAL_ASPECT.get(), new AspectInstance(aspect, 1))
-                    .build();
             new CrucibleBuilder(context,
-                    LazyIngredient.from(TDItems.ESSENTIA_ROCK_CANDY).components(patch),
+                    ThaumaturgeUtils.aspectItem(registries, key, TDItems.ESSENTIA_ROCK_CANDY.get()),
                     Items.SUGAR)
-                    .aspect(aspect, 5)
+                    .aspect(key, 5)
                     .aspect(TTAspects.VITREUS)
                     .aspect(TTAspects.GELUM)
                     .gate(tdGate("essentia_rock_candy"))

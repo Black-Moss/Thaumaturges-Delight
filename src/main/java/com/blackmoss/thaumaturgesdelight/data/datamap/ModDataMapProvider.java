@@ -59,13 +59,22 @@ public final class ModDataMapProvider extends LazyCatDataMapProvider {
                 .aspect(TTAspects.HERBA)
                 .aspect(TTAspects.VICTUS, 1)
                 .save();
+        new BaseAspectBuilder(context, ModItems.RICE_PANICLE.get())
+                .aspect(TTAspects.HERBA)
+                .aspect(TTAspects.VICTUS, 1)
+                .save();
         new BaseAspectBuilder(context, ModItems.RICH_SOIL.get())
                 .aspect(TTAspects.TERRA)
                 .aspect(TTAspects.VICTUS)
                 .save();
         new BaseAspectBuilder(context, ModItems.ROTTEN_TOMATO.get())
                 .aspect(TTAspects.HERBA)
-                .aspect(TTAspects.MOTUS)
+                .aspect(TTAspects.MORTUUS)
+                .save();
+        new BaseAspectBuilder(context, ModItems.HAM.get())
+                .aspect(TTAspects.BESTIA, 12)
+                .aspect(TTAspects.AVERSIO)
+                .aspect(TTAspects.IGNIS, 3)
                 .save();
     }
 }
