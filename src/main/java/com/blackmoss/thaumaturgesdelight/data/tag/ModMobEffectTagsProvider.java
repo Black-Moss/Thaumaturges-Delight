@@ -23,7 +23,7 @@ public final class ModMobEffectTagsProvider implements DataProvider {
         this.mobEffectTags = new KeyTagProvider<>(output, Registries.MOB_EFFECT, lookup, ThaumaturgesDelight.MODID) {
             @Override
             protected void addTags(HolderLookup.@NonNull Provider provider) {
-                tag(TDEffectTags.ROCK_CANDY_EXCLUDED)
+                tag(TDEffectTags.RANDOM_EFFECT_EXCLUDED)
                         .add(MobEffects.SLOWNESS.getKey())
                         .add(MobEffects.MINING_FATIGUE.getKey())
                         .add(MobEffects.INSTANT_DAMAGE.getKey())

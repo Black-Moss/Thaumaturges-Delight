@@ -62,7 +62,7 @@ public class EssentiaRockCandyItem extends Item {
                         .get(TTEffectTags.MANA_BEAN_EFFECTS);
                 if (pool.isPresent()) {
                     List<Holder<MobEffect>> candidates = pool.get().stream()
-                            .filter(effect -> !effect.is(TDEffectTags.ROCK_CANDY_EXCLUDED))
+                            .filter(effect -> !effect.is(TDEffectTags.RANDOM_EFFECT_EXCLUDED))
                             .toList();
                     if (!candidates.isEmpty()) {
                         Holder<MobEffect> effect = candidates.get(random.nextInt(candidates.size()));
