@@ -54,6 +54,8 @@
   "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "与大多数事物一样，我希望食物是由魔法定义的，并且可以通过它来改善。",
   "research.thaumaturgesdelight.unlock_culinary_magic.title": "解锁：食品魔法",
   "research_category.thaumaturgesdelight.culinary_magic": "食品魔法",
+  "tooltip.thaumaturgesdelight.ketchup_on_french_fry": "好吃！",
+  "tooltip.thaumaturgesdelight.ketchup_on_french_fry.can_lick": "如果实在是太饿的话，蹲下来可以舔几口",
   "wand.thaumaturge.cap.ketchup": "沾着番茄酱的",
   "wand.thaumaturge.rod.french_fry": "薯条"
 }

@@ -64,6 +64,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
         addEffect(TDMobEffects.DROWNING::value, "Drowning");
 
         research();
+        tooltip();
     }
 
     private void research() {
@@ -111,5 +112,10 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
                 "After eating my first mana bean I found myself properly addicted — though the flaw is only too obvious: the bean's effect is far too random. Would it not be better to consume the essentia directly, without carrying a bean around? Essentia presumably has to be frozen before it will keep, though... so let us start with freezing.",
                 "Introducing: Essentia Rock Candy! It grants a random beneficial or neutral effect — and never, ever a disaster!" +
                         "<BR>Simply dissolve one in your (food-grade) crucible; all it takes is 5 of the aspect you fancy, 1 Gelum and 1 Vitreous!");
+    }
+
+    private void tooltip() {
+        addTooltip("ketchup_on_french_fry.can_lick", "If you're really hungry, you can squat down and lick a few bites");
+        addTooltip("ketchup_on_french_fry", "Delicious!");
     }
 }

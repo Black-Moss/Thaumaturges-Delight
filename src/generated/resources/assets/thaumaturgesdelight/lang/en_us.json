@@ -54,6 +54,8 @@
   "research.thaumaturgesdelight.unlock_culinary_magic.stage_1": "As with most things, I expect that food is defined by magic, and can be improved by it.",
   "research.thaumaturgesdelight.unlock_culinary_magic.title": "Unlock: Culinary Magic",
   "research_category.thaumaturgesdelight.culinary_magic": "Culinary Magic",
+  "tooltip.thaumaturgesdelight.ketchup_on_french_fry": "Delicious!",
+  "tooltip.thaumaturgesdelight.ketchup_on_french_fry.can_lick": "If you're really hungry, you can squat down and lick a few bites",
   "wand.thaumaturge.cap.ketchup": "Ketchup on",
   "wand.thaumaturge.rod.french_fry": "French Fry"
 }
