@@ -1,5 +1,6 @@
 package com.blackmoss.thaumaturgesdelight;
 
+import com.blackmoss.thaumaturgesdelight.compat.farmersdelight.AspectContributor;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
 import com.blackmoss.thaumaturgesdelight.data.*;
@@ -12,6 +13,7 @@ import com.blackmoss.thaumaturgesdelight.data.tag.ModItemTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModMobEffectTagsProvider;
 import com.blackmoss.thaumaturgesdelight.registry.*;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
+import com.leclowndu93150.thaumaturge.api.aspect.RegisterAspectContributorsEvent;
 import com.leclowndu93150.thaumaturge.data.worldgen.aspect.AspectBootstrap;
 import com.mojang.logging.LogUtils;
 import net.minecraft.core.RegistrySetBuilder;
@@ -60,6 +62,11 @@ public class ThaumaturgesDelight {
 
     public static Identifier fd(String path) {
         return Identifier.fromNamespaceAndPath("farmersdelight", path);
+    }
+
+    @SubscribeEvent
+    public static void onRegisterAspectContributors(RegisterAspectContributorsEvent event) {
+        event.register(new AspectContributor());
     }
 
     @SubscribeEvent
