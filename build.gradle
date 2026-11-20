@@ -16,10 +16,6 @@ sourceSets.main.resources {
     srcDir('src/generated/resources')
 
     exclude("src/generated/**/.cache")
-
-    exclude { element ->
-        element.file.path.replace('\\', '/').contains('/src/generated/resources/data/thaumaturgesdelight/thaumaturge/aspect/')
-    }
 }
 
 repositories {
@@ -98,7 +94,8 @@ configurations {
 
 dependencies {
     // Lazy Cat
-    implementation "curse.maven:lazy-cat-1806291:${lazycat_id}"
+//    implementation "curse.maven:lazy-cat-1806291:${lazycat_id}"
+    implementation files("E:\\MossProject\\MinecraftJava\\Lazy-Cat\\build\\libs\\lazycat-1.4.0-NeoForge-26.1.2.jar")
 
     // Lithostitched
     implementation "maven.modrinth:lithostitched:${lithostitched_version}-neoforge-26.1"
