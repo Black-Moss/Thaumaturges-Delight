@@ -41,6 +41,11 @@ repositories {
         name = "Illusive Soulworks"
         url = "https://maven.theillusivec4.top/"
     }
+
+    maven {
+        name = "Apple Skin"
+        url "https://maven.ryanliptak.com/"
+    }
 }
 
 base {
@@ -117,6 +122,10 @@ dependencies {
 
     // Jade
     implementation "maven.modrinth:jade:${jade_version}"
+
+    // Apple Skin
+    compileOnly "squeek.appleskin:appleskin-neoforge:mc26.1-${apple_skin_version}:api"
+    runtimeOnly "squeek.appleskin:appleskin-neoforge:mc26.1-${apple_skin_version}"
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
