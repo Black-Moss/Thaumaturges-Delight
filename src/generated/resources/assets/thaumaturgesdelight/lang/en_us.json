@@ -31,6 +31,7 @@
   "item.thaumaturgesdelight.thaumium_knife": "Thaumium Knife",
   "item.thaumaturgesdelight.void_knife": "Void Knife",
   "itemGroup.thaumaturgesdelight.thaumaturgesdelight": "Thaumaturge's Delight",
+  "mob_trait.thaumaturgesdelight.gluttonous": "Gluttonous",
   "recipe.type.thaumaturgesdelight.arcane_cooking": "Arcane Cooking",
   "research.thaumaturgesdelight.aura_rich_soil.stage_0": "Well, ordinary rich soil grows far too slowly — I'd have to wait a whole day just for a single dish. It seems I'll have to resort to magic...",
   "research.thaumaturgesdelight.aura_rich_soil.stage_1": "Sprinkle some Salis Mundus onto rich soil and the aura will seep in, becoming nourishment for your crops; each time a crop advances a stage, a point of aura is drained from the current chunk.<BR>Don't plant too much of it — you're not here to grow Flux Rifts!",

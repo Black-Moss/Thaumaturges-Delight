@@ -32,6 +32,8 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
 
         add("enchantment.thaumaturge.bleeding_edge", "Bleeding Edge");
 
+        add("mob_trait.thaumaturgesdelight.gluttonous", "Gluttonous");
+
         addWandCap("ketchup", "Ketchup on");
         addWandRod("french_fry", "French Fry");
 

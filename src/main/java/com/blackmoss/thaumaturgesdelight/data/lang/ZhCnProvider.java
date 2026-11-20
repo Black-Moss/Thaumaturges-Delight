@@ -32,6 +32,8 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
 
         add("enchantment.thaumaturge.bleeding_edge", "无往不利");
 
+        add("mob_trait.thaumaturgesdelight.gluttonous", "狼吞虎咽的");
+
         addWandCap("ketchup", "沾着番茄酱的");
         addWandRod("french_fry", "薯条");
 

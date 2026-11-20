@@ -46,6 +46,8 @@ public class ThaumaturgesDelight {
         TDMenus.MENUS.register(modEventBus);
         TDItems.ITEMS.register(modEventBus);
         TDMobEffects.MOB_EFFECTS.register(modEventBus);
+        TDMobTraits.MOB_TRAITS.register(modEventBus);
+        TDParticles.PARTICLES.register(modEventBus);
         TDSeals.SEALS.register(modEventBus);
         TDGolemParts.GOLEM_ARMS.register(modEventBus);
         TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);

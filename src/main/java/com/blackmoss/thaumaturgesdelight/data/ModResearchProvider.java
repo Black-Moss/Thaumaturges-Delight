@@ -20,6 +20,14 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
         super(output, ThaumaturgesDelight.MODID);
     }
 
+    private static JsonObject crystalAspect(String aspect) {
+        JsonObject component = new JsonObject();
+        JsonObject value = new JsonObject();
+        value.addProperty("aspect", aspect);
+        component.add("thaumaturge:crystal_aspect", value);
+        return component;
+    }
+
     @Override
     protected void addResearch(ResearchContext context) {
         context.category("culinary_magic")
@@ -196,13 +204,5 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
 
     private ResearchEntryBuilder tdResearch(ResearchContext context, String id) {
         return context.entry(TDResearchCategories.CULINARY_MAGIC, id);
-    }
-
-    private static JsonObject crystalAspect(String aspect) {
-        JsonObject component = new JsonObject();
-        JsonObject value = new JsonObject();
-        value.addProperty("aspect", aspect);
-        component.add("thaumaturge:crystal_aspect", value);
-        return component;
     }
 }
