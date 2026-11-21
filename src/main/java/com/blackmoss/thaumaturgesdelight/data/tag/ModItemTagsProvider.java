@@ -3,6 +3,7 @@ package com.blackmoss.thaumaturgesdelight.data.tag;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDItemTags;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
+import com.leclowndu93150.thaumaturge.registry.TTItemTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.neoforged.neoforge.common.Tags;
@@ -35,10 +36,13 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
         tag(Tags.Items.FOODS_COOKIE)
                 .add(TDItems.PURIFY_COOKIE.get());
 
-        tag(CommonTags.Items.FOODS_DOUGH)
-                .add(TDItems.MANA_BEAN_DOUGH.get());
         tag(TDItemTags.FOODS_DOUGH_MANA_BEAN)
                 .add(TDItems.MANA_BEAN_DOUGH.get());
+
+        tag(TTItemTags.WAND_CAPS)
+                .add(TDItems.KETCHUP_CAP.get());
+        tag(TTItemTags.WAND_RODS)
+                .add(TDItems.FRENCH_FRY_ROD.get());
     }
 
     @Override
