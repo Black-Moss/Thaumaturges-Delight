@@ -1,4 +1,4 @@
-package com.blackmoss.thaumaturgesdelight.data;
+package com.blackmoss.thaumaturgesdelight.data.loot;
 
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import net.minecraft.core.HolderLookup;

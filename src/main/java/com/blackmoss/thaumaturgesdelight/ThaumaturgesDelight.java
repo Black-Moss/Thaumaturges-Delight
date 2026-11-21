@@ -5,6 +5,7 @@ import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
 import com.blackmoss.thaumaturgesdelight.data.*;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
+import com.blackmoss.thaumaturgesdelight.data.loot.ModBlockLootSubProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModEntityTypeTagsProvider;

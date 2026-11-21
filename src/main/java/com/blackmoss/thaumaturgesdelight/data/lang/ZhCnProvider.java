@@ -55,7 +55,6 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
         addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");
 //        addItem(TDItems.DEATH_DAY_CAKE, "死日蛋糕");
 //        addItem(TDItems.DEATH_DAY_CAKE_SLICE, "死日蛋糕切片");
-        addItem(TDItems.TAINTED_EGG, "污染鸡蛋");
         addItem(TDItems.TAINTED_MILK_BUCKET, "污染奶桶");
         addItem(TDItems.PURIFY_COOKIE, "净化曲奇");
         addItem(TDItems.CUTTING_SEAL, "操控印记：切菜");

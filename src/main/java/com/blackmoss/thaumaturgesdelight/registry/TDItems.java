@@ -112,8 +112,6 @@ public final class TDItems {
                     .craftRemainder(Items.GLASS_BOTTLE)
                     .usingConvertsTo(Items.GLASS_BOTTLE));
 
-    public static final DeferredItem<Item> TAINTED_EGG = ITEMS.registerItem("tainted_egg", Item::new);
-
     public static final DeferredItem<Item> TAINTED_MILK_BUCKET = ITEMS.registerItem("tainted_milk_bucket",
             Item::new, props -> props.craftRemainder(Items.BUCKET).stacksTo(1));
 

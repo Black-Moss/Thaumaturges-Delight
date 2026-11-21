@@ -127,7 +127,7 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
 //        new ArcaneCookingPotBuilder(context, TDItems.DEATH_DAY_CAKE)
 //                .ingredient(TTItems.TAINT_TENDRIL)
 //                .ingredient(TTItems.BRAIN)
-//                .ingredient(TDItems.TAINTED_EGG)
+//                .ingredient(TTItems.TAINTED_EGG)
 //                .ingredient(TDItems.TAINTED_MILK_BUCKET)
 //                .ingredient(Items.DEAD_BUSH)
 //                .aspect(TTAspects.MORTUUS, 40)
