@@ -82,7 +82,9 @@ public class ItemWandMixin {
 
         boolean ketchup = TDWandParts.KETCHUP_CAP.getId().equals(capKey);
         boolean frenchFry = TDWandParts.FRENCH_FRY_ROD.getId().equals(rodKey);
-        if (!ketchup && !frenchFry) {
+        boolean reedRod = TTWandParts.ROD_REED.getId().equals(rodKey);
+        boolean reedStaff = TTWandParts.STAFF_REED.getId().equals(rodKey);
+        if (!ketchup && !frenchFry && !reedRod && !reedStaff) {
             return 0;
         }
 
