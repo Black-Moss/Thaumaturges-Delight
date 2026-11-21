@@ -5,7 +5,6 @@ import com.blackmoss.lazycat.api.recipe.minecraft.CookingType;
 import com.blackmoss.lazycat.api.recipe.thaumaturge.ThaumaturgeUtils;
 import com.blackmoss.lazycat.recipe.LazyCatRecipeProvider;
 import com.blackmoss.lazycat.recipe.farmersdelight.CookingPotBuilder;
-import com.blackmoss.lazycat.recipe.farmersdelight.CuttingBoardBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.CookingBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.ShapedBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.SpecialBuilder;
