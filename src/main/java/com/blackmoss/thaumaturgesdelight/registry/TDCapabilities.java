@@ -15,5 +15,9 @@ public final class TDCapabilities {
                 EssentiaCapabilities.CONTAINER,
                 (stack, _) -> ComponentEssentia.crystal(stack),
                 TDItems.MANA_BEAN_DOUGH.get());
+        event.registerItem(
+                EssentiaCapabilities.CONTAINER,
+                (stack, _) -> ComponentEssentia.crystal(stack),
+                TDItems.ESSENTIA_ROCK_CANDY.get());
     }
 }
