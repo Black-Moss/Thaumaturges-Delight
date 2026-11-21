@@ -12,7 +12,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public final class TDEfficacies {
     public static final DeferredRegister<EfficacyType<?>> EFFICACIES =
             DeferredRegister.create(EfficacyType.REGISTRY_KEY, ThaumaturgesDelight.MODID);
-    private static final Registry<EfficacyType<?>> REGISTRY = EFFICACIES.makeRegistry(
+    public static final Registry<EfficacyType<?>> REGISTRY = EFFICACIES.makeRegistry(
             builder -> builder.sync(false));
 
     public static final DeferredHolder<EfficacyType<?>, EfficacyType<MobEffectAction>> MOB_EFFECT = register(
@@ -31,9 +31,5 @@ public final class TDEfficacies {
     private static <T extends AspectEffect> DeferredHolder<EfficacyType<?>, EfficacyType<T>> register(
             String name, MapCodec<T> codec) {
         return EFFICACIES.register(name, () -> new EfficacyType<>(codec));
-    }
-
-    public static Registry<EfficacyType<?>> registry() {
-        return REGISTRY;
     }
 }

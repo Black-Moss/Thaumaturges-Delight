@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public interface AspectEffect {
     Codec<AspectEffect> CODEC = Codec.lazyInitialized(() ->
-            TDEfficacies.registry()
+            TDEfficacies.REGISTRY
                     .byNameCodec()
                     .dispatch("type", AspectEffect::type, EfficacyType::codec));
 

@@ -120,6 +120,9 @@ dependencies {
     compileOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}:api"
     runtimeOnly "top.theillusivec4.curios:curios-neoforge:${curios_version}"
 
+    // Thaumaturge Tweaks
+    implementation "curse.maven:thaumaturge-tweaks-1736643:${thaumaturge_tweaks_id}"
+
     // Jade
     implementation "maven.modrinth:jade:${jade_version}"
 

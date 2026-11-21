@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.function.BiConsumer;
 
+@SuppressWarnings("unused")
 public final class EfficacyDataMapBuilder extends AbstractDataMapBuilder<IAspect, AspectEfficacies> {
     private static final int DEFAULT_DURATION = 30;
     private final List<AspectEffect> effects = new ArrayList<>();
