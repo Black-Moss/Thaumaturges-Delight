@@ -50,6 +50,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
 
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
         addItem(TDItems.MANA_BEAN_DOUGH, "%s Mana Bean Dough");
+        addItem(TDItems.MANA_BREAD, "%s Mana Bread");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
         addItem(TDItems.DROWNEDS_TEA, "Drowned's Tea");

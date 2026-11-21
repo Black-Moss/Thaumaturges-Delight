@@ -80,6 +80,7 @@ public class ModModelProvider extends LazyCatModelProvider {
 
         aspectItem(TDItems.ESSENTIA_ROCK_CANDY.get());
         aspectItem(TDItems.MANA_BEAN_DOUGH.get());
+        aspectItem(TDItems.MANA_BREAD.get());
     }
 
 //    private void deathDayCake(Block block) {

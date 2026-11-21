@@ -12,9 +12,17 @@
   ],
   "components": [
     "minecraft:enchanted_book",
-    "farmersdelight:flint_knife"
+    {
+      "neoforge:ingredient_type": "neoforge:components",
+      "components": {
+        "thaumaturge:crystal_aspect": {
+          "aspect": "thaumaturge:ignis"
+        }
+      },
+      "items": "thaumaturge:essentia_crystal"
+    }
   ],
-  "display_catalyst": "thaumaturgesdelight:elemental_knife",
+  "display_catalyst": "farmersdelight:flint_knife",
   "enchantment": "bleeding_edge",
   "research": {
     "entry": "thaumaturgesdelight:elemental_knife"

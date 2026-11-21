@@ -50,6 +50,7 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
 
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
         addItem(TDItems.MANA_BEAN_DOUGH, "%s 魔豆面团");
+        addItem(TDItems.MANA_BREAD, "%s 魔法面包");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
         addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");

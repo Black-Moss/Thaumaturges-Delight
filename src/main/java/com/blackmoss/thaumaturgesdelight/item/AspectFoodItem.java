@@ -31,7 +31,7 @@ public class AspectFoodItem extends Item {
     protected int effectBaseDuration = 200;
     protected int effectExtraDuration = 8;
 
-    protected AspectFoodItem(Properties properties) {
+    public AspectFoodItem(Properties properties) {
         super(properties);
     }
 

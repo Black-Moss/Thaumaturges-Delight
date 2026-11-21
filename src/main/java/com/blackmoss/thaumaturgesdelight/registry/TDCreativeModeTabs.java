@@ -79,6 +79,7 @@ public final class TDCreativeModeTabs {
                                     .toList()) {
                                 output.accept(ThaumaturgeUtils.manaBean(aspect).create());
                                 output.accept(ThaumaturgeUtils.aspectItem(aspect, TDItems.MANA_BEAN_DOUGH).create());
+                                output.accept(ThaumaturgeUtils.aspectItem(aspect, TDItems.MANA_BREAD).create());
                                 output.accept(ThaumaturgeUtils.aspectItem(aspect, TDItems.ESSENTIA_ROCK_CANDY).create());
                             }
                         }).build());

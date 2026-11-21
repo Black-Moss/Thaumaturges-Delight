@@ -43,6 +43,9 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
                 .add(TDItems.KETCHUP_CAP.get());
         tag(TTItemTags.WAND_RODS)
                 .add(TDItems.FRENCH_FRY_ROD.get());
+
+        tag(Tags.Items.FOODS_BREAD)
+                .add(TDItems.MANA_BREAD.get());
     }
 
     @Override

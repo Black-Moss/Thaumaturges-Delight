@@ -1,8 +1,8 @@
 package com.blackmoss.thaumaturgesdelight.registry;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.item.AspectFoodItem;
 import com.blackmoss.thaumaturgesdelight.item.EssentiaRockCandyItem;
-import com.blackmoss.thaumaturgesdelight.item.ManaBeanDoughItem;
 import com.blackmoss.thaumaturgesdelight.item.PurifyCookieItem;
 import com.leclowndu93150.thaumaturge.content.equipment.TTMaterials;
 import com.leclowndu93150.thaumaturge.content.golem.ItemSealPlacer;
@@ -52,10 +52,14 @@ public final class TDItems {
                     .food(new FoodProperties(1, 0.5F, true),
                             Consumables.defaultFood().build()));
 
-    public static final DeferredItem<ManaBeanDoughItem> MANA_BEAN_DOUGH = ITEMS.registerItem(
-            "mana_bean_dough", ManaBeanDoughItem::new, props -> props
+    public static final DeferredItem<AspectFoodItem> MANA_BEAN_DOUGH = ITEMS.registerItem(
+            "mana_bean_dough", AspectFoodItem::new, props -> props
                     .food(new FoodProperties(2, 0.4F, true),
                             Consumables.defaultFood().consumeSeconds(0.6F).build()));
+
+    public static final DeferredItem<AspectFoodItem> MANA_BREAD = ITEMS.registerItem(
+            "mana_bread", AspectFoodItem::new, props -> props
+                    .food(Foods.BREAD));
 
     public static final DeferredItem<Item> SEXTUPLE_MEAT_SURPRISE = ITEMS.registerItem(
             "sextuple_meat_surprise", props -> new Item(props
