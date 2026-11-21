@@ -95,9 +95,9 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
 
         new InfusionEnchantmentBuilder(context,
                 TDInfusionEnchantments.BLEEDING_EDGE,
-                TDItems.ELEMENTAL_KNIFE)
+                ModItems.FLINT_KNIFE)
                 .component(Items.ENCHANTED_BOOK)
-                .component(ModItems.FLINT_KNIFE)
+                .component(crystal(TTAspects.IGNIS))
                 .aspect(TTAspects.IGNIS, 55)
                 .aspect(TTAspects.PERMUTATIO, 60)
                 .gate(tdGate("elemental_knife"))
@@ -147,8 +147,9 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .aspect(TDAspects.CUPPEDIA, 5)
                 .save();
 
-        new CuttingBoardBuilder(context, TDItems.ETHEREAL_PETAL, 5)
-                .input(TTItems.ETHEREAL_BLOOM)
+        shapeless(TDItems.ETHEREAL_PETAL)
+                .requires(TTItems.ETHEREAL_BLOOM)
+                .count(5)
                 .save();
     }
 
