@@ -7,9 +7,12 @@ import com.blackmoss.lazycat.recipe.LazyCatRecipeProvider;
 import com.blackmoss.lazycat.recipe.farmersdelight.CookingPotBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.CookingBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.ShapedBuilder;
+import com.blackmoss.lazycat.recipe.minecraft.SpecialBuilder;
 import com.blackmoss.lazycat.recipe.thaumaturge.*;
 import com.blackmoss.lazycat.recipe.thaumaturgesdelight.ArcaneCookingPotBuilder;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
+import com.blackmoss.thaumaturgesdelight.recipe.ManaBeanDoughFromEggRecipe;
+import com.blackmoss.thaumaturgesdelight.recipe.ManaBeanDoughRecipe;
 import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
@@ -33,6 +36,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CraftingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.common.Tags;
@@ -61,6 +65,11 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
     @Override
     protected void addRecipes() {
         essenceRockCandy();
+        new SpecialBuilder(context, () -> new ManaBeanDoughRecipe(CraftingBookCategory.MISC))
+                .save("mana_bean_dough");
+        new SpecialBuilder(context, () -> new ManaBeanDoughFromEggRecipe(CraftingBookCategory.MISC))
+                .save("mana_bean_dough_from_egg");
+
         sealCutting();
         knife(TDItems.BRASS_KNIFE, TTItemTags.INGOTS_BRASS, TTItems.NUGGET_BRASS);
         knife(TDItems.THAUMIUM_KNIFE, TTItemTags.INGOTS_THAUMIUM, TTItems.NUGGET_THAUMIUM);

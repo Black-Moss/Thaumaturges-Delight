@@ -1,6 +1,5 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
-import com.blackmoss.lazycat.api.thaumaturge.blueprint.BlueprintContext;
 import com.blackmoss.lazycat.thaumaturge.blueprint.LazyCatBlueprintProvider;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
@@ -13,7 +12,7 @@ public final class ModBlueprintProvider extends LazyCatBlueprintProvider {
     }
 
     @Override
-    protected void addBlueprints(BlueprintContext context) {
+    protected void addBlueprints() {
         context.blueprint("magic_kitchen")
                 .key('C', ModBlocks.COOKING_POT.get(), TDBlocks.ARCANE_COOKING_POT.get())
                 .key('S', ModBlocks.STOVE.get(), TDBlocks.ARCANE_STOVE.get())

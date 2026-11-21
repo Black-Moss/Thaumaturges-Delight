@@ -11,4 +11,7 @@ public final class TDMobEffects {
     public static final DeferredRegister<MobEffect> MOB_EFFECTS = DeferredRegister.create(Registries.MOB_EFFECT, ThaumaturgesDelight.MODID);
 
     public static final Holder<MobEffect> DROWNING = MOB_EFFECTS.register("drowning", DrowningEffect::new);
+
+    private TDMobEffects() {
+    }
 }

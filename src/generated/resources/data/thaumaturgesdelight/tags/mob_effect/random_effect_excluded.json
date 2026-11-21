@@ -18,6 +18,7 @@
     "minecraft:oozing",
     "minecraft:infested",
     "minecraft:raid_omen",
+    "minecraft:weaving",
     "thaumaturge:blurred_vision",
     "thaumaturge:death_gaze",
     "thaumaturge:flux_taint",
@@ -25,6 +26,7 @@
     "thaumaturge:sun_scorned",
     "thaumaturge:thaumarhia",
     "thaumaturge:unnatural_hunger",
-    "thaumaturge:vis_exhaust"
+    "thaumaturge:vis_exhaust",
+    "thaumaturgesdelight:drowning"
   ]
 }

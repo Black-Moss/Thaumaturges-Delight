@@ -13,6 +13,7 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
     @Override
     protected void addTranslations() {
         addCreativeModeTab(TDCreativeModeTabs.THAUMATURGES_DELIGHT.get(), "神秘乐事");
+        addCreativeModeTab(TDCreativeModeTabs.ASPECT_FOODS.get(), "神秘乐事 | 要素食品");
 
         addContainer("arcane_cooking_pot", "奥术厨锅");
         addContainer("arcane_cooking_pot.heated", "已加热");
@@ -48,7 +49,7 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
         addItem(TDItems.ELEMENTAL_KNIFE, "庖丁刀");
 
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s 源质冰糖");
-        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "未知源质冰糖");
+        addItem(TDItems.MANA_BEAN_DOUGH, "%s 魔豆面团");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "狂欢六层肉饼");
         addItem(TDItems.DROWNEDS_TEA, "溺水者之茶");

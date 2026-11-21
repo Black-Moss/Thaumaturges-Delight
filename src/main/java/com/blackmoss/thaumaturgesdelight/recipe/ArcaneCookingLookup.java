@@ -10,13 +10,13 @@ import vectorwing.farmersdelight.common.registry.ModRecipeTypes;
 
 import java.util.Optional;
 
+@SuppressWarnings({"removal", "NullableProblems"})
 public final class ArcaneCookingLookup {
     public static Optional<RecipeHolder<CookingPotRecipe>> find(ServerLevel level, RecipeWrapper wrapper) {
         Optional<RecipeHolder<CookingPotRecipe>> vanilla = Holder.COOKING.getRecipeFor(wrapper, level);
         if (vanilla.isPresent()) {
             return vanilla;
         }
-        //noinspection NullableProblems
         return Holder.ARCANE.getRecipeFor(wrapper, level).map(holder -> new RecipeHolder<>(holder.id(), holder.value().asCookingPotRecipe()));
     }
 

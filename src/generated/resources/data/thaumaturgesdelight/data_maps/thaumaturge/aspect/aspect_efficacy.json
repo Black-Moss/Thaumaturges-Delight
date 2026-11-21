@@ -1,0 +1,173 @@
+{
+  "values": {
+    "thaumaturge:aer": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:speed"
+      },
+      {
+        "type": "thaumaturgesdelight:particle",
+        "count": 6,
+        "particle": "minecraft:cloud",
+        "spread": 0.4
+      }
+    ],
+    "thaumaturge:aqua": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:water_breathing"
+      },
+      {
+        "type": "thaumaturgesdelight:particle",
+        "count": 6,
+        "particle": "minecraft:bubble",
+        "spread": 0.4
+      }
+    ],
+    "thaumaturge:aversio": [
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:attack_damage",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/attack_damage"
+      }
+    ],
+    "thaumaturge:cognitio": [
+      {
+        "type": "thaumaturgesdelight:grant_aspect",
+        "amount": 1
+      }
+    ],
+    "thaumaturge:ignis": [
+      {
+        "type": "thaumaturgesdelight:ignite",
+        "ticks": 6
+      },
+      {
+        "type": "thaumaturgesdelight:particle",
+        "count": 15,
+        "particle": "minecraft:flame",
+        "spread": 0.4
+      }
+    ],
+    "thaumaturge:lux": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:glowing"
+      }
+    ],
+    "thaumaturge:metallum": [
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:armor_toughness",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/armor_toughness"
+      }
+    ],
+    "thaumaturge:motus": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 400,
+        "effect": "minecraft:speed"
+      },
+      {
+        "type": "thaumaturgesdelight:particle",
+        "count": 8,
+        "particle": "minecraft:crit",
+        "speed": 0.03,
+        "spread": 0.5
+      }
+    ],
+    "thaumaturge:ordo": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "thaumaturge:warp_ward"
+      }
+    ],
+    "thaumaturge:perditio": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:haste"
+      }
+    ],
+    "thaumaturge:praecantatio": [
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:armor",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/armor"
+      }
+    ],
+    "thaumaturge:sensus": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:night_vision"
+      }
+    ],
+    "thaumaturge:terra": [
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:armor_toughness",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/armor_toughness"
+      }
+    ],
+    "thaumaturge:victus": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 200,
+        "effect": "minecraft:regeneration"
+      },
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "amplifier": 1,
+        "duration": 30,
+        "effect": "minecraft:absorption"
+      }
+    ],
+    "thaumaturge:vinculum": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:slowness"
+      }
+    ],
+    "thaumaturge:vitreus": [
+      {
+        "type": "thaumaturgesdelight:restore_vis",
+        "centivis": 100
+      },
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": -2.0,
+        "attribute": "minecraft:armor",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/brittle_armor"
+      },
+      {
+        "type": "thaumaturgesdelight:attribute",
+        "amount": 2.0,
+        "attribute": "minecraft:attack_damage",
+        "duration": 30,
+        "modifier": "thaumaturgesdelight:efficacy/brittle_damage"
+      }
+    ],
+    "thaumaturge:volatus": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "minecraft:slow_falling"
+      }
+    ]
+  }
+}

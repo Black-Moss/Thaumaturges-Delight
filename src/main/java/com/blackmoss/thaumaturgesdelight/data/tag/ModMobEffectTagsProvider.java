@@ -2,6 +2,7 @@ package com.blackmoss.thaumaturgesdelight.data.tag;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.registry.TDEffectTags;
+import com.blackmoss.thaumaturgesdelight.registry.TDMobEffects;
 import com.leclowndu93150.thaumaturge.registry.TTMobEffects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -42,6 +43,7 @@ public final class ModMobEffectTagsProvider implements DataProvider {
                         .add(MobEffects.OOZING.getKey())
                         .add(MobEffects.INFESTED.getKey())
                         .add(MobEffects.RAID_OMEN.getKey())
+                        .add(MobEffects.WEAVING.getKey())
                         .add(TTMobEffects.BLURRED_VISION.getKey())
                         .add(TTMobEffects.DEATH_GAZE.getKey())
                         .add(TTMobEffects.FLUX_TAINT.getKey())
@@ -49,7 +51,8 @@ public final class ModMobEffectTagsProvider implements DataProvider {
                         .add(TTMobEffects.SUN_SCORNED.getKey())
                         .add(TTMobEffects.THAUMARHIA.getKey())
                         .add(TTMobEffects.UNNATURAL_HUNGER.getKey())
-                        .add(TTMobEffects.VIS_EXHAUST.getKey());
+                        .add(TTMobEffects.VIS_EXHAUST.getKey())
+                        .add(TDMobEffects.DROWNING.getKey());
             }
         };
     }

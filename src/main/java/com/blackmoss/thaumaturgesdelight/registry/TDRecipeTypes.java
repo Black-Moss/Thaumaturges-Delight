@@ -2,6 +2,8 @@ package com.blackmoss.thaumaturgesdelight.registry;
 
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ArcaneCookingPotRecipe;
+import com.blackmoss.thaumaturgesdelight.recipe.ManaBeanDoughFromEggRecipe;
+import com.blackmoss.thaumaturgesdelight.recipe.ManaBeanDoughRecipe;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -25,10 +27,16 @@ public final class TDRecipeTypes {
             });
 
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ArcaneCookingPotRecipe>> ARCANE_COOKING_SERIALIZER;
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ManaBeanDoughRecipe>> MANA_BEAN_DOUGH_SERIALIZER;
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<ManaBeanDoughFromEggRecipe>> MANA_BEAN_DOUGH_FROM_EGG_SERIALIZER;
 
     static {
         ARCANE_COOKING_SERIALIZER = RECIPE_SERIALIZERS.register("arcane_cooking",
                 () -> ArcaneCookingPotRecipe.SERIALIZER);
+        MANA_BEAN_DOUGH_SERIALIZER = RECIPE_SERIALIZERS.register("mana_bean_dough",
+                () -> ManaBeanDoughRecipe.SERIALIZER);
+        MANA_BEAN_DOUGH_FROM_EGG_SERIALIZER = RECIPE_SERIALIZERS.register("mana_bean_dough_from_egg",
+                () -> ManaBeanDoughFromEggRecipe.SERIALIZER);
     }
 
     @SubscribeEvent

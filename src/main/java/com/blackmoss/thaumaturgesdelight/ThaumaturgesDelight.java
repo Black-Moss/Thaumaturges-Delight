@@ -4,7 +4,6 @@ import com.blackmoss.thaumaturgesdelight.compat.farmersdelight.AspectContributor
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightClientConfig;
 import com.blackmoss.thaumaturgesdelight.config.ThaumaturgesDelightCommonConfig;
 import com.blackmoss.thaumaturgesdelight.data.*;
-import com.blackmoss.thaumaturgesdelight.data.datamap.ModDataMapProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.EnUsProvider;
 import com.blackmoss.thaumaturgesdelight.data.lang.ZhCnProvider;
 import com.blackmoss.thaumaturgesdelight.data.tag.ModBlockTagsProvider;
@@ -41,16 +40,17 @@ public class ThaumaturgesDelight {
     public ThaumaturgesDelight(IEventBus modEventBus, ModContainer modContainer) {
         TDBlocks.BLOCKS.register(modEventBus);
         TDBlockEntities.BLOCK_ENTITIES.register(modEventBus);
-        TDRecipeTypes.RECIPE_TYPES.register(modEventBus);
-        TDRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
-        TDMenus.MENUS.register(modEventBus);
+        TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
+        TDEfficacies.EFFICACIES.register(modEventBus);
+        TDGolemParts.GOLEM_ARMS.register(modEventBus);
         TDItems.ITEMS.register(modEventBus);
+        TDMenus.MENUS.register(modEventBus);
         TDMobEffects.MOB_EFFECTS.register(modEventBus);
         TDMobTraits.MOB_TRAITS.register(modEventBus);
         TDParticles.PARTICLES.register(modEventBus);
+        TDRecipeTypes.RECIPE_TYPES.register(modEventBus);
+        TDRecipeTypes.RECIPE_SERIALIZERS.register(modEventBus);
         TDSeals.SEALS.register(modEventBus);
-        TDGolemParts.GOLEM_ARMS.register(modEventBus);
-        TDCreativeModeTabs.CREATIVE_MODE_TABS.register(modEventBus);
         TDWandParts.CAPS.register(modEventBus);
         TDWandParts.RODS.register(modEventBus);
 

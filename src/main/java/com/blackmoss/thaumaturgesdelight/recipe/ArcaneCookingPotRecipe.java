@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@SuppressWarnings("OptionalUsedAsFieldOrParameterType")
+@SuppressWarnings({"OptionalUsedAsFieldOrParameterType", "removal"})
 public class ArcaneCookingPotRecipe implements Recipe<RecipeWrapper> {
     public static final int INPUT_SLOTS = 6;
     public static final int DEFAULT_COOK_TIME = 200;

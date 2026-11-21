@@ -1,6 +1,5 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
-import com.blackmoss.lazycat.api.thaumaturge.research.ResearchContext;
 import com.blackmoss.lazycat.thaumaturge.research.LazyCatResearchProvider;
 import com.blackmoss.lazycat.thaumaturge.research.ResearchEntryBuilder;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
@@ -29,7 +28,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
     }
 
     @Override
-    protected void addResearch(ResearchContext context) {
+    protected void addResearch() {
         context.category("culinary_magic")
                 .background(ThaumaturgesDelight.fd("textures/block/canvas_rug.png"))
                 .formula(TTAspects.AURAM)
@@ -41,7 +40,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .requiredResearch("thaumaturgesdelight:unlock_culinary_magic")
                 .save();
 
-        tdResearch(context, "base_culinary_magic")
+        tdResearch("base_culinary_magic")
                 .parent("thaumaturgesdelight:unlock_culinary_magic")
                 .position(0, -2)
                 .icon("thaumaturgesdelight:textures/research/cat_culinary_magic.png")
@@ -58,7 +57,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .complexity(1)
                 .save();
 
-        tdResearch(context, "aura_rich_soil")
+        tdResearch("aura_rich_soil")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .parent("thaumaturge:elemental_tools")
                 .parent("thaumaturge:infusion_enchantment")
@@ -81,7 +80,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .complexity(1)
                 .save();
 
-        tdResearch(context, "elemental_knife")
+        tdResearch("elemental_knife")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .parent("thaumaturge:elemental_tools")
                 .parent("thaumaturge:infusion_enchantment")
@@ -106,7 +105,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .complexity(2)
                 .save();
 
-        tdResearch(context, "essentia_rock_candy")
+        tdResearch("essentia_rock_candy")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .position(3, -3)
                 .icon(TDItems.ESSENTIA_ROCK_CANDY)
@@ -128,7 +127,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .complexity(1)
                 .save();
 
-        tdResearch(context, "magic_kitchen")
+        tdResearch("magic_kitchen")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .parent("thaumaturge:essentia_smelter")
                 .parent("thaumaturge:thaumatorium")
@@ -154,7 +153,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .complexity(2)
                 .save();
 
-        tdResearch(context, "cutting_seal")
+        tdResearch("cutting_seal")
                 .parent("thaumaturgesdelight:base_culinary_magic")
                 .parent("thaumaturge:seal_harvest")
                 .parent("thaumaturge:seal_use")
@@ -202,7 +201,7 @@ public final class ModResearchProvider extends LazyCatResearchProvider {
                 .save();
     }
 
-    private ResearchEntryBuilder tdResearch(ResearchContext context, String id) {
+    private ResearchEntryBuilder tdResearch(String id) {
         return context.entry(TDResearchCategories.CULINARY_MAGIC, id);
     }
 }

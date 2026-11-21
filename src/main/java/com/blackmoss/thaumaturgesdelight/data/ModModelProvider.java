@@ -1,6 +1,5 @@
 package com.blackmoss.thaumaturgesdelight.data;
 
-import com.blackmoss.lazycat.api.model.ModelContext;
 import com.blackmoss.lazycat.model.LazyCatModelProvider;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.block.ArcaneCookingPotBlock;
@@ -43,8 +42,7 @@ public class ModModelProvider extends LazyCatModelProvider {
         return new Material(ThaumaturgesDelight.identifier("block/" + path));
     }
 
-    private void essentiaRockCandy(Item item) {
-        var itemModels = context().itemModels();
+    private void aspectItem(Item item) {
         ModelTemplates.FLAT_ITEM.create(getItemModelId(item), TextureMapping.layer0(item), itemModels.modelOutput);
         itemModels.itemModelOutput.accept(item, ItemModelUtils.tintedModel(getItemModelId(item), new CrystalAspectTint(16777215)));
     }
@@ -58,7 +56,7 @@ public class ModModelProvider extends LazyCatModelProvider {
     }
 
     @Override
-    protected void addModels(ModelContext context) {
+    protected void addModels() {
         arcaneCookingPot(TDBlocks.ARCANE_COOKING_POT.get());
         arcaneStove(TDBlocks.ARCANE_STOVE.get());
         auraRichSoil(TDBlocks.AURA_RICH_SOIL.get(), TDBlocks.AURA_RICH_SOIL_FARMLAND.get());
@@ -80,11 +78,11 @@ public class ModModelProvider extends LazyCatModelProvider {
         itemFlat(TDItems.KETCHUP_CAP);
         itemFlat(TDItems.FRENCH_FRY_ROD);
 
-        essentiaRockCandy(TDItems.ESSENTIA_ROCK_CANDY.get());
+        aspectItem(TDItems.ESSENTIA_ROCK_CANDY.get());
+        aspectItem(TDItems.MANA_BEAN_DOUGH.get());
     }
 
 //    private void deathDayCake(Block block) {
-//        var blockModels = context().blockModels();
 //        Identifier modelId = getBlockModelId(block);
 //        ModelTemplates.CUBE_ALL.create(modelId, new TextureMapping()
 //                .put(TextureSlot.ALL, new Material(ThaumaturgesDelight.identifier("block/death_day_cake"))), blockModels.modelOutput);
@@ -117,12 +115,11 @@ public class ModModelProvider extends LazyCatModelProvider {
                 .select(Direction.WEST, CookingPotSupport.HANDLE, potVariant(potHandleModel, Quadrant.R270))
                 .select(Direction.WEST, CookingPotSupport.TRAY, potVariant(potTrayModel, Quadrant.R270));
 
-        context().blockModels().blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
-        context().blockModels().registerSimpleItemModel(block, potModel);
+        blockModels.blockStateOutput.accept(MultiVariantGenerator.dispatch(block).with(dispatch));
+        blockModels.registerSimpleItemModel(block, potModel);
     }
 
     private void arcaneStove(Block block) {
-        var blockModels = context().blockModels();
         Identifier stoveModel = getBlockModelId(block);
         Identifier stoveOnModel = ThaumaturgesDelight.identifier("block/arcane_stove_on");
 
@@ -152,7 +149,6 @@ public class ModModelProvider extends LazyCatModelProvider {
     }
 
     private void auraRichSoil(Block block, Block farmlandBlock) {
-        var blockModels = context().blockModels();
         var modelId = getBlockModelId(block);
         var farmlandModelId = getBlockModelId(farmlandBlock);
         var farmlandMoistModelId = ThaumaturgesDelight.identifier("block/aura_rich_soil_farmland_moist");

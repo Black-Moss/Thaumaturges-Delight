@@ -13,6 +13,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
     @Override
     protected void addTranslations() {
         addCreativeModeTab(TDCreativeModeTabs.THAUMATURGES_DELIGHT.get(), "Thaumaturge's Delight");
+        addCreativeModeTab(TDCreativeModeTabs.ASPECT_FOODS.get(), "Thaumaturge's Delight | Aspect Foods");
 
         addContainer("arcane_cooking_pot", "Arcane Cooking Pot");
         addContainer("arcane_cooking_pot.heated", "Heated");
@@ -48,7 +49,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
         addItem(TDItems.ELEMENTAL_KNIFE, "Knife of the Butcher");
 
         addItem(TDItems.ESSENTIA_ROCK_CANDY, "%s Essentia Rock Candy");
-        add("item.thaumaturgesdelight.essentia_rock_candy.unknown", "Unknown Essentia Rock Candy");
+        addItem(TDItems.MANA_BEAN_DOUGH, "%s Mana Bean Dough");
 
         addItem(TDItems.SEXTUPLE_MEAT_SURPRISE, "Sextuple Meat Surprise");
         addItem(TDItems.DROWNEDS_TEA, "Drowned's Tea");
