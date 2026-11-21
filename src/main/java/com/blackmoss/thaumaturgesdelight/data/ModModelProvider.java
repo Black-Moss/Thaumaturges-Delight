@@ -76,6 +76,7 @@ public class ModModelProvider extends LazyCatModelProvider {
         itemFlat(TDItems.TAINTED_MILK_BUCKET);
         itemFlat(TDItems.KETCHUP_CAP);
         itemFlat(TDItems.FRENCH_FRY_ROD);
+        itemFlat(TDItems.ETHEREAL_PETAL);
 
         aspectItem(TDItems.ESSENTIA_ROCK_CANDY.get());
         aspectItem(TDItems.MANA_BEAN_DOUGH.get());

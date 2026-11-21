@@ -1,0 +1,15 @@
+{
+  "type": "farmersdelight:cutting",
+  "ingredients": [
+    "thaumaturge:ethereal_bloom"
+  ],
+  "result": [
+    {
+      "item": {
+        "count": 5,
+        "id": "thaumaturgesdelight:ethereal_petal"
+      }
+    }
+  ],
+  "tool": "#c:tools/knife"
+}

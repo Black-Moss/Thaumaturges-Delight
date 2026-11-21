@@ -51,6 +51,7 @@ public final class TDCreativeModeTabs {
                             output.accept(TDItems.AURA_RICH_SOIL.get());
                             output.accept(TDItems.AURA_RICH_SOIL_FARMLAND.get());
 
+                            output.accept(TDItems.ETHEREAL_PETAL.get());
                             output.accept(TDItems.SEXTUPLE_MEAT_SURPRISE.get());
                             output.accept(TDItems.DROWNEDS_TEA.get());
 //                            output.accept(TDItems.DEATH_DAY_CAKE.get());
@@ -69,6 +70,7 @@ public final class TDCreativeModeTabs {
                                         .lookupOrThrow(IAspect.REGISTRY_KEY)
                                         .getOrThrow(TDAspects.CUPPEDIA),
                                 TDItems.MANA_BEAN_DOUGH).create())
+                        .withTabsBefore(ThaumaturgesDelight.identifier("thaumaturgesdelight"))
                         .displayItems((parameters, output) -> {
                             HolderLookup.RegistryLookup<IAspect> aspectRegistry = parameters.holders().lookupOrThrow(IAspect.REGISTRY_KEY);
                             for (Holder<IAspect> aspect : aspectRegistry

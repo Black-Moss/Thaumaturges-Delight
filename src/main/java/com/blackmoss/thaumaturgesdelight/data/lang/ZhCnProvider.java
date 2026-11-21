@@ -62,6 +62,7 @@ public final class ZhCnProvider extends LazyCatLanguageProvider {
         addItem(TDItems.CHUNKS_FRIED_RICE, "碎肉盖饭");
         addItem(TDItems.KETCHUP_CAP, "番茄酱杖端");
         addItem(TDItems.FRENCH_FRY_ROD, "薯条杖柄");
+        addItem(TDItems.ETHEREAL_PETAL, "天域花瓣");
 
         addEffect(TDMobEffects.DROWNING::value, "溺水");
 

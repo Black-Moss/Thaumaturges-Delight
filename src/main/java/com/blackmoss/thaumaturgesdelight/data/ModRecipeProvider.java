@@ -5,6 +5,7 @@ import com.blackmoss.lazycat.api.recipe.minecraft.CookingType;
 import com.blackmoss.lazycat.api.recipe.thaumaturge.ThaumaturgeUtils;
 import com.blackmoss.lazycat.recipe.LazyCatRecipeProvider;
 import com.blackmoss.lazycat.recipe.farmersdelight.CookingPotBuilder;
+import com.blackmoss.lazycat.recipe.farmersdelight.CuttingBoardBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.CookingBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.ShapedBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.SpecialBuilder;
@@ -44,6 +45,7 @@ import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
+import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.Map;
 import java.util.Optional;
@@ -144,6 +146,10 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
                 .component(TTItems.SALIS_MUNDUS)
                 .component(crystal(TDAspects.CUPPEDIA))
                 .aspect(TDAspects.CUPPEDIA, 5)
+                .save();
+
+        new CuttingBoardBuilder(context, TDItems.ETHEREAL_PETAL, 5)
+                .input(TTItems.ETHEREAL_BLOOM)
                 .save();
     }
 

@@ -62,6 +62,7 @@ public final class EnUsProvider extends LazyCatLanguageProvider {
         addItem(TDItems.CHUNKS_FRIED_RICE, "Chunks Fried Rice");
         addItem(TDItems.KETCHUP_CAP, "Ketchup Cap");
         addItem(TDItems.FRENCH_FRY_ROD, "French Fry Rod");
+        addItem(TDItems.ETHEREAL_PETAL, "Ethereal Petal");
 
         addEffect(TDMobEffects.DROWNING::value, "Drowning");
 
