@@ -26,10 +26,10 @@ import java.util.List;
 import java.util.Optional;
 
 public class AspectFoodItem extends Item {
-    public static final int EFFECT_AMPLIFIER = 2;
-    public static final double INSTANT_HEALTH_FACTOR = 3.0;
-    public static final int EFFECT_BASE_DURATION = 200;
-    public static final int EFFECT_EXTRA_DURATION = 8;
+    protected int effectAmplifier = 2;
+    protected double instantHealthFactor = 3.0;
+    protected int effectBaseDuration = 200;
+    protected int effectExtraDuration = 8;
 
     protected AspectFoodItem(Properties properties) {
         super(properties);
@@ -99,10 +99,10 @@ public class AspectFoodItem extends Item {
         Holder<MobEffect> effect = candidates.get(random.nextInt(candidates.size()));
         if (effect.value().isInstantenous()) {
             effect.value().applyInstantenousEffect(
-                    level, player, player, player, EFFECT_AMPLIFIER, INSTANT_HEALTH_FACTOR);
+                    level, player, player, player, this.effectAmplifier, this.instantHealthFactor);
         } else {
             player.addEffect(new MobEffectInstance(
-                    effect, EFFECT_BASE_DURATION + random.nextInt(EFFECT_EXTRA_DURATION), 0));
+                    effect, this.effectBaseDuration + random.nextInt(this.effectExtraDuration), 0));
         }
     }
 }
