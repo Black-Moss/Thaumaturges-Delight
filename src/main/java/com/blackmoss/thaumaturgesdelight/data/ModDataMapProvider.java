@@ -2,24 +2,19 @@ package com.blackmoss.thaumaturgesdelight.data;
 
 import com.blackmoss.lazycat.datamap.LazyCatDataMapProvider;
 import com.blackmoss.lazycat.datamap.thaumaturge.BaseAspectBuilder;
+import com.blackmoss.lazycat.thaumaturgesdelight.efficacy.EfficacyDataMapBuilder;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
-import com.blackmoss.thaumaturgesdelight.efficacy.AspectEffect;
-import com.blackmoss.thaumaturgesdelight.efficacy.AspectEfficacies;
-import com.blackmoss.thaumaturgesdelight.efficacy.actions.*;
 import com.blackmoss.thaumaturgesdelight.registry.TDAspects;
-import com.blackmoss.thaumaturgesdelight.registry.TDDataMaps;
-import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import com.leclowndu93150.thaumaturge.registry.TTMobEffects;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.Items;
 import net.neoforged.neoforge.common.Tags;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 import vectorwing.farmersdelight.common.registry.ModItems;
 import vectorwing.farmersdelight.common.tag.CommonTags;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -95,59 +90,66 @@ public final class ModDataMapProvider extends LazyCatDataMapProvider {
     }
 
     private void aspectEfficacy() {
-        efficacy(TTAspects.AER,
-                new MobEffectAction(MobEffects.SPEED, 30, 0),
-                new ParticleAction(Identifier.withDefaultNamespace("cloud"), 6, 0.02, 0.4));
-        efficacy(TTAspects.AQUA,
-                new MobEffectAction(MobEffects.WATER_BREATHING, 30, 0),
-                new ParticleAction(Identifier.withDefaultNamespace("bubble"), 6, 0.02, 0.4));
-        efficacy(TTAspects.IGNIS,
-                new IgniteAction(6),
-                new ParticleAction(Identifier.withDefaultNamespace("flame"), 15, 0.02, 0.4));
-        efficacy(TTAspects.ORDO,
-                new MobEffectAction(TTMobEffects.WARP_WARD, 30, 0));
-        efficacy(TTAspects.PERDITIO,
-                new MobEffectAction(MobEffects.HASTE, 30, 0));
-        efficacy(TTAspects.TERRA,
-                new AttributeAction(Attributes.ARMOR_TOUGHNESS, efficacyId("armor_toughness"),
-                        2.0, AttributeModifier.Operation.ADD_VALUE, 30));
-        efficacy(TTAspects.VITREUS,
-                new RestoreVisAction(100),
-                new AttributeAction(Attributes.ARMOR, efficacyId("brittle_armor"),
-                        -2.0, AttributeModifier.Operation.ADD_VALUE, 30),
-                new AttributeAction(Attributes.ATTACK_DAMAGE, efficacyId("brittle_damage"),
-                        2.0, AttributeModifier.Operation.ADD_VALUE, 30));
-        efficacy(TTAspects.VICTUS,
-                new MobEffectAction(MobEffects.REGENERATION, 200, 0),
-                new MobEffectAction(MobEffects.ABSORPTION, 30, 1));
-        efficacy(TTAspects.MOTUS,
-                new MobEffectAction(MobEffects.SPEED, 400, 0),
-                new ParticleAction(Identifier.withDefaultNamespace("crit"), 8, 0.03, 0.5));
-        efficacy(TTAspects.COGNITIO,
-                new GrantAspectAction(1));
-        efficacy(TTAspects.LUX,
-                new MobEffectAction(MobEffects.GLOWING, 30, 0));
-        efficacy(TTAspects.SENSUS,
-                new MobEffectAction(MobEffects.NIGHT_VISION, 30, 0));
-        efficacy(TTAspects.VINCULUM,
-                new MobEffectAction(MobEffects.SLOWNESS, 30, 0));
-        efficacy(TTAspects.VOLATUS,
-                new MobEffectAction(MobEffects.SLOW_FALLING, 30, 0));
-        efficacy(TTAspects.AVERSIO,
-                new AttributeAction(Attributes.ATTACK_DAMAGE, efficacyId("attack_damage"),
-                        2.0, AttributeModifier.Operation.ADD_VALUE, 30));
-        efficacy(TTAspects.METALLUM,
-                new AttributeAction(Attributes.ARMOR_TOUGHNESS, efficacyId("armor_toughness"),
-                        2.0, AttributeModifier.Operation.ADD_VALUE, 30));
-        efficacy(TTAspects.PRAECANTATIO,
-                new AttributeAction(Attributes.ARMOR, efficacyId("armor"),
-                        2.0, AttributeModifier.Operation.ADD_VALUE, 30));
-    }
-
-    private void efficacy(
-            ResourceKey<IAspect> aspect,
-            AspectEffect... entries) {
-        context.builder(TDDataMaps.ASPECT_EFFICACY)
-                .add(aspect, new AspectEfficacies(java.util.List.of(entries)), false);
+        new EfficacyDataMapBuilder(context, TTAspects.AER)
+                .effects(MobEffects.SPEED)
+                .particle(Identifier.withDefaultNamespace("cloud"), 6, 0.02, 0.4)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.AQUA)
+                .effects(MobEffects.WATER_BREATHING)
+                .particle(Identifier.withDefaultNamespace("bubble"), 6, 0.02, 0.4)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.IGNIS)
+                .ignite(6)
+                .particle(Identifier.withDefaultNamespace("flame"), 15, 0.02, 0.4)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.ORDO)
+                .effects(TTMobEffects.WARP_WARD)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.PERDITIO)
+                .effects(MobEffects.HASTE)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.TERRA)
+                .attribute(Attributes.ARMOR_TOUGHNESS, efficacyId("armor_toughness"), 2.0)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.VITREUS)
+                .restoreVis(100)
+                .attribute(Attributes.ARMOR, efficacyId("brittle_armor"), -2.0)
+                .attribute(Attributes.ATTACK_DAMAGE, efficacyId("brittle_damage"), 2.0)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.VICTUS)
+                .effects(MobEffects.REGENERATION, 200, 0)
+                .effects(MobEffects.ABSORPTION, 30, 1)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.MOTUS)
+                .effects(MobEffects.SPEED, 400, 0)
+                .particle(Identifier.withDefaultNamespace("crit"), 8, 0.03, 0.5)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.COGNITIO)
+                .grantAspect(1)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.LUX)
+                .effects(MobEffects.GLOWING)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.SENSUS)
+                .effects(MobEffects.NIGHT_VISION)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.VINCULUM)
+                .effects(MobEffects.SLOWNESS)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.VOLATUS)
+                .effects(MobEffects.SLOW_FALLING)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.AVERSIO)
+                .attribute(Attributes.ATTACK_DAMAGE, efficacyId("attack_damage"), 2.0)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.METALLUM)
+                .attribute(Attributes.ARMOR_TOUGHNESS, efficacyId("armor_toughness"), 2.0)
+                .save();
+        new EfficacyDataMapBuilder(context, TTAspects.PRAECANTATIO)
+                .attribute(Attributes.ARMOR, efficacyId("armor"), 2.0)
+                .save();
+        new EfficacyDataMapBuilder(context, TDAspects.CUPPEDIA)
+                .effects(ModEffects.COMFORT)
+                .save();
     }
 }

@@ -168,6 +168,13 @@
         "duration": 30,
         "effect": "minecraft:slow_falling"
       }
+    ],
+    "thaumaturgesdelight:cuppedia": [
+      {
+        "type": "thaumaturgesdelight:mob_effect",
+        "duration": 30,
+        "effect": "farmersdelight:comfort"
+      }
     ]
   }
 }
