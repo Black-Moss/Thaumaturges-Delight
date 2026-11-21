@@ -9,6 +9,7 @@ import com.blackmoss.lazycat.recipe.minecraft.CookingBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.ShapedBuilder;
 import com.blackmoss.lazycat.recipe.minecraft.SpecialBuilder;
 import com.blackmoss.lazycat.recipe.thaumaturge.*;
+import com.blackmoss.lazycat.thaumaturgesdelight.recipe.AspectFoodBuilder;
 import com.blackmoss.lazycat.recipe.thaumaturgesdelight.ArcaneCookingPotBuilder;
 import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import com.blackmoss.thaumaturgesdelight.recipe.ManaBeanDoughFromEggRecipe;
@@ -18,7 +19,6 @@ import com.blackmoss.thaumaturgesdelight.registry.TDBlocks;
 import com.blackmoss.thaumaturgesdelight.registry.TDInfusionEnchantments;
 import com.blackmoss.thaumaturgesdelight.registry.TDItems;
 import com.leclowndu93150.thaumaturge.TTIds;
-import com.leclowndu93150.thaumaturge.api.aspect.AspectInstance;
 import com.leclowndu93150.thaumaturge.api.aspect.IAspect;
 import com.leclowndu93150.thaumaturge.api.aspect.TTAspects;
 import com.leclowndu93150.thaumaturge.api.recipe.ResearchGate;
@@ -26,7 +26,6 @@ import com.leclowndu93150.thaumaturge.content.equipment.InfusionEnchantments;
 import com.leclowndu93150.thaumaturge.registry.TTDataComponents;
 import com.leclowndu93150.thaumaturge.registry.TTItemTags;
 import com.leclowndu93150.thaumaturge.registry.TTItems;
-import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.PackOutput;
@@ -65,6 +64,7 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
     @Override
     protected void addRecipes() {
         essenceRockCandy();
+        manaBread();
         new SpecialBuilder(context, () -> new ManaBeanDoughRecipe(CraftingBookCategory.MISC))
                 .save("mana_bean_dough");
         new SpecialBuilder(context, () -> new ManaBeanDoughFromEggRecipe(CraftingBookCategory.MISC))
@@ -153,22 +153,27 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
     }
 
     private void essenceRockCandy() {
-        for (Holder<IAspect> aspect : registries.lookupOrThrow(IAspect.REGISTRY_KEY).listElements().toList()) {
-            ResourceKey<IAspect> key = aspect.unwrapKey().orElseThrow();
-            new CrucibleBuilder(context,
-                    LazyIngredient.of(TDItems.ESSENTIA_ROCK_CANDY.get())
-                            .components(DataComponentPatch.builder().set(
-                                            TTDataComponents.CRYSTAL_ASPECT.get(),
-                                            new AspectInstance(aspect, 1))
-                                    .build()),
-                    Items.SUGAR)
-                    .aspect(key, 5)
-                    .aspect(TTAspects.VITREUS)
-                    .aspect(TTAspects.GELUM)
-                    .gate(tdGate("essentia_rock_candy"))
-                    .id("essentia_rock_candy/" + key.identifier().getPath())
-                    .save();
-        }
+        new AspectFoodBuilder(context, TDItems.ESSENTIA_ROCK_CANDY.get(), "essentia_rock_candy")
+                .gate(tdGate("essentia_rock_candy"))
+                .save(food -> new CrucibleBuilder(context, food.result(), Items.SUGAR)
+                        .aspect(food.aspectKey(), 5)
+                        .aspect(TTAspects.VITREUS)
+                        .aspect(TTAspects.GELUM));
+    }
+
+    private void manaBread() {
+//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smelting/mana_bread")
+//                .save(food -> cooking(food.result(),
+//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+//                        .types(CookingType.SMELTING));
+//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "campfire_cooking/mana_bread")
+//                .save(food -> cooking(food.result(),
+//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+//                        .types(CookingType.CAMPFIRE));
+//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smoking/mana_bread")
+//                .save(food -> cooking(food.result(),
+//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+//                        .types(CookingType.SMOKING));
     }
 
     private void sealCutting() {
