@@ -32,6 +32,10 @@
 - [ ] Mixed Bean Pie: made from a pie crust, cocoa beans, honey, and milk. They're simply good food.
   I might get the mob names mixed up since I'm playing with the Russian localization, but I tried to convey the essence.
 
+## by @JR
+
+- [ ] Mana Chili con carne
+
 ## Aspects to Efficacy
 
 - [x] Aer: Speed

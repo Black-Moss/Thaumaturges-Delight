@@ -45,7 +45,6 @@ import org.jspecify.annotations.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.registry.ModBlocks;
 import vectorwing.farmersdelight.common.registry.ModItems;
-import vectorwing.farmersdelight.common.tag.CommonTags;
 
 import java.util.Map;
 import java.util.Optional;
