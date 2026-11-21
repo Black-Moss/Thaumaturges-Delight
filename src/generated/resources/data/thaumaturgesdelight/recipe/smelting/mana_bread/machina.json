@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "neoforge:ingredient_type": "neoforge:components",
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturge:machina"
+      }
+    },
+    "items": "thaumaturgesdelight:mana_bean_dough"
+  },
+  "result": {
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturge:machina"
+      }
+    },
+    "id": "thaumaturgesdelight:mana_bread"
+  }
+}

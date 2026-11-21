@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 0.1,
+  "ingredient": {
+    "neoforge:ingredient_type": "neoforge:components",
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturgesdelight:cuppedia"
+      }
+    },
+    "items": "thaumaturgesdelight:mana_bean_dough"
+  },
+  "result": {
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturgesdelight:cuppedia"
+      }
+    },
+    "id": "thaumaturgesdelight:mana_bread"
+  }
+}

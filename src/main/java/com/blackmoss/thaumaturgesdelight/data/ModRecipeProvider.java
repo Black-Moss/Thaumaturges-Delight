@@ -162,18 +162,18 @@ public final class ModRecipeProvider extends LazyCatRecipeProvider {
     }
 
     private void manaBread() {
-//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smelting/mana_bread")
-//                .save(food -> cooking(food.result(),
-//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
-//                        .types(CookingType.SMELTING));
-//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "campfire_cooking/mana_bread")
-//                .save(food -> cooking(food.result(),
-//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
-//                        .types(CookingType.CAMPFIRE));
-//        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smoking/mana_bread")
-//                .save(food -> cooking(food.result(),
-//                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
-//                        .types(CookingType.SMOKING));
+        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smelting/mana_bread")
+                .save(food -> cooking(food.result(),
+                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+                        .types(CookingType.SMELTING));
+        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "smoking/mana_bread")
+                .save(food -> cooking(food.result(),
+                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+                        .types(CookingType.SMOKING));
+        new AspectFoodBuilder(context, TDItems.MANA_BREAD.get(), "campfire_cooking/mana_bread")
+                .save(food -> cooking(food.result(),
+                        ThaumaturgeUtils.aspectItem(registries, food.aspectKey(), TDItems.MANA_BEAN_DOUGH))
+                        .types(CookingType.CAMPFIRE));
     }
 
     private void sealCutting() {

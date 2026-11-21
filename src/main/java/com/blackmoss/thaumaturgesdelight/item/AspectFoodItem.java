@@ -25,6 +25,7 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@SuppressWarnings("unused")
 public class AspectFoodItem extends Item {
     protected int effectAmplifier = 2;
     protected double instantHealthFactor = 3.0;

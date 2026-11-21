@@ -44,7 +44,7 @@ public final class ModItemTagsProvider extends ItemTagsProvider {
         tag(TTItemTags.WAND_RODS)
                 .add(TDItems.FRENCH_FRY_ROD.get());
 
-        tag(Tags.Items.FOODS_BREAD)
+        tag(TDItemTags.FOODS_BREAD_MANA)
                 .add(TDItems.MANA_BREAD.get());
     }
 

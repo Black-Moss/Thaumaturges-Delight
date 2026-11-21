@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:smoking",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "neoforge:ingredient_type": "neoforge:components",
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturge:exanimis"
+      }
+    },
+    "items": "thaumaturgesdelight:mana_bean_dough"
+  },
+  "result": {
+    "components": {
+      "thaumaturge:crystal_aspect": {
+        "aspect": "thaumaturge:exanimis"
+      }
+    },
+    "id": "thaumaturgesdelight:mana_bread"
+  }
+}
