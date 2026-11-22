@@ -1,6 +1,6 @@
 {
   "category": "thaumaturgesdelight:culinary_magic",
-  "column": -3,
+  "column": 0,
   "icons": [
     "thaumaturgesdelight:aura_rich_soil"
   ],
@@ -20,11 +20,9 @@
     }
   ],
   "parents": [
-    "thaumaturgesdelight:base_culinary_magic",
-    "thaumaturge:elemental_tools",
-    "thaumaturge:infusion_enchantment"
+    "thaumaturgesdelight:base_culinary_magic"
   ],
-  "row": -3,
+  "row": -4,
   "stages": [
     {
       "craft": [

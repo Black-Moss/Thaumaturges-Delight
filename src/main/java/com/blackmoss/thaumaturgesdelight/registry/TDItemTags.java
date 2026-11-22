@@ -1,6 +1,5 @@
 package com.blackmoss.thaumaturgesdelight.registry;
 
-import com.blackmoss.thaumaturgesdelight.ThaumaturgesDelight;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
@@ -12,9 +11,5 @@ public final class TDItemTags {
 
     private static TagKey<Item> commonTag(String path) {
         return TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", path));
-    }
-
-    private static TagKey<Item> tag(String path) {
-        return TagKey.create(Registries.ITEM, ThaumaturgesDelight.identifier(path));
     }
 }

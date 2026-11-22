@@ -31,11 +31,11 @@
     }
   ],
   "parents": [
-    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturgesdelight:magic_kitchen",
     "thaumaturge:seal_harvest",
     "thaumaturge:seal_use"
   ],
-  "row": 0,
+  "row": -2,
   "stages": [
     {
       "obtain": [

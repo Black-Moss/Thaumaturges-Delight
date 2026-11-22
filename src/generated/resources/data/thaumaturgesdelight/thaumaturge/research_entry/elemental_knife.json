@@ -25,11 +25,11 @@
     }
   ],
   "parents": [
-    "thaumaturgesdelight:base_culinary_magic",
+    "thaumaturgesdelight:magic_kitchen",
     "thaumaturge:elemental_tools",
     "thaumaturge:infusion_enchantment"
   ],
-  "row": 0,
+  "row": -2,
   "stages": [
     {
       "craft": [

@@ -1,0 +1,77 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": -1,
+  "complexity": 2,
+  "icons": [
+    "thaumaturgesdelight:mana_bean_dough"
+  ],
+  "name": "research.thaumaturgesdelight.mana_bean_dough.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aer"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ignis"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aqua"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:terra"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ordo"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:perditio"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:magic_kitchen"
+  ],
+  "row": 3,
+  "stages": [
+    {
+      "obtain": [
+        {
+          "amount": 1,
+          "items": [
+            "thaumaturge:mana_bean"
+          ]
+        },
+        {
+          "amount": 1,
+          "items": [
+            "thaumaturge:mana_bean"
+          ]
+        },
+        {
+          "amount": 1,
+          "items": [
+            "thaumaturge:mana_bean"
+          ]
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.mana_bean_dough.stage_0"
+    },
+    {
+      "text": "research.thaumaturgesdelight.mana_bean_dough.stage_1"
+    },
+    {
+      "text": "research.thaumaturgesdelight.mana_bean_dough.stage_2"
+    }
+  ]
+}

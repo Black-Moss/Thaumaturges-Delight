@@ -1,0 +1,46 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": 2,
+  "complexity": 2,
+  "icons": [
+    "thaumaturgesdelight:ketchup_wand_cap"
+  ],
+  "name": "research.thaumaturgesdelight.ketchup_wand_cap.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:vitreus"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:herba"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:magic_kitchen"
+  ],
+  "row": 2,
+  "stages": [
+    {
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        },
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturge:auromancy"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.ketchup_wand_cap.stage_0"
+    },
+    {
+      "recipes": [
+        "thaumaturgesdelight:infusion/ketchup_wand_cap"
+      ],
+      "text": "research.thaumaturgesdelight.ketchup_wand_cap.stage_1"
+    }
+  ]
+}

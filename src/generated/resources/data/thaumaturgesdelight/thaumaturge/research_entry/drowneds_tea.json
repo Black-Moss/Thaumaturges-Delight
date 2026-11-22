@@ -1,0 +1,40 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": 3,
+  "icons": [
+    "thaumaturgesdelight:drowneds_tea"
+  ],
+  "name": "research.thaumaturgesdelight.drowneds_tea.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:aqua"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:vitreus"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:magic_kitchen"
+  ],
+  "row": 1,
+  "stages": [
+    {
+      "required_knowledge": [
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.drowneds_tea.stage_0"
+    },
+    {
+      "recipes": [
+        "thaumaturgesdelight:arcane_cooking/drowneds_tea"
+      ],
+      "text": "research.thaumaturgesdelight.drowneds_tea.stage_1"
+    }
+  ]
+}

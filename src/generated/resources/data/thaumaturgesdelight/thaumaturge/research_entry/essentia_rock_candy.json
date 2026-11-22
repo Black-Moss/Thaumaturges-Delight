@@ -1,6 +1,6 @@
 {
   "category": "thaumaturgesdelight:culinary_magic",
-  "column": 3,
+  "column": -3,
   "icons": [
     "thaumaturgesdelight:essentia_rock_candy"
   ],
@@ -16,13 +16,25 @@
     },
     {
       "amount": 5,
-      "aspect": "thaumaturge:herba"
+      "aspect": "thaumaturge:aqua"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:terra"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ordo"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:perditio"
     }
   ],
   "parents": [
-    "thaumaturgesdelight:base_culinary_magic"
+    "thaumaturgesdelight:magic_kitchen"
   ],
-  "row": -3,
+  "row": -1,
   "stages": [
     {
       "obtain": [

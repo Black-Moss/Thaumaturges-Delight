@@ -5,6 +5,9 @@
   "icons": [
     "thaumaturgesdelight:arcane_stove"
   ],
+  "meta": [
+    "spiky"
+  ],
   "name": "research.thaumaturgesdelight.magic_kitchen.title",
   "note_aspects": [
     {

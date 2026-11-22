@@ -1,6 +1,6 @@
 {
-  "category": "thaumaturge:artifice",
-  "column": 5,
+  "category": "thaumaturge:basics",
+  "column": 2,
   "icons": [
     "thaumaturgesdelight:textures/research/cat_culinary_magic.png"
   ],
@@ -25,16 +25,22 @@
     }
   ],
   "parents": [
-    "thaumaturge:infernal_furnace"
+    "thaumaturge:unlock_alchemy",
+    "thaumaturge:unlock_artifice"
   ],
-  "row": -1,
+  "row": 2,
   "stages": [
     {
       "required_knowledge": [
         {
           "type": "theory",
           "amount": 1,
-          "category": "thaumaturgesdelight:culinary_magic"
+          "category": "thaumaturge:alchemy"
+        },
+        {
+          "type": "theory",
+          "amount": 1,
+          "category": "thaumaturge:artifice"
         }
       ],
       "text": "research.thaumaturgesdelight.unlock_culinary_magic.stage_0"

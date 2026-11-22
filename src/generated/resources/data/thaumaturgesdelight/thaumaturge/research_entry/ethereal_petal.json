@@ -1,0 +1,48 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": 1,
+  "icons": [
+    "thaumaturgesdelight:ethereal_petal"
+  ],
+  "name": "research.thaumaturgesdelight.ethereal_petal.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:auram"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:vitium"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:magic_kitchen"
+  ],
+  "row": 3,
+  "stages": [
+    {
+      "obtain": [
+        {
+          "amount": 1,
+          "items": [
+            "thaumaturge:ethereal_bloom"
+          ]
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "observation",
+          "amount": 1,
+          "category": "thaumaturgesdelight:culinary_magic"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.ethereal_petal.stage_0"
+    },
+    {
+      "recipes": [
+        "thaumaturgesdelight:ethereal_petal"
+      ],
+      "text": "research.thaumaturgesdelight.ethereal_petal.stage_1"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "category": "thaumaturgesdelight:culinary_magic",
+  "column": 3,
+  "icons": [
+    "thaumaturgesdelight:tainted_milk_bucket"
+  ],
+  "name": "research.thaumaturgesdelight.tainted_milk_bucket.title",
+  "note_aspects": [
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:vitium"
+    },
+    {
+      "amount": 5,
+      "aspect": "thaumaturge:ordo"
+    }
+  ],
+  "parents": [
+    "thaumaturgesdelight:magic_kitchen"
+  ],
+  "row": -1,
+  "stages": [
+    {
+      "obtain": [
+        {
+          "amount": 1,
+          "items": [
+            "minecraft:milk_bucket"
+          ]
+        }
+      ],
+      "required_knowledge": [
+        {
+          "type": "observation",
+          "amount": 1,
+          "category": "thaumaturge:basics"
+        }
+      ],
+      "text": "research.thaumaturgesdelight.tainted_milk_bucket.stage_0"
+    },
+    {
+      "text": "research.thaumaturgesdelight.tainted_milk_bucket.stage_1"
+    }
+  ]
+}
