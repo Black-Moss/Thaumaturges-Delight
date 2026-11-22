@@ -22,6 +22,7 @@
 
 - [ ] Bean noodles
 - [ ] Essence Jams
+- [ ] Thaumic flower salad: with umm shimmer and the fire one and leaves in bowl random chance to aspect herba saturation buff, fire, or glow each serving
 
 ## by @GigaDwarf3008
 
