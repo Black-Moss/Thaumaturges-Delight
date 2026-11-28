@@ -22,8 +22,8 @@ import vectorwing.farmersdelight.common.tag.ModTags;
 import java.util.concurrent.CompletableFuture;
 
 public final class ModDataMapProvider extends LazyCatDataMapProvider {
-    public ModDataMapProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, ThaumaturgesDelight.MODID);
+    public ModDataMapProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries, ThaumaturgesDelight.MODID);
     }
 
     private static Identifier efficacyId(String path) {

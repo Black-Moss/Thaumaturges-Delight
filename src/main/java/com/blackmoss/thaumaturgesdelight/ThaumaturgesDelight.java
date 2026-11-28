@@ -95,11 +95,11 @@ public class ThaumaturgesDelight {
         event.createProvider(ModItemTagsProvider::new);
         event.createProvider(ModMobEffectTagsProvider::new);
 
-        event.createProvider((output, lookupProvider) -> new LootTableProvider(
+        event.createProvider((output, provider) -> new LootTableProvider(
                 output,
                 Set.of(),
                 List.of(new LootTableProvider.SubProviderEntry(
                         ModBlockLootSubProvider::new, LootContextParamSets.BLOCK)),
-                lookupProvider));
+                provider));
     }
 }

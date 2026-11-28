@@ -17,8 +17,8 @@ import java.util.concurrent.CompletableFuture;
 public final class ModItemTagsProvider extends ItemTagsProvider {
     public ModItemTagsProvider(
             PackOutput output,
-            CompletableFuture<HolderLookup.Provider> lookupProvider) {
-        super(output, lookupProvider, ThaumaturgesDelight.MODID);
+            CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries, ThaumaturgesDelight.MODID);
     }
 
     @Override
