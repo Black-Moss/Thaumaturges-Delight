@@ -37,6 +37,14 @@
 
 - [ ] Mana Chili con carne
 
+## by @Red
+
+- [ ] Monster Lasagna: Made from any meat and a Vitium crystal
+
+## by @Dogboy_Cole
+
+- [ ] Mundis Ice Cream: milk sugar and gellum
+
 ## Aspects to Efficacy
 
 - [x] Aer: Speed
